@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plan name="chaupal.plan" version="1.0.0" scoped="true" atomic="true"
+        xmlns="http://www.eclipse.org/virgo/schema/plan"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+		        http://www.eclipse.org/virgo/schema/plan
+		        http://www.eclipse.org/virgo/schema/plan/eclipse-virgo-plan.xsd">
+
+    <artifact type="bundle" name="derby" version="[10.8.0, 11.0.0)"/>
+    <artifact type="bundle" name="org.h2" version="[1.3.0, 1.4.0)"/>
+    <artifact type="bundle" name="org.jboss.netty" version="[3.2.0, 3.10.0)"/>
+    <artifact type="bundle" name="org.jboss.netty.httptunnel" version="[0.90.0, 0.93.0)"/>
+    <artifact type="bundle" name="org.spongycastle.fragment" version="[1.47.0, 1.47.1)"/>
+    <artifact type="bundle" name="org.slf4j.api" version="[1.6.0, 2.0.0)"/>
+
+    <artifact type="bundle" name="net.jxse.osgi" version="[1.1.0, 1.2.0)"/>
+    <artifact type="bundle" name="net.jxse.derby" version="[1.1.0, 1.2.0)"/>
+    <artifact type="bundle" name="net.jxse.h2" version="[1.1.0, 1.2.0)"/>
+    <artifact type="bundle" name="net.jxse.netty" version="[1.1.0, 1.2.0)"/>
+    <artifact type="bundle" name="net.jxse.jetty" version="[1.1.0, 1.2.0)"/>
+    <artifact type="bundle" name="net.jxse.osgi.platform" version="[1.1.0, 1.2.0)"/>
+    <artifact type="bundle" name="net.jxse.practical.jxta" version="[1.1.0, 1.2.0)"/>
+</plan>
