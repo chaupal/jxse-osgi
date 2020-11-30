@@ -63,7 +63,7 @@ import net.jxta.id.ID;
  * to search for elements in the sorted set that the local PeerView is, without having
  * enough information to create a valid PeerViewElement.
  */
-class PeerViewDestination implements Comparable<PeerViewDestination> {
+public class PeerViewDestination implements Comparable<PeerViewDestination> {
 
     /**
      * The peer which is associated with this element.

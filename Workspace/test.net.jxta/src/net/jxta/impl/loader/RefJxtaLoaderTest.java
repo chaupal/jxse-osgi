@@ -81,6 +81,7 @@ import net.jxta.document.Element;
 import net.jxta.id.IDFactory;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
+import net.jxta.peergroup.core.Module;
 import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
 import net.jxta.platform.JxtaApplication;

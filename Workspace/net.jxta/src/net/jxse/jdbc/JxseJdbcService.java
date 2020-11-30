@@ -1,7 +1,5 @@
 package net.jxse.jdbc;
 
-import net.jxse.jdbc.DataSourceServiceTracker;
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.jdbc.DataSourceFactory;

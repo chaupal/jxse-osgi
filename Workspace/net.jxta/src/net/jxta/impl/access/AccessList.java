@@ -341,7 +341,8 @@ public class AccessList {
      * @param asMimeType mime type encoding
      * @return The document value
      */
-    public Document getDocument(MimeMediaType asMimeType) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public Document getDocument(MimeMediaType asMimeType) {
         StructuredDocument adv = StructuredDocumentFactory.newStructuredDocument(asMimeType, getAdvertisementType());
 
         if (adv instanceof XMLDocument) {

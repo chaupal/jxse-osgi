@@ -115,24 +115,26 @@ public final class DocumentTest extends TestCase {
             }
         }
 
-        public void spew(XMLElement element) {
+        @SuppressWarnings({ "rawtypes", "unchecked" })
+		public void spew(XMLElement element) {
             System.out.println(element.getValue());
 
-            Enumeration<XMLElement> children = element.getChildren();
+            Enumeration<XMLElement<?>> children = element.getChildren();
 
             while (children.hasMoreElements()) {
-                XMLElement child = children.nextElement();
+                XMLElement<?> child = children.nextElement();
 
                 spew(child);
             }
         }
     }
 
-    private void _test(StructuredDocumentFactory.Instantiator instantiator, MimeMediaType type) throws Exception {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private void _test(StructuredDocumentFactory.Instantiator instantiator, MimeMediaType type) throws Exception {
         final String useDocType = "Test";
         StructuredTextDocument doc = null;
 
-        doc = (StructuredTextDocument) instantiator.newInstance(type, useDocType);
+        doc = (StructuredTextDocument<?>) instantiator.newInstance(type, useDocType);
 
         assertTrue("could not construct object for type : " + type, doc != null);
 
@@ -338,20 +340,20 @@ public final class DocumentTest extends TestCase {
     private void _testConstructors(StructuredDocumentFactory.Instantiator instantiator, MimeMediaType type) {
         try {
             final String useDocType = "Test";
-            StructuredTextDocument doc = null;
+            StructuredTextDocument<?> doc = null;
 
-            doc = (StructuredTextDocument) instantiator.newInstance(type, useDocType);
+            doc = (StructuredTextDocument<?>) instantiator.newInstance(type, useDocType);
 
-            doc = (StructuredTextDocument) instantiator.newInstance(type, useDocType, null);
+            doc = (StructuredTextDocument<?>) instantiator.newInstance(type, useDocType, null);
 
-            doc = (StructuredTextDocument) instantiator.newInstance(type, useDocType, "value");
+            doc = (StructuredTextDocument<?>) instantiator.newInstance(type, useDocType, "value");
 
             String stringdoc = doc.toString();
 
             if (type.getSubtype().equalsIgnoreCase("XML")) {
                 try {
 
-                    doc = (StructuredTextDocument) instantiator.newInstance(type, "Really wrong and long");
+                    doc = (StructuredTextDocument<?>) instantiator.newInstance(type, "Really wrong and long");
 
                     fail("Tag names with spaces should be disallowed");
                 } catch (Exception failed) {// that's ok
@@ -359,13 +361,13 @@ public final class DocumentTest extends TestCase {
             }
 
             try {
-                doc = (StructuredTextDocument) instantiator.newInstance(type, new ByteArrayInputStream(stringdoc.getBytes()));
+                doc = (StructuredTextDocument<?>) instantiator.newInstance(type, new ByteArrayInputStream(stringdoc.getBytes()));
             } catch (ProviderException notsupported) {// thats ok.
             }
 
             if (instantiator instanceof StructuredDocumentFactory.TextInstantiator) {
                 try {
-                    doc = (StructuredTextDocument) ((StructuredDocumentFactory.TextInstantiator) instantiator).newInstance(type
+                    doc = (StructuredTextDocument<?>) ((StructuredDocumentFactory.TextInstantiator) instantiator).newInstance(type
                             ,
                             new StringReader(stringdoc));
                 } catch (ProviderException notsupported) {// thats ok.
@@ -380,7 +382,7 @@ public final class DocumentTest extends TestCase {
     public void _testAttributesSolo(StructuredDocumentFactory.Instantiator instantiator, MimeMediaType type) {
         try {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
-            StructuredDocument doc = instantiator.newInstance(type, "Message");
+            StructuredDocument<?> doc = instantiator.newInstance(type, "Message");
 
             assertTrue("should be no attributes", !((Attributable) doc).getAttributes().hasMoreElements());
 
@@ -392,7 +394,7 @@ public final class DocumentTest extends TestCase {
             assertTrue("updating attribute gave wrong result", "123".equals(old));
             doc.sendToStream(os);
 
-            List attrs = Collections.list(((Attributable) doc).getAttributes());
+            List<Attribute> attrs = Collections.list(((Attributable) doc).getAttributes());
 
             assertTrue("should be 1 attribute", 1 == attrs.size());
 
@@ -412,11 +414,12 @@ public final class DocumentTest extends TestCase {
         }
     }
 
-    public void _testLiteXMLEmptyElement(StructuredDocumentFactory.TextInstantiator instantiator, MimeMediaType type) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public void _testLiteXMLEmptyElement(StructuredDocumentFactory.TextInstantiator instantiator, MimeMediaType type) {
         try {
             String doc = "<?xml version=\"1.0\"?><whatever/>";
 
-            XMLDocument xmldoc = (XMLDocument) instantiator.newInstance(type, new StringReader(doc));
+            XMLDocument xmldoc = (XMLDocument<?>) instantiator.newInstance(type, new StringReader(doc));
             Element anElement = xmldoc.createElement("whynot");
 
             xmldoc.appendChild(anElement);
@@ -503,12 +506,13 @@ public final class DocumentTest extends TestCase {
         LiteXMLBug doesNotWork = new LiteXMLBug(DOES_NOT_WORK);
     }
 
-    public void testIssue1282() {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public void testIssue1282() {
 
         try {
             // create document
             MimeMediaType mime = new MimeMediaType("text/xml");
-            XMLDocument document = (XMLDocument) LiteXMLDocument.INSTANTIATOR.newInstance(mime, "items");
+            XMLDocument document = (XMLDocument<?>) LiteXMLDocument.INSTANTIATOR.newInstance(mime, "items");
 
             for (int i = 0; i < 10; i++) {
                 XMLElement testElem = document.createElement("item");
@@ -563,14 +567,15 @@ public final class DocumentTest extends TestCase {
         }
     }
 
-    public void testIssue1372() {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public void testIssue1372() {
         XMLDocument document = null;
         XMLDocument document2 = null;
 
         try {
             for (int depth = 1; depth <= 10; depth++) {
                 // create document
-                document = (XMLDocument) LiteXMLDocument.INSTANTIATOR.newInstance(MimeMediaType.XML_DEFAULTENCODING, "items");
+                document = (XMLDocument<?>) LiteXMLDocument.INSTANTIATOR.newInstance(MimeMediaType.XML_DEFAULTENCODING, "items");
                 for (int elemCount = 1; elemCount <= 2; elemCount++) {
                     XMLElement parentElem = document;
 
@@ -588,17 +593,17 @@ public final class DocumentTest extends TestCase {
                 document.sendToWriter(out);
                 Reader is = new StringReader(out.toString());
 
-                document2 = (XMLDocument) StructuredDocumentFactory.newStructuredDocument(MimeMediaType.XML_DEFAULTENCODING, is);
-                Enumeration<Element> eachOrig = document.getChildren();
-                Enumeration<Element> eachNew = document2.getChildren();
+                document2 = (XMLDocument<?>) StructuredDocumentFactory.newStructuredDocument(MimeMediaType.XML_DEFAULTENCODING, is);
+                Enumeration<Element<?>> eachOrig = document.getChildren();
+                Enumeration<Element<?>> eachNew = document2.getChildren();
 
                 // FIXME 20050607 bondolo comparison doesn't recurse.
                 while (eachOrig.hasMoreElements()) {
                     if (!eachNew.hasMoreElements()) {
                         fail("Enumeration did not end at same time.");
                     }
-                    XMLElement anOrig = (XMLElement) eachOrig.nextElement();
-                    XMLElement aNew = (XMLElement) eachNew.nextElement();
+                    XMLElement<?> anOrig = (XMLElement<?>) eachOrig.nextElement();
+                    XMLElement<?> aNew = (XMLElement<?>) eachNew.nextElement();
 
                     assertEquals("Elements names should be equivalent", aNew.getKey(), anOrig.getKey());
                     assertEquals("Elements values should be equivalent", aNew.getValue(), anOrig.getValue());
@@ -620,12 +625,12 @@ public final class DocumentTest extends TestCase {
     }
 
     public void testIssue13XX() {
-        XMLDocument document = null;
+        XMLDocument<?> document = null;
 
         try {
             Reader is = new StringReader(badlittleimpl);
 
-            document = (XMLDocument) StructuredDocumentFactory.newStructuredDocument(MimeMediaType.XML_DEFAULTENCODING, is);
+            document = (XMLDocument<?>) StructuredDocumentFactory.newStructuredDocument(MimeMediaType.XML_DEFAULTENCODING, is);
 
             System.err.println(document);
         } catch (Throwable everything) {
@@ -637,12 +642,12 @@ public final class DocumentTest extends TestCase {
     }
 
     public void testIssue15() {
-        XMLDocument document = null;
+        XMLDocument<?> document = null;
 
         try {
             Reader is = new StringReader(badInclusion);
 
-            document = (XMLDocument) StructuredDocumentFactory.newStructuredDocument(MimeMediaType.XML_DEFAULTENCODING, is);
+            document = (XMLDocument<?>) StructuredDocumentFactory.newStructuredDocument(MimeMediaType.XML_DEFAULTENCODING, is);
 
             System.err.println(document);
         } catch (Throwable everything) {

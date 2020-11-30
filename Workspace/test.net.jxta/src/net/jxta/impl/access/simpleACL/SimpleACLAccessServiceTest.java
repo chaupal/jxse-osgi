@@ -79,6 +79,7 @@ import net.jxta.id.IDFactory;
 import net.jxta.membership.MembershipService;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
+import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
 // import net.jxta.peergroup.PeerGroupFactory;
 import net.jxta.protocol.ModuleImplAdvertisement;
@@ -93,7 +94,8 @@ public class SimpleACLAccessServiceTest extends TestCase {
     static PeerGroup npg = null;
     static PeerGroup pg = null;
 
-    public SimpleACLAccessServiceTest(java.lang.String testName) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public SimpleACLAccessServiceTest(java.lang.String testName) {
         super(testName);
 
         synchronized (SimpleACLAccessServiceTest.class) {
@@ -107,7 +109,7 @@ public class SimpleACLAccessServiceTest extends TestCase {
 
                     StdPeerGroupParamAdv params = new StdPeerGroupParamAdv(newGroupImpl.getParam());
 
-                    Map services = params.getServices();
+                    Map<ModuleClassID, Object> services = params.getServices();
 
                     ModuleImplAdvertisement aModuleAdv = (ModuleImplAdvertisement) services.get(IModuleDefinitions.accessClassID);
 
@@ -126,7 +128,7 @@ public class SimpleACLAccessServiceTest extends TestCase {
                     // replace it
                     services.put(IModuleDefinitions.accessClassID, implAdv);
 
-                    newGroupImpl.setParam((Element) params.getDocument(MimeMediaType.XMLUTF8));
+                    newGroupImpl.setParam((Element<?>) params.getDocument(MimeMediaType.XMLUTF8));
 
                     if (!newGroupImpl.getModuleSpecID().equals(IModuleDefinitions.allPurposePeerGroupSpecID)) {
                         newGroupImpl.setModuleSpecID(IDFactory.newModuleSpecID(newGroupImpl.getModuleSpecID().getBaseClass()));
@@ -152,11 +154,11 @@ public class SimpleACLAccessServiceTest extends TestCase {
                     newPGAdv.setName("Test Group");
                     newPGAdv.setDescription("Created by Unit Test");
 
-                    XMLDocument accessparams = (XMLDocument) StructuredDocumentFactory.newStructuredDocument(MimeMediaType.XMLUTF8
+                    XMLDocument accessparams = (XMLDocument<?>) StructuredDocumentFactory.newStructuredDocument(MimeMediaType.XMLUTF8
                             ,
                             "Parm");
 
-                    XMLElement perm = accessparams.createElement("perm", "<<DEFAULT>>:nobody,permit");
+                    XMLElement<?> perm = accessparams.createElement("perm", "<<DEFAULT>>:nobody,permit");
 
                     accessparams.appendChild(perm);
 

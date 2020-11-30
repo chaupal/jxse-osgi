@@ -159,7 +159,8 @@ public class AlwaysAccessService implements AccessService {
         /**
          * {@inheritDoc}
          */
-        public StructuredDocument<?> getDocument(MimeMediaType as) throws Exception {
+        @SuppressWarnings({ "rawtypes", "unchecked" })
+		public StructuredDocument<?> getDocument(MimeMediaType as) throws Exception {
             StructuredDocument doc = StructuredDocumentFactory.newStructuredDocument(as, "jxta:Cred");
 
             if (doc instanceof Attributable) {

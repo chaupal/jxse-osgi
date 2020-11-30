@@ -56,13 +56,9 @@
 
 package net.jxta.document;
 
-import java.io.*;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
-import net.jxta.document.Advertisement;
 
 public final class AdvertisementTest extends TestCase {
 
@@ -87,7 +83,7 @@ public final class AdvertisementTest extends TestCase {
             /**
              *  {@inheritDoc}
              **/
-            public Advertisement newInstance(Element root) {
+            public Advertisement newInstance(Element<?> root) {
                 return new WimpyAdv();
             }
         }

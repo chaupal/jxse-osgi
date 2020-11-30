@@ -365,16 +365,18 @@ public class BASE64Test extends TestCase {
 
         InputStream input = new BASE64InputStream(base64Reader);
 
-        DataInput di = new DataInputStream(input);
-
-        byte result[] = new byte[source.length];
-
-        di.readFully(result);
-
-        if (-1 != input.read()) {
-            throw new IOException("Not at EOF");
+        DataInputStream di = null;
+    	byte result[] = new byte[source.length];
+        try{
+        	di = new DataInputStream(input);
+        	di.readFully(result);
+        	if (-1 != input.read()) {
+        		throw new IOException("Not at EOF");
+        	}
         }
-
+        finally {
+        	di.close();
+        }
         return Arrays.equals(source, result);
     }
 
@@ -384,30 +386,36 @@ public class BASE64Test extends TestCase {
      **/
     public boolean roundTripTestCR(byte[] source, String expectedB64) throws IOException {
 
-        StringWriter base64Writer = new StringWriter();
+    	StringWriter base64Writer = new StringWriter();
 
-        OutputStream out = new BASE64OutputStream(base64Writer, 72);
+    	OutputStream out = new BASE64OutputStream(base64Writer, 72);
 
-        out.write(source);
-        out.close();
+    	out.write(source);
+    	out.close();
 
-        if(expectedB64 != null) {
-        	assertEquals(expectedB64, base64Writer.getBuffer().toString());
-        }
+    	if(expectedB64 != null) {
+    		assertEquals(expectedB64, base64Writer.getBuffer().toString());
+    	}
 
-        StringReader base64Reader = new StringReader(base64Writer.toString());
-        InputStream input = new BASE64InputStream(base64Reader);
+    	StringReader base64Reader = new StringReader(base64Writer.toString());
+    	InputStream input = new BASE64InputStream(base64Reader);
 
-        DataInput di = new DataInputStream(input);
+    	DataInputStream di = null;
+    	byte result[] = new byte[source.length];
+    	try{
+    		di = new DataInputStream(input);
 
-        byte result[] = new byte[source.length];
 
-        di.readFully(result);
+    		di.readFully(result);
 
-        if (-1 != input.read()) {
-            throw new IOException("Not at EOF");
-        }
+    		if (-1 != input.read()) {
+    			throw new IOException("Not at EOF");
+    		}
+    	}
+    	finally {
+    		di.close();
+    	}
 
-        return Arrays.equals(source, result);
+    	return Arrays.equals(source, result);
     }
 }

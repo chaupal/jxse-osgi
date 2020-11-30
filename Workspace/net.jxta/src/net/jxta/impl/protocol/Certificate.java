@@ -201,7 +201,8 @@ public class Certificate {
      * @param encodeAs The document representation format requested.
      * @return the message as a document.
      */
-    public Document getDocument(MimeMediaType encodeAs) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public Document getDocument(MimeMediaType encodeAs) {
         String encodedCert;
 
         try {

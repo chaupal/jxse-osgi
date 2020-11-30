@@ -750,7 +750,8 @@ public class TCPAdv extends TransportAdvertisement {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         StructuredDocument adv = (StructuredDocument<?>) super.getDocument(encodeAs);
 
@@ -822,17 +823,17 @@ public class TCPAdv extends TransportAdvertisement {
         adv.appendChild(proto);
 
         if (!isClientEnabled()) {
-            Element clientEnabled = adv.createElement(ClientOffTag);
+            Element<?> clientEnabled = adv.createElement(ClientOffTag);
             adv.appendChild(clientEnabled);
         }
 
         if (!isServerEnabled()) {
-            Element serverOff = adv.createElement(ServerOffTag);
+            Element<?> serverOff = adv.createElement(ServerOffTag);
             adv.appendChild(serverOff);
         }
 
         if (getConfigMode() != null) {
-            Element configMode = adv.createElement("ConfigMode", getConfigMode());
+            Element<?> configMode = adv.createElement("ConfigMode", getConfigMode());
             adv.appendChild(configMode);
         }
 

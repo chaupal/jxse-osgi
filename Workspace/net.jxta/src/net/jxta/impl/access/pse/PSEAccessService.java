@@ -179,7 +179,8 @@ public class PSEAccessService implements AccessService {
          *  FIXME 20060317 bondolo This implementation is not secure. The
          *  operation should be signed by the offerer.
          */
-        public StructuredDocument<?> getDocument(MimeMediaType as) throws Exception {
+        @SuppressWarnings({ "rawtypes", "unchecked" })
+		public StructuredDocument<?> getDocument(MimeMediaType as) throws Exception {
             StructuredDocument doc = StructuredDocumentFactory.newStructuredDocument(as, "jxta:Cred");
 
             if (doc instanceof Attributable) {

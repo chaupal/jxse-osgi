@@ -691,7 +691,8 @@ public final class PSEConfigAdv extends ExtendableAdvertisement implements Clone
     /**
      *  {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         StructuredDocument adv = (StructuredDocument<?>) super.getDocument(encodeAs);
 

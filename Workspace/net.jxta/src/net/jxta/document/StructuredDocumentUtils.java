@@ -87,7 +87,8 @@ public final class StructuredDocumentUtils {
      * the elements being copied.
      * @param from the parent element of the elements which will be copied.
      **/
-    public static void copyChildren(StructuredDocument<?> intoDoc, Element intoElement, Element from) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void copyChildren(StructuredDocument<?> intoDoc, Element intoElement, Element from) {
 
         for (Enumeration<Element<?>> eachChild = from.getChildren(); eachChild.hasMoreElements();) {
 
@@ -126,7 +127,8 @@ public final class StructuredDocumentUtils {
      *  @return The added element.
      *
      **/
-    public static Element<?> copyElements(StructuredDocument<?> intoDoc, Element intoElement, Element<?> from, Object newName) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static Element<?> copyElements(StructuredDocument<?> intoDoc, Element intoElement, Element<?> from, Object newName) {
 
         Element<?> newElement = intoDoc.createElement(newName, from.getValue());
 

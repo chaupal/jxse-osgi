@@ -61,6 +61,7 @@ import net.jxta.document.StructuredDocument;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.MimeMediaType;
 import net.jxta.impl.protocol.SrdiMessageImpl;
+import net.jxta.protocol.SrdiMessage.Entry;
 
 import java.util.Collection;
 import java.util.Vector;
@@ -117,7 +118,7 @@ public class SrdiMessageTest extends TestCase {
 
     public void testConstructMessage() {
 
-        Vector entries = new Vector(5);
+        Vector<Entry> entries = new Vector<Entry>(5);
 
         for (int i = 0; i < 5; i++) {
             SrdiMessage.Entry entry = new SrdiMessage.Entry(key + i, val + i,
@@ -133,7 +134,7 @@ public class SrdiMessageTest extends TestCase {
             iae.printStackTrace();
         }
 
-        StructuredDocument doc = (StructuredDocument) srdiMsg.getDocument(new MimeMediaType("text/xml"));
+        StructuredDocument<?> doc = (StructuredDocument<?>) srdiMsg.getDocument(new MimeMediaType("text/xml"));
 
         assertNotNull("Failed to construct SrdiMessage", doc);
 
@@ -141,7 +142,7 @@ public class SrdiMessageTest extends TestCase {
 
     public void testConstructDocFromStr() {
 
-        Vector entries = new Vector(5);
+        Vector<Entry> entries = new Vector<Entry>(5);
 
         for (int i = 0; i < 5; i++) {
             SrdiMessage.Entry entry = new SrdiMessage.Entry(key + i, val + i,
@@ -157,7 +158,7 @@ public class SrdiMessageTest extends TestCase {
             iae.printStackTrace();
         }
 
-        StructuredDocument doc = (StructuredDocument) srdiMsg.getDocument(new MimeMediaType("text/xml"));
+        StructuredDocument<?> doc = (StructuredDocument<?>) srdiMsg.getDocument(new MimeMediaType("text/xml"));
 
         assertNotNull("Failed to construct SrdiMessage", doc);
 
@@ -166,9 +167,9 @@ public class SrdiMessageTest extends TestCase {
         createMessagefromString(srdiMsg.toString());
     }
 
-    private StructuredDocument createMessagefromString(String strdoc) {
+    private StructuredDocument<?> createMessagefromString(String strdoc) {
 
-        StructuredDocument doc = StructuredDocumentFactory.newStructuredDocument(new MimeMediaType("text/xml")
+        StructuredDocument<?> doc = StructuredDocumentFactory.newStructuredDocument(new MimeMediaType("text/xml")
                 ,
                 SrdiMessage.getMessageType(), strdoc);
 
@@ -178,7 +179,7 @@ public class SrdiMessageTest extends TestCase {
 
     public void testGetElements() {
 
-        Vector entries = new Vector(5);
+        Vector<Entry> entries = new Vector<Entry>(5);
 
         for (int i = 0; i < 5; i++) {
             SrdiMessage.Entry entry = new SrdiMessage.Entry(key + i, val + i,
@@ -194,14 +195,14 @@ public class SrdiMessageTest extends TestCase {
             iae.printStackTrace();
         }
 
-        StructuredDocument doc = (StructuredDocument) srdiMsg.getDocument(new MimeMediaType("text/xml"));
+        StructuredDocument<?> doc = (StructuredDocument<?>) srdiMsg.getDocument(new MimeMediaType("text/xml"));
 
         assertNotNull("Failed to construct SrdiMessage", doc);
 
         assertEquals("Corrupted src peer", srcpeer, srdiMsg.getPeerID().toString());
         assertEquals("Corrupted Primary Key", "Peers", srdiMsg.getPrimaryKey());
 
-        Collection gotEntries = srdiMsg.getEntries();
+        Collection<Entry> gotEntries = srdiMsg.getEntries();
 
         assertTrue("all entries didn't make it", gotEntries.containsAll(entries));
 

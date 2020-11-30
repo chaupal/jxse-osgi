@@ -1695,7 +1695,7 @@ public class TreeMap<K extends Object, V extends Object> extends AbstractMap<K,V
         }
     }
 
-    static class IOIterator implements Iterator<Map.Entry<?,?>> {
+    static class IOIterator<K extends Object, V extends Object> implements Iterator<Map.Entry<K,V>> {
         final java.io.ObjectInputStream ois;
         int remaining;
         IOIterator(java.io.ObjectInputStream ois, int remaining) {
@@ -1705,12 +1705,12 @@ public class TreeMap<K extends Object, V extends Object> extends AbstractMap<K,V
         public boolean hasNext() {
             return remaining > 0;
         }
-        public SimpleImmutableEntry<?, ?> next() {
+        public SimpleImmutableEntry<K, V> next() {
             if (remaining <= 0) throw new NoSuchElementException();
             remaining--;
             try {
-                return new AbstractMap.SimpleImmutableEntry<Object, Object>(ois.readObject(),
-                                                            ois.readObject());
+                return new AbstractMap.SimpleImmutableEntry<K, V>((K)ois.readObject(),
+                                                            (V)ois.readObject());
             }
             catch (java.io.IOException e) { throw new IteratorIOException(e); }
             catch (ClassNotFoundException e) { throw new IteratorNoClassException(e); }
@@ -1733,7 +1733,7 @@ public class TreeMap<K extends Object, V extends Object> extends AbstractMap<K,V
         in.defaultReadObject();
         int size = in.readInt();
         try {
-        	Iterator itr = new IOIterator(in, size);
+        	Iterator<Map.Entry<K,V>> itr = new IOIterator(in, size);
         	buildFromSorted(itr, size);
         }
         catch (IteratorIOException e) {

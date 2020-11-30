@@ -604,7 +604,8 @@ public final class RelayConfigAdv extends ExtendableAdvertisement implements Clo
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
 
         StructuredDocument adv = (StructuredDocument<?>) super.getDocument(encodeAs);

@@ -69,7 +69,7 @@ class WatchedInputStream extends FilterInputStream
         implements WatchedStream {
 
     static final int DEFAULT_CHUNK_SIZE = 4096;
-    Collection watchList = null;
+    Collection<Object> watchList = null;
     volatile boolean stalled = false;
     volatile boolean idle = true;
     boolean closed = false;
@@ -117,7 +117,7 @@ class WatchedInputStream extends FilterInputStream
      * @param watchList The watchList to register with. Must be a
      *                  Synchronized Collection.
      */
-    public synchronized void setWatchList(Collection watchList) {
+    public synchronized void setWatchList(Collection<Object> watchList) {
         if (this.watchList != null) {
             this.watchList.remove(this);
         }

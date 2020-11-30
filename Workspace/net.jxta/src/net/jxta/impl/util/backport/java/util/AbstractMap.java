@@ -115,7 +115,8 @@ public abstract class AbstractMap<K extends Object, V extends Object> extends ja
             return oldValue;
         }
 
-        public boolean equals(Object o) {
+        @SuppressWarnings("unchecked")
+		public boolean equals(Object o) {
             if (!(o instanceof Map.Entry)) return false;
             Map.Entry<K,V> e = (Map.Entry<K,V>)o;
             return eq(key, e.getKey()) && eq(value, e.getValue());
@@ -207,7 +208,8 @@ public abstract class AbstractMap<K extends Object, V extends Object> extends ja
             throw new UnsupportedOperationException();
         }
 
-        public boolean equals(Object o) {
+        @SuppressWarnings("unchecked")
+		public boolean equals(Object o) {
             if (!(o instanceof Map.Entry))
                 return false;
             Map.Entry<K,V> e = (Map.Entry<K,V>)o;

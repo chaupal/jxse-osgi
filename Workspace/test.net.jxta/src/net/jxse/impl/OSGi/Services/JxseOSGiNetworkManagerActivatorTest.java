@@ -91,7 +91,7 @@ public class JxseOSGiNetworkManagerActivatorTest {
     }
 
     private JxseOSGiNetworkManagerService TheNMS;
-    private ServiceTracker ST;
+    private ServiceTracker<?,?> ST;
 
     @BeforeClass
     public static void setUpClass() throws Exception {

@@ -76,7 +76,7 @@ interface WatchedStream {
      * @param watchList The watchList to register with. Must be a
      *                  Synchronized Collection.
      */
-    public void setWatchList(Collection watchList);
+    public void setWatchList(Collection<Object> watchList);
 
     /**
      * This routine may be invoked as often as progress needs to be asserted.

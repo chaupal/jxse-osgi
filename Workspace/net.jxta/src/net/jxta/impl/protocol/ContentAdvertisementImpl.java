@@ -224,9 +224,10 @@ public class ContentAdvertisementImpl extends ContentAdvertisement {
     /**
      *  {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument( MimeMediaType encodeAs ) {
-        StructuredDocument adv = (StructuredDocument) super.getDocument( encodeAs );
+        StructuredDocument adv = (StructuredDocument<?>) super.getDocument( encodeAs );
         Element<?> e;
 
         e = adv.createElement(contentIDTag, getContentID().toString());

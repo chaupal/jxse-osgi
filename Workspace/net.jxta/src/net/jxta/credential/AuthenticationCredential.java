@@ -223,7 +223,8 @@ public final class AuthenticationCredential implements Credential {
      * @return the StructuredDocument which represents this credential.
      * @throws Exception When errors occur.
      */
-    public StructuredDocument<?> getDocument(MimeMediaType as) throws Exception {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public StructuredDocument<?> getDocument(MimeMediaType as) throws Exception {
 
         StructuredDocument doc = StructuredDocumentFactory.newStructuredDocument(as, "jxta:Cred");
 

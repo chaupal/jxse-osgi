@@ -440,7 +440,7 @@ public class PeerGroupTest {
         pga.setModuleSpecID(msid);
         pga.setPeerGroupID(pgid);
         pga.putServiceParam(IModuleDefinitions.peerGroupClassID,
-                (Element) pgca.getDocument(MimeMediaType.XMLUTF8));
+                (Element<?>) pgca.getDocument(MimeMediaType.XMLUTF8));
         disco.publish(pga);
         LOG.finest(name + " PGA:\n" + pga);
         return pga;
@@ -459,7 +459,7 @@ public class PeerGroupTest {
         LOG.fine("Testing PeerGroup: " + pg.getClass() + " " + pg);
         PeerGroupAdvertisement pga = pg.getPeerGroupAdvertisement();
         PeerGroupConfigAdv pgca = (PeerGroupConfigAdv)
-                AdvertisementFactory.newAdvertisement((XMLElement)
+                AdvertisementFactory.newAdvertisement((XMLElement<?>)
                 pga.getServiceParam(IModuleDefinitions.peerGroupClassID));
         if (enabled) {
             assertTrue(pgca.isFlagSet(flag));

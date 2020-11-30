@@ -344,7 +344,8 @@ public class StdPeerGroupParamAdv {
 
     }
 
-    private void initialize(XMLElement doc) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private void initialize(XMLElement doc) {
         if (!doc.getName().equals(PARAM_TAG)) {
             throw new IllegalArgumentException("Can not construct " + getClass().getName() + "from doc containing a " + doc.getName());
         }
@@ -475,7 +476,8 @@ public class StdPeerGroupParamAdv {
         return doc;
     }
 
-    private void outputModules(StructuredDocument doc, Map<ModuleClassID, Object> modulesTable, String mainTag) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private void outputModules(StructuredDocument doc, Map<ModuleClassID, Object> modulesTable, String mainTag) {
 
         for (Map.Entry<ModuleClassID, Object> entry : modulesTable.entrySet()) {
             ModuleClassID mcid = entry.getKey();

@@ -1258,7 +1258,8 @@ public class JxtaSocket extends Socket implements PipeMsgListener, OutputPipeLis
     /**
      * {@inheritDoc}
      */
-    public void pipeMsgEvent(PipeMsgEvent event) {
+    @SuppressWarnings("unchecked")
+	public void pipeMsgEvent(PipeMsgEvent event) {
 
     	// LOGGING: was Finer
         Logging.logCheckedDebug(LOG, "Pipe Message Event for ", this, "\n\t", event.getMessage(), " for ", event.getPipeID());
@@ -1425,8 +1426,8 @@ public class JxtaSocket extends Socket implements PipeMsgListener, OutputPipeLis
                         socketConnectLock.notify();
 
                         if (!isEncrypt) {
-                            acceptMessageVerifiedAddressSet = (Set)message.getMessageProperty(EndpointServiceImpl.VERIFIED_ADDRESS_SET);
-                            acceptMessageCertSet = (Set)message.getMessageProperty(EndpointServiceImpl.MESSAGE_SIGNER_SET);
+                            acceptMessageVerifiedAddressSet = (Set<EndpointAddress>)message.getMessageProperty(EndpointServiceImpl.VERIFIED_ADDRESS_SET);
+                            acceptMessageCertSet = (Set<X509Certificate>)message.getMessageProperty(EndpointServiceImpl.MESSAGE_SIGNER_SET);
                         }
 
                         Logging.logCheckedInfo(LOG, "New Socket Connection : ", this);

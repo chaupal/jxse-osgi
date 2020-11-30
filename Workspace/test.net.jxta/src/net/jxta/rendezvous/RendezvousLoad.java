@@ -143,8 +143,8 @@ public class RendezvousLoad extends TestCase {
     public void testLoad() {
         TcpConnection connection = null;
         PeerID destPeerID = null;
-        Hashtable sinkTBL = new Hashtable(ITERATIONS);
-        Hashtable connectionTBL = new Hashtable(ITERATIONS);
+        Hashtable<PeerID, JxtaSink> sinkTBL = new Hashtable<PeerID, JxtaSink>(ITERATIONS);
+        Hashtable<PeerID, JxtaSink> connectionTBL = new Hashtable<PeerID, JxtaSink>(ITERATIONS);
 
         for (int i = 0; i < ITERATIONS; i++) {
             PeerAdvertisement padv = AdvUtil.newPeerAdv("Fakey" + i, getMyAddress(), PORT + i, false);

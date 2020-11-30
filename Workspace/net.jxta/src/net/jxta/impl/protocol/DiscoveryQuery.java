@@ -208,7 +208,8 @@ public class DiscoveryQuery extends DiscoveryQueryMsg {
      *
      * @param root document to intialize from
      */
-    protected void initialize(Element<?> root) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	protected void initialize(Element<?> root) {
 
         if (!XMLElement.class.isInstance(root)) {
             throw new IllegalArgumentException(getClass().getName() + " only supports XMLElement");
@@ -255,7 +256,8 @@ public class DiscoveryQuery extends DiscoveryQueryMsg {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType asMimeType) {
         StructuredDocument adv = StructuredDocumentFactory.newStructuredDocument(asMimeType, getAdvertisementType());
 
@@ -266,7 +268,7 @@ public class DiscoveryQuery extends DiscoveryQueryMsg {
             xmlDoc.addAttribute("xml:space", "preserve");
         }
 
-        Element e;
+        Element<?> e;
 
         e = adv.createElement(typeTag, Integer.toString(getDiscoveryType()));
         adv.appendChild(e);

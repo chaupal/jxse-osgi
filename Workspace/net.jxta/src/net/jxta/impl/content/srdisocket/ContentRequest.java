@@ -188,7 +188,8 @@ public class ContentRequest {
     /**
      * Read in an XML document.
      */
-    public Document getDocument(MimeMediaType asMimeType) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public Document getDocument(MimeMediaType asMimeType) {
         StructuredDocument doc = (StructuredTextDocument<?>)
         StructuredDocumentFactory.newStructuredDocument(asMimeType, tagRoot);
         Element<?> e;

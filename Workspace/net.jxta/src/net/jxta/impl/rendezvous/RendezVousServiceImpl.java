@@ -89,7 +89,7 @@ import net.jxta.impl.rendezvous.rdv.RdvPeerRdvService;
 import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousMeterBuildSettings;
 import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousServiceMonitor;
 import net.jxta.impl.rendezvous.rpv.PeerView;
-import net.jxta.impl.rendezvous.rpv.PeerViewElement;
+import net.jxta.impl.rendezvous.rpv.PeerViewDestination;
 import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
@@ -740,7 +740,7 @@ public final class RendezVousServiceImpl implements RendezVousService {
 
             RdvPeerRdvService Temp = (RdvPeerRdvService) provider;
 
-            Iterator<PeerViewElement> Iter = Temp.rpv.getView().iterator();
+            Iterator<PeerViewDestination> Iter = Temp.rpv.getView().iterator();
 
             while (Iter.hasNext()) {
                 Result.add((PeerID)Iter.next().getPeerID());

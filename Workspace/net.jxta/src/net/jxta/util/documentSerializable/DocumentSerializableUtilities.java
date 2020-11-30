@@ -113,7 +113,8 @@ public class DocumentSerializableUtilities {
      * @param documentSerializable This value will be serialized into the created child element
      \ 	 * @throws DocumentSerializationException if Unable to serialized object.
      **/
-    public static void addDocumentSerializable(Element element, String tagName, DocumentSerializable documentSerializable)  throws DocumentSerializationException {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void addDocumentSerializable(Element element, String tagName, DocumentSerializable documentSerializable)  throws DocumentSerializationException {
         StructuredDocument<?> structuredDocument = element.getRoot();
         Element<?> childElement = structuredDocument.createElement(tagName);
 
@@ -195,9 +196,10 @@ public class DocumentSerializableUtilities {
      * @param tagName The Tag Name for the new Element
      * @return The created Element
      **/
-    public static Element<?> createChildElement(Element element, String tagName) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public static Element<?> createChildElement(Element element, String tagName) {
         StructuredDocument<?> structuredDocument = element.getRoot();
-        Element childElement = structuredDocument.createElement(tagName);
+        Element<?> childElement = structuredDocument.createElement(tagName);
 
         element.appendChild(childElement);
         return childElement;
@@ -229,7 +231,8 @@ public class DocumentSerializableUtilities {
      * @param tagName TagName to be used for the created Child Element
      * @param value The value that will be stored in the Element as a String
      **/	 
-    public static void addInt(Element element, String tagName, int value) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void addInt(Element element, String tagName, int value) {
         StructuredDocument<?> structuredDocument = element.getRoot();
         Element<?> childElement = structuredDocument.createElement(tagName, Integer.toString(value));
 
@@ -271,7 +274,8 @@ public class DocumentSerializableUtilities {
      * @param tagName TagName to be used for the created Child Element
      * @param value The value that will be stored in the Element as a String
      **/
-    public static void addLong(Element element, String tagName, long value) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void addLong(Element element, String tagName, long value) {
         StructuredDocument<?> structuredDocument = element.getRoot();
         Element<?> childElement = structuredDocument.createElement(tagName, Long.toString(value));
 
@@ -313,7 +317,8 @@ public class DocumentSerializableUtilities {
      * @param tagName TagName to be used for the created Child Element
      * @param value The value that will be stored in the Element as a String
      **/
-    public static void addDouble(Element element, String tagName, double value) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void addDouble(Element element, String tagName, double value) {
         StructuredDocument<?> structuredDocument = element.getRoot();
         Element<?> childElement = structuredDocument.createElement(tagName, Double.toString(value));
 
@@ -355,7 +360,8 @@ public class DocumentSerializableUtilities {
      * @param tagName TagName to be used for the created Child Element
      * @param value The value that will be stored in the Element as a String
      **/
-    public static void addBoolean(Element element, String tagName, boolean value) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void addBoolean(Element element, String tagName, boolean value) {
         StructuredDocument<?> structuredDocument = element.getRoot();
         Element<?> childElement = structuredDocument.createElement(tagName, value ? "true" : "false");
 
@@ -397,7 +403,8 @@ public class DocumentSerializableUtilities {
      * @param tagName TagName to be used for the created Child Element
      * @param value The value that will be stored in the Element
      **/
-    public static void addString(Element element, String tagName, String value) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void addString(Element element, String tagName, String value) {
         StructuredDocument<?> structuredDocument = element.getRoot();
         Element<?> childElement = structuredDocument.createElement(tagName, value);
 

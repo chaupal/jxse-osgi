@@ -402,17 +402,16 @@ public class URISeedingManager extends RdvAdvSeedingManager {
      * The remote peer's certificates should be examined in order to fully
      * establish that it an appropriate peer. 
      */
-    private boolean isSeedPeer(RouteAdvertisement route) {
+    @SuppressWarnings("unlikely-arg-type")
+	private boolean isSeedPeer(RouteAdvertisement route) {
         List<EndpointAddress> addrList = route.getDestEndpointAddresses();
 
-        ListIterator eachAddr = addrList.listIterator();
+        ListIterator<EndpointAddress> eachAddr = addrList.listIterator();
 
         // convert each EndpointAddress to a URI to compare with seedHosts
         while (eachAddr.hasNext()) {
             EndpointAddress anAddr = (EndpointAddress) eachAddr.next();
-
-            //TODO CP: this is weird. A list of endpoint addresses is filled with URI's.
-            eachAddr.set(anAddr.toURI());
+            eachAddr.set(anAddr);
         }
 
         addrList.retainAll(Arrays.asList(getActiveSeedURIs()));
@@ -443,7 +442,8 @@ public class URISeedingManager extends RdvAdvSeedingManager {
      *  @throws IOException Thrown for errors encountered loading the seed
      *  RouteAdvertisements.
      */
-    static RouteAdvertisement[] loadSeeds(URI seedingURI) throws IOException {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	static RouteAdvertisement[] loadSeeds(URI seedingURI) throws IOException {
         boolean isXML;
         URL seedingURL = seedingURI.toURL();
         URLConnection connection = seedingURL.openConnection();

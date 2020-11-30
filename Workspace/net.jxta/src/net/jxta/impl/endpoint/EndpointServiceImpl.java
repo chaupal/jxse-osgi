@@ -221,7 +221,8 @@ public class EndpointServiceImpl implements EndpointService, MessengerEventListe
     /**
      * Passive listeners for messengers. Three priorities, so far.
      */
-    private final Collection[] passiveMessengerListeners = {
+    @SuppressWarnings("rawtypes")
+	private final Collection[] passiveMessengerListeners = {
             Collections.synchronizedList(new ArrayList<MessengerEventListener>()),
             Collections.synchronizedList(new ArrayList<MessengerEventListener>()),
             Collections.synchronizedList(new ArrayList<MessengerEventListener>())

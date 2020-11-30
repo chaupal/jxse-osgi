@@ -236,7 +236,8 @@ public abstract class ConfigParams extends ExtendableAdvertisement implements Cl
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     protected boolean handleElement(Element<?> raw) {
 
         if (super.handleElement(raw)) {
@@ -332,7 +333,8 @@ public abstract class ConfigParams extends ExtendableAdvertisement implements Cl
      *  @param adv the document to add elements to.
      *  @return true if elements were added otherwise false.
      */
-    public boolean addDocumentElements(StructuredDocument adv) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public boolean addDocumentElements(StructuredDocument adv) {
 
         for (Map.Entry<ID, StructuredDocument<?>> anEntry : params.entrySet()) {
             ID anID = anEntry.getKey();
@@ -414,7 +416,8 @@ public abstract class ConfigParams extends ExtendableAdvertisement implements Cl
      * @param key   The key.
      * @param param The parameter document.
      */
-    public void putServiceParam(ID key, Element param) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public void putServiceParam(ID key, Element param) {
         incModCount();
 
         params.remove(key);
@@ -562,7 +565,8 @@ public abstract class ConfigParams extends ExtendableAdvertisement implements Cl
      * @return StructuredDocument The matching parameter document or null if
      *         none matched.
      */
-    public StructuredDocument<?> getServiceParam(ID key) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public StructuredDocument<?> getServiceParam(ID key) {
         StructuredDocument<?> param = params.get(key);
 
         if (param == null) {
@@ -597,7 +601,8 @@ public abstract class ConfigParams extends ExtendableAdvertisement implements Cl
      *
      * @return The removed parameter element or {@code null} if not found.
      */
-    public StructuredDocument<?> removeServiceParam(ID key) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public StructuredDocument<?> removeServiceParam(ID key) {
 
         StructuredDocument<?> param = params.remove(key);
 

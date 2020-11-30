@@ -69,7 +69,7 @@ class WatchedOutputStream extends FilterOutputStream
         implements WatchedStream {
 
     static final int DEFAULT_CHUNK_SIZE = 4096;
-    transient Collection watchList = null;
+    transient Collection<Object> watchList = null;
     transient volatile boolean stalled = false;
     transient volatile boolean idle = true;
     transient boolean closed = false;
@@ -118,7 +118,7 @@ class WatchedOutputStream extends FilterOutputStream
      * @param watchList The watchList to register with. Must be a
      *                  Synchronized Collection.
      */
-    public synchronized void setWatchList(Collection watchList) {
+    public synchronized void setWatchList(Collection<Object> watchList) {
         if (this.watchList != null) {
             this.watchList.remove(this);
         }

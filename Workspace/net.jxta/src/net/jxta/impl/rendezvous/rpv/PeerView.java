@@ -1771,9 +1771,9 @@ public final class PeerView implements EndpointListener, RendezvousListener {
      *
      * @return A SortedSet which is the current local view of the peerview
      */
-    public SortedSet<PeerViewElement> getView() {
+    public SortedSet<PeerViewDestination> getView() {
         synchronized (localView) {
-            return new TreeSet<PeerViewElement>((SortedSet)localView);
+            return new TreeSet<PeerViewDestination>((SortedSet<PeerViewDestination>)localView);
         }
     }
 

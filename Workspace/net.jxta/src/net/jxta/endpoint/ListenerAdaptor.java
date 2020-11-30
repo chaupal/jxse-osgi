@@ -406,7 +406,8 @@ public class ListenerAdaptor implements Runnable {
     /**
      * {@inheritDoc}
      */
-    public void run() {
+    @SuppressWarnings("unchecked")
+	public void run() {
         try {
             while (!shutdown) {
                 try {
