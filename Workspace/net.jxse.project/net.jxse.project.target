@@ -4,12 +4,5 @@
 	<locations>
 		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\core" type="Directory"/>
 		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\ext" type="Directory"/>
-		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\http" type="Directory"/>
-		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\registry" type="Directory"/>
-		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\log" type="Directory"/>
-		<location path="P:\Target\Netty" type="Directory"/>
-		<location path="P:\Target\Derby" type="Directory"/>
-		<location path="P:\Target\H2" type="Directory"/>
-		<location path="P:\Target\Junit" type="Directory"/>
 	</locations>
 </target>

@@ -9,6 +9,6 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.spongycastle</artifactId>
+  <artifactId>org.spongycastle.fragment</artifactId>
   <packaging>eclipse-plugin</packaging>
 </project> 
