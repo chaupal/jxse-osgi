@@ -8,6 +8,6 @@ Automatic-Module-Name: net.jxta.impl.cm.sql.derby
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: net.jxta.impl.cm.sql,
  net.jxta.impl.util.threads,
- org.h2;version="1.3.170",
- org.h2.jdbcx;version="1.3.170"
+ org.h2;version="1.3.0",
+ org.h2.jdbcx;version="1.3.0"
 Export-Package: net.jxta.impl.cm.sql.h2

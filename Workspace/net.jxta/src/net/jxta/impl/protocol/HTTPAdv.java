@@ -328,7 +328,8 @@ public class HTTPAdv extends TransportAdvertisement {
      * features. HttpTransport will gracefully disregard items that have
      * no use in the current context.
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         if (serverEnabled && (0 == listenPort)) {
             throw new IllegalStateException("Dynmaic port selection not supported with incoming connections.");

@@ -152,7 +152,8 @@ public class PeerInfoQueryMsg extends PeerInfoQueryMessage {
         }
     }
 
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         StructuredTextDocument doc = (StructuredTextDocument<?>)
                 StructuredDocumentFactory.newStructuredDocument(encodeAs, getMessageType());

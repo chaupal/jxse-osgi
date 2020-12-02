@@ -6,10 +6,12 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: test.net.jxta
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Fragment-Host: net.jxta
 Import-Package: net.jxse,
  net.jxse.OSGi,
  net.jxse.OSGi.Services,
  net.jxse.configuration,
+ net.jxse.systemtests.colocated.configs,
  net.jxta.access,
  net.jxta.codat,
  net.jxta.configuration,

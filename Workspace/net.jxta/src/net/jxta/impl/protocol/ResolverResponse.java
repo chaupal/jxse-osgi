@@ -179,7 +179,8 @@ public class ResolverResponse extends ResolverResponseMsg {
     /**
      *  {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType asMimeType) {
 
         StructuredTextDocument adv = (StructuredTextDocument<?>)

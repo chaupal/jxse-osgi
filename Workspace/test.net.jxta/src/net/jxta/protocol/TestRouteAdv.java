@@ -77,7 +77,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
-import net.jxse.systemtests.colocated.configs.PeerConfigurator;
+//import net.jxse.systemtests.colocated.configs.PeerConfigurator;
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.MimeMediaType;
 import net.jxta.document.StructuredDocumentFactory;
@@ -116,7 +116,7 @@ public class TestRouteAdv {
 	@Before
 	public void configureAlice() throws Exception {
             String aliceInstanceName = "alice";
-            aliceManager = PeerConfigurator.createHttpAdhocPeer(aliceInstanceName, 50000, tempStorage);
+            aliceManager = null;//TODO CP: PeerConfigurator.createHttpAdhocPeer(aliceInstanceName, 50000, tempStorage);
             aliceManager.getConfigurator().setPrincipal(aliceInstanceName);
             
             aliceManager.startNetwork();

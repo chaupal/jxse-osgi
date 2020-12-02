@@ -321,7 +321,8 @@ public final class PeerGroupConfigAdv extends ExtendableAdvertisement implements
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         if (null == getPeerGroupID()) {
             throw new IllegalStateException("Peer Group Config Advertisement does not contain a peer group id.");

@@ -206,7 +206,8 @@ public class RouteQuery  {
      *
      * @param doc the element
      */
-    public RouteQuery(XMLElement doc, PeerGroup paramGroup) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public RouteQuery(XMLElement doc, PeerGroup paramGroup) {
         this.group=paramGroup;
         String doctype = doc.getName();
 
@@ -264,7 +265,8 @@ public class RouteQuery  {
         }
     }
 
-    public StructuredDocument<?> getDocument(MimeMediaType asMimeType) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public StructuredDocument<?> getDocument(MimeMediaType asMimeType) {
         if(null == getDestPeerID()) {
             throw new IllegalStateException("Destination peer not initialized");
         }

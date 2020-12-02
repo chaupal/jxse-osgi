@@ -274,7 +274,8 @@ public class ModuleImplAdv extends ModuleImplAdvertisement {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         StructuredDocument adv = (StructuredDocument<?>) super.getDocument(encodeAs);
 

@@ -140,7 +140,8 @@ public class ModuleClassAdv extends ModuleClassAdvertisement {
      *
      *  @param doc The XML serialization of the advertisement.
      */
-    private ModuleClassAdv(XMLElement doc) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private ModuleClassAdv(XMLElement doc) {
 
         String doctype = doc.getName();
 
@@ -224,7 +225,8 @@ public class ModuleClassAdv extends ModuleClassAdvertisement {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         if (null == getModuleClassID()) {
             throw new IllegalStateException("Module Class ID was not specified.");

@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Jxse Wrapper
 Bundle-SymbolicName: net.jxse;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-ClassPath: net.jxse
 Bundle-Vendor: Condast
 Export-Package: net.jxse.OSGi,
  net.jxse.OSGi.Services,

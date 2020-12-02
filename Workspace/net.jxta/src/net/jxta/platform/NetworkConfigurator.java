@@ -1814,7 +1814,8 @@ public class NetworkConfigurator {
      * @param adv     the Advertisement to retrieve the param doc from
      * @return the parmDoc value
      */
-    protected XMLDocument<?> getParmDoc(boolean enabled, Advertisement adv) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	protected XMLDocument<?> getParmDoc(boolean enabled, Advertisement adv) {
         XMLDocument parmDoc = (XMLDocument<?>) StructuredDocumentFactory.newStructuredDocument(MimeMediaType.XMLUTF8, "Parm");
         XMLDocument<?> doc = (XMLDocument<?>) adv.getDocument(MimeMediaType.XMLUTF8);
 
@@ -2021,7 +2022,8 @@ public class NetworkConfigurator {
      * @return the PeerPlatformConfig Advertisement
      * @throws net.jxta.exception.ConfiguratorException
      */
-    public ConfigParams getPlatformConfig() throws ConfiguratorException {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public ConfigParams getPlatformConfig() throws ConfiguratorException {
         PlatformConfig advertisement = (PlatformConfig) AdvertisementFactory.newAdvertisement(
                 PlatformConfig.getAdvertisementType());
 

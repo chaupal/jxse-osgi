@@ -275,7 +275,8 @@ public class RendezVousPropagateMessage {
         return visited.toArray(new URI[visited.size()]);
     }
 
-    public Document getDocument(MimeMediaType encodeAs) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public Document getDocument(MimeMediaType encodeAs) {
 
         // Sanity Check!!!
 

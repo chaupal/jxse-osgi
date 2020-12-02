@@ -146,7 +146,8 @@ public final class PlatformConfig extends GroupConfig implements Cloneable {
      *
      * @param doc the element
      */
-    PlatformConfig(XMLElement doc) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	PlatformConfig(XMLElement doc) {
         String doctype = doc.getName();
 
         String typedoctype = "";
@@ -379,7 +380,8 @@ public final class PlatformConfig extends GroupConfig implements Cloneable {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public boolean addDocumentElements(StructuredDocument adv) {
 
         Element<?> e;

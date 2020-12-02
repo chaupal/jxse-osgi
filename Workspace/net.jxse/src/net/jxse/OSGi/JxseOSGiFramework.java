@@ -195,7 +195,7 @@ public class JxseOSGiFramework {
      * @param serviceAPIClass The service API Class
      * @return An OSGi service tracker
      */
-    public static ServiceTracker<?,?> getServiceTracker(Class<?> serviceAPIClass) {
+    public static ServiceTracker<Object,Object> getServiceTracker(Class<?> serviceAPIClass) {
 
         return new ServiceTracker<Object,Object>(INSTANCE.getBundleContext(), serviceAPIClass.getName(), null);
 

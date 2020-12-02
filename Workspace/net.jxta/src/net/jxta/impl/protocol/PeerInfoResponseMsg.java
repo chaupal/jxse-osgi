@@ -170,7 +170,8 @@ public class PeerInfoResponseMsg extends PeerInfoResponseMessage {
         }
     }
 
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
 
         StructuredTextDocument doc = (StructuredTextDocument<?>)

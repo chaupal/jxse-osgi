@@ -151,7 +151,8 @@ public class RouteAdv extends RouteAdvertisement implements Cloneable {
      *
      * @param doc the element
      */
-    private RouteAdv(XMLElement doc) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private RouteAdv(XMLElement doc) {
         String doctype = doc.getName();
 
         String typedoctype = "";
@@ -259,7 +260,8 @@ public class RouteAdv extends RouteAdvertisement implements Cloneable {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         StructuredDocument adv = (StructuredDocument<?>) super.getDocument(encodeAs);
 

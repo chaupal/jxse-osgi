@@ -216,7 +216,8 @@ public class ContentShareAdvertisementImpl extends ContentShareAdvertisement {
     /**
      *  {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     public Document getDocument( MimeMediaType encodeAs ) {
         StructuredDocument adv = (StructuredDocument<?>) super.getDocument( encodeAs );
         Element<?> e;

@@ -257,7 +257,8 @@ public class PipeResolverMsg extends PipeResolverMessage {
      * @param encodeAs The document representation format requested.
      * @return the message as a document.
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         StructuredTextDocument doc = (StructuredTextDocument<?>)
                 StructuredDocumentFactory.newStructuredDocument(encodeAs, getMessageType());

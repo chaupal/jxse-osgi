@@ -325,7 +325,8 @@ public class SignedAdv extends SignedAdvertisement {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
 
         if (null == adv) {
@@ -342,7 +343,7 @@ public class SignedAdv extends SignedAdvertisement {
 
         StructuredDocument doc = (StructuredDocument<?>) super.getDocument(encodeAs);
 
-        StructuredDocument advDoc = (StructuredDocument<?>) adv.getDocument(encodeAs);
+        StructuredDocument<?> advDoc = (StructuredDocument<?>) adv.getDocument(encodeAs);
 
         try {
             ByteArrayOutputStream bos = new ByteArrayOutputStream();

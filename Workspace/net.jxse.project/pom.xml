@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>net.jxse</groupId>
-  <artifactId>parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.jxse</groupId>
+	<artifactId>parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
-  <organization>
-      <name>The Chaupal P2P Organisation</name>
-      <url>http://chaupal.github.io/</url>
-  </organization>
+	<properties>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<tycho.version>1.3.0</tycho.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jetty.version>8.1.16.v20140903</jetty.version>
+		<eclipse-update-repo.url>http://download.eclipse.org/eclipse/updates/4.3</eclipse-update-repo.url>
+		<luna-repo.url>http://download.eclipse.org/releases/neon</luna-repo.url>
+	</properties>
 
-    <description>JXTA technology is a set of open protocols that allow any connected device on the
+	<organization>
+		<name>The Chaupal P2P Organisation</name>
+		<url>http://chaupal.github.io/</url>
+	</organization>
+
+	<description>JXTA technology is a set of open protocols that allow any connected device on the
         network ranging from cell phones and wireless PDAs to PCs and servers to communicate and
         collaborate in a P2P manner. JXTA peers create a virtual network where any peer can interact
         with other peers and resources directly even when some of the peers and resources are behind
@@ -19,246 +29,241 @@
         of the JXTA protocols.
     </description>
 
-    <issueManagement>
-        <system>Project Issues</system>
-        <url>https://jxta-jxse.dev.java.net/issues/query.cgi</url>
-    </issueManagement>
+	<issueManagement>
+		<system>Project Issues</system>
+		<url>https://jxta-jxse.dev.java.net/issues/query.cgi</url>
+	</issueManagement>
 
-    <licenses>
-        <license>
-            <name>Apache 2.0 Software License</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+	<licenses>
+		<license>
+			<name>Apache 2.0 Software License</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
-    <mailingLists>
-        <mailingList>
-            <name>announce</name>
-            <subscribe>announce@platform.jxta.org</subscribe>
-            <unsubscribe>announce-unsubscribe@platform.jxta.org</unsubscribe>
-            <archive>https://java.net/nonav/projects/jxta/lists/announce/archive</archive>
-        </mailingList>
-        <mailingList>
-            <name>dev</name>
-            <subscribe>dev@platform.jxta.org</subscribe>
-            <unsubscribe>dev-unsubscribe@platform.jxta.org</unsubscribe>
-            <archive>https://java.net/nonav/projects/jxta/lists/dev/archive</archive>
-        </mailingList>
-        <mailingList>
-            <name>discuss</name>
-            <subscribe>discuss@platform.jxta.org</subscribe>
-            <unsubscribe>discuss-unsubscribe@platform.jxta.org</unsubscribe>
-            <archive>https://java.net/nonav/projects/jxta/lists/discuss/archive</archive>
-        </mailingList>
-    </mailingLists>
-    <developers>
-    </developers>
+	<mailingLists>
+		<mailingList>
+			<name>announce</name>
+			<subscribe>announce@platform.jxta.org</subscribe>
+			<unsubscribe>announce-unsubscribe@platform.jxta.org</unsubscribe>
+			<archive>https://java.net/nonav/projects/jxta/lists/announce/archive</archive>
+		</mailingList>
+		<mailingList>
+			<name>dev</name>
+			<subscribe>dev@platform.jxta.org</subscribe>
+			<unsubscribe>dev-unsubscribe@platform.jxta.org</unsubscribe>
+			<archive>https://java.net/nonav/projects/jxta/lists/dev/archive</archive>
+		</mailingList>
+		<mailingList>
+			<name>discuss</name>
+			<subscribe>discuss@platform.jxta.org</subscribe>
+			<unsubscribe>discuss-unsubscribe@platform.jxta.org</unsubscribe>
+			<archive>https://java.net/nonav/projects/jxta/lists/discuss/archive</archive>
+		</mailingList>
+	</mailingLists>
+	<developers>
+	</developers>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jetty.version>8.1.16.v20140903</jetty.version>
-    </properties>
-
-    <repositories>
-      <repository>
-        <id>eclipse-luna</id>
-        <url>http://download.eclipse.org/releases/luna/</url>
-        <layout>p2</layout>
-      </repository>
-            <repository>
-            <!-- Repository needed to include the jboss netty library -->
-            <id>repository.jboss.org</id>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+	<repositories>
+		<repository>
+			<id>eclipse</id>
+			<url>${eclipse-update-repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>luna</id>
+			<layout>p2</layout>
+			<url>${luna-repo.url}</url>
+		</repository>
+		<!-- Repository needed to include the jboss netty library -->
+		<repository>
+            <id>mvnrepository</id>
+            <url>http://repo1.maven.org/maven2</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </repository>
-        <repository>
-            <!-- Repository needed to include the jboss netty library -->
-            <id>repository.httptunnel</id>
-            <url>http://bitbucket.org/iainmcgin/netty-httptunnel/raw/tip/repo</url>
-        </repository>
-    </repositories> 
-  
-    <dependencies>
-        <dependency>
-            <groupId>com.madgag</groupId>
-            <artifactId>sc-light-jdk15on</artifactId>
-            <version>1.47.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.madgag</groupId>
-            <artifactId>scpkix-jdk15on</artifactId>
-            <version>1.47.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.madgag</groupId>
-            <artifactId>scprov-jdk15on</artifactId>
-            <version>1.47.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.main</artifactId>
-            <version>2.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <!--
-              The following dependencies are not always needed in normal JXTA use,
-              so they are flagged as "optional". Include it manually in your
-              project's pom.xml if you want to use the parts of JXTA that depend on
-              them.
-          -->
-        <!-- TODO MJG replace the Jetty aggregate with a smaller set of dependencies -->
-        <dependency>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
-            <artifactId>jetty-all</artifactId>
-            <version>8.1.16.v20140903</version>
-            <optional>true</optional>
-        </dependency>
-        <!-- Jetty 9: upgrade to the
-             forthcoming 9.3.0 release (M0 is out, at the time of writing...)
-             Jetty 9 requires Java 1.7   
-        <dependency>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
-            <artifactId>jetty-all</artifactId>
-            <version>9.2.2.v20140723</version>
-            <optional>true</optional>
-        </dependency>
-        -->
-        <dependency>
-            <groupId>org.jboss.netty</groupId>
-            <artifactId>netty</artifactId>
-            <version>3.2.2.Final</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.netty</groupId>
-            <artifactId>httptunnel</artifactId>
-            <version>0.92</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>10.5.3.0_1</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.1.118</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>                                                                                                                                                               
-            <groupId>org.slf4j</groupId>                                                                                                                                           
-            <artifactId>slf4j-api</artifactId>                                                                                                                                     
-            <version>1.7.5</version>                                                                                                                                               
-        </dependency>
-        <!-- Test dependencies -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.8.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jmock</groupId>
-            <artifactId>jmock-junit4</artifactId>
-            <version>2.5.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jmock</groupId>
-            <artifactId>jmock-legacy</artifactId>
-            <version>2.5.1</version>
-            <scope>test</scope>
-        </dependency>   
-        <!-- Test logging -->
-        <dependency>                                                                                                                                  
-            <groupId>log4j</groupId>                                                                                                                  
-            <artifactId>log4j</artifactId>                                                                                                            
-            <version>1.2.16</version>                                                                                                                 
-            <scope>test</scope>
-        </dependency>                                                                                                                                 
-        <dependency>                                                                                                                                  
-            <groupId>org.slf4j</groupId>                                                                                                              
-            <artifactId>slf4j-log4j12</artifactId>                                                                                                    
-            <version>1.7.5</version>                                                                                                                                               
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-jdk14</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-    </dependencies>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>  		
+		<repository>
+			<!-- Repository needed to include the jboss netty library -->
+			<id>repository.httptunnel</id>
+			<url>http://bitbucket.org/iainmcgin/netty-httptunnel/raw/tip/repo</url>
+		</repository>
+	</repositories>
 
-  <modules>
-    <module>../org.spongycastle.fragment</module>
-    <module>../jxse</module>
-    <module>../net.jxse.feature</module>
-    <module>../net.jxse.update</module>
-  </modules>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.osgi/org.eclipse.osgi -->
+		<dependency>
+			<groupId>org.eclipse.osgi</groupId>
+			<artifactId>org.eclipse.osgi</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.madgag</groupId>
+			<artifactId>sc-light-jdk15on</artifactId>
+			<version>1.47.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.madgag</groupId>
+			<artifactId>scpkix-jdk15on</artifactId>
+			<version>1.47.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.madgag</groupId>
+			<artifactId>scprov-jdk15on</artifactId>
+			<version>1.47.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.main</artifactId>
+			<version>2.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- The following dependencies are not always needed in normal JXTA use, 
+			so they are flagged as "optional". Include it manually in your project's 
+			pom.xml if you want to use the parts of JXTA that depend on them. -->
+		<!-- TODO MJG replace the Jetty aggregate with a smaller set of dependencies -->
+		<dependency>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-all</artifactId>
+			<version>8.1.16.v20140903</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Jetty 9: upgrade to the forthcoming 9.3.0 release (M0 is out, at the 
+			time of writing...) Jetty 9 requires Java 1.7 <dependency> <groupId>org.eclipse.jetty.aggregate</groupId> 
+			<artifactId>jetty-all</artifactId> <version>9.2.2.v20140723</version> <optional>true</optional> 
+			</dependency> -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty</artifactId>
+			<version>3.9.6.Final</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.netty</groupId>
+			<artifactId>httptunnel</artifactId>
+			<version>0.92</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.5.3.0_1</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.170</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-junit4</artifactId>
+			<version>2.5.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-legacy</artifactId>
+			<version>2.5.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Test logging -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+	</dependencies>
 
-  <properties>
-    <tycho.version>0.19.0</tycho.version>
+	<modules>
+		<module>../org.spongycastle.fragment</module>
+		<module>../net.jxta</module>
+		<module>../net.jxse</module>
+		<module>../net.jxta.impl.cm.sql.derby</module>
+		<module>../net.jxta.impl.cm.sql.h2</module>
+		<module>../net.jxta.impl.endpoint.netty</module>
+		<module>../net.jxse.feature</module>
+		<module>../net.jxse.update</module>
+	</modules>
 
-    <luna-repo.url>http://download.eclipse.org/releases/luna</luna-repo.url>
-  </properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
 
-  <repositories>
-    <repository>
-      <id>luna</id>
-      <url>${luna-repo.url}</url>
-      <layout>p2</layout>
-    </repository>
-
-  </repositories>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-maven-plugin</artifactId>
-        <version>${tycho.version}</version>
-        <extensions>true</extensions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>target-platform-configuration</artifactId>
-        <configuration>
-          <environments>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>win32</os>
-              <ws>win32</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>win32</os>
-              <ws>win32</ws>
-              <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>macosx</os>
-              <ws>cocoa</ws>
-              <arch>x86_64</arch>
-            </environment>
-          </environments>
-        </configuration>
-      </plugin>
-    </plugins>
-
-  </build>
-
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+                <version>${tycho.version}</version>
+				<configuration>
+      				<target>
+         				<artifact>
+            				<groupId>net.jxse</groupId>
+            				<artifactId>net.jxse.project</artifactId>
+            				<version>${project.version}</version>
+         				</artifact>
+      				</target>
+   					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project> 

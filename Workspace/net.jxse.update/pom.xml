@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <relativePath>../net.jxse.project/pom.xml</relativePath>
+    <groupId>net.jxse</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>net.jxse.update</artifactId>
+  <packaging>pom</packaging>
+
+
+</project> 

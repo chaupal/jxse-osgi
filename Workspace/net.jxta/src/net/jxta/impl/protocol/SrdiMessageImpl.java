@@ -280,7 +280,8 @@ public class SrdiMessageImpl extends SrdiMessage {
      * @param encodeAs the mime type encoding
      * @return document represtation of this object
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
 
         StructuredTextDocument adv = (StructuredTextDocument<?>)

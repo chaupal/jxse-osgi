@@ -295,7 +295,8 @@ public class ModuleSpecAdv extends ModuleSpecAdvertisement {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         if (null == getModuleSpecID()) {
             throw new IllegalStateException("Module Spec Advertisement did not contain a module spec id.");

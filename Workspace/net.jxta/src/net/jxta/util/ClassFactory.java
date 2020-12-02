@@ -56,6 +56,7 @@
 
 package net.jxta.util;
 
+import net.jxta.impl.Version;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 
@@ -188,6 +189,9 @@ public abstract class ClassFactory<K, I> {
      */
     protected boolean registerProviders(String interfaceName) {
         ClassLoader loader = getClass().getClassLoader();
+        
+        Class<?> clss = Version.class;
+        URL url = clss.getResource("resources/test.xml");
         boolean registeredSomething = false;
 
         try {

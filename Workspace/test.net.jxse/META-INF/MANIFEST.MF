@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JXSE Test Suite
+Bundle-SymbolicName: test.net.jxse;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: chaupal.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Fragment-Host: net.jxse
+Import-Package: net.jxse.OSGi,
+ net.jxse.OSGi.Services,
+ net.jxse.configuration,
+ net.jxta.configuration,
+ net.jxta.document,
+ net.jxta.endpoint,
+ net.jxta.exception,
+ net.jxta.id,
+ net.jxta.impl,
+ net.jxta.peer,
+ net.jxta.peergroup,
+ net.jxta.pipe,
+ net.jxta.platform,
+ net.jxta.protocol,
+ net.jxta.util,
+ org.osgi.framework;version="1.3.0"
+Bundle-ClassPath: .
+Export-Package: net.jxse.systemtests.colocated.configs
+Automatic-Module-Name: test.net.jxse

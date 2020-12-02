@@ -226,7 +226,8 @@ public class WireHeader {
      * @param encodeAs mime type encoding
      * @return the docment for this header
      */
-    public Document getDocument(MimeMediaType encodeAs) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public Document getDocument(MimeMediaType encodeAs) {
         StructuredTextDocument doc = (StructuredTextDocument<?>)
                 StructuredDocumentFactory.newStructuredDocument(encodeAs, Name);
 

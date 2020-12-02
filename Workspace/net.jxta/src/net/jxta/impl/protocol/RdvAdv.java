@@ -248,7 +248,8 @@ public class RdvAdv extends RdvAdvertisement {
     /**
      *  {@inheritDoc}
      **/
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
 
         // Sanity Check!!!

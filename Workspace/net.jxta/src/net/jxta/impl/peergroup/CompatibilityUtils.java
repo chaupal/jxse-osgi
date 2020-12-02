@@ -143,7 +143,7 @@ public final class CompatibilityUtils {
      * 
      * @return compatibility statement document
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public static XMLDocument<?> createDefaultCompatStatement() {
         XMLDocument doc = (XMLDocument<?>)
                 StructuredDocumentFactory.newStructuredDocument(
@@ -164,7 +164,8 @@ public final class CompatibilityUtils {
      * @return {@code true} if we are compatible with the provided statement
      *  otherwise {@code false}.
      */
-    public static boolean isCompatible(Element<?> compat) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static boolean isCompatible(Element<?> compat) {
         boolean formatOk = false;
         boolean bindingOk = false;
 

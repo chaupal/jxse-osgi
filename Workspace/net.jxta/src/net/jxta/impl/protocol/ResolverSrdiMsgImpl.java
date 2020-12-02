@@ -151,7 +151,8 @@ public class ResolverSrdiMsgImpl extends ResolverSrdiMsg {
      * @param asMimeType type of message
      * @return document
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType asMimeType) {
         StructuredTextDocument adv = (StructuredTextDocument<?>) StructuredDocumentFactory.newStructuredDocument(asMimeType
                 ,

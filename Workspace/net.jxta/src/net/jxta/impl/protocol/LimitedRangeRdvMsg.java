@@ -426,7 +426,8 @@ public class LimitedRangeRdvMsg {
     /**
      * @inheritDoc
      */
-    public Document getDocument(MimeMediaType mediaType) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public Document getDocument(MimeMediaType mediaType) {
 
         if (getTTL() < 1) {
             throw new IllegalStateException("Illegal TTL value.");

@@ -244,7 +244,8 @@ public class ResolverQuery extends ResolverQueryMsg implements Cloneable {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Document getDocument(MimeMediaType encodeAs) {
         // sanity check!
         if (null == getHandlerName()) {

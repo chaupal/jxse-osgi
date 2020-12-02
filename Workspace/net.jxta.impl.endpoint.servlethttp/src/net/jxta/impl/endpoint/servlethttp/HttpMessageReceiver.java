@@ -161,16 +161,16 @@ class HttpMessageReceiver implements MessageReceiver {
         server = new Server(addrPort);
 
         // Jetty 8 doesn't initialise its own thread pool, so do that here:
-        server.setThreadPool(new QueuedThreadPool());
+        //server.setThreadPool(new QueuedThreadPool());
         // Jetty 9 does initialise a QueuedThreadPool for us, so we wouldn't need to create one above.
 
         final QueuedThreadPool threadPool = (QueuedThreadPool) server.getThreadPool();
         threadPool.setMinThreads(MIN_LISTENER_THREADS);
         threadPool.setMaxThreads(MAX_LISTENER_THREADS);
         // Jetty 8:
-        threadPool.setMaxIdleTimeMs((int) MAX_THREAD_IDLE_DURATION);
+        //threadPool.setMaxIdleTimeMs((int) MAX_THREAD_IDLE_DURATION);
         // Jetty 9:
-        // threadPool.setIdleTimeout((int) MAX_THREAD_IDLE_DURATION); 
+        threadPool.setIdleTimeout((int) MAX_THREAD_IDLE_DURATION); 
 
         final HandlerCollection handlers = new HandlerCollection();
         
