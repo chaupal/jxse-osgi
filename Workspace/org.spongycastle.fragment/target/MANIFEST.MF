@@ -1,0 +1,242 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Spongycastle
+Bundle-SymbolicName: org.spongycastle.fragment;singleton:=true
+Bundle-Version: 1.0.0.202012021128
+Bundle-Vendor: Condast
+Fragment-Host: system.bundle;extension:=framework
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: libs/sc-light-jdk15on-1.47.0.2.jar,libs/scpkix-jdk15on
+ -1.47.0.2.jar,libs/scprov-jdk15on-1.47.0.2.jar,.
+Export-Package: org.spongycastle,org.spongycastle.asn1;version="1.47.0.2
+ ",org.spongycastle.asn1.bc;uses:="org.spongycastle.asn1",org.spongycast
+ le.asn1.cmp;uses:="org.spongycastle.asn1,org.spongycastle.asn1.x509,org
+ .spongycastle.asn1.crmf",org.spongycastle.asn1.cms;uses:="org.spongycas
+ tle.asn1.x500,org.spongycastle.asn1,org.spongycastle.asn1.x509",org.spo
+ ngycastle.asn1.cms.ecc;uses:="org.spongycastle.asn1,org.spongycastle.as
+ n1.cms",org.spongycastle.asn1.crmf; uses:="org.spongycastle.asn1.x500, 
+  org.spongycastle.asn1.cmp,  org.spongycastle.asn1,  org.spongycastle.a
+ sn1.cms,  org.spongycastle.asn1.x509,  org.spongycastle.asn1.pkcs",org.
+ spongycastle.asn1.cryptopro;uses:="org.spongycastle.crypto.params,org.s
+ pongycastle.asn1",org.spongycastle.asn1.eac;uses:="org.spongycastle.asn
+ 1",org.spongycastle.asn1.esf; uses:="org.spongycastle.asn1.x500,  org.s
+ pongycastle.asn1,  org.spongycastle.asn1.x509,  org.spongycastle.asn1.o
+ csp",org.spongycastle.asn1.ess;uses:="org.spongycastle.asn1,org.spongyc
+ astle.asn1.x509",org.spongycastle.asn1.gnu;uses:="org.spongycastle.asn1
+ ",org.spongycastle.asn1.iana;uses:="org.spongycastle.asn1",org.spongyca
+ stle.asn1.icao;uses:="org.spongycastle.asn1,org.spongycastle.asn1.x509"
+ ,org.spongycastle.asn1.isismtt;uses:="org.spongycastle.asn1",org.spongy
+ castle.asn1.isismtt.ocsp;uses:="org.spongycastle.asn1,org.spongycastle.
+ asn1.x509",org.spongycastle.asn1.isismtt.x509;uses:="org.spongycastle.a
+ sn1.x500,org.spongycastle.asn1,org.spongycastle.asn1.x509",org.spongyca
+ stle.asn1.kisa;uses:="org.spongycastle.asn1",org.spongycastle.asn1.micr
+ osoft;uses:="org.spongycastle.asn1",org.spongycastle.asn1.misc;uses:="o
+ rg.spongycastle.asn1",org.spongycastle.asn1.mozilla;uses:="org.spongyca
+ stle.asn1,org.spongycastle.asn1.x509",org.spongycastle.asn1.nist;uses:=
+ "org.spongycastle.asn1,org.spongycastle.asn1.x9",org.spongycastle.asn1.
+ ntt;uses:="org.spongycastle.asn1",org.spongycastle.asn1.ocsp;uses:="org
+ .spongycastle.asn1.x500,org.spongycastle.asn1,org.spongycastle.asn1.x50
+ 9",org.spongycastle.asn1.oiw;uses:="org.spongycastle.asn1",org.spongyca
+ stle.asn1.pkcs;uses:="org.spongycastle.asn1.x500,org.spongycastle.asn1,
+ org.spongycastle.asn1.x509",org.spongycastle.asn1.sec;uses:="org.spongy
+ castle.asn1,org.spongycastle.asn1.x9",org.spongycastle.asn1.smime;uses:
+ ="org.spongycastle.asn1,org.spongycastle.asn1.cms",org.spongycastle.asn
+ 1.teletrust;uses:="org.spongycastle.asn1,org.spongycastle.asn1.x9",org.
+ spongycastle.asn1.tsp; uses:="org.spongycastle.asn1.cmp,  org.spongycas
+ tle.asn1,  org.spongycastle.asn1.cms,  org.spongycastle.asn1.x509",org.
+ spongycastle.asn1.util;uses:="org.spongycastle.asn1",org.spongycastle.a
+ sn1.x500;uses:="org.spongycastle.asn1",org.spongycastle.asn1.x500.style
+ ;uses:="org.spongycastle.asn1.x500,org.spongycastle.asn1",org.spongycas
+ tle.asn1.x509;version="1.47.0.2";uses:="org.spongycastle.asn1.x500,org.
+ spongycastle.asn1,org.spongycastle.asn1.pkcs",org.spongycastle.asn1.x50
+ 9.qualified;uses:="org.spongycastle.asn1,org.spongycastle.asn1.x509",or
+ g.spongycastle.asn1.x509.sigi;uses:="org.spongycastle.asn1.x500,org.spo
+ ngycastle.asn1",org.spongycastle.asn1.x9;uses:="org.spongycastle.asn1,o
+ rg.spongycastle.math.ec",org.spongycastle.cert; uses:="org.spongycastle
+ .asn1.x500,  org.spongycastle.asn1,  org.spongycastle.asn1.x509,  org.s
+ pongycastle.operator,  org.spongycastle.util",org.spongycastle.cert.cmp
+ ; uses:="org.spongycastle.asn1.x500,  org.spongycastle.asn1.cmp,  org.s
+ pongycastle.asn1,  org.spongycastle.asn1.x509,  org.spongycastle.cert.c
+ rmf,  org.spongycastle.operator,  org.spongycastle.cert",org.spongycast
+ le.cert.crmf; uses:="org.spongycastle.asn1.x500,  org.spongycastle.asn1
+ .cmp,  org.spongycastle.asn1,  org.spongycastle.cms,  org.spongycastle.
+ cert,  org.spongycastle.asn1.pkcs,  org.spongycastle.asn1.x509,  org.sp
+ ongycastle.asn1.crmf,  org.spongycastle.operator",org.spongycastle.cert
+ .crmf.jcajce; uses:="org.spongycastle.asn1.x500,  org.spongycastle.asn1
+ ,  javax.crypto,  org.spongycastle.asn1.x509,  org.spongycastle.asn1.cr
+ mf,  org.spongycastle.cert.crmf,  javax.security.auth.x500,  org.spongy
+ castle.operator,  org.spongycastle.jcajce",org.spongycastle.cert.jcajce
+ ; uses:="org.spongycastle.asn1.x500,  org.spongycastle.asn1,  org.spong
+ ycastle.x509,  org.spongycastle.util,  org.spongycastle.cert,  org.spon
+ gycastle.asn1.x509,  javax.security.auth.x500,  org.spongycastle.operat
+ or",org.spongycastle.cert.ocsp; uses:="org.spongycastle.asn1.x500,  org
+ .spongycastle.asn1,  org.spongycastle.asn1.x509,  org.spongycastle.asn1
+ .ocsp,  org.spongycastle.operator,  org.spongycastle.cert",org.spongyca
+ stle.cert.ocsp.jcajce;uses:="javax.security.auth.x500,org.spongycastle.
+ operator,org.spongycastle.cert.ocsp",org.spongycastle.cert.selector; us
+ es:="org.spongycastle.asn1.x500,  org.spongycastle.asn1.x509,  org.spon
+ gycastle.util,  org.spongycastle.cert",org.spongycastle.cert.selector.j
+ cajce;uses:="org.spongycastle.asn1.x500,javax.security.auth.x500,org.sp
+ ongycastle.cert.selector",org.spongycastle.cms; uses:="org.spongycastle
+ .asn1.x500,  javax.crypto.interfaces,  org.spongycastle.asn1,  org.spon
+ gycastle.asn1.cms,  org.spongycastle.x509,  javax.crypto,  org.spongyca
+ stle.util,  org.spongycastle.cert,  javax.crypto.spec,  org.spongycastl
+ e.asn1.x509,  org.spongycastle.operator",org.spongycastle.cms.bc; uses:
+ ="org.spongycastle.crypto.params,  org.spongycastle.asn1.x509,  org.spo
+ ngycastle.cms,  org.spongycastle.operator.bc,  org.spongycastle.operato
+ r,  org.spongycastle.cert",org.spongycastle.cms.jcajce; uses:="org.spon
+ gycastle.asn1,  org.spongycastle.asn1.cms,  org.spongycastle.cert.selec
+ tor.jcajce,  org.spongycastle.cms,  javax.crypto,  org.spongycastle.cer
+ t,  org.spongycastle.operator.jcajce,  org.spongycastle.asn1.x509,  jav
+ ax.security.auth.x500,  org.spongycastle.operator,  org.spongycastle.jc
+ ajce",org.spongycastle.crypto,org.spongycastle.crypto.agreement;uses:="
+ org.spongycastle.crypto.params,org.spongycastle.crypto",org.spongycastl
+ e.crypto.agreement.kdf;uses:="org.spongycastle.asn1,org.spongycastle.cr
+ ypto",org.spongycastle.crypto.agreement.srp;uses:="org.spongycastle.cry
+ pto",org.spongycastle.crypto.digests;uses:="org.spongycastle.crypto",or
+ g.spongycastle.crypto.encodings;uses:="org.spongycastle.crypto",org.spo
+ ngycastle.crypto.engines;uses:="org.spongycastle.crypto.params,org.spon
+ gycastle.math.ntru.polynomial,org.spongycastle.crypto",org.spongycastle
+ .crypto.examples,org.spongycastle.crypto.generators; uses:="org.spongyc
+ astle.crypto.params,  org.spongycastle.crypto,  org.spongycastle.math.n
+ tru.polynomial,  org.spongycastle.math.ec",org.spongycastle.crypto.io;u
+ ses:="org.spongycastle.crypto",org.spongycastle.crypto.macs;uses:="org.
+ spongycastle.crypto,org.spongycastle.crypto.paddings",org.spongycastle.
+ crypto.modes;uses:="org.spongycastle.crypto.modes.gcm,org.spongycastle.
+ crypto",org.spongycastle.crypto.modes.gcm,org.spongycastle.crypto.paddi
+ ngs;uses:="org.spongycastle.crypto",org.spongycastle.crypto.params;uses
+ :="org.spongycastle.math.ntru.polynomial,org.spongycastle.crypto,org.sp
+ ongycastle.math.ec",org.spongycastle.crypto.prng;uses:="org.spongycastl
+ e.crypto",org.spongycastle.crypto.signers; uses:="org.spongycastle.cryp
+ to.params,  org.spongycastle.math.ntru.polynomial,  org.spongycastle.cr
+ ypto,  org.spongycastle.math.ec",org.spongycastle.crypto.tls; uses:="or
+ g.spongycastle.crypto.params,  org.spongycastle.crypto.agreement.srp,  
+ org.spongycastle.crypto,  org.spongycastle.asn1.x509,  org.spongycastle
+ .crypto.digests",org.spongycastle.crypto.util;uses:="org.spongycastle.c
+ rypto.params,org.spongycastle.asn1.x509,org.spongycastle.asn1.pkcs",org
+ .spongycastle.eac;uses:="org.spongycastle.asn1.eac,org.spongycastle.eac
+ .operator",org.spongycastle.eac.jcajce;uses:="org.spongycastle.asn1,org
+ .spongycastle.asn1.eac",org.spongycastle.eac.operator;uses:="org.spongy
+ castle.asn1",org.spongycastle.eac.operator.jcajce;uses:="org.spongycast
+ le.asn1,org.spongycastle.eac.operator",org.spongycastle.i18n;uses:="org
+ .spongycastle.i18n.filter",org.spongycastle.i18n.filter,org.spongycastl
+ e.jcajce;uses:="javax.crypto",org.spongycastle.jcajce.io;uses:="javax.c
+ rypto",org.spongycastle.jcajce.provider.asymmetric;uses:="org.spongycas
+ tle.jcajce.provider.util,org.spongycastle.jcajce.provider.config",org.s
+ pongycastle.jcajce.provider.asymmetric.dh; uses:="javax.crypto.interfac
+ es,  org.spongycastle.jce.interfaces,  org.spongycastle.asn1,  javax.cr
+ ypto,  org.spongycastle.asn1.pkcs,  org.spongycastle.crypto.params,  ja
+ vax.crypto.spec,  org.spongycastle.crypto.generators,  org.spongycastle
+ .asn1.x509,  org.spongycastle.jcajce.provider.asymmetric.util",org.spon
+ gycastle.jcajce.provider.asymmetric.dsa; uses:="org.spongycastle.jce.in
+ terfaces,  org.spongycastle.asn1,  org.spongycastle.crypto,  org.spongy
+ castle.asn1.pkcs,  org.spongycastle.crypto.params,  org.spongycastle.cr
+ ypto.generators,  org.spongycastle.asn1.x509,  org.spongycastle.jcajce.
+ provider.asymmetric.util",org.spongycastle.jcajce.provider.asymmetric.e
+ c; uses:="org.spongycastle.jce.interfaces,  org.spongycastle.asn1,  org
+ .spongycastle.jcajce.provider.util,  org.spongycastle.crypto,  org.spon
+ gycastle.asn1.x9,  javax.crypto,  org.spongycastle.math.ec,  org.spongy
+ castle.asn1.pkcs,  org.spongycastle.crypto.params,  org.spongycastle.cr
+ ypto.generators,  org.spongycastle.jcajce.provider.config,  org.spongyc
+ astle.jce.spec,  org.spongycastle.asn1.x509,  org.spongycastle.jcajce.p
+ rovider.asymmetric.util",org.spongycastle.jcajce.provider.asymmetric.ec
+ gost; uses:="org.spongycastle.jce.interfaces,  org.spongycastle.asn1,  
+ org.spongycastle.math.ec,  org.spongycastle.asn1.pkcs,  org.spongycastl
+ e.crypto.params,  org.spongycastle.crypto.generators,  org.spongycastle
+ .jce.spec,  org.spongycastle.asn1.x509,  org.spongycastle.jcajce.provid
+ er.asymmetric.util",org.spongycastle.jcajce.provider.asymmetric.elgamal
+ ; uses:="javax.crypto.interfaces,  org.spongycastle.jce.interfaces,  or
+ g.spongycastle.asn1,  org.spongycastle.crypto,  org.spongycastle.asn1.p
+ kcs,  org.spongycastle.jce.provider,  javax.crypto.spec,  org.spongycas
+ tle.crypto.params,  org.spongycastle.crypto.generators,  org.spongycast
+ le.jce.spec,  org.spongycastle.asn1.x509,  org.spongycastle.jcajce.prov
+ ider.asymmetric.util",org.spongycastle.jcajce.provider.asymmetric.gost;
+  uses:="org.spongycastle.jce.interfaces,  org.spongycastle.asn1,  org.s
+ pongycastle.asn1.pkcs,  org.spongycastle.crypto.params,  org.spongycast
+ le.crypto.generators,  org.spongycastle.jce.spec,  org.spongycastle.asn
+ 1.x509,  org.spongycastle.jcajce.provider.asymmetric.util",org.spongyca
+ stle.jcajce.provider.asymmetric.rsa; uses:="org.spongycastle.jce.interf
+ aces,  org.spongycastle.asn1,  org.spongycastle.crypto,  org.spongycast
+ le.asn1.pkcs,  org.spongycastle.crypto.params,  javax.crypto.spec,  org
+ .spongycastle.crypto.generators,  org.spongycastle.asn1.x509,  org.spon
+ gycastle.jcajce.provider.asymmetric.util",org.spongycastle.jcajce.provi
+ der.asymmetric.util; uses:="org.spongycastle.jce.interfaces,  org.spong
+ ycastle.asn1,  org.spongycastle.jcajce.provider.util,  org.spongycastle
+ .crypto,  javax.crypto,  org.spongycastle.asn1.pkcs,  org.spongycastle.
+ asn1.x509",org.spongycastle.jcajce.provider.asymmetric.x509;uses:="org.
+ spongycastle.asn1,org.spongycastle.asn1.x509",org.spongycastle.jcajce.p
+ rovider.config; uses:="javax.crypto.spec,  org.spongycastle.asn1,  org.
+ spongycastle.jcajce.provider.util,  org.spongycastle.jce.spec",org.spon
+ gycastle.jcajce.provider.digest; uses:="org.spongycastle.jce.provider, 
+  org.spongycastle.asn1,  org.spongycastle.jcajce.provider.util,  org.sp
+ ongycastle.crypto,  org.spongycastle.jcajce.provider.symmetric.util,  o
+ rg.spongycastle.jcajce.provider.config",org.spongycastle.jcajce.provide
+ r.symmetric; uses:="javax.crypto.spec,  org.spongycastle.jcajce.provide
+ r.util,  org.spongycastle.jcajce.provider.symmetric.util,  org.spongyca
+ stle.jcajce.provider.config,  javax.crypto",org.spongycastle.jcajce.pro
+ vider.symmetric.util; uses:="javax.crypto.interfaces,  javax.crypto.spe
+ c,  org.spongycastle.asn1,  org.spongycastle.crypto,  javax.crypto,  or
+ g.spongycastle.asn1.pkcs",org.spongycastle.jcajce.provider.util; uses:=
+ "org.spongycastle.asn1,  org.spongycastle.crypto,  org.spongycastle.jca
+ jce.provider.config,  org.spongycastle.asn1.x509,  org.spongycastle.asn
+ 1.pkcs",org.spongycastle.jce;version="1.47.0.2"; uses:="org.spongycastl
+ e.asn1.x500,  org.spongycastle.asn1,  org.spongycastle.x509,  org.spong
+ ycastle.asn1.pkcs,  org.spongycastle.jce.spec,  org.spongycastle.asn1.x
+ 509,  javax.security.auth.x500,  new org.spongycastle.jce",org.spongyca
+ stle.jce.examples;uses:="org.spongycastle.x509",org.spongycastle.jce.ex
+ ception,org.spongycastle.jce.interfaces;uses:="org.spongycastle.asn1,or
+ g.spongycastle.jce.spec,org.spongycastle.math.ec",org.spongycastle.jce.
+ netscape;uses:="org.spongycastle.asn1,org.spongycastle.asn1.x509",org.s
+ pongycastle.jce.provider;version="1.47.0.2"; uses:="javax.crypto.interf
+ aces,  org.spongycastle.x509,  org.spongycastle.jcajce.provider.symmetr
+ ic.util,  org.spongycastle.crypto.engines,  org.spongycastle.util,  org
+ .spongycastle.crypto.params,  org.spongycastle.asn1.x509,  javax.securi
+ ty.auth.x500,  org.spongycastle.asn1.x500,  org.spongycastle.jce.interf
+ aces,  org.spongycastle.asn1,  org.spongycastle.jcajce.provider.util,  
+ org.spongycastle.crypto,  javax.crypto,  org.spongycastle.math.ec,  org
+ .spongycastle.asn1.pkcs,  javax.crypto.spec,  org.spongycastle.jcajce.p
+ rovider.config,  org.spongycastle.jce.spec,  org.spongycastle.jce.excep
+ tion",org.spongycastle.jce.spec; uses:="org.spongycastle.jce.interfaces
+ ,  org.spongycastle.asn1.cryptopro,  javax.crypto,  org.spongycastle.ma
+ th.ec",org.spongycastle.math.ec;uses:="org.spongycastle.asn1.x9",org.sp
+ ongycastle.math.ntru.euclid,org.spongycastle.math.ntru.polynomial,org.s
+ pongycastle.math.ntru.util;uses:="org.spongycastle.math.ntru.polynomial
+ ",org.spongycastle.mozilla;uses:="org.spongycastle.asn1.mozilla,org.spo
+ ngycastle.asn1",org.spongycastle.ocsp; uses:="org.spongycastle.asn1,  o
+ rg.spongycastle.asn1.x509,  org.spongycastle.asn1.ocsp,  javax.security
+ .auth.x500",org.spongycastle.openssl;uses:="org.spongycastle.asn1,org.s
+ pongycastle.util.io.pem,javax.crypto",org.spongycastle.operator;uses:="
+ org.spongycastle.asn1.x509,org.spongycastle.cert",org.spongycastle.oper
+ ator.bc; uses:="org.spongycastle.crypto.params,  org.spongycastle.asn1,
+   org.spongycastle.crypto,  org.spongycastle.asn1.x509,  org.spongycast
+ le.operator,  org.spongycastle.cert",org.spongycastle.operator.jcajce; 
+ uses:="new org.spongycastle.operator.jcajce,  org.spongycastle.asn1,  j
+ avax.crypto,  org.spongycastle.cert,  org.spongycastle.asn1.x509,  org.
+ spongycastle.operator,  org.spongycastle.jcajce",org.spongycastle.pkcs;
+  uses:="org.spongycastle.asn1.x500,  org.spongycastle.asn1,  org.spongy
+ castle.asn1.x509,  org.spongycastle.operator,  org.spongycastle.cert,  
+ org.spongycastle.asn1.pkcs",org.spongycastle.pkcs.bc; uses:="org.spongy
+ castle.asn1,  org.spongycastle.crypto,  org.spongycastle.pkcs,  org.spo
+ ngycastle.crypto.paddings,  org.spongycastle.asn1.x509,  org.spongycast
+ le.operator,  org.spongycastle.crypto.macs,  new org.spongycastle.pkcs.
+ bc,  org.spongycastle.asn1.pkcs",org.spongycastle.pkcs.jcajce; uses:="o
+ rg.spongycastle.asn1.x500,  org.spongycastle.pkcs,  javax.security.auth
+ .x500,  org.spongycastle.operator,  org.spongycastle.asn1.pkcs",org.spo
+ ngycastle.tsp; uses:="org.spongycastle.asn1.cmp,  org.spongycastle.asn1
+ ,  org.spongycastle.asn1.cms,  org.spongycastle.asn1.tsp,  org.spongyca
+ stle.cms,  org.spongycastle.util,  org.spongycastle.cert,  org.spongyca
+ stle.asn1.ess,  org.spongycastle.asn1.x509,  org.spongycastle.operator"
+ ,org.spongycastle.tsp.cms; uses:="org.spongycastle.asn1.cms,  org.spong
+ ycastle.cms,  org.spongycastle.operator,  org.spongycastle.tsp",org.spo
+ ngycastle.util,org.spongycastle.util.encoders,org.spongycastle.util.io,
+ org.spongycastle.util.io.pem,org.spongycastle.util.test,org.spongycastl
+ e.voms;uses:="org.spongycastle.x509",org.spongycastle.x509;version="1.4
+ 7.0.2"; uses:="org.spongycastle.asn1,  org.spongycastle.jce,  org.spong
+ ycastle.util,  org.spongycastle.jce.provider,  org.spongycastle.i18n,  
+ org.spongycastle.asn1.x509,  javax.security.auth.x500,  org.spongycastl
+ e.x509.util",org.spongycastle.x509.examples;uses:="org.spongycastle.x50
+ 9",org.spongycastle.x509.extension;uses:="org.spongycastle.asn1,org.spo
+ ngycastle.asn1.x509",org.spongycastle.x509.util;uses:="org.spongycastle
+ .x509,org.spongycastle.jce"
+Automatic-Module-Name: org.spongycastle.fragment
+

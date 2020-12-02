@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Netty
+Bundle-SymbolicName: net.jxta.impl.endpoint.netty;singleton:=true
+Bundle-Version: 1.0.0.202012021128
+Bundle-Vendor: Chaupal
+Automatic-Module-Name: org.jxta.impl.endpoint.netty
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: net.jxta.impl.endpoint.netty,net.jxta.impl.endpoint.nett
+ y.http
+Import-Package: net.jxta.document,net.jxta.endpoint,net.jxta.exception,n
+ et.jxta.id,net.jxta.impl.endpoint,net.jxta.impl.endpoint.msgframing,net
+ .jxta.impl.protocol,net.jxta.impl.util.threads,net.jxta.logging,net.jxt
+ a.peer,net.jxta.peergroup,net.jxta.peergroup.core,net.jxta.platform,net
+ .jxta.protocol,org.jboss.netty.bootstrap;version="3.9.6.Final",org.jbos
+ s.netty.buffer;version="3.9.6.Final",org.jboss.netty.channel;version="3
+ .9.6.Final",org.jboss.netty.channel.group;version="3.9.6.Final",org.jbo
+ ss.netty.channel.socket;version="3.9.6.Final",org.jboss.netty.channel.s
+ ocket.http;version="3.9.6.Final",org.jboss.netty.channel.socket.httptun
+ nel;version="0.92.0",org.jboss.netty.channel.socket.nio;version="3.9.6.
+ Final",org.jboss.netty.handler.codec.oneone;version="3.9.6.Final",org.j
+ boss.netty.handler.timeout;version="3.9.6.Final",org.jboss.netty.util;v
+ ersion="3.9.6.Final"
+

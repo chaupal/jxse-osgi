@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='net.jxta.impl.cm.sql.derby' version='1.0.0.202012021128' generation='2'>
+    <update id='net.jxta.impl.cm.sql.derby' range='[0.0.0,1.0.0.202012021128)' severity='0'/>
+    <properties size='5'>
+      <property name='org.eclipse.equinox.p2.name' value='Derby Database'/>
+      <property name='org.eclipse.equinox.p2.provider' value='chaupal.org'/>
+      <property name='maven-groupId' value='net.jxse'/>
+      <property name='maven-artifactId' value='net.jxta.impl.cm.sql.derby'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+    <provides size='5'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.cm.sql.derby' version='1.0.0.202012021128'/>
+      <provided namespace='osgi.bundle' name='net.jxta.impl.cm.sql.derby' version='1.0.0.202012021128'/>
+      <provided namespace='java.package' name='net.jxta.impl.cm.sql.derby' version='0.0.0'/>
+      <provided namespace='osgi.identity' name='net.jxta.impl.cm.sql.derby' version='1.0.0.202012021128'>
+        <properties size='1'>
+          <property name='type' value='osgi.bundle'/>
+        </properties>
+      </provided>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='4'>
+      <required namespace='java.package' name='net.jxta.impl.cm.sql' range='0.0.0'/>
+      <required namespace='java.package' name='net.jxta.impl.util.threads' range='0.0.0'/>
+      <required namespace='java.package' name='org.apache.derby.jdbc' range='0.0.0'/>
+      <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'>
+        <description>
+          net.jxta.impl.cm.sql.derby
+        </description>
+      </requiredProperties>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='net.jxta.impl.cm.sql.derby' version='1.0.0.202012021128'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: net.jxta.impl.cm.sql.derby;singleton:=true&#xA;Bundle-Version: 1.0.0.202012021128&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>

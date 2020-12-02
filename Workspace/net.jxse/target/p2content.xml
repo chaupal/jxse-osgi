@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='net.jxse' version='1.0.0.202012021128' generation='2'>
+    <update id='net.jxse' range='[0.0.0,1.0.0.202012021128)' severity='0'/>
+    <properties size='5'>
+      <property name='org.eclipse.equinox.p2.name' value='Jxse Wrapper'/>
+      <property name='org.eclipse.equinox.p2.provider' value='Condast'/>
+      <property name='maven-groupId' value='net.jxse'/>
+      <property name='maven-artifactId' value='net.jxse'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+    <provides size='10'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxse' version='1.0.0.202012021128'/>
+      <provided namespace='osgi.bundle' name='net.jxse' version='1.0.0.202012021128'/>
+      <provided namespace='java.package' name='net.jxse.OSGi' version='0.0.0'/>
+      <provided namespace='java.package' name='net.jxse.OSGi.Services' version='0.0.0'/>
+      <provided namespace='java.package' name='net.jxse.configuration' version='0.0.0'/>
+      <provided namespace='java.package' name='net.jxse.impl.OSGi.Activators' version='0.0.0'/>
+      <provided namespace='java.package' name='net.jxse.impl.OSGi.Services' version='0.0.0'/>
+      <provided namespace='java.package' name='net.jxse.service' version='0.0.0'/>
+      <provided namespace='osgi.identity' name='net.jxse' version='1.0.0.202012021128'>
+        <properties size='1'>
+          <property name='type' value='osgi.bundle'/>
+        </properties>
+      </provided>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='11'>
+      <required namespace='java.package' name='net.jxse' range='0.0.0'/>
+      <required namespace='java.package' name='net.jxta.configuration' range='0.0.0'/>
+      <required namespace='java.package' name='net.jxta.id' range='0.0.0'/>
+      <required namespace='java.package' name='net.jxta.peer' range='0.0.0'/>
+      <required namespace='java.package' name='net.jxta.peergroup' range='0.0.0'/>
+      <required namespace='java.package' name='net.jxta.platform' range='0.0.0'/>
+      <required namespace='java.package' name='net.jxta.service' range='0.0.0'/>
+      <required namespace='java.package' name='org.osgi.framework' range='1.3.0'/>
+      <required namespace='java.package' name='org.osgi.framework.launch' range='1.1.0'/>
+      <required namespace='java.package' name='org.osgi.util.tracker' range='1.5.1'/>
+      <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'>
+        <description>
+          net.jxse
+        </description>
+      </requiredProperties>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='net.jxse' version='1.0.0.202012021128'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: net.jxse;singleton:=true&#xA;Bundle-Version: 1.0.0.202012021128&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>
