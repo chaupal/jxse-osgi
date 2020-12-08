@@ -15,11 +15,19 @@ import java.security.PrivateKey;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.spec.PKCS8EncodedKeySpec;
+
+import org.junit.Test;
+
 import net.jxta.impl.membership.pse.PSEUtils;
 
 public class ExportingAndImportingPrivateKeysAndX509Certificates {
     
     public static final String Name = "Example_600";
+
+    @Test
+    public void test() {
+    	main(null);
+    }
 
     public static void main(String[] args) {
         

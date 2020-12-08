@@ -11,6 +11,9 @@ import net.chaupal.practical.jxta.tools.Tools;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
+
+import org.junit.Test;
+
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.StringMessageElement;
 import net.jxta.exception.ConfiguratorException;
@@ -59,7 +62,12 @@ public class EdgeDimitriSendingMessages implements OutputPipeListener {
         }
         
     }    
-    
+  
+    @Test
+    public void test() {
+    	main(null);
+    }
+
     public static void main(String[] args) {
         
         try {

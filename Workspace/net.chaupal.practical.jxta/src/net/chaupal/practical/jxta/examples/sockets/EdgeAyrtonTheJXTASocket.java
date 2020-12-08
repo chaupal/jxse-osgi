@@ -21,12 +21,19 @@ import net.jxta.socket.JxtaSocket;
 import java.io.*;
 import java.net.InetAddress;
 
+import org.junit.Test;
+
 public class EdgeAyrtonTheJXTASocket {
 
     public static final String Name = "Edge Ayrton, the JXTA socket";
     public static final int TcpPort = 9712;
     public static final PeerID PID = IDFactory.newPeerID(PeerGroupID.defaultNetPeerGroupID, Name.getBytes());
     public static final File ConfigurationFile = new File("." + System.getProperty("file.separator") + Name);
+
+    @Test
+    public void test() {
+    	main(null);
+    }
 
     public static void main(String[] args) {
 

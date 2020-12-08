@@ -6,6 +6,8 @@
  */
 package net.chaupal.practical.jxta.examples.peersandgroups;
 
+import org.junit.Test;
+
 import net.jxta.id.IDFactory;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroupID;
@@ -15,6 +17,11 @@ public class CreatingIDs {
 
     public static final String Name = "Example 200";
     
+    @Test
+    public void test() {
+    	main(null);
+    }
+
     public static void main(String[] args) {
 
         // Creating a peer group ID and a sub-peer group ID

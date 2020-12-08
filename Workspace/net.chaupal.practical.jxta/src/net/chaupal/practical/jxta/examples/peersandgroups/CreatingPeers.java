@@ -18,11 +18,18 @@ import net.jxta.platform.NetworkManager;
 
 import java.io.IOException;
 
+import org.junit.Test;
+
 public class CreatingPeers {
 
     public static final String Name = "Example_210";
 
     public static final String PeerName = "Santa Claus de la JXTA";
+
+    @Test
+    public void test() {
+    	main(null);
+    }
 
     public static void main(String[] args) {
 
@@ -57,6 +64,8 @@ public class CreatingPeers {
 
             // Starting and stopping the network
             PeerGroup netPeerGroup = myNetworkManager.startNetwork();
+            Tools.PopInformationMessage(Name, "Net peergroup started: " + PeerName
+                    + "\n\n" + netPeerGroup.getPeerGroupName());
             myNetworkManager.stopNetwork();
 
         } catch (PeerGroupException Ex) {

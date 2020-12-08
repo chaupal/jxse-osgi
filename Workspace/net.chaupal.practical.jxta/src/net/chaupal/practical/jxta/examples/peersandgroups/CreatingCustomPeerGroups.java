@@ -29,6 +29,8 @@ import net.jxta.protocol.ModuleImplAdvertisement;
 import java.io.File;
 import java.io.IOException;
 
+import org.junit.Test;
+
 public class CreatingCustomPeerGroups {
 
     public static final String Name = "Example_220";
@@ -37,6 +39,11 @@ public class CreatingCustomPeerGroups {
 
     public static final String PeerGroupName = "Custom peer group name";
     public static final PeerGroupID CustPeerGroupID = IDFactory.newPeerGroupID(PeerGroupID.defaultNetPeerGroupID, PeerGroupName.getBytes());
+
+    @Test
+    public void test() {
+    	main(null);
+    }
 
     public static void main(String[] args) {
 

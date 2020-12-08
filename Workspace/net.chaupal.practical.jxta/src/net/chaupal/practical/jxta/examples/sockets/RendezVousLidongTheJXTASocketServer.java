@@ -25,6 +25,8 @@ import net.jxta.socket.JxtaServerSocket;
 import java.io.*;
 import java.net.Socket;
 
+import org.junit.Test;
+
 public class RendezVousLidongTheJXTASocketServer {
 
     // Static attributes
@@ -46,6 +48,11 @@ public class RendezVousLidongTheJXTASocketServer {
 
         return myPipeAdvertisement;
 
+    }
+
+    @Test
+    public void test() {
+    	main(null);
     }
 
     public static void main(String[] args) {

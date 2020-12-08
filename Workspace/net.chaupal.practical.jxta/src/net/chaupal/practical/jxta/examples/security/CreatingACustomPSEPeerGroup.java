@@ -17,6 +17,9 @@ import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.X509Certificate;
+
+import org.junit.Test;
+
 import net.jxta.credential.AuthenticationCredential;
 import net.jxta.credential.Credential;
 import net.jxta.document.MimeMediaType;
@@ -77,6 +80,11 @@ public class CreatingACustomPSEPeerGroup {
         
     }
 
+    @Test
+    public void test() {
+    	main(null);
+    }
+    
     public static void main(String[] args) {
         
         try {

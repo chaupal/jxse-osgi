@@ -10,6 +10,9 @@ package net.chaupal.practical.jxta.examples.simplepipes;
 import net.chaupal.practical.jxta.tools.Tools;
 import java.io.File;
 import java.io.IOException;
+
+import org.junit.Test;
+
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.endpoint.Message;
 import net.jxta.exception.ConfiguratorException;
@@ -64,7 +67,12 @@ public class RendezVousChandraReceivingMessages implements PipeMsgListener {
         return myPipeAdvertisement;
         
     }
-    
+   
+    @Test
+    public void test() {
+    	main(null);
+    }
+
     public static void main(String[] args) {
         
         try {

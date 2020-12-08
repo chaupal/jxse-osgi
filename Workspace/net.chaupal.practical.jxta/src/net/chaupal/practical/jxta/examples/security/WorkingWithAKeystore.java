@@ -17,6 +17,9 @@ import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.X509Certificate;
+
+import org.junit.Test;
+
 import net.jxta.id.IDFactory;
 import net.jxta.impl.membership.pse.FileKeyStoreManager;
 import net.jxta.impl.membership.pse.PSEUtils;
@@ -51,6 +54,11 @@ public class WorkingWithAKeystore {
         theX509Certificate = forPSE.cert;
         thePrivateKey = forPSE.issuerPkey;
         
+    }
+
+    @Test
+    public void test() {
+    	main(null);
     }
 
     public static void main(String[] args) {
