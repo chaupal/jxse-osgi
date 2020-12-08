@@ -6,13 +6,11 @@ import org.junit.rules.TemporaryFolder;
 import net.jxta.platform.NetworkConfigurator;
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.id.IDFactory;
-import net.jxta.impl.Version;
 import net.jxta.peer.PeerID;
 import java.io.File;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxse.configuration.JxsePeerConfiguration.ConnectionMode;
 import java.net.URI;
-import java.net.URL;
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,15 +42,20 @@ public class JxseConfigurationToolTest {
 
     @Before
     public void setUp() {
-        Class<?> clss = AdvertisementFactory.class;
-        String url = clss.getResource("..").getPath();
-        InputStream inp = clss.getResourceAsStream("/META-INF/MANIFEST.MF");
-        StringBuilder builder = new StringBuilder();
-        Scanner scanner = new Scanner( inp ); 
-        while( scanner.hasNextLine())
-        	builder.append(scanner.nextLine());
-        System.err.println(builder.toString());
-     }
+    	Class<?> clss = AdvertisementFactory.class;
+    	String url = clss.getResource("..").getPath();
+    	InputStream inp = clss.getResourceAsStream("/META-INF/MANIFEST.MF");
+    	StringBuilder builder = new StringBuilder();
+    	Scanner scanner = new Scanner( inp ); 
+    	try {
+    		while( scanner.hasNextLine())
+    			builder.append(scanner.nextLine());
+    		System.err.println(builder.toString());
+    	}
+    	finally {
+    		scanner.close();
+    	}
+    }
 
     @After
     public void tearDown() {

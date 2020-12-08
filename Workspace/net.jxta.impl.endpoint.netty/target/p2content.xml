@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='net.jxta.impl.endpoint.netty' version='1.0.0.202012021128' generation='2'>
-    <update id='net.jxta.impl.endpoint.netty' range='[0.0.0,1.0.0.202012021128)' severity='0'/>
+  <unit id='net.jxta.impl.endpoint.netty' version='1.0.0.202012071439' generation='2'>
+    <update id='net.jxta.impl.endpoint.netty' range='[0.0.0,1.0.0.202012071439)' severity='0'/>
     <properties size='5'>
       <property name='org.eclipse.equinox.p2.name' value='Netty'/>
       <property name='org.eclipse.equinox.p2.provider' value='Chaupal'/>
@@ -10,11 +10,11 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='6'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.netty' version='1.0.0.202012021128'/>
-      <provided namespace='osgi.bundle' name='net.jxta.impl.endpoint.netty' version='1.0.0.202012021128'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.netty' version='1.0.0.202012071439'/>
+      <provided namespace='osgi.bundle' name='net.jxta.impl.endpoint.netty' version='1.0.0.202012071439'/>
       <provided namespace='java.package' name='net.jxta.impl.endpoint.netty' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.impl.endpoint.netty.http' version='0.0.0'/>
-      <provided namespace='osgi.identity' name='net.jxta.impl.endpoint.netty' version='1.0.0.202012021128'>
+      <provided namespace='osgi.identity' name='net.jxta.impl.endpoint.netty' version='1.0.0.202012071439'>
         <properties size='1'>
           <property name='type' value='osgi.bundle'/>
         </properties>
@@ -54,13 +54,13 @@
       </requiredProperties>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='net.jxta.impl.endpoint.netty' version='1.0.0.202012021128'/>
+      <artifact classifier='osgi.bundle' id='net.jxta.impl.endpoint.netty' version='1.0.0.202012071439'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: net.jxta.impl.endpoint.netty;singleton:=true&#xA;Bundle-Version: 1.0.0.202012021128&#xA;
+          Bundle-SymbolicName: net.jxta.impl.endpoint.netty;singleton:=true&#xA;Bundle-Version: 1.0.0.202012071439&#xA;
         </instruction>
       </instructions>
     </touchpointData>

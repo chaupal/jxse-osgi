@@ -2,6 +2,7 @@ package net.jxta.impl.modulemanager;
 
 import net.jxta.document.Advertisement;
 import net.jxta.impl.protocol.PlatformConfig;
+import net.jxta.module.AbstractModuleDescriptor;
 import net.jxta.module.IJxtaModuleDescriptor;
 import net.jxta.module.IModuleDescriptor;
 import net.jxta.peergroup.core.ModuleClassID;

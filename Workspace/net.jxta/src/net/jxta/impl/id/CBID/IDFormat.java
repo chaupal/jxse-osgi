@@ -75,14 +75,14 @@ public class IDFormat extends net.jxta.impl.id.UUID.IDFormat {
      * where we have to make ids which are in the world peer group. We only
      * use this ID for those cases and never return this ID.
      */
-    static final PeerGroupID worldPeerGroupID = new PeerGroupID(new UUID(0x5961626164616261L, 0x4A78746150325033L)); // YabadabaJXTAP2P!
+    public static final PeerGroupID worldPeerGroupID = new PeerGroupID(new UUID(0x5961626164616261L, 0x4A78746150325033L)); // YabadabaJXTAP2P!
 
     /**
      * Our local version of the net Peer Group ID. We need this for cases
      * where we have to make ids which are in the net peer group. We only
      * use this ID for those cases and never return this ID.
      */
-    static final PeerGroupID defaultNetPeerGroupID = new PeerGroupID(new UUID(0x5961626164616261L, 0x4E50472050325033L)); // YabadabaNPG P2P!
+    public static final PeerGroupID defaultNetPeerGroupID = new PeerGroupID(new UUID(0x5961626164616261L, 0x4E50472050325033L)); // YabadabaNPG P2P!
 
     /**
      * This table maps our local private versions of the well known ids to the

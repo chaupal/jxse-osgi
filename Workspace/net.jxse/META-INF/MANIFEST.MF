@@ -4,21 +4,27 @@ Bundle-Name: Jxse Wrapper
 Bundle-SymbolicName: net.jxse;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Condast
-Export-Package: net.jxse.OSGi,
+Export-Package: net.jxse,
+ net.jxse.OSGi,
  net.jxse.OSGi.Services,
  net.jxse.configuration,
  net.jxse.impl.OSGi.Activators,
  net.jxse.impl.OSGi.Services,
+ net.jxse.jdbc,
  net.jxse.service
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: net.jxse,
- net.jxta.configuration,
+Import-Package: net.jxta.configuration,
  net.jxta.id,
+ net.jxta.impl.cm.sql,
+ net.jxta.impl.modulemanager,
+ net.jxta.impl.util.threads,
  net.jxta.peer,
  net.jxta.peergroup,
  net.jxta.platform,
+ net.jxta.protocol,
  net.jxta.service,
  org.osgi.framework;version="1.3.0",
  org.osgi.framework.launch;version="1.1.0",
+ org.osgi.service.jdbc;version="1.0.0",
  org.osgi.util.tracker;version="1.5.1"
 Automatic-Module-Name: net.jxse

@@ -56,6 +56,7 @@
 
 package net.jxta.protocol;
 
+import net.jxse.JxseInstantiator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -89,14 +90,14 @@ public class ResolverMsgTest {
     @Test
     public void testNewResolverQueryMsg() {
 
-        assert(ResolverQueryMsg.newResolverQueryMsg()!=null);
+        assert(JxseInstantiator.newResolverQueryMsg()!=null);
 
     }
 
     @Test
     public void testNewResolverResponseMsg() {
 
-        assert(ResolverResponseMsg.newResolverResponseMsg()!=null);
+        assert(JxseInstantiator.newResolverResponseMsg()!=null);
 
     }
 

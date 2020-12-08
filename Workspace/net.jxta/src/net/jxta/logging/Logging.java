@@ -321,6 +321,22 @@ public final class Logging {
     }
 
     /**
+     * This method checks whether {@code SHOW_INFO} is set to {@code true),
+     * and whether the provided logger allows info messages. If yes, the
+     * message is logged.
+     *
+     * @param inLog a logger
+     * @param inMsg the messages to concatenate
+     */
+    public static void logCheckedFiner(Logger inLog, Object... inMsg) {
+
+        if (Logging.SHOW_FINER && inLog.isInfoEnabled()) {
+            inLog.info(logParametersToString(inMsg));
+        }
+
+    }
+
+    /**
      * This method checks whether {@code SHOW_ERROR} is set to {@code true),
      * and whether the provided logger allows error messages. If yes, the
      * message is logged.
@@ -348,7 +364,19 @@ public final class Logging {
         if (Logging.SHOW_ERROR && inLog.isErrorEnabled()) {
             inLog.error(logParametersToString(inMsg));
         }
+    }
 
+    /**
+     * This method checks whether {@code SHOW_INFO} is set to {@code true),
+     * and whether the provided logger allows info messages. If yes, the
+     * message is logged.
+     *
+     * @param inLog a logger
+     * @param inMsg the messages to concatenate
+     */
+    public static void log(Level level, String inMsg, Throwable throwable) {
+        java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Logging.class.getName());   
+    	logger.log(level, inMsg);
     }
 
     /**

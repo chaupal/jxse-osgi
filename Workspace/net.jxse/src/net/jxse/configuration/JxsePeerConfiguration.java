@@ -74,8 +74,9 @@ import net.jxta.peergroup.PeerGroupID;
  *
  */
 public class JxsePeerConfiguration extends JxtaPeerConfiguration {
+	private static final long serialVersionUID = 1L;
 
-    /**
+	/**
      *  Logger
      */
     private final static Logger LOG = Logger.getLogger(JxsePeerConfiguration.class.getName());

@@ -168,9 +168,9 @@ class HttpMessageReceiver implements MessageReceiver {
         threadPool.setMinThreads(MIN_LISTENER_THREADS);
         threadPool.setMaxThreads(MAX_LISTENER_THREADS);
         // Jetty 8:
-        //threadPool.setMaxIdleTimeMs((int) MAX_THREAD_IDLE_DURATION);
+        threadPool.setMaxIdleTimeMs((int) MAX_THREAD_IDLE_DURATION);
         // Jetty 9:
-        threadPool.setIdleTimeout((int) MAX_THREAD_IDLE_DURATION); 
+        //threadPool.setIdleTimeout((int) MAX_THREAD_IDLE_DURATION); 
 
         final HandlerCollection handlers = new HandlerCollection();
         

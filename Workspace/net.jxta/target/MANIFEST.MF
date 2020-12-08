@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jxse 2.7.0 for Equinox
 Bundle-SymbolicName: net.jxta;singleton:=true
-Bundle-Version: 1.0.0.202012021128
+Bundle-Version: 1.0.0.202012071439
 Bundle-Vendor: Condast
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.osgi.framework;version="1.3.0",org.osgi.service.jdbc
@@ -10,35 +10,134 @@ Import-Package: org.osgi.framework;version="1.3.0",org.osgi.service.jdbc
  ongycastle.asn1;version="1.47.0.2",org.spongycastle.asn1.x509;version="
  1.47.0.2",org.spongycastle.jce;version="1.47.0.2",org.spongycastle.jce.
  provider;version="1.47.0.2",org.spongycastle.x509;version="1.47.0.2"
-Export-Package: net.jxse,net.jxse.jdbc,net.jxta,net.jxta.access,net.jxta
- .annotation,net.jxta.codat,net.jxta.configuration,net.jxta.content,net.
- jxta.credential,net.jxta.discovery,net.jxta.document,net.jxta.endpoint,
- net.jxta.endpoint.router,net.jxta.exception,net.jxta.id,net.jxta.id.jxt
- a,net.jxta.impl,net.jxta.impl.access,net.jxta.impl.access.always,net.jx
- ta.impl.access.pse,net.jxta.impl.access.simpleACL,net.jxta.impl.cm,net.
- jxta.impl.cm.sql,net.jxta.impl.cm.srdi.inmemory,net.jxta.impl.content,n
- et.jxta.impl.content.defprovider,net.jxta.impl.content.srdisocket,net.j
- xta.impl.discovery,net.jxta.impl.document,net.jxta.impl.endpoint,net.jx
- ta.impl.endpoint.cbjx,net.jxta.impl.endpoint.endpointMeter,net.jxta.imp
- l.endpoint.mcast,net.jxta.impl.endpoint.msgframing,net.jxta.impl.endpoi
- nt.relay,net.jxta.impl.endpoint.router,net.jxta.impl.endpoint.tcp,net.j
- xta.impl.endpoint.tls,net.jxta.impl.endpoint.transportMeter,net.jxta.im
- pl.id.CBID,net.jxta.impl.id.UUID,net.jxta.impl.id.binaryID,net.jxta.imp
- l.id.unknown,net.jxta.impl.loader,net.jxta.impl.membership.none,net.jxt
- a.impl.membership.passwd,net.jxta.impl.membership.pse,net.jxta.impl.met
- er,net.jxta.impl.peer,net.jxta.impl.peergroup,net.jxta.impl.pipe,net.jx
- ta.impl.protocol,net.jxta.impl.rendezvous,net.jxta.impl.rendezvous.adho
- c,net.jxta.impl.rendezvous.edge,net.jxta.impl.rendezvous.limited,net.jx
- ta.impl.rendezvous.rdv,net.jxta.impl.rendezvous.rendezvousMeter,net.jxt
- a.impl.rendezvous.rpv,net.jxta.impl.util,net.jxta.impl.util.backport.ja
- va.util,net.jxta.impl.util.cm,net.jxta.impl.util.pipe.reliable,net.jxta
- .impl.util.ternary,net.jxta.impl.util.ternary.wild,net.jxta.impl.util.t
- hreads,net.jxta.impl.xindice,net.jxta.impl.xindice.core,net.jxta.impl.x
- indice.core.data,net.jxta.impl.xindice.core.filer,net.jxta.impl.xindice
- .core.indexer,net.jxta.impl.xindice.util,net.jxta.logging,net.jxta.memb
- ership,net.jxta.meter,net.jxta.peer,net.jxta.peergroup,net.jxta.peergro
- up.core,net.jxta.pipe,net.jxta.platform,net.jxta.protocol,net.jxta.rend
- ezvous,net.jxta.resolver,net.jxta.service,net.jxta.socket,net.jxta.util
- ,net.jxta.util.documentSerializable
+Export-Package: net.jxta,net.jxta.access;uses:="net.jxta.credential,net.
+ jxta.document,net.jxta.service",net.jxta.annotation,net.jxta.codat;uses
+ :="net.jxta.peergroup,net.jxta.document,net.jxta.id",net.jxta.configura
+ tion,net.jxta.content; uses:="net.jxta.document,  net.jxta.service,  ne
+ t.jxta.protocol,  net.jxta.id",net.jxta.credential; uses:="net.jxta.pee
+ rgroup,  net.jxta.service,  net.jxta.document,  net.jxta.id",net.jxta.d
+ iscovery; uses:="net.jxta.document,  net.jxta.service,  net.jxta.protoc
+ ol,  net.jxta.id",net.jxta.document; uses:="net.jxta.impl.membership.ps
+ e,  net.jxta.util,  net.jxta.endpoint,  net.jxta.peer,  net.jxta.id",ne
+ t.jxta.endpoint; uses:="net.jxta.peergroup,  net.jxta.document,  net.jx
+ ta.service,  net.jxta.peer,  net.jxta.util,  net.jxta.endpoint.router, 
+  net.jxta.id",net.jxta.endpoint.router;uses:="net.jxta.endpoint,net.jxt
+ a.peer,net.jxta.protocol",net.jxta.exception,net.jxta.id; uses:="net.jx
+ ta.peergroup,  net.jxta.codat,  net.jxta.util,  net.jxta.content,  net.
+ jxta.peer,  net.jxta.peergroup.core,  net.jxta.pipe",net.jxta.id.jxta; 
+ uses:="net.jxta.peergroup,  net.jxta.codat,  net.jxta.content,  net.jxt
+ a.peer,  net.jxta.peergroup.core,  net.jxta.id,  net.jxta.pipe",net.jxt
+ a.impl,net.jxta.impl.access;uses:="net.jxta.document,net.jxta.id",net.j
+ xta.impl.access.pse; uses:="net.jxta.peergroup,  net.jxta.credential,  
+ net.jxta.impl.membership.pse,  net.jxta.document,  net.jxta.service,  n
+ et.jxta.access,  net.jxta.protocol,  net.jxta.peergroup.core,  net.jxta
+ .id",net.jxta.impl.cm; uses:="net.jxta.logging,  net.jxta.impl.xindice.
+ core.filer,  net.jxta.rendezvous,  net.jxta.peergroup,  net.jxta.docume
+ nt,  net.jxta.peer,  net.jxta.impl.xindice.core.data,  net.jxta.impl.ut
+ il.threads,  net.jxta.impl.xindice.core.indexer,  net.jxta.protocol,  n
+ et.jxta.id",net.jxta.impl.cm.srdi.inmemory;uses:="net.jxta.peer",net.jx
+ ta.impl.content; uses:="net.jxta.peergroup,  net.jxta.document,  net.jx
+ ta.content,  net.jxta.protocol,  net.jxta.peergroup.core,  net.jxta.id,
+   net.jxta.exception",net.jxta.impl.endpoint; uses:="net.jxta.peergroup
+ ,  net.jxta.endpoint,  net.jxta.document,  net.jxta.impl.endpoint.endpo
+ intMeter,  net.jxta.peer,  net.jxta.impl.util.threads,  net.jxta.endpoi
+ nt.router,  javax.net,  net.jxta.protocol,  net.jxta.id",net.jxta.impl.
+ endpoint.cbjx;uses:="net.jxta.endpoint",net.jxta.impl.endpoint.endpoint
+ Meter; uses:="net.jxta.meter,  net.jxta.impl.meter,  net.jxta.util.docu
+ mentSerializable,  net.jxta.endpoint,  net.jxta.document,  net.jxta.pee
+ rgroup.core",net.jxta.impl.endpoint.msgframing;uses:="net.jxta.endpoint
+ ,net.jxta.document,net.jxta.id",net.jxta.impl.endpoint.relay; uses:="ne
+ t.jxta.peergroup,  net.jxta.impl.protocol,  net.jxta.impl.util,  net.jx
+ ta.endpoint,  net.jxta.document,  net.jxta.peer,  net.jxta.impl.access,
+   net.jxta.protocol,  net.jxta.peergroup.core,  net.jxta.id",net.jxta.i
+ mpl.endpoint.router; uses:="net.jxta.peergroup,  net.jxta.endpoint,  ne
+ t.jxta.document,  net.jxta.peer,  net.jxta.impl.util.threads,  net.jxta
+ .credential,  net.jxta.endpoint.router,  net.jxta.resolver,  net.jxta.i
+ mpl.cm,  net.jxta.protocol,  net.jxta.peergroup.core,  net.jxta.impl.en
+ dpoint,  net.jxta.id,  net.jxta.membership",net.jxta.impl.endpoint.tcp;
+  uses:="net.jxta.peergroup,  net.jxta.endpoint,  net.jxta.document,  ne
+ t.jxta.peer,  net.jxta.impl.endpoint.transportMeter,  net.jxta.impl.end
+ point,  net.jxta.peergroup.core,  net.jxta.id",net.jxta.impl.endpoint.t
+ ls; uses:="net.jxta.peergroup,  net.jxta.endpoint,  net.jxta.document, 
+  net.jxta.peer,  net.jxta.impl.membership.pse,  net.jxta.protocol,  net
+ .jxta.impl.endpoint,  net.jxta.peergroup.core,  net.jxta.id",net.jxta.i
+ mpl.endpoint.transportMeter; uses:="net.jxta.meter,  net.jxta.impl.mete
+ r,  net.jxta.util.documentSerializable,  net.jxta.endpoint,  net.jxta.d
+ ocument,  net.jxta.peer,  net.jxta.peergroup.core",net.jxta.impl.id.CBI
+ D; uses:="net.jxta.peergroup,  net.jxta.codat,  net.jxta.impl.id.UUID, 
+  net.jxta.content,  net.jxta.peer,  net.jxta.peergroup.core,  net.jxta.
+ id,  net.jxta.pipe",net.jxta.impl.id.UUID; uses:="net.jxta.peergroup,  
+ net.jxta.codat,  net.jxta.peer,  net.jxta.content,  net.jxta.peergroup.
+ core,  net.jxta.id,  net.jxta.pipe",net.jxta.impl.loader; uses:="net.jx
+ ta.peergroup,  net.jxta.impl.modulemanager,  net.jxta.document,  net.jx
+ ta.impl.peergroup,  net.jxta.protocol,  net.jxta.peergroup.core,  net.j
+ xta.id,  net.jxta.module",net.jxta.impl.membership.pse; uses:="javax.cr
+ ypto,  net.jxta.peergroup,  javax.security.auth.x500,  net.jxta.impl.pr
+ otocol,  net.jxta.document,  net.jxta.service,  net.jxta.peer,  net.jxt
+ a.impl.endpoint.router,  net.jxta.credential,  net.jxta.impl.endpoint.t
+ ls,  net.jxta.socket,  net.jxta.impl.endpoint,  net.jxta.peergroup.core
+ ,  net.jxta.id,  net.jxta.membership",net.jxta.impl.meter; uses:="net.j
+ xta.meter,  net.jxta.peergroup,  net.jxta.service,  net.jxta.document, 
+  net.jxta.endpoint,  net.jxta.peer,  net.jxta.protocol,  net.jxta.peerg
+ roup.core,  net.jxta.id",net.jxta.impl.modulemanager; uses:="net.jxta.u
+ til.cardinality,  net.jxta.impl.protocol,  net.jxta.document,  net.jxta
+ .protocol,  net.jxta.peergroup.core,  net.jxta.module",net.jxta.impl.pe
+ ergroup; uses:="net.jxta.rendezvous,  net.jxta.peergroup,  net.jxta.ser
+ vice,  net.jxta.document,  net.jxta.endpoint,  net.jxta.peer,  net.jxta
+ .access,  net.jxta.impl.util.threads,  net.jxta.resolver,  net.jxta.dis
+ covery,  net.jxta.impl.cm,  net.jxta.content,  net.jxta.protocol,  net.
+ jxta.peergroup.core,  net.jxta.id,  net.jxta.module,  net.jxta.membersh
+ ip,  net.jxta.pipe",net.jxta.impl.platform; uses:="net.jxta.peergroup, 
+  net.jxta.impl.protocol,  net.jxta.document,  net.jxta.protocol,  net.j
+ xta.impl.peergroup,  net.jxta.id,  net.jxta.impl.util.threads,  net.jxt
+ a.exception",net.jxta.impl.protocol; uses:="javax.crypto,  net.jxta.pee
+ rgroup,  net.jxta.document,  net.jxta.endpoint,  net.jxta.peer,  net.jx
+ ta.credential,  net.jxta.protocol,  net.jxta.id,  net.jxta.membership, 
+  org.spongycastle.jce",net.jxta.impl.util; uses:="net.jxta.peergroup,  
+ net.jxta.endpoint,  net.jxta.protocol,  net.jxta.impl.access,  javax.sw
+ ing",net.jxta.impl.util.pipe.reliable; uses:="javax.crypto,  net.jxta.p
+ eergroup,  net.jxta.endpoint,  net.jxta.document,  net.jxta.pipe",net.j
+ xta.impl.util.ternary,net.jxta.impl.util.ternary.wild,net.jxta.impl.uti
+ l.threads,net.jxta.impl.xindice,net.jxta.impl.xindice.core;uses:="net.j
+ xta.impl.xindice.util",net.jxta.impl.xindice.core.data,net.jxta.impl.xi
+ ndice.core.filer; uses:="net.jxta.impl.xindice.core.indexer,  net.jxta.
+ impl.xindice.core,  net.jxta.impl.xindice.core.data,  net.jxta.impl.xin
+ dice.util",net.jxta.impl.xindice.core.indexer;uses:="net.jxta.impl.xind
+ ice.core.filer,net.jxta.impl.xindice.core,net.jxta.impl.xindice.core.da
+ ta",net.jxta.impl.xindice.util,net.jxta.logging,net.jxta.membership;use
+ s:="net.jxta.credential,net.jxta.document,net.jxta.service",net.jxta.me
+ ter; uses:="net.jxta.peergroup,  net.jxta.util.documentSerializable,  n
+ et.jxta.document,  net.jxta.peer,  net.jxta.protocol,  net.jxta.peergro
+ up.core,  net.jxta.exception",net.jxta.module; uses:="net.jxta.util.car
+ dinality,  net.jxta.peergroup,  net.jxta.impl.protocol,  net.jxta.impl.
+ modulemanager,  net.jxta.document,  net.jxta.protocol,  net.jxta.peergr
+ oup.core",net.jxta.peer; uses:="net.jxta.meter,  net.jxta.service,  net
+ .jxta.protocol,  net.jxta.peergroup.core,  net.jxta.id",net.jxta.peergr
+ oup; uses:="net.jxta.rendezvous,  net.jxta.service,  net.jxta.document,
+   net.jxta.endpoint,  net.jxta.peer,  net.jxta.access,  net.jxta.impl.u
+ til.threads,  net.jxta.resolver,  net.jxta.discovery,  net.jxta.impl.cm
+ ,  net.jxta.content,  net.jxta.protocol,  net.jxta.peergroup.core,  net
+ .jxta.id,  net.jxta.membership,  net.jxta.pipe",net.jxta.peergroup.core
+ ; uses:="net.jxta.peergroup,  net.jxta.document,  net.jxta.protocol,  n
+ et.jxta.id",net.jxta.pipe; uses:="net.jxta.endpoint,  net.jxta.service,
+   net.jxta.protocol,  net.jxta.id",net.jxta.platform; uses:="net.jxta.r
+ endezvous,  net.jxta.peergroup,  net.jxta.impl.protocol,  net.jxta.docu
+ ment,  net.jxta.service,  net.jxta.endpoint,  net.jxta.peer,  net.jxta.
+ access,  net.jxta.impl.util.threads,  net.jxta.resolver,  net.jxta.disc
+ overy,  net.jxta.content,  net.jxta.protocol,  net.jxta.peergroup.core,
+   net.jxta.id,  net.jxta.membership,  net.jxta.pipe",net.jxta.protocol;
+  uses:="net.jxta.peergroup,  net.jxta.document,  net.jxta.endpoint,  ne
+ t.jxta.peer,  net.jxta.credential,  net.jxta.content,  net.jxta.peergro
+ up.core,  net.jxta.id",net.jxta.rendezvous;uses:="net.jxta.endpoint,net
+ .jxta.service,net.jxta.id",net.jxta.resolver; uses:="net.jxta.service, 
+  net.jxta.endpoint,  net.jxta.peer,  net.jxta.protocol",net.jxta.servic
+ e;uses:="net.jxta.document,net.jxta.peergroup.core",net.jxta.socket; us
+ es:="javax.crypto,  net.jxta.peergroup,  net.jxta.document,  net.jxta.e
+ ndpoint,  net.jxta.peer,  net.jxta.impl.util.pipe.reliable,  net.jxta.c
+ redential,  net.jxta.protocol,  net.jxta.pipe",net.jxta.util; uses:="ne
+ t.jxta.peergroup,  net.jxta.endpoint,  net.jxta.document,  net.jxta.pee
+ r,  net.jxta.impl.util.pipe.reliable,  net.jxta.credential,  net.jxta.p
+ rotocol,  net.jxta.pipe",net.jxta.util.cardinality,net.jxta.util.docume
+ ntSerializable;uses:="net.jxta.document,net.jxta.exception"
 Automatic-Module-Name: net.jxta
 

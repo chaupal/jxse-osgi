@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JXSE Library which contains all the jars for deployment
 Bundle-SymbolicName: net.jxse.library
-Bundle-Version: 1.0.0.202012021128
+Bundle-Version: 1.0.0.202012071439
 Bundle-Activator: net.jxse.library.Activator
 Bundle-Vendor: chaupal.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

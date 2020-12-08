@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Netty
 Bundle-SymbolicName: net.jxta.impl.endpoint.netty;singleton:=true
-Bundle-Version: 1.0.0.202012021128
+Bundle-Version: 1.0.0.202012071439
 Bundle-Vendor: Chaupal
 Automatic-Module-Name: org.jxta.impl.endpoint.netty
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

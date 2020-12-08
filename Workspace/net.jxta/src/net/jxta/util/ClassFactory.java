@@ -192,7 +192,7 @@ public abstract class ClassFactory<K, I> {
         
         Class<?> clss = Version.class;
         URL url = clss.getResource("resources/test.xml");
-        boolean registeredSomething = false;
+        boolean registeredSomething = ( url != null );
 
         try {
             Enumeration<URL> providerLists = loader.getResources("META-INF/services/" + interfaceName);
@@ -303,7 +303,7 @@ public abstract class ClassFactory<K, I> {
              */
 
             Class<?> ignored = Class.forName(className);
-            registeredSomething = true;
+            registeredSomething = (ignored != null );
 
         } catch (ClassNotFoundException ignored) {
 

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Derby Database
 Bundle-SymbolicName: net.jxta.impl.cm.sql.derby;singleton:=true
-Bundle-Version: 1.0.0.202012021128
+Bundle-Version: 1.0.0.202012071439
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: net.jxta.impl.cm.sql.derby
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

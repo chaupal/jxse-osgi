@@ -202,6 +202,7 @@
 		<module>../net.jxse.library</module>
 		<module>../org.spongycastle.fragment</module>
 		<module>../net.jxta</module>
+		<module>../net.jxta.impl</module>
 		<module>../net.jxse</module>
 		<module>../net.jxta.impl.cm.sql.derby</module>
 		<module>../net.jxta.impl.cm.sql.h2</module>

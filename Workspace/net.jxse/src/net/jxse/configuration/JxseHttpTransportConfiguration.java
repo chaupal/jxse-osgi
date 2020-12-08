@@ -64,8 +64,9 @@ import net.jxta.configuration.JxtaTransportConfiguration;
  * Defines the http transport configuration when connecting to the JXTA network.
  */
 public class JxseHttpTransportConfiguration extends JxtaTransportConfiguration {
+	private static final long serialVersionUID = 1L;
 
-    /**
+	/**
      *  Logger
      */
     private final static Logger LOG = Logger.getLogger(JxseHttpTransportConfiguration.class.getName());

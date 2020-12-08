@@ -56,6 +56,8 @@
 
 package net.jxta.impl.id.UUID;
 
+import net.jxta.impl.id.CBID.IDFormat;
+
 /**
  *  An implementation of the {@link net.jxta.peergroup.core.ModuleSpecID} ID Type.
  */
