@@ -238,7 +238,8 @@ public class XIndiceSrdiIndexBackendOldLoadTest {
             this.srdi = srdi;
         }
 
-        public void run() {
+        @Override
+		public void run() {
             for (int i = 0; i < (ITERATIONS / 10) && !failed; i++) {
                 while (queue.size() < 1) {
                     try {
@@ -264,7 +265,8 @@ public class XIndiceSrdiIndexBackendOldLoadTest {
             this.srdi = srdi;
         }
 
-        public void run() {
+        @Override
+		public void run() {
             for (int i = 0; i < ITERATIONS && !failed; i++) {
                 String value = "value" + i;
                 srdi.add("pkey", "attr", value, pid, Long.MAX_VALUE);
@@ -283,7 +285,8 @@ public class XIndiceSrdiIndexBackendOldLoadTest {
             this.srdi = srdi;
         }
 
-        public void run() {
+        @Override
+		public void run() {
             for (int i = 0; i < (ITERATIONS / 10) && !failed; i++) {
                 List<PeerID> res = srdi.query("pkey", "attr", "value" + i, 1);
 

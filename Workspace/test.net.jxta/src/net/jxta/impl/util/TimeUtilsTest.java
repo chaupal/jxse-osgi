@@ -191,7 +191,7 @@ public class TimeUtilsTest extends TestCase {
 
         long start = TimeUtils.timeNow();
 
-        TimeUtils.autoWarp((double) (TimeUtils.AWEEK / TimeUtils.ASECOND));
+        TimeUtils.autoWarp(TimeUtils.AWEEK / TimeUtils.ASECOND);
 
         try {
             Thread.sleep(3 * TimeUtils.ASECOND);

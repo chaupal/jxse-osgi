@@ -87,7 +87,8 @@ public class EndpointApiTest extends TestCase implements EndpointListener, Messe
         return true;
     }
 
-    public void processIncomingMessage(Message message, EndpointAddress src, EndpointAddress dst) {
+    @Override
+	public void processIncomingMessage(Message message, EndpointAddress src, EndpointAddress dst) {
         synchronized (this) {
             hasMessage = true;
             notify();
@@ -116,7 +117,8 @@ public class EndpointApiTest extends TestCase implements EndpointListener, Messe
         return true;
     }
 
-    public boolean messengerReady(MessengerEvent evt) {
+    @Override
+	public boolean messengerReady(MessengerEvent evt) {
         if (evt.getMessenger() == null) {
             return true;
         }
@@ -141,14 +143,16 @@ public class EndpointApiTest extends TestCase implements EndpointListener, Messe
         return true;
     }
 
-    public void messageSendFailed(OutgoingMessageEvent evt) {
+    @Override
+	public void messageSendFailed(OutgoingMessageEvent evt) {
         synchronized (this) {
             msgSent = true;
             notify();
         }
     }
 
-    public void messageSendSucceeded(OutgoingMessageEvent evt) {
+    @Override
+	public void messageSendSucceeded(OutgoingMessageEvent evt) {
         synchronized (this) {
             msgSent = true;
             notify();

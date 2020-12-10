@@ -123,7 +123,7 @@ public class AdvertisementSerializableTest {
     	PeerGroupID pgid = (PeerGroupID)IDFactory.fromURI(new URI(testPeerGroupID));
     	assertNotNull("IDFactory cannot convert PeerGroupID", pgid);
     	
-    	ID mcid = (ID)IDFactory.fromURI(new URI(testMCID));
+    	ID mcid = IDFactory.fromURI(new URI(testMCID));
     	assertNotNull("IDFactory cannot convert ServiceID", mcid);
     	
     	PeerAdvertisement peerAdvc = getPeerAdvertisement(pgid,peerid,mcid);
@@ -145,7 +145,7 @@ public class AdvertisementSerializableTest {
     	ModuleSpecID msid = (ModuleSpecID)IDFactory.fromURI(new URI(testMSID));
     	assertNotNull("IDFactory cannot convert msID", msid);
     	
-    	ID mcid = (ID)IDFactory.fromURI(new URI(testMCID));
+    	ID mcid = IDFactory.fromURI(new URI(testMCID));
     	assertNotNull("IDFactory cannot convert MCID", mcid);
     	
     	PeerGroupAdvertisement peergroupAdvc = getPeerGroupAdvertisement(pgid,msid,mcid);

@@ -269,7 +269,7 @@ public abstract class PeerAdvertisement extends ExtendableAdvertisement implemen
             String hashValue = getAdvertisementType() + gid.getUniqueValue().toString() + pid.getUniqueValue().toString();
             byte[] seed = hashValue.getBytes("UTF-8");
 
-            return IDFactory.newCodatID(gid, seed, new ByteArrayInputStream(seed));
+            return IDFactory.newContentID(gid, seed, new ByteArrayInputStream(seed));
         } catch (Exception failed) {
             return null;
         }

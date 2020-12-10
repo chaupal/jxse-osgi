@@ -60,8 +60,6 @@ import java.io.InputStream;
 import junit.framework.*;
 
 import net.jxta.document.MimeMediaType;
-import net.jxta.endpoint.MessageElement;
-import net.jxta.endpoint.ByteArrayMessageElement;
 
 /**
  *

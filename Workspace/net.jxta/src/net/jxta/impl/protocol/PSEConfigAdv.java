@@ -293,7 +293,7 @@ public final class PSEConfigAdv extends ExtendableAdvertisement implements Clone
         InputStream data = new ByteArrayInputStream(getCert().getBytes());
 
         try {
-            return IDFactory.newCodatID(PeerGroupID.worldPeerGroupID, new byte[16], data);
+            return IDFactory.newContentID(PeerGroupID.worldPeerGroupID, new byte[16], data);
         } catch (IOException failed) {
             throw new UndeclaredThrowableException(failed, "Could not generate id");
         }

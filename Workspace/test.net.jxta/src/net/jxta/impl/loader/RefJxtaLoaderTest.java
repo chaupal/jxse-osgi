@@ -104,7 +104,8 @@ public class RefJxtaLoaderTest {
      */
     private static final CompatibilityEquater COMP_EQ =
             new CompatibilityEquater() {
-                public boolean compatible(Element<?> test) {
+                @Override
+				public boolean compatible(Element<?> test) {
                     return CompatibilityUtils.isCompatible(test);
                 }
             };
@@ -184,22 +185,25 @@ public class RefJxtaLoaderTest {
         PeerGroupID pgid = IDFactory.newPeerGroupID();
         ModuleImplAdvertisement pgMIA =
                 pg.getAllPurposePeerGroupImplAdvertisement();
-        testGroup = pg.newGroup(pgid, pgMIA, "Test group", "Test group");
+        testGroup = pg.newGroup(pgid, pgMIA, "Test group", "Test group", true);
         testService = testGroup.getContentService();
         if (LOG.isLoggable(Level.FINE)) {
             for (ContentProvider provider : testService.getContentProviders()) {
                 provider.addContentProviderListener(
                         new ContentProviderListener() {
 
-                    public void contentShared(ContentProviderEvent event) {
+                    @Override
+					public void contentShared(ContentProviderEvent event) {
                         LOG.fine(event.toString());
                     }
 
-                    public void contentUnshared(ContentProviderEvent event) {
+                    @Override
+					public void contentUnshared(ContentProviderEvent event) {
                         LOG.fine(event.toString());
                     }
 
-                    public boolean contentSharesFound(
+                    @Override
+					public boolean contentSharesFound(
                             ContentProviderEvent event) {
                         LOG.fine(event.toString());
                         return true;

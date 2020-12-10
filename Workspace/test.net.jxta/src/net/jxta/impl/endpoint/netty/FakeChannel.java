@@ -21,23 +21,28 @@ public class FakeChannel extends AbstractChannel {
         super(parent, factory, pipeline, sink);
     }
 
-    public ChannelConfig getConfig() {
+    @Override
+	public ChannelConfig getConfig() {
         return new DefaultChannelConfig();
     }
 
-    public SocketAddress getLocalAddress() {
+    @Override
+	public SocketAddress getLocalAddress() {
         return localAddress;
     }
 
-    public SocketAddress getRemoteAddress() {
+    @Override
+	public SocketAddress getRemoteAddress() {
         return remoteAddress;
     }
 
-    public boolean isBound() {
+    @Override
+	public boolean isBound() {
         return bound;
     }
 
-    public boolean isConnected() {
+    @Override
+	public boolean isConnected() {
         return connected;
     }
 

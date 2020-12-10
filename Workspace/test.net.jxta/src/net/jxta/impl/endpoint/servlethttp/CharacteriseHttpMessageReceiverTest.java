@@ -106,6 +106,7 @@ public class CharacteriseHttpMessageReceiverTest {
 		private Message replyMessage;
 		private volatile boolean startThread = false;
 
+		@Override
 		public boolean messengerReady(final MessengerEvent event) {
 			LOG.info("StubMessengerEventListener called with " + event);
      		// we need to stash this so that the test can get the messenger
@@ -133,6 +134,7 @@ public class CharacteriseHttpMessageReceiverTest {
 			}
 		}
 
+		@Override
 		public void run() {
 			LOG.info("StubMessengerEventListener reply thread starting");
 			try {
@@ -225,6 +227,7 @@ public class CharacteriseHttpMessageReceiverTest {
 		// No Message and no Requestor defined.
 
 		connect("", new HttpConnectionTestBody() {
+			@Override
 			public void apply(HttpURLConnection httpConnection) throws IOException, URISyntaxException {
 				// not sure if this is the recommended way of going from the
 				// string received in the input stream, which is of the form
@@ -255,6 +258,7 @@ public class CharacteriseHttpMessageReceiverTest {
 
 		connect(requestorPeerId.toString() + "?500,600," + destinationAddress,
 				new HttpConnectionTestBody() {			
+			@Override
 			public void apply(final HttpURLConnection httpConnection) throws IOException, URISyntaxException {
 				final String readFromStream = readFromStream(httpConnection.getInputStream(), httpConnection.getContentLength());
 				
@@ -292,6 +296,7 @@ public class CharacteriseHttpMessageReceiverTest {
 		connect(requestorPeerId.toString() + "?500,600," + destinationAddress,
 			// Prepare the request....
 			new HttpConnectionTestBody() {
+				@Override
 				public void apply(HttpURLConnection httpConnection) throws IOException, URISyntaxException {
 					final WireFormatMessage wireExternal = WireFormatMessageFactory.toWireExternal(message, WireFormatMessageFactory.DEFAULT_WIRE_MIME, null, null);
 					httpConnection.addRequestProperty("content-length", "" + wireExternal.getByteLength());
@@ -302,6 +307,7 @@ public class CharacteriseHttpMessageReceiverTest {
 			},
 			// Check the response....
 			new HttpConnectionTestBody() {			
+				@Override
 				public void apply(final HttpURLConnection httpConnection) throws IOException, URISyntaxException {
 					final String readFromStream = readFromStream(httpConnection.getInputStream(), httpConnection.getContentLength());
 					assertThat(readFromStream, equalTo(""));
@@ -334,6 +340,7 @@ public class CharacteriseHttpMessageReceiverTest {
 
 		connect(requestorPeerId.toString() + "?4000,1000," + destinationAddress,
 				new HttpConnectionTestBody() {			
+			@Override
 			public void apply(final HttpURLConnection httpConnection) throws IOException, URISyntaxException, InterruptedException {
 				LOG.debug("Reading from http connection input stream in 3s... ");
 				Thread.sleep(3000);
@@ -374,6 +381,7 @@ public class CharacteriseHttpMessageReceiverTest {
 		// to be set in the response, rather than using chunked encoding.
 		connect(requestorPeerId.toString() + "?4000,-1000," + destinationAddress,
 				new HttpConnectionTestBody() {			
+			@Override
 			public void apply(final HttpURLConnection httpConnection) throws IOException, URISyntaxException, InterruptedException {
 				LOG.debug("Reading from http connection input stream in 3s... ");
 				Thread.sleep(3000);
@@ -409,6 +417,7 @@ public class CharacteriseHttpMessageReceiverTest {
 		connect(requestorPeerId.toString() + "?500", // no destination => no messenger
 				// Prepare the request....
 				new HttpConnectionTestBody() {
+					@Override
 					public void apply(HttpURLConnection httpConnection) throws IOException, URISyntaxException {
 						final WireFormatMessage wireExternal = WireFormatMessageFactory.toWireExternal(message, WireFormatMessageFactory.DEFAULT_WIRE_MIME, null, null);
 						httpConnection.addRequestProperty("content-length", "" + wireExternal.getByteLength());
@@ -420,6 +429,7 @@ public class CharacteriseHttpMessageReceiverTest {
 
 				// Check the response....
 				new HttpConnectionTestBody() {			
+					@Override
 					public void apply(final HttpURLConnection httpConnection) throws IOException, URISyntaxException {
 						final String readFromStream = readFromStream(httpConnection.getInputStream(), httpConnection.getContentLength());
 						

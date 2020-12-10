@@ -133,14 +133,16 @@ public class OutgoingFaultyMsgrAdaptor implements Outgoing {
      *
      * @param  timeout The new soTimeout value
      */
-    public void setTimeout(int timeout) {
+    @Override
+	public void setTimeout(int timeout) {
         this.timeout = timeout;
     }
 
     /**
      *  close the messenger (does not close the messenger)
      */
-    public void close() {
+    @Override
+	public void close() {
         closed = true;
     }
 
@@ -149,7 +151,8 @@ public class OutgoingFaultyMsgrAdaptor implements Outgoing {
      *  (obsolete).
      *@return    The minIdleReconnectTime value
      */
-    public long getMinIdleReconnectTime() {
+    @Override
+	public long getMinIdleReconnectTime() {
         return timeout;
     }
 
@@ -157,7 +160,8 @@ public class OutgoingFaultyMsgrAdaptor implements Outgoing {
      *  Gets the idleTimeout of the OutgoingMsgrAdaptor. The adaptor never times out.
      *@return    <code>Long.MAX_VALUE</code>
      */
-    public long getIdleTimeout() {
+    @Override
+	public long getIdleTimeout() {
         return Long.MAX_VALUE;
     }
 
@@ -166,7 +170,8 @@ public class OutgoingFaultyMsgrAdaptor implements Outgoing {
      *
      *@return    The maxRetryAge value
      */
-    public long getMaxRetryAge() {
+    @Override
+	public long getMaxRetryAge() {
         return timeout == 0 ? Long.MAX_VALUE : timeout;
     }
 
@@ -175,7 +180,8 @@ public class OutgoingFaultyMsgrAdaptor implements Outgoing {
      *
      *@return    The lastAccessed in milliseconds
      */
-    public long getLastAccessed() {
+    @Override
+	public long getLastAccessed() {
         return lastAccessed;
     }
 
@@ -184,7 +190,8 @@ public class OutgoingFaultyMsgrAdaptor implements Outgoing {
      *
      *@param  time  The new lastAccessed in milliseconds
      */
-    public void setLastAccessed(long time) {
+    @Override
+	public void setLastAccessed(long time) {
 
         Logging.logCheckedDebug(LOG, "Setting lastAccessed to :" + lastAccessed);
         lastAccessed = time;
@@ -198,7 +205,8 @@ public class OutgoingFaultyMsgrAdaptor implements Outgoing {
      *@return                  true if message send is successfull
      *@exception  IOException  if an io error occurs
      */
-    public synchronized boolean send(Message msg) throws IOException {
+    @Override
+	public synchronized boolean send(Message msg) throws IOException {
 
         if (closed) throw new IOException("broken connection");
 
@@ -232,7 +240,8 @@ public class OutgoingFaultyMsgrAdaptor implements Outgoing {
             this.msg = msg;
         }
 
-        public void run() {
+        @Override
+		public void run() {
             try {
                 msgr.sendMessageB(msg, null, null);
             } catch (IOException ignored) {}

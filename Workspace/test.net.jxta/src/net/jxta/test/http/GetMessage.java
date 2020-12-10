@@ -105,35 +105,41 @@ public class GetMessage
         this.message = message;
     }
 
-    public URL getURL() {
+    @Override
+	public URL getURL() {
         return this.url;
     }
 
-    public void setURL(URL url) {
+    @Override
+	public void setURL(URL url) {
         this.url = url;
     }
 
-    public String getHeader(String key) {
+    @Override
+	public String getHeader(String key) {
         return ((this.message != null) ? this.message.getHeader(key) : null);
     }
 
-    @SuppressWarnings("unchecked")
+    @Override
+	@SuppressWarnings("unchecked")
 	public Iterator<String> getHeaderKeys() {
         return ((this.message != null) ? this.message.getHeaderKeys() : Collections.EMPTY_LIST.iterator());
     }
 
-    public void setHeaders(Map<String, String> headers) {
+    @Override
+	public void setHeaders(Map<String, String> headers) {
         Iterator<String> keys = headers.keySet().iterator();
 
         while (keys.hasNext()) {
-            String key = (String) keys.next();
-            String value = (String) headers.get(key);
+            String key = keys.next();
+            String value = headers.get(key);
 
             setHeader(key, value);
         }
     }
 
-    public void setHeader(String key, String value) {
+    @Override
+	public void setHeader(String key, String value) {
         if (this.message == null) {
             this.message = new Message();
         }
@@ -141,7 +147,8 @@ public class GetMessage
         this.message.setHeader(key, value);
     }
 
-    public void removeHeader(String key) throws NullPointerException {
+    @Override
+	public void removeHeader(String key) throws NullPointerException {
         if (key == null) {
             throw new NullPointerException("null key");
         }
@@ -151,19 +158,23 @@ public class GetMessage
         }
     }
 
-    public boolean isUnicodeEncoding() {
+    @Override
+	public boolean isUnicodeEncoding() {
         return this.isUnicodeEncoding;
     }
 
-    public void setUnicodeEncoding(boolean isUnicodeEncoding) {
+    @Override
+	public void setUnicodeEncoding(boolean isUnicodeEncoding) {
         this.isUnicodeEncoding = isUnicodeEncoding;
     }
 
-    public Message dispatch() throws IOException {
+    @Override
+	public Message dispatch() throws IOException {
         return dispatch(getURL());
     }
 
-    public void close() {
+    @Override
+	public void close() {
         closeConnection();
     }
 
@@ -360,14 +371,14 @@ public class GetMessage
         }
 
         for (Iterator<String> keys = (response != null ? response.getHeaderKeys() : Collections.EMPTY_MAP.keySet().iterator()); keys.hasNext();) {
-            key = (String) keys.next();
+            key = keys.next();
             values = new ArrayList<String>();
 
             for (Iterator<String> h = response.getHeaders(key); h.hasNext();) {
-                values.add((String) h.next());
+                values.add(h.next());
             }
 
-            msg.setHeader(key, (String) values.get(0));
+            msg.setHeader(key, values.get(0));
         }
 
         while ((i = sb.indexOf(prefix)) > -1 || (j = sb.indexOf(prefixCap)) > -1) {
@@ -413,7 +424,6 @@ public class GetMessage
         return msg;
     }
 
-    @SuppressWarnings("unchecked")
 	private HttpURLConnection openHTTPConnection(URL u) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) u.openConnection();
 
@@ -424,7 +434,7 @@ public class GetMessage
 
         if (this.message != null) {
             for (Iterator<String> keys = this.message.getHeaderKeys(); keys.hasNext();) {
-                key = (String) keys.next();
+                key = keys.next();
                 value = this.message.getHeader(key);
                 connection.setRequestProperty(key, value);
             }
@@ -434,10 +444,10 @@ public class GetMessage
         Map<String, String> defaultHeaders = ((!doOutput) ? Util.getDefaultGetHeaders() : Util.getDefaultPostHeaders());
 
         for (Iterator<String> keys = defaultHeaders.keySet().iterator(); keys.hasNext();) {
-            key = (String) keys.next();
+            key = keys.next();
 
             if (connection.getRequestProperty(key) == null) {
-                value = (String) defaultHeaders.get(key);
+                value = defaultHeaders.get(key);
 
                 connection.addRequestProperty(key, value);
             }

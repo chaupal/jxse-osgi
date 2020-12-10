@@ -235,7 +235,8 @@ public class TempDir extends File {
             /**
              * Call the shutdown method.
              */
-            public void run() {
+            @Override
+			public void run() {
                 synchronized(toDelete) {
                     for (File file : toDelete) {
                         file.delete();

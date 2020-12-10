@@ -48,6 +48,7 @@ public class IndexRandomLoadTester implements Runnable {
 		
 	}
 	
+	@Override
 	public void run() {
 		try {
 			for(int i=0; i < numOps; i++) {

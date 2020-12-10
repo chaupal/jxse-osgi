@@ -208,7 +208,7 @@ public final class Instantiator implements net.jxta.id.IDFactory.Instantiator {
      *
      * @throws UnsupportedOperationException This form is not supported. Use CODAT from UUID package instead.
      */
-    public net.jxta.codat.CodatID newCodatID(final net.jxta.peergroup.PeerGroupID groupID) {
+    public net.jxta.content.ContentID newContentID(final net.jxta.peergroup.PeerGroupID groupID) {
         PeerGroupID parentGroupID = (PeerGroupID) IDFormat.translateFromWellKnown(groupID);
 
         return new net.jxta.impl.id.binaryID.CodatBinaryID(parentGroupID, randomID(), false);
@@ -220,7 +220,7 @@ public final class Instantiator implements net.jxta.id.IDFactory.Instantiator {
      *
      * @throws UnsupportedOperationException This form is not supported. Use CODAT from UUID package instead.
      */
-    public net.jxta.codat.CodatID newCodatID(final net.jxta.peergroup.PeerGroupID groupID, byte[] seed) {
+    public net.jxta.content.ContentID newContentID(final net.jxta.peergroup.PeerGroupID groupID, byte[] seed) {
         PeerGroupID parentGroupID = (PeerGroupID) IDFormat.translateFromWellKnown(groupID);
 
         return new net.jxta.impl.id.binaryID.CodatBinaryID(parentGroupID, seed, false);
@@ -231,7 +231,7 @@ public final class Instantiator implements net.jxta.id.IDFactory.Instantiator {
      *
      * @throws UnsupportedOperationException This form is not supported. Use CODAT from UUID package instead.
      */
-    public net.jxta.codat.CodatID newCodatID(final net.jxta.peergroup.PeerGroupID groupID, InputStream in) throws IOException {
+    public net.jxta.content.ContentID newContentID(final net.jxta.peergroup.PeerGroupID groupID, InputStream in) throws IOException {
         PeerGroupID parentGroupID = (PeerGroupID) IDFormat.translateFromWellKnown(groupID);
 
         return new net.jxta.impl.id.binaryID.CodatBinaryID(parentGroupID, randomID(), false);
@@ -242,7 +242,7 @@ public final class Instantiator implements net.jxta.id.IDFactory.Instantiator {
      *
      * @throws UnsupportedOperationException This form is not supported. Use CODAT from UUID package instead.
      */
-    public net.jxta.codat.CodatID newCodatID(final net.jxta.peergroup.PeerGroupID groupID, byte[] idValue, InputStream in) throws IOException {
+    public net.jxta.content.ContentID newContentID(final net.jxta.peergroup.PeerGroupID groupID, byte[] idValue, InputStream in) throws IOException {
         PeerGroupID parentGroupID = (PeerGroupID) IDFormat.translateFromWellKnown(groupID);
 
         return new net.jxta.impl.id.binaryID.CodatBinaryID(parentGroupID, idValue, false);

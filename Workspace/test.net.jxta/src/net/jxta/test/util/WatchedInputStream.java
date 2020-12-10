@@ -117,7 +117,8 @@ class WatchedInputStream extends FilterInputStream
      * @param watchList The watchList to register with. Must be a
      *                  Synchronized Collection.
      */
-    public synchronized void setWatchList(Collection<Object> watchList) {
+    @Override
+	public synchronized void setWatchList(Collection<Object> watchList) {
         if (this.watchList != null) {
             this.watchList.remove(this);
         }
@@ -127,7 +128,8 @@ class WatchedInputStream extends FilterInputStream
 
     // This routine may be invoked as often as progress needs to be asserted.
     // After at most two watch cycles stalling is detected.
-    public void watch() {
+    @Override
+	public void watch() {
 
         if (idle) {
             return;

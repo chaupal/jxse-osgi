@@ -62,7 +62,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import net.jxta.codat.CodatID;
+import net.jxta.content.ContentID;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
 
@@ -141,7 +141,7 @@ public final class BinaryIDTest extends TestCase {
 
     public void testPeerGroupID() {
         try {
-            byte type = BinaryID.flagGenericID;
+            //byte type = BinaryID.flagGenericID;
             PeerGroupBinaryID one = new PeerGroupBinaryID(data1, false);
             PeerGroupBinaryID two = new PeerGroupBinaryID(data2, true);
             PeerGroupBinaryID three = new PeerGroupBinaryID(data3, false);
@@ -192,7 +192,7 @@ public final class BinaryIDTest extends TestCase {
             assertTrue("comparison of base == base2", base.equals(base2));
 
             URI asURI = one.toURI();
-            String asString = one.toString();
+            //String asString = one.toString();
 
             // System.out.println("");
             // System.out.println("one:"+one);
@@ -245,7 +245,7 @@ public final class BinaryIDTest extends TestCase {
             assertTrue("comparison of base == base2", base.equals(base2));
 
             URI asURI = one.toURI();
-            String asString = one.toString();
+            //String asString = one.toString();
 
             assertTrue("comparison of ID string and string of URI was not the same", one.toString().equals(asURI.toString()));
 
@@ -293,7 +293,7 @@ public final class BinaryIDTest extends TestCase {
             assertTrue("comparison of base == base2", base.equals(base2));
 
             URI asURI = one.toURI();
-            String asString = one.toString();
+            //String asString = one.toString();
 
             assertTrue("comparison of ID string and string of URI was not the same", one.toString().equals(asURI.toString()));
 
@@ -414,14 +414,14 @@ public final class BinaryIDTest extends TestCase {
 
     public void testCodatID() {
         try {
-            CodatID first = IDFactory.newCodatID(IDFactory.newPeerGroupID());
-            CodatID second = IDFactory.newCodatID(IDFactory.newPeerGroupID());
-            CodatID third;
+            ContentID first = IDFactory.newContentID(IDFactory.newPeerGroupID(), false );
+            ContentID second = IDFactory.newContentID(IDFactory.newPeerGroupID(), false);
+            ContentID third;
             ID interloper = IDFactory.newPeerID(IDFactory.newPeerGroupID());
             String  asString;
             URI     asURI;
             ID myPeerGroup;
-            boolean isStatic;
+            //boolean isStatic;
 
             assertTrue("comparison of a CodatID against itself failed", first.equals(first));
 
@@ -438,7 +438,7 @@ public final class BinaryIDTest extends TestCase {
 
             assertTrue("comparison of ID string and string of URI was not the same", asString.equals(asURI.toString()));
 
-            third = (CodatID) IDFactory.fromURI(asURI);
+            third = (ContentID) IDFactory.fromURI(asURI);
 
             assertTrue("result of conversion to URI and back to ID was not equal to original", first.equals(third));
 

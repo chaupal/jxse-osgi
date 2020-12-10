@@ -146,7 +146,8 @@ public abstract class AbstractContentProviderTest {
             LOG.info("Created NM: " + nm + " (" + nm.getClass().getClassLoader() + ")");
         }
 
-        public void init() {
+        @Override
+		public void init() {
             try {
                 LOG.info("Initializing: " + this);
                 PeerGroup netPeerGroup = nm.startNetwork();
@@ -182,7 +183,8 @@ public abstract class AbstractContentProviderTest {
             }
         }
 
-        public byte[] share(URI id, byte[] data, String mimeType, boolean pub) {
+        @Override
+		public byte[] share(URI id, byte[] data, String mimeType, boolean pub) {
             try {
                 MimeMediaType mType = MimeMediaType.valueOf(mimeType);
                 BinaryDocument bDoc = new BinaryDocument(data, mType);
@@ -210,7 +212,8 @@ public abstract class AbstractContentProviderTest {
             }
         }
 
-        public void destroy() {
+        @Override
+		public void destroy() {
             LOG.info("Destroying: " + this);
             nm.stopNetwork();
             nm = null;

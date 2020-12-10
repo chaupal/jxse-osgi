@@ -60,6 +60,7 @@ import java.io.File;
 
 import junit.framework.TestSuite;
 import junit.framework.TestCase;
+import junit.framework.Assert;
 import junit.framework.Test;
 import net.jxta.exception.ConfiguratorException;
 
@@ -72,13 +73,13 @@ public class NetworkConfiguratorTest extends TestCase {
     private File edgeHome = new File(home, "edge");
     private File rdvHome = new File(home, "rdv");
     private File rlyHome = new File(home, "rly");
-    private File proxHome = new File(home, "prox");
-    private File rdvRelayHome = new File(home, "rdv_rly");
-    private File rdvRelayProxyHome = new File(home, "rdv_rly_prox");
+	//private File proxHome = new File(home, "prox");
+    //private File rdvRelayHome = new File(home, "rdv_rly");
+    //private File rdvRelayProxyHome = new File(home, "rdv_rly_prox");
     private static boolean failed = false;
-    private static final int rdvRelay = NetworkConfigurator.RELAY_SERVER + NetworkConfigurator.RDV_SERVER;
-    private static final int rdvRelayProx = NetworkConfigurator.RELAY_SERVER + NetworkConfigurator.RDV_SERVER
-            + NetworkConfigurator.PROXY_SERVER;
+    //private static final int rdvRelay = NetworkConfigurator.RELAY_SERVER + NetworkConfigurator.RDV_SERVER;
+    //private static final int rdvRelayProx = NetworkConfigurator.RELAY_SERVER + NetworkConfigurator.RDV_SERVER
+    //       + NetworkConfigurator.PROXY_SERVER;
 
     /**
      *Constructor for the NetworkConfiguratorTest object
@@ -182,8 +183,7 @@ public class NetworkConfiguratorTest extends TestCase {
      */
     public static void fail(String message) {
         failed = true;
-        junit.framework.TestCase.fail(message);
+        Assert.fail(message + ": " + failed);
     }
-
 }
 

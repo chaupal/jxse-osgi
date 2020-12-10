@@ -58,7 +58,6 @@ package net.jxta.impl.util;
 
 import junit.framework.*;
 
-import java.io.*;
 import java.net.*;
 import java.util.*;
 
@@ -116,7 +115,8 @@ public class SeedingManagerTest extends TestCase {
         }
     }
 
-    public void testSeeding() {
+    @SuppressWarnings("unused")
+	public void testSeeding() {
         URI seedinguris[] = {
             URI.create("file:///home/mike/rendezvous.xml"),
             URI.create("ftp://ftp.duigou.org/jxta/rendezvous.txt")

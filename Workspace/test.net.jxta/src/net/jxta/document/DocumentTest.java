@@ -129,7 +129,7 @@ public final class DocumentTest extends TestCase {
         }
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	private void _test(StructuredDocumentFactory.Instantiator instantiator, MimeMediaType type) throws Exception {
         final String useDocType = "Test";
         StructuredTextDocument doc = null;
@@ -149,7 +149,7 @@ public final class DocumentTest extends TestCase {
         doc.appendChild(testElement);
 
         try {
-            Element firstchild = (Element) doc.getChildren().nextElement();
+            Element<?> firstchild = (Element<?>) doc.getChildren().nextElement();
 
             assertTrue("added a single element, but something else was returned", testElement.equals(firstchild));
         } catch (Exception e) {
@@ -187,7 +187,7 @@ public final class DocumentTest extends TestCase {
 
         if (type.getSubtype().equalsIgnoreCase("XML")) {
             try {
-                TextElement testElement5 = doc.createElement("really wrong and long", "1");
+                TextElement<?> testElement5 = doc.createElement("really wrong and long", "1");
 
                 fail("Tag names with spaces should be disallowed");
             } catch (Exception failed) {// that's ok
@@ -247,10 +247,10 @@ public final class DocumentTest extends TestCase {
 
         assertTrue("element didnt have expected number of children named '" + useName + "'", 2 == count);
 
-        StructuredDocument likeMe = null;
+        StructuredDocument<?> likeMe = null;
 
         try {
-            likeMe = (StructuredTextDocument) instantiator.newInstance(doc.getMimeType(), doc.getStream());
+            likeMe = instantiator.newInstance(doc.getMimeType(), doc.getStream());
         } catch (java.security.ProviderException thrown) {
             ;
         } catch (Throwable thrown) {
@@ -497,7 +497,8 @@ public final class DocumentTest extends TestCase {
         assertTrue("extension was not the same after reflex mapping", refExt.equals(ext));
     }
 
-    public void testIssue102() {
+    @SuppressWarnings("unused")
+	public void testIssue102() {
         String WORKS = "<xml><stooges>Moe, Larry, &#x41;&#65;&#0666;& Curly</stooges></xml>";
 
         String DOES_NOT_WORK = "<xml><stooges>Moe, Larry, & Joe</stooges></xml>";
@@ -521,7 +522,7 @@ public final class DocumentTest extends TestCase {
                 testElem.addAttribute("name", "n" + i);
                 if (i == 3) {
                     for (int j = 0; j < 2; j++) {
-                        XMLElement childElem = document.createElement("item");
+                        XMLElement<?> childElem = document.createElement("item");
 
                         testElem.appendChild(childElem);
                         childElem.addAttribute("name", "ch" + j);
@@ -536,7 +537,7 @@ public final class DocumentTest extends TestCase {
 
             InputStream is = new ByteArrayInputStream(out.toByteArray());
 
-            XMLDocument document2 = (XMLDocument) StructuredDocumentFactory.newStructuredDocument(mime, is);
+            XMLDocument document2 = (XMLDocument<?>) StructuredDocumentFactory.newStructuredDocument(mime, is);
 
             Enumeration<XMLElement> eachOrig = document.getChildren();
             Enumeration<XMLElement> eachNew = document2.getChildren();

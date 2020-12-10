@@ -13,7 +13,8 @@ public class FakeTimer implements Timer {
 
     private List<FakeTimeout> timeouts = new LinkedList<FakeTimeout>();
 
-    public Timeout newTimeout(TimerTask task, long delay, TimeUnit unit) {
+    @Override
+	public Timeout newTimeout(TimerTask task, long delay, TimeUnit unit) {
         FakeTimeout t = new FakeTimeout(task, delay, unit);
         timeouts.add(t);
         return t;
@@ -25,17 +26,19 @@ public class FakeTimer implements Timer {
             t.expire();
         }
 
-        timeouts.remove(currentTimeouts);
+        timeouts.removeAll(currentTimeouts);
     }
 
-    public Set<Timeout> stop() {
+    @Override
+	public Set<Timeout> stop() {
         return null;
     }
 
-    private class FakeTimeout implements Timeout {
+    @SuppressWarnings("unused")
+   private class FakeTimeout implements Timeout {
 
         private TimerTask task;
-        private long delay;
+ 		private long delay;
         private TimeUnit unit;
         private boolean cancelled;
         private boolean expired;
@@ -48,24 +51,29 @@ public class FakeTimer implements Timer {
             this.expired = false;
         }
 
-        public void cancel() {
+        @Override
+		public void cancel() {
             timeouts.remove(this);
             cancelled = true;
         }
 
-        public TimerTask getTask() {
+        @Override
+		public TimerTask getTask() {
             return task;
         }
 
-        public Timer getTimer() {
+        @Override
+		public Timer getTimer() {
             return FakeTimer.this;
         }
 
-        public boolean isCancelled() {
+        @Override
+		public boolean isCancelled() {
             return cancelled;
         }
 
-        public boolean isExpired() {
+        @Override
+		public boolean isExpired() {
             return expired;
         }
 

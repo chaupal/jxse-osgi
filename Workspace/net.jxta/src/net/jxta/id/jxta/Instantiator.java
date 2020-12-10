@@ -56,7 +56,6 @@
 
 package net.jxta.id.jxta;
 
-import net.jxta.codat.CodatID;
 import net.jxta.content.ContentID;
 import net.jxta.id.ID;
 import net.jxta.peer.PeerID;
@@ -100,28 +99,28 @@ final class Instantiator implements net.jxta.id.IDFactory.Instantiator {
     /**
      * {@inheritDoc}
      */
-    public CodatID newCodatID(PeerGroupID groupID) {
+    public ContentID newContentID(PeerGroupID groupID) {
         throw new ProviderException("unsupported id type");
     }
 
     /**
      * {@inheritDoc}
      */
-    public CodatID newCodatID(PeerGroupID groupID, byte[] seed) {
+    public ContentID newContentID(PeerGroupID groupID, byte[] seed) {
         throw new ProviderException("unsupported id type");
     }
 
     /**
      * {@inheritDoc}
      */
-    public CodatID newCodatID(PeerGroupID groupID, InputStream in) throws IOException {
+    public ContentID newContentID(PeerGroupID groupID, InputStream in) throws IOException {
         throw new ProviderException("unsupported id type");
     }
 
     /**
      * {@inheritDoc}
      */
-    public CodatID newCodatID(PeerGroupID groupID, byte[] seed, InputStream in) throws IOException {
+    public ContentID newContentID(PeerGroupID groupID, byte[] seed, InputStream in) throws IOException {
         throw new ProviderException("unsupported id type");
     }
 

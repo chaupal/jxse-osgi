@@ -116,7 +116,7 @@ public class Message {
         Object o = null;
 
         for (Iterator<String> i = getHeaderKeys(); i != null && i.hasNext();) {
-            k = (String) i.next();
+            k = i.next();
 
             if (k.equalsIgnoreCase(key)) {
                 o = this.headers.get(k);
@@ -153,7 +153,7 @@ public class Message {
         String key = null;
 
         for (Iterator<String> i = headers.keySet().iterator(); i.hasNext();) {
-            key = (String) i.next();
+            key = i.next();
 
             setHeader(key, headers.get(key));
         }
@@ -240,7 +240,7 @@ public class Message {
 
         if (value != null) {
             for (Iterator<String> i = sessionIds.iterator(); i.hasNext();) {
-                id = (String) i.next();
+                id = i.next();
 
                 if (value.indexOf(id) > -1) {
                     prefix = id;

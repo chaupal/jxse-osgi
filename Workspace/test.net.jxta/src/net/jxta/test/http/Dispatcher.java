@@ -124,7 +124,7 @@ public class Dispatcher {
         String header = null;
 
         for (Iterator<String> c = this.cookies.iterator(); c.hasNext();) {
-            header = (String) c.next();
+            header = c.next();
 
             if (isCookieEnabled()) {
                 dispatcher.setHeader(Constants.MIME.Key.COOKIE, header);
@@ -163,7 +163,7 @@ public class Dispatcher {
 
         if (response != null) {
             for (Iterator<String> h = response.getHeaders(Constants.MIME.Key.SET_COOKIE); h.hasNext();) {
-                this.cookies.add((String) h.next());
+                this.cookies.add(h.next());
             }
         }
 
@@ -180,8 +180,8 @@ public class Dispatcher {
             String value = null;
 
             while (keys.hasNext()) {
-                key = (String) keys.next();
-                value = (String) queryString.get(key);
+                key = keys.next();
+                value = queryString.get(key);
                 if (sb.length() > 0) {
                     sb.append(AMPERSAND);
                 }
@@ -260,9 +260,11 @@ class Dispatch implements Runnable {
         setInterrupted(true);
     }
 
-    public void run() {
+    @Override
+	public void run() {
         Thread t = new Thread(new Runnable() {
-            public void run() {
+            @Override
+			public void run() {
                 try {
                     response = dispatchable.dispatch();
                 } catch (IOException ioe) {}

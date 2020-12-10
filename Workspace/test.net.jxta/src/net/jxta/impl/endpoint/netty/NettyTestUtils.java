@@ -55,7 +55,7 @@ public class NettyTestUtils {
             return false;
         }
         
-        int position = 0;
+        //int position = 0;
         while(expected.readable()) {
             byte expectedByte = expected.readByte();
             byte actualByte = actual.readByte(); 
@@ -63,7 +63,7 @@ public class NettyTestUtils {
                 return false;
             }
             
-            position++;
+            //position++;
         }
         
         return true;

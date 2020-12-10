@@ -85,39 +85,43 @@ public class Instantiator implements net.jxta.id.IDFactory.Instantiator {
     }
 
     /**
+     * TODO CP: Support for static peergroups. now all these are 'false'
      * {@inheritDoc}
      */
-    public net.jxta.codat.CodatID newCodatID(net.jxta.peergroup.PeerGroupID groupID) {
+    public net.jxta.content.ContentID newContentID(net.jxta.peergroup.PeerGroupID groupID) {
         PeerGroupID peerGroupID = (PeerGroupID) IDFormat.translateFromWellKnown(groupID);
 
-        return new CodatID(peerGroupID);
+        return new ContentID(peerGroupID, false);
     }
 
     /**
-     * {@inheritDoc}
+      * TODO CP: Support for static peergroups. now all these are 'false'
+    * {@inheritDoc}
      */
-    public net.jxta.codat.CodatID newCodatID(net.jxta.peergroup.PeerGroupID groupID, byte[] seed) {
+    public net.jxta.content.ContentID newContentID(net.jxta.peergroup.PeerGroupID groupID, byte[] seed) {
         PeerGroupID peerGroupID = (PeerGroupID) IDFormat.translateFromWellKnown(groupID);
 
-        return new CodatID(peerGroupID, seed);
+        return new ContentID(peerGroupID, false, seed);
     }
 
     /**
+     * TODO CP: Support for static peergroups. now all these are 'false'
      * {@inheritDoc}
      */
-    public net.jxta.codat.CodatID newCodatID(net.jxta.peergroup.PeerGroupID groupID, InputStream in) throws IOException {
+    public net.jxta.content.ContentID newContentID(net.jxta.peergroup.PeerGroupID groupID, InputStream in) throws IOException {
         PeerGroupID peerGroupID = (PeerGroupID) IDFormat.translateFromWellKnown(groupID);
 
-        return new CodatID(peerGroupID, in);
+        return new ContentID(peerGroupID, false, in);
     }
 
     /**
+     * TODO CP: Support for static peergroups. now all these are 'false'
      * {@inheritDoc}
      */
-    public net.jxta.codat.CodatID newCodatID(net.jxta.peergroup.PeerGroupID groupID, byte[] seed, InputStream in) throws IOException {
+    public net.jxta.content.ContentID newContentID(net.jxta.peergroup.PeerGroupID groupID, byte[] seed, InputStream in) throws IOException {
         PeerGroupID peerGroupID = (PeerGroupID) IDFormat.translateFromWellKnown(groupID);
 
-        return new CodatID(peerGroupID, seed, in);
+        return new ContentID(peerGroupID, false, seed, in);
     }
 
     /**
@@ -383,10 +387,6 @@ public class Instantiator implements net.jxta.id.IDFactory.Instantiator {
         }
 
         switch (id.bytes[IDFormat.flagsOffset + IDFormat.flagsIdTypeOffset]) {
-        case IDFormat.flagCodatID:
-            result = new CodatID(id);
-            break;
-
         case IDFormat.flagPeerGroupID:
             result = new PeerGroupID(id);
             result = (PeerGroupID) IDFormat.translateToWellKnown(result);

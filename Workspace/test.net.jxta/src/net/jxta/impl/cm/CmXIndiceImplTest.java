@@ -236,7 +236,7 @@ public class CmXIndiceImplTest {
 
             advID = adv.getID();
             if (advID == null || advID.equals(ID.nullID)) {
-                advName = CacheManager.createTmpName(doc);
+                advName = XIndiceAdvertisementCache.createTmpName(doc);
             } else {
                 advName = advID.getUniqueValue().toString();
             }
@@ -566,7 +566,8 @@ public class CmXIndiceImplTest {
             this.id = id;
         }
 
-        public void run() {
+        @Override
+		public void run() {
             for (int i = 0; i < ITERATIONS && !failed; i++) {
                 while (queue.size() < 1) {
                     try {
@@ -599,7 +600,8 @@ public class CmXIndiceImplTest {
             this.id = id;
         }
 
-        public void run() {
+        @Override
+		public void run() {
             for (int i = 0; i < ITERATIONS && !failed; i++) {
                 PeerAdvertisement adv = generatePeerAdv(i);
                 String advName = adv.getID().getUniqueValue().toString();
@@ -623,7 +625,8 @@ public class CmXIndiceImplTest {
             this.id = id;
         }
 
-        public void run() {
+        @Override
+		public void run() {
             int count = 0;
             final int offset = "urn:jxta:".length();
 

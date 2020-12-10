@@ -178,12 +178,13 @@ public class ReliableTest extends TestCase implements
             delivDate = date;
         }
 
-        public void run() {
+        @Override
+		public void run() {
             Message msg;
 
             synchronized (bwQueue) {
 
-                msg = (Message) bwQueue.poll();
+                msg = bwQueue.poll();
                 long msgLen = msg.getByteLength();
 
                 bwQueueSz -= msgLen;
@@ -220,7 +221,8 @@ public class ReliableTest extends TestCase implements
         // The injection or extraction time depends on length and bandwidth
         long bitsToClock = msg.getByteLength() * 8000 + roundingLoss;
         long delay = bitsToClock / (BW_LIMIT * 1024);
-        long roundingLoss = bitsToClock % (BW_LIMIT * 1024);
+        @SuppressWarnings("unused")
+		long roundingLoss = bitsToClock % (BW_LIMIT * 1024);
 
         // We can inject a message if/after the last byte of the previous one
         // is done injecting. 
@@ -430,7 +432,8 @@ public class ReliableTest extends TestCase implements
                 + "\n adaptive:   " + ADAPTIVE + "\n debug:      " + DEBUG);
     }
 
-    public void rendezvousEvent(RendezvousEvent event) {
+    @Override
+	public void rendezvousEvent(RendezvousEvent event) {
         synchronized (rdvConnectLock) {
             rdvConnectLock.notifyAll();
         }
@@ -554,7 +557,7 @@ public class ReliableTest extends TestCase implements
                     msg.addMessageElement(new StringMessageElement(MESSAGE_TAG, messageId, null));
                     // add a random load element
                     int index = random.nextInt(loadElements.size());
-                    byte[] le = (byte[]) loadElements.get(index);
+                    byte[] le = loadElements.get(index);
                     MessageElement elm = new ByteArrayMessageElement(PAYLOAD_TAG, MIME_BINARY, le, null);
 
                     msg.addMessageElement(elm);
@@ -602,7 +605,8 @@ public class ReliableTest extends TestCase implements
         }
     }
 
-    public void discoveryEvent(DiscoveryEvent event) {
+    @Override
+	public void discoveryEvent(DiscoveryEvent event) {
         Enumeration<?> ae = event.getResponse().getResponses();
 
         while (ae.hasMoreElements()) {
@@ -822,7 +826,8 @@ public class ReliableTest extends TestCase implements
         }
     }
 
-    public void pipeMsgEvent(PipeMsgEvent inputPipeEvent) {
+    @Override
+	public void pipeMsgEvent(PipeMsgEvent inputPipeEvent) {
         Message msg = inputPipeEvent.getMessage();
 
         if (msg == null) {
@@ -855,7 +860,8 @@ public class ReliableTest extends TestCase implements
         }
     }
 
-    public void outputPipeEvent(OutputPipeEvent outputPipeEvent) {
+    @Override
+	public void outputPipeEvent(OutputPipeEvent outputPipeEvent) {
         String pid = outputPipeEvent.getPipeID();
 
         // this will happen in the sender

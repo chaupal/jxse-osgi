@@ -564,7 +564,8 @@ public abstract class AbstractCmTest {
      */
     private class EntryComparator implements Comparator<Entry> {
 
-        public int compare(Entry o1, Entry o2) {
+        @Override
+		public int compare(Entry o1, Entry o2) {
             return o1.key.equals(o2.key) && o1.value.equals(o2.value) && o1.expiration == o2.expiration ? 0 : -1;
         }
     }

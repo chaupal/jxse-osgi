@@ -56,7 +56,6 @@
 
 package net.jxta.id;
 
-import net.jxta.codat.CodatID;
 import net.jxta.content.ContentID;
 import net.jxta.id.jxta.IDFormat;
 import net.jxta.peer.PeerID;
@@ -159,42 +158,42 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
         public ID fromURNNamespaceSpecificPart(String source) throws URISyntaxException;
 
         /**
-         *  Creates a new CodatID Instance. A new random CodatID is created for
-         *  the provided Peer Group. This type of CodatID can be used as a
+         *  Creates a new ContentID Instance. A new random ContentID is created for
+         *  the provided Peer Group. This type of ContentID can be used as a
          *  canonical reference for dynamic content.
          *
          *  @see net.jxta.codat.Codat
          *
          *  @param groupID The group to which this content will belong.
-         *  @return The newly created CodatID.
+         *  @return The newly created ContentID.
          */
-        public CodatID newCodatID(PeerGroupID groupID);
+        public ContentID newContentID(PeerGroupID groupID);
 
         /**
-         *  Creates a new CodatID instance. A new CodatID is created for the
-         *  provided Peer Group. This type of CodatID can be used as a
+         *  Creates a new ContentID instance. A new ContentID is created for the
+         *  provided Peer Group. This type of ContentID can be used as a
          *  canonical reference for dynamic content.
          *
-         *  <p/>This variant of CodatID allows you to create "Well-known" codats
+         *  <p/>This variant of ContentID allows you to create "Well-known" codats
          *  within the context of diverse groups. This can be useful for common
          *  services that need to do discovery without advertisements or for
          *  network organization services.  Because of the potential for ID
          *  collisions and the difficulties with maintaining common service
-         *  interfaces this variant of CodatID should be used with great caution
+         *  interfaces this variant of ContentID should be used with great caution
          *  and pre-planning.
          *
          *  @see net.jxta.codat.Codat
          *
          *  @param groupID The group to which this content will belong.
          *  @param seed The seed information which will be used in creating the
-         *  codatID. The seed information should be at least four bytes in
+         *  ContentID. The seed information should be at least four bytes in
          *  length, though longer values are better.
-         *  @return The newly created CodatID.
+         *  @return The newly created ContentID.
          */
-        public CodatID newCodatID(PeerGroupID groupID, byte[] seed);
+        public ContentID newContentID(PeerGroupID groupID, byte[] seed);
 
         /**
-         *  Creates a new CodatID instance. A new random CodatID is created for
+         *  Creates a new ContentID instance. A new random ContentID is created for
          *  the provided Peer Group and contains a hash value for the Codat data.
          *  This type of Codat ID is most appropriate for static content. By
          *  including a hash value this form of Codat ID provides greater
@@ -207,13 +206,13 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
          *  @param groupID The group to which this ID will belong.
          *  @param in The InputStream from which the content hash is calculated.
          *  The stream is read until EOF and then closed.
-         *  @return The newly created CodatID.
+         *  @return The newly created ContentID.
          *  @throws IOException I/O Error reading document
          */
-        public CodatID newCodatID(PeerGroupID groupID, InputStream in) throws IOException;
+        public ContentID newContentID(PeerGroupID groupID, InputStream in) throws IOException;
 
         /**
-         *  Creates a new CodatID instance. A new CodatID is created for the
+         *  Creates a new ContentID instance. A new ContentID is created for the
          *  provided Peer Group and contains a hash value for the Codat data.
          *  By including a hash value this form of Codat ID provides greater
          *  assurance of the canonical property of IDs. It also allows the
@@ -221,12 +220,12 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
          *  ensure it has not been altered. This type of Codat ID is most
          *  appropriate for static content.
          *
-         *  <p/>This variant of CodatID allows you to create "Well-known" codats
+         *  <p/>This variant of ContentID allows you to create "Well-known" codats
          *  within the context of diverse groups. This can be useful for common
          *  services that need to do discovery without advertisements or for
          *  network organization services.  Because of the potential for ID
          *  collisions and the difficulties with maintaining common service
-         *  interfaces this variant of CodatID should be used with great caution
+         *  interfaces this variant of ContentID should be used with great caution
          *  and pre-planning.
          *
          *  @see net.jxta.codat.Codat
@@ -237,10 +236,10 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
          *  length, though longer values are better.
          *  @param in The InputStream from which the content hash is calculated.
          *  The stream is read until EOF and then closed.
-         *  @return The newly created CodatID.
+         *  @return The newly created ContentID.
          *  @throws IOException I/O Error reading document
          */
-        public CodatID newCodatID(PeerGroupID groupID, byte[] seed, InputStream in) throws IOException;
+        public ContentID newContentID(PeerGroupID groupID, byte[] seed, InputStream in) throws IOException;
 
         /**
          * Creates a new ContentID Instance, generated randomly for the
@@ -801,16 +800,16 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
     }
 
     /**
-     *  Creates a new CodatID Instance. A new random CodatID is created for
-     *  the provided Peer Group. This type of CodatID can be used as a
+     *  Creates a new ContentID Instance. A new random ContentID is created for
+     *  the provided Peer Group. This type of ContentID can be used as a
      *  canonical reference for dynamic content.
      *
      *  @see net.jxta.codat.Codat
      *
      *  @param groupID    the group to which this content will belong.
-     *  @return The newly created CodatID.
+     *  @return The newly created ContentID.
      */
-    public static CodatID newCodatID(PeerGroupID groupID) {
+    public static ContentID newContentID(PeerGroupID groupID) {
         String useFormat = groupID.getIDFormat();
 
         // is the group netpg or worldpg?
@@ -820,31 +819,31 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
 
         Instantiator instantiator = factory.getInstantiator(useFormat);
 
-        return instantiator.newCodatID(groupID).intern();
+        return instantiator.newContentID(groupID).intern();
     }
 
     /**
-     *  Creates a new CodatID instance. A new CodatID is created for the
-     *  provided Peer Group. This type of CodatID can be used as a
+     *  Creates a new ContentID instance. A new ContentID is created for the
+     *  provided Peer Group. This type of ContentID can be used as a
      *  canonical reference for dynamic content.
      *
-     *  <p/>This variant of CodatID allows you to create "Well-known" codats
+     *  <p/>This variant of ContentID allows you to create "Well-known" codats
      *  within the context of diverse groups. This can be useful for common
      *  services that need to do discovery without advertisements or for
      *  network organization services.  Because of the potential for ID
      *  collisions and the difficulties with maintaining common service
-     *  interfaces this variant of CodatID should be used with great caution
+     *  interfaces this variant of ContentID should be used with great caution
      *  and pre-planning.
      *
      *  @see net.jxta.codat.Codat
      *
      *  @param groupID    the group to which this content will belong.
      *  @param seed The seed information which will be used in creating the
-     *  codatID. The seed information should be at least four bytes in length,
+     *  ContentID. The seed information should be at least four bytes in length,
      *  though longer values are better.
-     *  @return The newly created CodatID.
+     *  @return The newly created ContentID.
      */
-    public static CodatID newCodatID(PeerGroupID groupID, byte[] seed) {
+    public static ContentID newContentID(PeerGroupID groupID, byte[] seed) {
         String useFormat = groupID.getIDFormat();
 
         // is the group netpg or worldpg?
@@ -854,11 +853,11 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
 
         Instantiator instantiator = factory.getInstantiator(useFormat);
 
-        return instantiator.newCodatID(groupID, seed).intern();
+        return instantiator.newContentID(groupID, seed).intern();
     }
 
     /**
-     *  Creates a new CodatID instance. A new random CodatID is created for
+     *  Creates a new ContentID instance. A new random ContentID is created for
      *  the provided Peer Group and contains a hash value for the Codat data.
      *  This type of Codat ID is most appropriate for static content. By
      *  including a hash value this form of Codat ID provides greater assurance
@@ -871,10 +870,10 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
      *  @param  groupID The group to which this ID will belong.
      *  @param  in  The InputStream from which the content hash is calculated.
      *  The stream is read until EOF and then closed.
-     *  @return The newly created CodatID.
+     *  @return The newly created ContentID.
      *  @throws IOException I/O Error reading document
      */
-    public static CodatID newCodatID(PeerGroupID groupID, InputStream in) throws  IOException {
+    public static ContentID newContentID(PeerGroupID groupID, InputStream in) throws  IOException {
         String useFormat = groupID.getIDFormat();
 
         // is the group netpg or worldpg?
@@ -884,11 +883,11 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
 
         Instantiator instantiator = factory.getInstantiator(useFormat);
 
-        return instantiator.newCodatID(groupID, in).intern();
+        return instantiator.newContentID(groupID, in).intern();
     }
 
     /**
-     *  Creates a new CodatID instance. A new CodatID is created for the
+     *  Creates a new ContentID instance. A new ContentID is created for the
      *  provided Peer Group and contains a hash value for the Codat data.
      *  By including a hash value this form of Codat ID provides greater
      *  assurance of the canonical property of IDs. It also allows the
@@ -896,12 +895,12 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
      *  ensure it has not been altered. This type of Codat ID is most
      *  appropriate for static content.
      *
-     *  <p/>This variant of CodatID allows you to create "Well-known" codats
+     *  <p/>This variant of ContentID allows you to create "Well-known" codats
      *  within the context of diverse groups. This can be useful for common
      *  services that need to do discovery without advertisements or for
      *  network organization services.  Because of the potential for ID
      *  collisions and the difficulties with maintaining common service
-     *  interfaces this variant of CodatID should be used with great caution
+     *  interfaces this variant of ContentID should be used with great caution
      *  and pre-planning.
      *
      *  @see net.jxta.codat.Codat
@@ -912,10 +911,10 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
      *  though longer values are better.
      *  @param  in  The InputStream from which the content hash is calculated.
      *  The stream is read until EOF and then closed.
-     *  @return The newly created CodatID.
+     *  @return The newly created ContentID.
      *  @throws IOException I/O Error reading document
      */
-    public static CodatID newCodatID(PeerGroupID groupID, byte[] seed, InputStream in) throws  IOException {
+    public static ContentID newContentID(PeerGroupID groupID, byte[] seed, InputStream in) throws  IOException {
         String useFormat = groupID.getIDFormat();
 
         // is the group netpg or worldpg?
@@ -925,7 +924,7 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
 
         Instantiator instantiator = factory.getInstantiator(useFormat);
 
-        return instantiator.newCodatID(groupID, seed, in).intern();
+        return instantiator.newContentID(groupID, seed, in).intern();
     }
 
     /**

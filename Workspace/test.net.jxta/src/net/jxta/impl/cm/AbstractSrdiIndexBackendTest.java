@@ -519,6 +519,7 @@ public abstract class AbstractSrdiIndexBackendTest {
 
 	private class EntryComparator implements Comparator<Entry> {
 
+		@Override
 		public int compare(Entry a, Entry b) {
 			if(a.peerid.equals(b.peerid) && a.expiration == b.expiration) {
 				return 0;

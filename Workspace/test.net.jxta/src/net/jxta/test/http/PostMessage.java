@@ -148,17 +148,17 @@ public class PostMessage extends GetMessage {
             List<String> cookies = new ArrayList<String>();
 
             for (Iterator<String> h = response.getHeaders(Constants.MIME.Key.COOKIE); h.hasNext();) {
-                cookies.add((String) h.next());
+                cookies.add(h.next());
             }
 
             for (Iterator<String> h = response.getHeaders(Constants.MIME.Key.SET_COOKIE); h.hasNext();) {
-                cookies.add((String) h.next());
+                cookies.add(h.next());
             }
 
             response.removeHeaders();
 
             for (Iterator<String> c = cookies.iterator(); c.hasNext();) {
-                response.setHeader(Constants.MIME.Key.COOKIE, (String) c.next());
+                response.setHeader(Constants.MIME.Key.COOKIE, c.next());
             }
 
             setMessage(response);

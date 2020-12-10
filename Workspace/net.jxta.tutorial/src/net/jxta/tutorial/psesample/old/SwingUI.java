@@ -1046,7 +1046,7 @@ public class SwingUI extends javax.swing.JFrame {
 
                     byte[] der = aCert.getEncoded();
 
-                    createid = IDFactory.newCodatID(group.getPeerGroupID(), new ByteArrayInputStream(der));
+                    createid = IDFactory.newContentID(group.getPeerGroupID(), new ByteArrayInputStream(der));
                 }
             } while (null != aCert);
 
@@ -1320,7 +1320,7 @@ public class SwingUI extends javax.swing.JFrame {
             invitationAuthenticator.setAuth2Identity(group.getPeerGroupID());
         } else {
             // Otherwise store it under another random key.
-            invitationAuthenticator.setAuth2Identity(IDFactory.newCodatID(group.getPeerGroupID()));
+            invitationAuthenticator.setAuth2Identity(IDFactory.newContentID(group.getPeerGroupID()));
         }
         invitationAuthenticator.setAuth3_IdentityPassword(invitationPasswordField.getPassword());
 

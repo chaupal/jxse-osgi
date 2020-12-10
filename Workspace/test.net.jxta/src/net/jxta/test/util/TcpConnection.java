@@ -423,7 +423,8 @@ public class TcpConnection implements Runnable {
      * <p/>This is the background Thread. While the connection is active, takes
      * messages from the queue and send it.
      */
-    public void run() {
+    @Override
+	public void run() {
 
         try {
 

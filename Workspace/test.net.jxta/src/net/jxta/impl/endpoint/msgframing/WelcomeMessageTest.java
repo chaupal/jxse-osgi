@@ -56,16 +56,16 @@
 package net.jxta.impl.endpoint.msgframing;
 
 import java.io.*;
+import java.util.logging.Logger;
 
 import junit.framework.*;
-
-import net.jxta.impl.endpoint.msgframing.WelcomeMessage;
 
 public class WelcomeMessageTest extends TestCase {
 
     final static String valid11 = "JXTAHELLO tcp://64.81.53.91:36815 tcp://209.128.126.120:9701 urn:jxta:uuid-59616 261646162614A787461503250333C85E78DB99A4BDD837FD8A233CAD3D803 0 1.1";
     final static String valid20 = "JXTAHELLO tcp://64.81.53.91:36815 tcp://209.128.126.120:9701 urn:jxta:uuid-59616 261646162614A787461503250333C85E78DB99A4BDD837FD8A233CAD3D803 0 2.0";
 
+    private static Logger logger = Logger.getLogger(WelcomeMessageTest.class.getName());
     public WelcomeMessageTest(java.lang.String testName) {
         super(testName);
     }
@@ -75,7 +75,7 @@ public class WelcomeMessageTest extends TestCase {
 
         try { 
             WelcomeMessage welcome = new WelcomeMessage(new ByteArrayInputStream(atest.getBytes("UTF-8")));
-
+            logger.info(welcome.getWelcomeString());
             fail("Should have failed to accept input as a Welcome Message");
         } catch (IOException failed) {
             ;
@@ -89,6 +89,7 @@ public class WelcomeMessageTest extends TestCase {
 
         try { 
             WelcomeMessage welcome = new WelcomeMessage(new ByteArrayInputStream(atest.getBytes("UTF-8")));
+            logger.info(welcome.getWelcomeString());
 
             fail("Should have failed to accept input as a Welcome Message");
         } catch (IOException failed) {
@@ -103,6 +104,7 @@ public class WelcomeMessageTest extends TestCase {
 
         try { 
             WelcomeMessage welcome = new WelcomeMessage(new ByteArrayInputStream(atest.getBytes("UTF-8")));
+            logger.info(welcome.getWelcomeString());
 
             fail("Should have failed to accept input as a Welcome Message");
         } catch (IOException failed) {
@@ -116,7 +118,7 @@ public class WelcomeMessageTest extends TestCase {
 
         try { 
             WelcomeMessage welcome = new WelcomeMessage(new ByteArrayInputStream(valid11.getBytes("UTF-8")));
-
+            logger.info(welcome.getWelcomeString());
             fail("Should have failed to accept input as a Welcome Message");
         } catch (IOException failed) {
             ;
@@ -129,6 +131,7 @@ public class WelcomeMessageTest extends TestCase {
 
         try { 
             WelcomeMessage welcome = new WelcomeMessage(new ByteArrayInputStream(valid20.getBytes("UTF-8")));
+            logger.info(welcome.getWelcomeString());
 
             fail("Should have failed to accept input as a Welcome Message");
         } catch (IOException failed) {

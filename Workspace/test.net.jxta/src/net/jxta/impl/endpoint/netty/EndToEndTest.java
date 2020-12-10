@@ -26,15 +26,17 @@ import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
-import org.jmock.integration.junit4.JMock;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.jmock.integration.junit4.JUnitRuleMockery;
 
-@RunWith(JMock.class)
 public class EndToEndTest {
+
+    @Rule
+    public final JUnitRuleMockery context = new JUnitRuleMockery();
 
     public static final String TEST_PROTO_NAME = "test";
     

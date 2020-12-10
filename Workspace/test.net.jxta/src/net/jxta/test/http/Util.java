@@ -161,7 +161,7 @@ public class Util {
                 if (data.charAt(i) >= MINIMUM_UNICODE) {
                     sb.append("\\u");
 
-                    String s = Integer.toHexString((int) data.charAt(i));
+                    String s = Integer.toHexString(data.charAt(i));
 
                     for (int j = 0; j < unicodeSize - s.length(); j++) {
                         sb.append("0");

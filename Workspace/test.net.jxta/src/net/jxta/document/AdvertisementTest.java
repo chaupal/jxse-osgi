@@ -69,21 +69,24 @@ public final class AdvertisementTest extends TestCase {
             /**
              *  {@inheritDoc}
              **/
-            public String getAdvertisementType() {
+            @Override
+			public String getAdvertisementType() {
                 return WimpyAdv.getAdvertisementType();
             }
 
             /**
              *  {@inheritDoc}
              **/
-            public Advertisement newInstance() {
+            @Override
+			public Advertisement newInstance() {
                 return new WimpyAdv();
             }
 
             /**
              *  {@inheritDoc}
              **/
-            public Advertisement newInstance(Element<?> root) {
+            @Override
+			public Advertisement newInstance(Element<?> root) {
                 return new WimpyAdv();
             }
         }

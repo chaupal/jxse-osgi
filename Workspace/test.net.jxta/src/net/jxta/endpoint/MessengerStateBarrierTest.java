@@ -25,7 +25,8 @@ public class MessengerStateBarrierTest {
     public void testAwaitMatch_singleEvent_matchesWhileWaiting() throws Exception {
         final MessengerStateBarrier barrier = new MessengerStateBarrier(Messenger.CLOSED);
         new Thread(new Runnable() {
-            public void run() {
+            @Override
+			public void run() {
                 try {
                     Thread.sleep(10L);
                 } catch (InterruptedException e) {

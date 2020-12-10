@@ -189,18 +189,16 @@ public abstract class ClassFactory<K, I> {
      */
     protected boolean registerProviders(String interfaceName) {
         ClassLoader loader = getClass().getClassLoader();
-        
         Class<?> clss = Version.class;
         URL url = clss.getResource("resources/test.xml");
         boolean registeredSomething = ( url != null );
 
         try {
-            Enumeration<URL> providerLists = loader.getResources("META-INF/services/" + interfaceName);
+           Enumeration<URL> providerLists = loader.getResources("META-INF/services/" + interfaceName);
 
             while (providerLists.hasMoreElements()) {
 
                 try {
-
                     URI providerList = providerLists.nextElement().toURI();
                     registeredSomething |= registerFromFile(providerList);
 
@@ -285,7 +283,7 @@ public abstract class ClassFactory<K, I> {
      *  Register a class with the factory from its class name. Since class name
      *  doesn't tell us much, we just load the class and hope that something
      *  happens as a result of the class loading. This class is often overridden
-     *  in class factories to interogate the instance class before registering
+     *  in class factories to interrogate the instance class before registering
      *  the instance class.
      *
      *  @param className The class name which will be registered.

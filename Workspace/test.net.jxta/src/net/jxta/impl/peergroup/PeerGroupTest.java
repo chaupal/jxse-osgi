@@ -221,14 +221,14 @@ public class PeerGroupTest {
 
             PeerGroupID pgid = IDFactory.newPeerGroupID();
 
-            PeerGroup newpg = pg1.newGroup(pgid, mia, "test", "testdesc");
+            PeerGroup newpg = pg1.newGroup(pgid, mia, "test", "testdesc", true);
 
             assertTrue("Group id should match", newpg.getPeerGroupID().equals(pgid));
 
 //            newpg.unref();
             newpg = null;
 
-            newpg = pg1.newGroup(null, mia, null, null);
+            newpg = pg1.newGroup(null, mia, null, null, false);
 
             assertTrue("Group id should match", !newpg.getPeerGroupID().equals(pg1.getPeerGroupID()));
 
@@ -278,7 +278,7 @@ public class PeerGroupTest {
      */
     @Test
     public void staticInheritedOnly() {
-        IJxtaLoader staticLoader = (IJxtaLoader) GenericPeerGroup.getJxtaLoader();
+        IJxtaLoader staticLoader = GenericPeerGroup.getJxtaLoader();
         PeerGroup group = pg111;
         do {
             PeerGroup parentGroup = group.getParentGroup();

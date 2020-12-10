@@ -2,8 +2,7 @@
 <?pde version="3.8"?>
 <target name="net.jxse.project" sequenceNumber="109">
 	<locations>
-		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\core" type="Directory"/>
-		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\ext" type="Directory"/>
-		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\registry" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\target\osgi" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\target\log" type="Directory"/>
 	</locations>
 </target>

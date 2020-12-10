@@ -81,28 +81,28 @@ final class Instantiator implements IDFactory.Instantiator {
     /**
      * {@inheritDoc}
      **/
-    public net.jxta.codat.CodatID newCodatID(net.jxta.peergroup.PeerGroupID groupID) {
+    public net.jxta.content.ContentID newContentID(net.jxta.peergroup.PeerGroupID groupID) {
         throw new ProviderException("unsupported id type");
     }
 
     /**
      * {@inheritDoc}
      **/
-    public net.jxta.codat.CodatID newCodatID(net.jxta.peergroup.PeerGroupID groupID, byte[] seed) {
+    public net.jxta.content.ContentID newContentID(net.jxta.peergroup.PeerGroupID groupID, byte[] seed) {
         throw new ProviderException("unsupported id type");
     }
 
     /**
      * {@inheritDoc}
      **/
-    public net.jxta.codat.CodatID newCodatID(net.jxta.peergroup.PeerGroupID groupID, InputStream in) throws IOException {
+    public net.jxta.content.ContentID newContentID(net.jxta.peergroup.PeerGroupID groupID, InputStream in) throws IOException {
         throw new ProviderException("unsupported id type");
     }
 
     /**
      * {@inheritDoc}
      **/
-    public net.jxta.codat.CodatID newCodatID(net.jxta.peergroup.PeerGroupID groupID, byte[] seed, InputStream in) throws IOException {
+    public net.jxta.content.ContentID newContentID(net.jxta.peergroup.PeerGroupID groupID, byte[] seed, InputStream in) throws IOException {
         throw new ProviderException("unsupported id type");
     }
 

@@ -170,14 +170,16 @@ public class MessageUtil {
             list.add("Message Size :" + serialed.getByteLength());
     	}
 		
+		@Override
 		public boolean hasNext() {
 			return !list.isEmpty() || en.hasNext();
 		}
 
+		@Override
 		public String next() {
 			try {
 				if (list.isEmpty()) {
-	                final MessageElement el = (MessageElement) en.next();
+	                final MessageElement el = en.next();
 	                String eName = el.getElementName();
 	
 	                final CountingOutputStream cnt = new CountingOutputStream(new DevNullOutputStream());
@@ -196,6 +198,7 @@ public class MessageUtil {
 			return "";
 		}
 
+		@Override
 		public void remove() {
 			throw new UnsupportedOperationException("Can't remove");
 		}

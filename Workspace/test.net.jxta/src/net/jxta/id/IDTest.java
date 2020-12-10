@@ -85,8 +85,7 @@ public final class IDTest extends TestCase {
             ID third;
             String  asString;
             URI     asURI;
-            ID myPeerGroup;
-
+ 
             assertTrue("comparison of two IDs failed", first.equals(second));
 
             assertTrue("zero hashcodereturned", 0 != first.hashCode());

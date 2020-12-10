@@ -29,7 +29,8 @@ public class WelcomeMessageMatcher extends TypeSafeMatcher<ChannelBuffer> {
         }
     }
 
-    public void describeTo(Description description) {
+    @Override
+	public void describeTo(Description description) {
         description.appendText("a welcome message");
     }
     

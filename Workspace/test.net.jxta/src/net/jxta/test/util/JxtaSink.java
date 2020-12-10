@@ -94,7 +94,8 @@ public class JxtaSink implements Runnable {
         thread.start();
     }
 
-    public void run() {
+    @Override
+	public void run() {
         int count = 0;
         Selector acceptSelector = null;
         ServerSocketChannel serverSoc = null;
@@ -126,7 +127,7 @@ public class JxtaSink implements Runnable {
                 Iterator<SelectionKey> i = readyKeys.iterator();
 
                 while (i.hasNext()) {
-                    SelectionKey sk = (SelectionKey) i.next();
+                    SelectionKey sk = i.next();
 
                     i.remove();
                     ServerSocketChannel nextReady = (ServerSocketChannel) sk.channel();

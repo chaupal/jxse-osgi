@@ -116,7 +116,7 @@ public class ResolverQueryMsgTest extends TestCase {
         try {
             PeerAdvertisement padv = AdvUtil.newPeerAdv("Fakey1", "0.0.0.0", 0, false);
 
-            src = (PeerID)padv.getPeerID();
+            src = padv.getPeerID();
             ResolverQueryMsg query = new ResolverQuery();
 
             query.setHandlerName(handlername);

@@ -52,7 +52,5 @@ public class StartingAndStoppingJXTAExample {
         } catch (ConfiguratorException e) {
 			e.printStackTrace();
 		}
-
     }
-
 }

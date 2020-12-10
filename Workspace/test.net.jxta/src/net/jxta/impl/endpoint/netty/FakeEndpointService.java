@@ -22,7 +22,6 @@ import net.jxta.endpoint.MessengerEventListener;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.id.ID;
 import net.jxta.peergroup.PeerGroup;
-import net.jxta.service.Service;
 
 public class FakeEndpointService implements EndpointService {
 
@@ -39,15 +38,18 @@ public class FakeEndpointService implements EndpointService {
         messengers = Collections.synchronizedList(new LinkedList<Messenger>());
     }
     
-    public PeerGroup getGroup() {
+    @Override
+	public PeerGroup getGroup() {
         return group;
     }
     
-    public void processIncomingMessage(Message message, EndpointAddress srcAddr, EndpointAddress dstAddr) {
+    @Override
+	public void processIncomingMessage(Message message, EndpointAddress srcAddr, EndpointAddress dstAddr) {
         received.offer(new ReceivedMessage(message, srcAddr, dstAddr));
     }
 
-    public EndpointRoutingTransport getEndpointRouter() {
+    @Override
+	public EndpointRoutingTransport getEndpointRouter() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -65,23 +67,28 @@ public class FakeEndpointService implements EndpointService {
     
     /* UNIMPLEMENTED, IRRELEVANT METHODS BEYOND THIS POINT */
     
-    public boolean isConnectedToRelayPeer() {
+    @Override
+	public boolean isConnectedToRelayPeer() {
         throw new RuntimeException("not implemented");
     }
 
-    public Collection<PeerID> getConnectedRelayPeers() {
+    @Override
+	public Collection<PeerID> getConnectedRelayPeers() {
         throw new RuntimeException("not implemented");
     }
 
-    public void addIncomingMessageFilterListener(MessageFilterListener listener, String namespace, String name) {
+    @Override
+	public void addIncomingMessageFilterListener(MessageFilterListener listener, String namespace, String name) {
         throw new RuntimeException("not implemented");
     }
 
-    public boolean addIncomingMessageListener(EndpointListener listener, String serviceName, String serviceParam) {
+    @Override
+	public boolean addIncomingMessageListener(EndpointListener listener, String serviceName, String serviceParam) {
         throw new RuntimeException("not implemented");
     }
 
-    public MessengerEventListener addMessageTransport(MessageTransport transport) {
+    @Override
+	public MessengerEventListener addMessageTransport(MessageTransport transport) {
         if(refuseRegistration) {
             return null;
         }
@@ -90,11 +97,13 @@ public class FakeEndpointService implements EndpointService {
         return new FakeMessengerEventListener(this);
     }
 
-    public boolean addMessengerEventListener(MessengerEventListener listener, int priority) {
+    @Override
+	public boolean addMessengerEventListener(MessengerEventListener listener, int priority) {
         throw new RuntimeException("not implemented");
     }
 
-    public void addOutgoingMessageFilterListener(MessageFilterListener listener, String namespace, String name) {
+    @Override
+	public void addOutgoingMessageFilterListener(MessageFilterListener listener, String namespace, String name) {
         throw new RuntimeException("not implemented");
     }
 
@@ -102,11 +111,13 @@ public class FakeEndpointService implements EndpointService {
         throw new RuntimeException("not implemented");
     }
 
-    public Iterator<MessageTransport> getAllMessageTransports() {
+    @Override
+	public Iterator<MessageTransport> getAllMessageTransports() {
         throw new RuntimeException("not implemented");
     }
 
-    public Messenger getCanonicalMessenger(EndpointAddress addr, Object hint) {
+    @Override
+	public Messenger getCanonicalMessenger(EndpointAddress addr, Object hint) {
         throw new RuntimeException("not implemented");
     }
 
@@ -116,27 +127,33 @@ public class FakeEndpointService implements EndpointService {
 
     
 
-    public EndpointListener getIncomingMessageListener(String serviceName, String serviceParam) {
+    @Override
+	public EndpointListener getIncomingMessageListener(String serviceName, String serviceParam) {
         throw new RuntimeException("not implemented");
     }
 
-    public MessageTransport getMessageTransport(String name) {
+    @Override
+	public MessageTransport getMessageTransport(String name) {
         throw new RuntimeException("not implemented");
     }
 
-    public Messenger getMessenger(EndpointAddress addr, Object hint) {
+    @Override
+	public Messenger getMessenger(EndpointAddress addr, Object hint) {
         throw new RuntimeException("not implemented");
     }
 
-    public Messenger getMessenger(EndpointAddress addr) {
+    @Override
+	public Messenger getMessenger(EndpointAddress addr) {
         throw new RuntimeException("not implemented");
     }
 
-    public boolean getMessenger(MessengerEventListener listener, EndpointAddress addr, Object hint) {
+    @Override
+	public boolean getMessenger(MessengerEventListener listener, EndpointAddress addr, Object hint) {
         throw new RuntimeException("not implemented");
     }
 
-    public Messenger getMessengerImmediate(EndpointAddress addr, Object hint) {
+    @Override
+	public Messenger getMessengerImmediate(EndpointAddress addr, Object hint) {
         throw new RuntimeException("not implemented");
     }
 
@@ -144,35 +161,43 @@ public class FakeEndpointService implements EndpointService {
         throw new RuntimeException("not implemented");
     }
 
-    public void propagate(Message message, String serviceName, String serviceParam) throws IOException {
+    @Override
+	public void propagate(Message message, String serviceName, String serviceParam) throws IOException {
         throw new RuntimeException("not implemented");
     }
 
-    public void propagate(Message message, String serviceName, String serviceParam, int initialTTL) {
+    @Override
+	public void propagate(Message message, String serviceName, String serviceParam, int initialTTL) {
         throw new RuntimeException("not implemented");
     }
 
-    public MessageFilterListener removeIncomingMessageFilterListener(MessageFilterListener listener, String namespace, String name) {
+    @Override
+	public MessageFilterListener removeIncomingMessageFilterListener(MessageFilterListener listener, String namespace, String name) {
         throw new RuntimeException("not implemented");
     }
 
-    public EndpointListener removeIncomingMessageListener(String serviceName, String serviceParam) {
+    @Override
+	public EndpointListener removeIncomingMessageListener(String serviceName, String serviceParam) {
         throw new RuntimeException("not implemented");
     }
 
-    public boolean removeMessageTransport(MessageTransport transpt) {
+    @Override
+	public boolean removeMessageTransport(MessageTransport transpt) {
         throw new RuntimeException("not implemented");
     }
 
-    public boolean removeMessengerEventListener(MessengerEventListener listener, int priority) {
+    @Override
+	public boolean removeMessengerEventListener(MessengerEventListener listener, int priority) {
         throw new RuntimeException("not implemented");
     }
 
-    public MessageFilterListener removeOutgoingMessageFilterListener(MessageFilterListener listener, String namespace, String name) {
+    @Override
+	public MessageFilterListener removeOutgoingMessageFilterListener(MessageFilterListener listener, String namespace, String name) {
         throw new RuntimeException("not implemented");
     }
 
-    public Advertisement getImplAdvertisement() {
+    @Override
+	public Advertisement getImplAdvertisement() {
         throw new RuntimeException("not implemented");
     }
 
@@ -180,15 +205,18 @@ public class FakeEndpointService implements EndpointService {
 //        throw new RuntimeException("not implemented");
 //    }
 
-    public void init(PeerGroup group, ID assignedID, Advertisement implAdv) throws PeerGroupException {
+    @Override
+	public void init(PeerGroup group, ID assignedID, Advertisement implAdv) throws PeerGroupException {
         throw new RuntimeException("not implemented");
     }
 
-    public int startApp(String[] args) {
+    @Override
+	public int startApp(String[] args) {
         throw new RuntimeException("not implemented");
     }
 
-    public void stopApp() {
+    @Override
+	public void stopApp() {
         throw new RuntimeException("not implemented");
     }
 
@@ -196,11 +224,13 @@ public class FakeEndpointService implements EndpointService {
         refuseRegistration = true;
     }
 
+	@Override
 	public void processIncomingMessage(Message msg) {
 		// do nothing
 	}
 
-    public boolean isReachable(PeerID pid, boolean tryToConnect) {
+    @Override
+	public boolean isReachable(PeerID pid, boolean tryToConnect) {
         throw new RuntimeException("not implemented");
     }
 

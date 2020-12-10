@@ -167,7 +167,8 @@ public class AsynchronousMessengerTest {
         final AtomicReference<IOException> result = new AtomicReference<IOException>();
         final CountDownLatch latch = new CountDownLatch(1);
         Thread sendThread = new Thread(new Runnable() {
-            public void run() {
+            @Override
+			public void run() {
                 try {
                     messenger.sendMessageB(msg, null, null);
                     result.set(null);
@@ -192,16 +193,16 @@ public class AsynchronousMessengerTest {
         messenger.addStateListener(mockListener);
         final Sequence seq = mockContext.sequence("saturation-events");
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.SENDING); will(returnValue(true)); inSequence(seq);
-            one(mockListener).messengerStateChanged(Messenger.SENDINGSATURATED); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.SENDING); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.SENDINGSATURATED); will(returnValue(true)); inSequence(seq);
         }});
 
         saturateMessenger();
         mockContext.assertIsSatisfied();
 
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.SENDING); will(returnValue(true)); inSequence(seq);
-            one(mockListener).messengerStateChanged(Messenger.CONNECTED); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.SENDING); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.CONNECTED); will(returnValue(true)); inSequence(seq);
         }});
         messenger.pullMessages();
         mockContext.assertIsSatisfied();
@@ -212,7 +213,7 @@ public class AsynchronousMessengerTest {
         assertTrue(messenger.getState() == Messenger.CONNECTED);
         messenger.addStateListener(mockListener);
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.CLOSED);
+            oneOf(mockListener).messengerStateChanged(Messenger.CLOSED);
         }});
 
         messenger.close();
@@ -227,7 +228,7 @@ public class AsynchronousMessengerTest {
         messenger.addStateListener(mockListener);
         final Sequence seq = mockContext.sequence("close-events");
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.CLOSING); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.CLOSING); will(returnValue(true)); inSequence(seq);
         }});
 
         messenger.close();
@@ -239,8 +240,8 @@ public class AsynchronousMessengerTest {
         // then an immediate failure (as AsynchMessenger does not yet support reconnecting)
 
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.RECONCLOSING); will(returnValue(true)); inSequence(seq);
-            one(mockListener).messengerStateChanged(Messenger.BROKEN); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.RECONCLOSING); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.BROKEN); will(returnValue(true)); inSequence(seq);
         }});
         messenger.connectionFailed();
         mockContext.assertIsSatisfied();
@@ -253,7 +254,7 @@ public class AsynchronousMessengerTest {
         messenger.addStateListener(mockListener);
         final Sequence seq = mockContext.sequence("close-events");
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.CLOSING); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.CLOSING); will(returnValue(true)); inSequence(seq);
         }});
 
         messenger.close();
@@ -261,7 +262,7 @@ public class AsynchronousMessengerTest {
         mockContext.assertIsSatisfied();
 
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.CLOSED); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.CLOSED); will(returnValue(true)); inSequence(seq);
         }});
         messenger.pullMessages();
         mockContext.assertIsSatisfied();
@@ -297,14 +298,14 @@ public class AsynchronousMessengerTest {
         messenger.addStateListener(mockListener);
         final Sequence seq = mockContext.sequence("event-seq");
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.DISCONNECTED); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.DISCONNECTED); will(returnValue(true)); inSequence(seq);
         }});
         messenger.emulateConnectionDeath();
         mockContext.assertIsSatisfied();
 
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.RECONNECTING); will(returnValue(true)); inSequence(seq);
-            one(mockListener).messengerStateChanged(Messenger.BROKEN); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.RECONNECTING); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.BROKEN); will(returnValue(true)); inSequence(seq);
         }});
 
         assertFalse(messenger.sendMessageN(msg, null, null));
@@ -317,8 +318,8 @@ public class AsynchronousMessengerTest {
         messenger.addStateListener(mockListener);
         final Sequence seq = mockContext.sequence("event-seq");
         mockContext.checking(new Expectations() {{
-            one(mockListener).messengerStateChanged(Messenger.RECONNECTING); will(returnValue(true)); inSequence(seq);
-            one(mockListener).messengerStateChanged(Messenger.BROKEN); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.RECONNECTING); will(returnValue(true)); inSequence(seq);
+            oneOf(mockListener).messengerStateChanged(Messenger.BROKEN); will(returnValue(true)); inSequence(seq);
         }});
         messenger.emulateConnectionDeath();
         mockContext.assertIsSatisfied();
@@ -369,7 +370,8 @@ public class AsynchronousMessengerTest {
             this.message = message;
         }
 
-        public Void call() throws Exception {
+        @Override
+		public Void call() throws Exception {
             messengerToUse.sendMessageB(message, null, null);
             return null;
         }

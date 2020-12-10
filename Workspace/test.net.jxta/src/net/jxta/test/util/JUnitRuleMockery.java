@@ -19,6 +19,7 @@ public class JUnitRuleMockery extends Mockery implements MethodRule {
 	   setExpectationErrorTranslator(AssertionErrorTranslator.INSTANCE);
 	}
 	
+	@Override
 	public Statement apply(final Statement base, final FrameworkMethod method,
 			Object target) {
 		return new Statement() {

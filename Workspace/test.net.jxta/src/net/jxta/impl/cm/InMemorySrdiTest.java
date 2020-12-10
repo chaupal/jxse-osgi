@@ -76,7 +76,8 @@ public class InMemorySrdiTest extends AbstractSrdiIndexBackendTest {
     }
 
     // Never will survive a restart
-    @Test
+    @Override
+	@Test
     public void testDataSurvivesRestart() throws Exception {
 
         assertTrue( true );
@@ -85,7 +86,8 @@ public class InMemorySrdiTest extends AbstractSrdiIndexBackendTest {
     // Index content is inexplicably linked to the in-memory index object.  Creating a new in-memory model
     // does not clone the data model from another index.  Therefore this test is modified to prove isolation
     // without the need to implement data model cloning
-    @Test
+    @Override
+	@Test
     public void testClearViaStatic_groupsWithSameStoreAreIsolated() {
 
         srdiIndex.add( "a", "b", "c", PEER_ID, 1000L );

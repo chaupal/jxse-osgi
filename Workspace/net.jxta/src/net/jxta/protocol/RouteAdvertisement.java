@@ -317,7 +317,7 @@ public abstract class RouteAdvertisement extends ExtendableAdvertisement impleme
                 byte[] seed = getAdvertisementType().getBytes("UTF-8");
                 InputStream in = new ByteArrayInputStream(dest.getPeerID().toString().getBytes("UTF-8"));
 
-                hashID = IDFactory.newCodatID((PeerGroupID) dest.getPeerID().getPeerGroupID(), seed, in);
+                hashID = IDFactory.newContentID((PeerGroupID) dest.getPeerID().getPeerGroupID(), seed, in);
             } catch (Exception ez) {
                 return ID.nullID;
             }

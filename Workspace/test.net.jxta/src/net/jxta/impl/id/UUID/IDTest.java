@@ -67,7 +67,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import net.jxta.codat.CodatID;
+import net.jxta.content.ContentID;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
 import net.jxta.peer.PeerID;
@@ -84,20 +84,20 @@ public final class IDTest extends TestCase {
         super(name);
     }
 
-    public void testCodatID() {
+    public void testContentID() {
         try {
             PeerGroupID seedGroup = IDFactory.newPeerGroupID("uuid");
-            CodatID first = IDFactory.newCodatID(seedGroup);
-            CodatID second = IDFactory.newCodatID(seedGroup);
-            CodatID third;
+            ContentID first = IDFactory.newContentID(seedGroup, false);
+            ContentID second = IDFactory.newContentID(seedGroup, false);
+            ContentID third;
             ID interloper = IDFactory.newPeerID(IDFactory.newPeerGroupID("uuid"));
             String  asString;
             ID myPeerGroup;
-            boolean isStatic;
+            //boolean isStatic;
 
-            assertTrue("comparison of a CodatID against itself failed", first.equals(first));
+            assertTrue("comparison of a ContentID against itself failed", first.equals(first));
 
-            assertTrue("comparison of two different CodatIDs should have failed", !first.equals(second));
+            assertTrue("comparison of two different ContentIDs should have failed", !first.equals(second));
 
             assertTrue("comparison of different types should have failed", !first.equals(interloper));
 
@@ -111,7 +111,7 @@ public final class IDTest extends TestCase {
 
             assertTrue("comparison of ID string and string of URI was not the same", asString.equals(asURI.toString()));
 
-            third = (CodatID) IDFactory.fromURI(asURI);
+            third = (ContentID) IDFactory.fromURI(asURI);
 
             assertTrue("result of conversion to URI and back to ID was not equal to original", first.equals(third));
 
@@ -119,11 +119,11 @@ public final class IDTest extends TestCase {
 
             assertTrue("clone of ID is not of same peergroup.", first.getPeerGroupID().equals(third.getPeerGroupID()));
 
-            assertTrue("dynamic CodatID did not test as such.", !first.isStatic());
+            assertTrue("dynamic ContentID did not test as such.", !first.isStatic());
 
             asURI = first.toURI();
 
-            third = (CodatID) IDFactory.fromURI(asURI);
+            third = (ContentID) IDFactory.fromURI(asURI);
 
             assertTrue("result of conversion to URI and back to ID was not equal to original", first.equals(third));
         } catch (Exception everything) {
@@ -147,7 +147,7 @@ public final class IDTest extends TestCase {
             String  asString;
             URI     asURI;
             ID myPeerGroup;
-            boolean isStatic;
+            //boolean isStatic;
 
             assertTrue("comparison of a PeerGroupID against itself failed", first.equals(first));
 
@@ -214,7 +214,7 @@ public final class IDTest extends TestCase {
             String  asString;
             URI     asURI;
             ID myPeerGroup;
-            boolean isStatic;
+            //boolean isStatic;
 
             assertTrue("comparison of a PeerID against itself failed", first.equals(first));
 
@@ -287,7 +287,7 @@ public final class IDTest extends TestCase {
             String  asString;
             URI     asURI;
             ID myPeerGroup;
-            boolean isStatic;
+            //boolean isStatic;
 
             assertTrue("comparison of a PipeID against itself failed", first.equals(first));
 

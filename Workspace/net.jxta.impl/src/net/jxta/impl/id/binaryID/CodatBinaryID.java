@@ -71,7 +71,7 @@ import java.net.URI;
  * @see net.jxta.id.IDFactory
  * @see net.jxta.peergroup.PeerGroupID
  */
-public final class CodatBinaryID extends net.jxta.codat.CodatID {
+public final class CodatBinaryID extends net.jxta.content.ContentID {
 	private static final long serialVersionUID = 1L;
 
 	private final static transient Logger LOG = Logging.getLogger(CodatBinaryID.class.getName());
@@ -129,7 +129,7 @@ public final class CodatBinaryID extends net.jxta.codat.CodatID {
 
     public CodatBinaryID(PeerGroupID groupID, InputStream in) {
         // this( groupID );
-        net.jxta.id.IDFactory.newCodatID(groupID);
+        net.jxta.id.IDFactory.newContentID(groupID);
         // setHash( in );
     }
 
@@ -265,5 +265,11 @@ public final class CodatBinaryID extends net.jxta.codat.CodatID {
     public boolean isStatic() {
         return true;
     }
+
+	@Override
+	public Object getVariantValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

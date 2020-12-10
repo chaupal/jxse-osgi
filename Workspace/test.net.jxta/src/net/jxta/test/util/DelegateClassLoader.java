@@ -369,7 +369,7 @@ public class DelegateClassLoader extends SecureClassLoader {
 
         try {
             anEnum = findResources(name, true);
-            return (URL) anEnum.nextElement();
+            return anEnum.nextElement();
         } catch (Exception x) {
             return null;
         }

@@ -154,7 +154,7 @@ public abstract class RdvAdvertisement extends ExtendableAdvertisement {
 
                 InputStream in = new ByteArrayInputStream(seed.getBytes());
 
-                hashID = IDFactory.newCodatID(groupId, seed.getBytes(), in);
+                hashID = IDFactory.newContentID(groupId, seed.getBytes(), in);
             } catch (Exception ez) {
                 IllegalStateException failure = new IllegalStateException("cannot build ID");
 

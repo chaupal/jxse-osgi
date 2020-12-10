@@ -238,8 +238,8 @@ public class TestRouteAdv {
             Enumeration<AccessPointAdvertisement> r1 = routeAdv.getHops();
 
             for (Enumeration<AccessPointAdvertisement> e = routeAdv.getHops(); e.hasMoreElements();) {
-                ap = (AccessPointAdvertisement) e.nextElement();
-                ap1 = (AccessPointAdvertisement) r1.nextElement();
+                ap = e.nextElement();
+                ap1 = r1.nextElement();
                 assertEquals(ap.getPeerID(), ap1.getPeerID());
                 e1 = ap1.getEndpointAddresses();
                 for (Enumeration<String> e2 = ap.getEndpointAddresses(); e2.hasMoreElements();) {
@@ -326,8 +326,8 @@ public class TestRouteAdv {
             Enumeration<AccessPointAdvertisement> r1 = routeAdv.getHops();
 
             for (Enumeration<AccessPointAdvertisement> e = routeAdv.getHops(); e.hasMoreElements();) {
-                ap = (AccessPointAdvertisement) e.nextElement();
-                ap1 = (AccessPointAdvertisement) r1.nextElement();
+                ap = e.nextElement();
+                ap1 = r1.nextElement();
                 assertEquals(ap.getPeerID(), ap1.getPeerID());
                 e1 = ap1.getEndpointAddresses();
                 for (Enumeration<String> e2 = ap.getEndpointAddresses(); e2.hasMoreElements();) {
@@ -551,8 +551,8 @@ public class TestRouteAdv {
         Enumeration<AccessPointAdvertisement> r1 = query.getSrcRoute().getHops();
 
         for (Enumeration<AccessPointAdvertisement> e = query1.getSrcRoute().getHops(); e.hasMoreElements();) {
-            ap = (AccessPointAdvertisement) e.nextElement();
-            ap1 = (AccessPointAdvertisement) r1.nextElement();
+            ap = e.nextElement();
+            ap1 = r1.nextElement();
             assertEquals(ap.getPeerID(), ap1.getPeerID());
             e1 = ap1.getEndpointAddresses();
             for (Enumeration<String> e2 = ap.getEndpointAddresses(); e2.hasMoreElements();) {
@@ -680,8 +680,8 @@ public class TestRouteAdv {
             Enumeration<AccessPointAdvertisement> r1 = response.getSrcRoute().getHops();
 
             for (Enumeration<AccessPointAdvertisement> e = response.getSrcRoute().getHops(); e.hasMoreElements();) {
-                ap = (AccessPointAdvertisement) e.nextElement();
-                ap1 = (AccessPointAdvertisement) r1.nextElement();
+                ap = e.nextElement();
+                ap1 = r1.nextElement();
                 assertEquals(ap.getPeerID(), ap1.getPeerID());
                 e1 = ap1.getEndpointAddresses();
                 for (Enumeration<String> e2 = ap.getEndpointAddresses(); e2.hasMoreElements();) {
@@ -698,8 +698,8 @@ public class TestRouteAdv {
             }
             r1 = response.getDestRoute().getHops();
             for (Enumeration<AccessPointAdvertisement> e = response.getDestRoute().getHops(); e.hasMoreElements();) {
-                ap = (AccessPointAdvertisement) e.nextElement();
-                ap1 = (AccessPointAdvertisement) r1.nextElement();
+                ap = e.nextElement();
+                ap1 = r1.nextElement();
                 assertEquals(ap.getPeerID(), ap1.getPeerID());
                 e1 = ap1.getEndpointAddresses();
                 for (Enumeration<String> e2 = ap.getEndpointAddresses(); e2.hasMoreElements();) {

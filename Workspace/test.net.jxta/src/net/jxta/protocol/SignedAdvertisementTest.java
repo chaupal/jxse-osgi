@@ -137,7 +137,8 @@ public class SignedAdvertisementTest extends TestCase {
         return suite;
     }
 
-    public void testSignedAdvertisement() {
+    @SuppressWarnings("unused")
+	public void testSignedAdvertisement() {
         try {
             SignedAdvertisement signedAdv = (SignedAdvertisement) AdvertisementFactory.newAdvertisement(
                     SignedAdvertisement.getAdvertisementType());

@@ -11,7 +11,8 @@ public class FakeMessengerEventListener implements MessengerEventListener {
         this.owner = owner;
     }
 
-    public boolean messengerReady(MessengerEvent event) {
+    @Override
+	public boolean messengerReady(MessengerEvent event) {
         owner.messengers.add(event.getMessenger());
         return true;
     }

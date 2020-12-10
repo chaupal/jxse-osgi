@@ -73,10 +73,12 @@ public class MimeMediaTypeTest extends TestCase {
 	private boolean exceptionOnThread = false;
 	
     private final class ExceptionCatchingThreadFactory implements ThreadFactory {
+		@Override
 		public Thread newThread(Runnable r) {
 			Thread t = new Thread(r);
 			t.setUncaughtExceptionHandler(new UncaughtExceptionHandler() {
 				
+				@Override
 				public void uncaughtException(Thread t, Throwable exception) {
 					System.err.println("Exception occurred on test thread");
 					exception.printStackTrace();
@@ -306,7 +308,8 @@ public class MimeMediaTypeTest extends TestCase {
         // Pre-create threads.
         for(int spawn = 0; spawn < concurrency; spawn++) {
             executor.execute( new Runnable() {
-                public void run() {
+                @Override
+				public void run() {
                     try {
                         Thread.sleep(500);
                     } catch(InterruptedException woken) {
@@ -330,7 +333,8 @@ public class MimeMediaTypeTest extends TestCase {
         for(int each = 0; each < concurrency; each++) {
             final String runcount = "Run #" + each;
             executor.execute( new Runnable() {
-                public void run() {
+                @Override
+				public void run() {
                     System.err.println( runcount + " start " + (System.currentTimeMillis() - start));
 
                     MimeMediaType [] mimes = new MimeMediaType[trials];
@@ -368,7 +372,8 @@ public class MimeMediaTypeTest extends TestCase {
         // Pre-create threads.
         for(int spawn = 0; spawn < concurrency; spawn++) {
             executor.execute( new Runnable() {
-                public void run() {
+                @Override
+				public void run() {
                     try {
                         Thread.sleep(500);
                     } catch(InterruptedException woken) {
@@ -392,7 +397,8 @@ public class MimeMediaTypeTest extends TestCase {
         for(int each = 0; each < concurrency; each++) {
             final String runcount = "Run #" + each;
             executor.execute( new Runnable() {
-                public void run() {
+                @Override
+				public void run() {
                     System.err.println( runcount + " start " + (System.currentTimeMillis() - start));
 
                     MimeMediaType [] mimes = new MimeMediaType[trials];

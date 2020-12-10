@@ -58,10 +58,6 @@ package net.jxta.codat;
 
 import net.jxta.document.Document;
 import net.jxta.id.ID;
-import net.jxta.id.IDFactory;
-import net.jxta.peergroup.PeerGroupID;
-
-import java.io.IOException;
 
 /**
  * The common container for managing content within JXTA. A Codat consists of:
@@ -112,9 +108,9 @@ public class Codat {
      * @param document Document which contains the content data for this Codat.
      * @throws IOException if there is an error accessing the document.
      */
-    public Codat(PeerGroupID groupID, CodatID about, Document document) throws IOException {
-        this(IDFactory.newCodatID(groupID, document.getStream()), about, document);
-    }
+    //public Codat(PeerGroupID groupID, CodatID about, Document document) throws IOException {
+     ///   this(IDFactory.newCodatID(groupID, document.getStream()), about, document);
+    //}
 
     /**
      * Constructs a Codat instance for an existing Codat given it's

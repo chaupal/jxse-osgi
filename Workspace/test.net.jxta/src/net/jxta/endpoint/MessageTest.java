@@ -206,7 +206,7 @@ public class MessageTest extends TestCase {
 
         while (eachElement.hasNext()) {
             MessageElement aElement = eachElement.next();
-            MessageElement aListElement = (MessageElement) eachListElement.next();
+            MessageElement aListElement = eachListElement.next();
 
             assertTrue("namespaces should have matched", eachElement.getNamespace().equals(eachNamesElement.next()));
             assertTrue("should be the same element", aElement == aListElement);
@@ -240,7 +240,7 @@ public class MessageTest extends TestCase {
 
         while (eachElement.hasNext()) {
             MessageElement aElement = eachElement.next();
-            MessageElement aListElement = (MessageElement) eachListElement.next();
+            MessageElement aListElement = eachListElement.next();
 
             assertTrue("elements should have the same name", "element1".equals(aElement.getElementName()));
             assertTrue("elements should be in the same namespace", eachElement.getNamespace().equals(eachNamesElement.next()));
@@ -275,7 +275,7 @@ public class MessageTest extends TestCase {
 
         while (eachElement.hasNext()) {
             MessageElement aElement = eachElement.next();
-            MessageElement aListElement = (MessageElement) eachListElement.next();
+            MessageElement aListElement = eachListElement.next();
 
             assertTrue("elements should be in the same namespace", eachElement.getNamespace().equals("not-default"));
             assertTrue("should be the same element", aElement == aListElement);
@@ -312,7 +312,7 @@ public class MessageTest extends TestCase {
             MessageElement aElement = eachElement.next();
 
             assertTrue("Should still be contents in the test vector.", eachListElement.hasNext());
-            MessageElement aListElement = (MessageElement) eachListElement.next();
+            MessageElement aListElement = eachListElement.next();
 
             assertTrue("Should be the correct mime type", aElement.getMimeType().equals(foo));
             assertTrue("Should be the same element", aElement == aListElement);
@@ -350,7 +350,7 @@ public class MessageTest extends TestCase {
             MessageElement aElement = eachElement.next();
 
             assertTrue("Should still be contents in the test vector.", eachListElement.hasNext());
-            MessageElement aListElement = (MessageElement) eachListElement.next();
+            MessageElement aListElement = eachListElement.next();
 
             assertTrue("Should be the correct mime type", aElement.getMimeType().equals(foo));
             assertTrue("Should be the same element", aElement == aListElement);
@@ -413,7 +413,7 @@ public class MessageTest extends TestCase {
         Iterator<String> eachNamespace = msg1.getMessageNamespaces();
 
         while (eachNamespace.hasNext()) {
-            String aNamespace = (String) eachNamespace.next();
+            String aNamespace = eachNamespace.next();
 
             assertTrue(namespaces.remove(aNamespace));
         }
@@ -570,7 +570,7 @@ public class MessageTest extends TestCase {
 
         while (eachElement.hasNext()) {
             MessageElement aElement = eachElement.next();
-            MessageElement aListElement = (MessageElement) eachListElement.next();
+            MessageElement aListElement = eachListElement.next();
 
             assertTrue("namespaces should have matched", eachElement.getNamespace().equals(eachNamesElement.next()));
             assertTrue("should be the same element", aElement == aListElement);
@@ -637,7 +637,7 @@ public class MessageTest extends TestCase {
 
         while (eachElement.hasNext()) {
             MessageElement aElement = eachElement.next();
-            MessageElement aListElement = (MessageElement) eachListElement.next();
+            MessageElement aListElement = eachListElement.next();
 
             assertTrue("should be the same element", aElement == aListElement);
             assertTrue("elements should be equal", aElement.equals(aListElement));
@@ -661,13 +661,13 @@ public class MessageTest extends TestCase {
 
         Iterator<MessageElement> allElems = msg1.getMessageElements();
 
-        MessageElement elm3 = (MessageElement) allElems.next();
+        MessageElement elm3 = allElems.next();
 
         // this should cause a concurrent mod except if allElms.next() is called
         msg1.addMessageElement(elm1);
 
         try {
-            elm3 = (MessageElement) allElems.next();
+            elm3 = allElems.next();
         } catch (ConcurrentModificationException failed) {}
     }
 

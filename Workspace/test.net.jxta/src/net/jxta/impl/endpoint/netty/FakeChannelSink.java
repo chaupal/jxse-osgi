@@ -11,7 +11,8 @@ public class FakeChannelSink extends AbstractChannelSink {
 
     public Queue<ChannelEvent> events = new LinkedList<ChannelEvent>();
 
-    public void eventSunk(ChannelPipeline pipeline, ChannelEvent e) throws Exception {
+    @Override
+	public void eventSunk(ChannelPipeline pipeline, ChannelEvent e) throws Exception {
         events.add(e);
     }
 
