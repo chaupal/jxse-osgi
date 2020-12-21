@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JXTA Reference Implementation
 Bundle-SymbolicName: net.jxta.impl;singleton:=true
-Bundle-Version: 1.0.0.202012071439
+Bundle-Version: 1.0.0.202012211828
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: net.jxta.impl
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -23,7 +23,7 @@ Import-Package: net.jxta.access,net.jxta.codat,net.jxta.content,net.jxta
  er,net.jxta.service,net.jxta.socket,net.jxta.util,net.jxta.util.documen
  tSerializable
 Export-Package: net.jxta.impl.access.simpleACL,net.jxta.impl.cm.sql,net.
- jxta.impl.content,net.jxta.impl.content.defprovider,net.jxta.impl.conte
- nt.srdisocket,net.jxta.impl.document,net.jxta.impl.id.binaryID,net.jxta
- .impl.membership.none,net.jxta.impl.rendezvous
+ jxta.impl.content.defprovider,net.jxta.impl.content.srdisocket,net.jxta
+ .impl.document,net.jxta.impl.id.binaryID,net.jxta.impl.membership.none,
+ net.jxta.impl.rendezvous,net.jxta.impl.rendezvous.edge
 

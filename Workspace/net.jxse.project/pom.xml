@@ -10,10 +10,11 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<tycho.version>2.1.0</tycho.version>
+		<maven.dependency.version>2.10</maven.dependency.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jetty.version>8.1.16.v20140903</jetty.version>
 		<eclipse-update-repo.url>http://download.eclipse.org/eclipse/updates/4.3</eclipse-update-repo.url>
-		<luna-repo.url>http://download.eclipse.org/releases/neon</luna-repo.url>
+		<eclipse-repo.url>http://download.eclipse.org/releases/oxygen</eclipse-repo.url>
 	</properties>
 
 	<organization>
@@ -67,26 +68,26 @@
 
 	<repositories>
 		<repository>
-			<id>eclipse</id>
+			<id>eclipse-update</id>
 			<url>${eclipse-update-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
-			<id>luna</id>
+			<id>eclipse</id>
 			<layout>p2</layout>
-			<url>${luna-repo.url}</url>
+			<url>${eclipse-repo.url}</url>
 		</repository>
 		<!-- Repository needed to include the jboss netty library -->
 		<repository>
-            <id>mvnrepository</id>
-            <url>https://repo1.maven.org/maven2</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>  		
+			<id>mvnrepository</id>
+			<url>https://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
 		<repository>
 			<!-- Repository needed to include the jboss netty library -->
 			<id>repository.httptunnel</id>
@@ -100,21 +101,6 @@
 			<groupId>org.eclipse.osgi</groupId>
 			<artifactId>org.eclipse.osgi</artifactId>
 			<version>3.6.0.v20100517</version>
-		</dependency>
-		<dependency>
-			<groupId>com.madgag</groupId>
-			<artifactId>sc-light-jdk15on</artifactId>
-			<version>1.47.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.madgag</groupId>
-			<artifactId>scpkix-jdk15on</artifactId>
-			<version>1.47.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.madgag</groupId>
-			<artifactId>scprov-jdk15on</artifactId>
-			<version>1.47.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.felix</groupId>
@@ -143,21 +129,10 @@
 			<optional>false</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<version>10.5.3.0_1</version>
-			<optional>false</optional>
-		</dependency>
-		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.3.170</version>
 			<optional>false</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.5</version>
 		</dependency>
 		<!-- Test dependencies -->
 		<dependency>
@@ -187,8 +162,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.5</version>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>1.7.30</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -199,7 +174,8 @@
 	</dependencies>
 
 	<modules>
-		<module>../net.jxse.library</module>
+		<module>../net.jxse.target</module>
+		
 		<module>../org.spongycastle.fragment</module>
 		<module>../net.jxta</module>
 		<module>../net.jxta.impl</module>
@@ -220,22 +196,44 @@
 				<version>${tycho.version}</version>
 				<extensions>true</extensions>
 			</plugin>
-
+			<plugin>
+				<groupId>org.reficio</groupId>
+				<artifactId>p2-maven-plugin</artifactId>
+				<version>1.3.0</version>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<phase>package</phase>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<!-- specify your dependencies here -->
+								<!-- groupId:artifactId:version -->
+								<artifact>
+									<id>org.eclipse.equinox.console:org.eclipse.platform:1.1.200</id>
+									<id>org.apache.derby:derby:10.15.2.0</id>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
-                <version>${tycho.version}</version>
+				<version>${tycho.version}</version>
 				<configuration>
-      				<!-- 
-      				<target>
-         				<artifact>
-            				<groupId>net.jxse</groupId>
-            				<artifactId>net.jxse.project</artifactId>
-            				<version>${project.version}</version>
-         				</artifact>
-      				</target>
-      				-->
-   					<environments>
+					<pomDependencies>consider</pomDependencies>
+					<target>
+						<artifact>
+							<groupId>net.jxse</groupId>
+							<artifactId>jxse.target</artifactId>
+							<version>${project.version}</version>
+						</artifact>
+					</target>
+					<environments>
 						<environment>
 							<os>linux</os>
 							<ws>gtk</ws>

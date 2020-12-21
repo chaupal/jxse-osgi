@@ -10,5 +10,5 @@
   </parent>
 
   <artifactId>net.jxse.update</artifactId>
-  <packaging>pom</packaging>
+  <packaging>eclipse-update-site</packaging>
 </project> 

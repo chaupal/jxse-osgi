@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
-  <artifact classifier='osgi.bundle' id='net.jxta.impl.cm.sql.derby' version='1.0.0.202012071439'>
+  <artifact classifier='osgi.bundle' id='net.jxta.impl.cm.sql.derby' version='1.0.0.202012211828'>
     <properties size='5'>
-      <property name='artifact.size' value='4029'/>
-      <property name='download.size' value='4029'/>
+      <property name='artifact.size' value='4407'/>
+      <property name='download.size' value='4407'/>
       <property name='maven-groupId' value='net.jxse'/>
       <property name='maven-artifactId' value='net.jxta.impl.cm.sql.derby'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>

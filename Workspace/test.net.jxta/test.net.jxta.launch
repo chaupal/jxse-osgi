@@ -14,7 +14,7 @@
     <booleanAttribute key="default" value="false"/>
     <setAttribute key="deselected_workspace_bundles">
         <setEntry value="org.chaupal.project"/>
-        <setEntry value="org.mortbay.jetty"/>
+        <setEntry value="test.net.jxse"/>
         <setEntry value="test.net.jxta.standalone"/>
     </setAttribute>
     <booleanAttribute key="includeOptional" value="true"/>
@@ -237,14 +237,19 @@
         <setEntry value="org.w3c.dom.svg@default:default"/>
     </setAttribute>
     <setAttribute key="selected_workspace_bundles">
+        <setEntry value="net.chaupal.practical.jxta@default:default"/>
+        <setEntry value="net.jp2p.container@default:default"/>
+        <setEntry value="net.jxse.library@default:default"/>
         <setEntry value="net.jxse@default:default"/>
         <setEntry value="net.jxta.impl.cm.sql.derby@default:default"/>
         <setEntry value="net.jxta.impl.cm.sql.h2@default:default"/>
         <setEntry value="net.jxta.impl.endpoint.netty@default:default"/>
         <setEntry value="net.jxta.impl.endpoint.servlethttp@default:default"/>
+        <setEntry value="net.jxta.impl@default:default"/>
+        <setEntry value="net.jxta.tutorial@default:default"/>
         <setEntry value="net.jxta@default:default"/>
+        <setEntry value="org.condast.jxta.test@default:default"/>
         <setEntry value="org.spongycastle.fragment@default:false"/>
-        <setEntry value="test.net.jxse@default:false"/>
         <setEntry value="test.net.jxta@default:false"/>
     </setAttribute>
     <booleanAttribute key="show_selected_only" value="false"/>

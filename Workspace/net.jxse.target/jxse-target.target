@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="jxse-target" sequenceNumber="109">
+	<locations>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\osgi" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\log" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\Derby" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\H2" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\Netty" type="Directory"/>
+		<location path="${eclipse_home}" type="Profile"/>
+	</locations>
+	<includeBundles>
+		<plugin id="derby"/>
+		<plugin id="derbyclient"/>
+		<plugin id="org.apache.felix.gogo.command"/>
+		<plugin id="org.apache.felix.gogo.runtime"/>
+		<plugin id="org.apache.felix.gogo.shell"/>
+		<plugin id="org.eclipse.equinox.console"/>
+		<plugin id="org.eclipse.osgi"/>
+		<plugin id="org.eclipse.osgi.services"/>
+		<plugin id="org.eclipse.osgi.services.source"/>
+		<plugin id="org.eclipse.osgi.source"/>
+		<plugin id="org.eclipse.osgi.util"/>
+		<plugin id="org.eclipse.osgi.util.source"/>
+		<plugin id="org.h2"/>
+		<plugin id="org.jboss.netty"/>
+		<plugin id="org.osgi.service.jdbc"/>
+		<plugin id="javax.servlet"/>
+		<plugin id="org.eclipse.jdt.junit4.runtime"/>
+		<plugin id="org.eclipse.jdt.junit"/>
+		<plugin id="org.eclipse.jdt.junit.runtime"/>
+		<plugin id="org.eclipse.jdt.junit.core"/>
+		<plugin id="org.eclipse.swtbot.junit4_x"/>
+		<plugin id="org.junit"/>
+		<plugin id="org.hamcrest.core"/>
+		<plugin id="org.eclipse.jetty.server"/>
+		<plugin id="org.eclipse.jetty.servlet"/>
+		<plugin id="org.eclipse.jetty.util"/>
+		<plugin id="org.eclipse.jetty.io"/>
+		<plugin id="org.eclipse.jetty.http"/>
+		<plugin id="org.eclipse.equinox.http.jetty"/>
+		<plugin id="org.eclipse.jetty.continuation"/>
+		<plugin id="org.eclipse.jetty.security"/>
+		<plugin id="org.slf4j.api" version="1.7.30.v20200204-2150"/>
+	</includeBundles>
+</target>

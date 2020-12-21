@@ -137,7 +137,6 @@ public class JxtaLoaderModuleManager<T extends Module> implements IJxtaModuleMan
 		return verifier;
 	}
 
-	@Override
 	public IJxtaLoader getLoader() {
 		return loader;
 	}

@@ -6,8 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Chaupal
 Automatic-Module-Name: org.jxta.impl.endpoint.netty
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: net.jxta.impl.endpoint.netty,
- net.jxta.impl.endpoint.netty.http
+Export-Package: net.jxta.impl.endpoint.netty
 Import-Package: net.jxta.document,
  net.jxta.endpoint,
  net.jxta.exception,
@@ -20,16 +19,15 @@ Import-Package: net.jxta.document,
  net.jxta.peer,
  net.jxta.peergroup,
  net.jxta.peergroup.core,
- net.jxta.platform,
  net.jxta.protocol,
  org.jboss.netty.bootstrap;version="3.9.6.Final",
  org.jboss.netty.buffer;version="3.9.6.Final",
  org.jboss.netty.channel;version="3.9.6.Final",
  org.jboss.netty.channel.group;version="3.9.6.Final",
  org.jboss.netty.channel.socket;version="3.9.6.Final",
- org.jboss.netty.channel.socket.http;version="3.9.6.Final",
- org.jboss.netty.channel.socket.httptunnel;version="0.92.0",
  org.jboss.netty.channel.socket.nio;version="3.9.6.Final",
  org.jboss.netty.handler.codec.oneone;version="3.9.6.Final",
  org.jboss.netty.handler.timeout;version="3.9.6.Final",
  org.jboss.netty.util;version="3.9.6.Final"
+Bundle-ClassPath: .,
+ lib/httptunnel-0.92.jar

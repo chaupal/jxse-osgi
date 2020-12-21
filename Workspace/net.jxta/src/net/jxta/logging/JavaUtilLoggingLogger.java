@@ -103,8 +103,8 @@ public class JavaUtilLoggingLogger implements Logger {
 		logger.fine(message);
 	}
 
-	@Override
 	public boolean isLoggable(Level finer) {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

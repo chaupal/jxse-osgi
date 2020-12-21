@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: h2 Database
 Bundle-SymbolicName: net.jxta.impl.cm.sql.h2;singleton:=true
-Bundle-Version: 1.0.0.202012071439
+Bundle-Version: 1.0.0.202012211828
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: net.jxta.impl.cm.sql.derby
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -79,8 +79,9 @@ public class SLF4JLogger implements Logger {
 		logger.debug(message);
 	}
 
-	@Override
 	public boolean isLoggable(Level finer) {
-		return true;
+		return false;
 	}
+
+	
 }

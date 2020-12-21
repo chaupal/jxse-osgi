@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jxse Wrapper
 Bundle-SymbolicName: net.jxse;singleton:=true
-Bundle-Version: 1.0.0.202012071439
+Bundle-Version: 1.0.0.202012211828
 Bundle-Vendor: Condast
-Export-Package: net.jxse.OSGi,net.jxse.OSGi.Services,net.jxse.configurat
- ion,net.jxse.impl.OSGi.Activators,net.jxse.impl.OSGi.Services,net.jxse.
- jdbc,net.jxse.service
+Export-Package: net.jxse,net.jxse.OSGi,net.jxse.OSGi.Services,net.jxse.c
+ onfiguration,net.jxse.impl.OSGi.Activators,net.jxse.impl.OSGi.Services,
+ net.jxse.jdbc,net.jxse.service
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: net.jxta.configuration,net.jxta.id,net.jxta.impl.cm.sql,
  net.jxta.impl.modulemanager,net.jxta.impl.util.threads,net.jxta.peer,ne

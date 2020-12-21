@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JXSE Servlet HTTP
+Bundle-SymbolicName: net.jxta.impl.endpoint.servlethttp
+Bundle-Version: 1.0.0.202012211828
+Bundle-Vendor: Chaupal
+Automatic-Module-Name: net.jxta.impl.endpoint.servlethttp
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: net.jxta.core.server.http,net.jxta.impl.endpoint.servlet
+ http,org.mortbay.http,org.mortbay.http.handler,org.mortbay.jetty.servle
+ t,org.mortbay.util
+Import-Package: javax.servlet;version="3.1.0",javax.servlet.http,net.jxt
+ a.document,net.jxta.endpoint,net.jxta.exception,net.jxta.id,net.jxta.im
+ pl.endpoint,net.jxta.impl.endpoint.transportMeter,net.jxta.impl.loader,
+ net.jxta.impl.meter,net.jxta.impl.protocol,net.jxta.impl.util,net.jxta.
+ impl.util.threads,net.jxta.logging,net.jxta.meter,net.jxta.peergroup,ne
+ t.jxta.peergroup.core,net.jxta.platform,net.jxta.protocol,org.eclipse.j
+ etty.server,org.eclipse.jetty.server.handler,org.eclipse.jetty.server.n
+ io,org.eclipse.jetty.servlet,org.eclipse.jetty.util.component,org.eclip
+ se.jetty.util.thread
+Bundle-ClassPath: lib/org.mortbay.jetty.jar,.
+
