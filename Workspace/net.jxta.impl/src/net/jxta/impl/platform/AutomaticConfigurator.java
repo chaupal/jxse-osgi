@@ -145,7 +145,8 @@ public class AutomaticConfigurator extends NullConfigurator {
      *
      * @return If <tt>true</tt> then manual reconfiguration (of some form) is required.
      */
-    private boolean buildPlatformConfig() {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private boolean buildPlatformConfig() {
 
         boolean reconf = false;
 
