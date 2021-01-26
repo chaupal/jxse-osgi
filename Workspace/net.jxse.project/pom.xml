@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.jxse</groupId>
 	<artifactId>parent</artifactId>
@@ -13,7 +14,7 @@
 		<maven.dependency.version>2.10</maven.dependency.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jetty.version>8.1.16.v20140903</jetty.version>
-		<eclipse-update-repo.url>http://download.eclipse.org/eclipse/updates/4.3</eclipse-update-repo.url>
+		<eclipse-update-repo.url>http://download.eclipse.org/eclipse/updates/4.6</eclipse-update-repo.url>
 		<eclipse-repo.url>http://download.eclipse.org/releases/oxygen</eclipse-repo.url>
 	</properties>
 

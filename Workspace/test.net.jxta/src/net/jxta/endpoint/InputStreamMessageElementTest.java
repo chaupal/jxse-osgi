@@ -62,11 +62,16 @@ import java.io.InputStream;
 import java.io.SequenceInputStream;
 import java.util.Arrays;
 import java.util.Vector;
+
+import org.junit.Assert;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
 import java.util.Collections;
 
 import java.io.IOException;
-
-import junit.framework.*;
 
 import net.jxta.document.MimeMediaType;
 

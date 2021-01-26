@@ -63,7 +63,6 @@ import java.util.concurrent.TimeUnit;
 
 import net.jxta.document.Element;
 import net.jxta.exception.PeerGroupException;
-import net.jxta.impl.util.threads.SelfCancellingTask;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.meter.MonitorEvent;
@@ -83,6 +82,7 @@ import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.protocol.PeerInfoQueryMessage;
 import net.jxta.protocol.PeerInfoResponseMessage;
+import net.jxta.util.SelfCancellingTask;
 import net.jxta.util.documentSerializable.DocumentSerializableUtilities;
 import net.jxta.util.documentSerializable.DocumentSerializationException;
 
@@ -149,6 +149,11 @@ class RemoteMonitorPeerInfoHandler implements PeerInfoHandler {
             this.peerInfoMessenger = peerInfoMessenger;
             this.validUntil = System.currentTimeMillis() + timeout;
         }
+
+		@SuppressWarnings("unused")
+		public long getValidUntil() {
+			return validUntil;
+		}
     }
 
     private class LeaseInfo {

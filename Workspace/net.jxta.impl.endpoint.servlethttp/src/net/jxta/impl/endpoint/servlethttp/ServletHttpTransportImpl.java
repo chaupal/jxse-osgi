@@ -68,7 +68,7 @@ import net.jxta.impl.endpoint.transportMeter.TransportBindingMeter;
 import net.jxta.impl.endpoint.transportMeter.TransportMeter;
 import net.jxta.impl.endpoint.transportMeter.TransportMeterBuildSettings;
 import net.jxta.impl.endpoint.transportMeter.TransportServiceMonitor;
-import net.jxta.impl.loader.JxtaLoaderModuleManager;
+import net.jxta.impl.loader.JxtaLoaderModuleFactory;
 import net.jxta.impl.meter.MonitorManager;
 import net.jxta.impl.protocol.HTTPAdv;
 import net.jxta.logging.Logger;
@@ -333,7 +333,7 @@ public final class ServletHttpTransportImpl implements ServletHttpTransport, Mod
             try {
 
                 // Use peer group class loader (useful for HttpMessageServlet)
-                final ClassLoader classLoader = JxtaLoaderModuleManager.getClassLoader( group );
+                final ClassLoader classLoader = JxtaLoaderModuleFactory.getClassLoader( group );
                 receiver = new HttpMessageReceiver(this, publicAddresses, usingInterface, usingPort, classLoader);
                 receiver.start();
 

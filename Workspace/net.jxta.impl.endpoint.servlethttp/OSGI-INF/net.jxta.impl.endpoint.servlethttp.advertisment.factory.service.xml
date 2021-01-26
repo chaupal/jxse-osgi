@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="net.jxta.impl.endpoint.servlethttp.advertisment.factory.service">
+   <service>
+      <provide interface="net.jxse.service.core.IAdvertisementFactoryProvider"/>
+   </service>
+   <implementation class="net.jxta.impl.endpoint.servlethttp.service.AdvertisementFactoryProvider"/>
+</scr:component>

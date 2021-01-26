@@ -445,7 +445,7 @@ public final class PSECredential implements Credential, CredentialPCLSupport {
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	public StructuredDocument<?> getDocument(MimeMediaType encodeAs) throws Exception {
         if (!isValid()) {
-            throw new javax.security.cert.CertificateException("Credential is not valid. Cannot generate document.");
+            throw new java.security.cert.CertificateException("Credential is not valid. Cannot generate document.");
         }
 
         if (!local) {

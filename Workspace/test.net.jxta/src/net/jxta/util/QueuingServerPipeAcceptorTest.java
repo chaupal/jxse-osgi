@@ -7,6 +7,8 @@ import static org.junit.Assert.assertNull;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import net.jxta.impl.util.JxtaBiDiPipe;
+import net.jxta.impl.util.QueuingServerPipeAcceptor;
 import net.jxta.test.util.JUnitRuleMockery;
 
 import org.jmock.Expectations;

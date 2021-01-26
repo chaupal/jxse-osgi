@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: test.net.jxta
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Fragment-Host: net.jxta
+Fragment-Host: net.jxta.impl;bundle-version="1.0.0.qualifier"
 Import-Package: junit.framework;version="4.13.0",
  junit.textui;version="4.13.0",
  net.jxse,
@@ -22,7 +22,9 @@ Import-Package: junit.framework;version="4.13.0",
  net.jxta.impl.endpoint.netty,
  net.jxta.impl.endpoint.servlethttp,
  net.jxta.impl.id.binaryID,
+ net.jxta.impl.loader,
  net.jxta.impl.membership.none,
+ net.jxta.impl.peergroup,
  net.jxta.impl.rendezvous,
  net.jxta.peergroup.core,
  net.jxta.platform,

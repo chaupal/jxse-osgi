@@ -1,10 +1,3 @@
-/*
- * Copyright (c) 2015 Nebarti, LLC. All rights reserved.
- *
- * based on work from DawningStreams, Inc. 2010
- *  
- */
-
 package net.chaupal.practical.jxta.examples;
 
 import net.chaupal.practical.jxta.tools.Tools;
@@ -24,6 +17,7 @@ import org.osgi.framework.BundleException;
 import org.osgi.framework.FrameworkEvent;
 import org.osgi.util.tracker.ServiceTracker;
 
+@Deprecated //CP: Has no function in an OSGI container
 public class ConnectingWithOSGi {
     
     public static final String Name = "Example 160";
@@ -39,7 +33,6 @@ public class ConnectingWithOSGi {
     	main(null);
     }
 
-    @Deprecated
     public static void main(String[] args) {
 
         try {

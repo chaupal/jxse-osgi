@@ -2,7 +2,7 @@
 <feature
       id="net.jxse.feature"
       label="JXSE OSGI Library Feature"
-      version="1.0.0.202012211828"
+      version="1.0.0.202012231417"
       provider-name="Chaupal.org">
 
    <description url="https://github.com/chaupal">
@@ -83,7 +83,7 @@ END OF TERMS AND CONDITIONS
          id="org.spongycastle.fragment"
          download-size="2682"
          install-size="3018"
-         version="1.0.0.202012211828"
+         version="1.0.0.202012231417"
          fragment="true"
          unpack="false"/>
 
@@ -91,42 +91,42 @@ END OF TERMS AND CONDITIONS
          id="net.jxse"
          download-size="41"
          install-size="81"
-         version="1.0.0.202012211828"
+         version="1.0.0.202012231417"
          unpack="false"/>
 
    <plugin
          id="net.jxta"
          download-size="1502"
          install-size="3047"
-         version="1.0.0.202012211828"
+         version="1.0.0.202012231417"
          unpack="false"/>
 
    <plugin
          id="net.jxta.impl.cm.sql.derby"
          download-size="4"
          install-size="4"
-         version="1.0.0.202012211828"
+         version="1.0.0.202012231417"
          unpack="false"/>
 
    <plugin
          id="net.jxta.impl.cm.sql.h2"
          download-size="3"
          install-size="3"
-         version="1.0.0.202012211828"
+         version="1.0.0.202012231417"
          unpack="false"/>
 
    <plugin
          id="net.jxta.impl.endpoint.netty"
          download-size="103"
          install-size="165"
-         version="1.0.0.202012211828"
+         version="1.0.0.202012231417"
          unpack="false"/>
 
    <plugin
          id="net.jxta.impl.endpoint.servlethttp"
          download-size="582"
          install-size="649"
-         version="1.0.0.202012211828"
+         version="1.0.0.202012231417"
          unpack="false"/>
 
    <plugin
@@ -189,7 +189,7 @@ END OF TERMS AND CONDITIONS
          id="net.jxta.impl"
          download-size="521"
          install-size="1109"
-         version="1.0.0.202012211828"
+         version="1.0.0.202012231417"
          unpack="false"/>
 
    <plugin
@@ -232,6 +232,20 @@ END OF TERMS AND CONDITIONS
          download-size="12"
          install-size="26"
          version="1.0.0.201505202023"
+         unpack="false"/>
+
+   <plugin
+         id="org.slf4j.api"
+         download-size="34"
+         install-size="61"
+         version="1.7.2.v20121108-1250"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.util"
+         download-size="49"
+         install-size="96"
+         version="3.4.0.v20170111-1608"
          unpack="false"/>
 
 </feature>

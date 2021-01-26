@@ -1,6 +1,6 @@
 package net.jxse.systemtests.colocated;
 
-import net.jxta.util.JxtaBiDiPipe;
+import net.jxta.impl.util.JxtaBiDiPipe;
 
 /**
  * Simple class to store the two ends of an established pipe.

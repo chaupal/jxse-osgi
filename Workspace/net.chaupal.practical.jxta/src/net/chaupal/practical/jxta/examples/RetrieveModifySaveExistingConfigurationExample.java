@@ -1,10 +1,3 @@
-/*
- * Copyright (c) 2015 Nebarti, LLC. All rights reserved.
- *
- * based on work from DawningStreams, Inc. 2010
- *  
- */
-
 package net.chaupal.practical.jxta.examples;
 
 import java.io.File;

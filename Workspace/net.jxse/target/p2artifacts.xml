@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
-  <artifact classifier='osgi.bundle' id='net.jxse' version='1.0.0.202012211828'>
+  <artifact classifier='osgi.bundle' id='net.jxse' version='1.0.0.202012272057'>
     <properties size='5'>
-      <property name='artifact.size' value='42079'/>
-      <property name='download.size' value='42079'/>
+      <property name='artifact.size' value='44978'/>
+      <property name='download.size' value='44978'/>
       <property name='maven-groupId' value='net.jxse'/>
       <property name='maven-artifactId' value='net.jxse'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>

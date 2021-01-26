@@ -70,11 +70,11 @@ import net.jxta.endpoint.Messenger;
 import net.jxta.endpoint.MessengerState;
 import net.jxta.endpoint.MessengerStateListener;
 import net.jxta.endpoint.OutgoingMessageEvent;
-import net.jxta.impl.util.threads.SelfCancellingTask;
 import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroupID;
+import net.jxta.util.SelfCancellingTask;
 import net.jxta.util.SimpleSelectable;
 
 /**

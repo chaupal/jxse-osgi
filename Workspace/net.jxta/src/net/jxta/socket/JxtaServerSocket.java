@@ -720,7 +720,8 @@ public class JxtaServerSocket extends ServerSocket implements PipeMsgListener {
      * @param msg The client connection request (assumed not null)
      * @return JxtaSocket Which may be null if an error occurs.
      */
-    private JxtaSocket processMessage(Message msg) {
+    @SuppressWarnings("unchecked")
+	private JxtaSocket processMessage(Message msg) {
 
         PipeAdvertisement remoteEphemeralPipeAdv = null;
         PeerAdvertisement remotePeerAdv = null;

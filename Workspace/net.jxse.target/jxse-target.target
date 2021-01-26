@@ -12,35 +12,50 @@
 	<includeBundles>
 		<plugin id="derby"/>
 		<plugin id="derbyclient"/>
-		<plugin id="org.apache.felix.gogo.command"/>
-		<plugin id="org.apache.felix.gogo.runtime"/>
-		<plugin id="org.apache.felix.gogo.shell"/>
-		<plugin id="org.eclipse.equinox.console"/>
+		<plugin id="javax.servlet"/>
+		<plugin id="javax.servlet.source"/>
+		<plugin id="org.apache.felix.gogo.command" version="1.1.0.v20201023-1558"/>
+		<plugin id="org.apache.felix.gogo.command.source"/>
+		<plugin id="org.apache.felix.gogo.runtime" version="1.1.2.v20201023-1558"/>
+		<plugin id="org.apache.felix.gogo.runtime.source"/>
+		<plugin id="org.apache.felix.gogo.shell" version="1.1.2.v20201023-1558"/>
+		<plugin id="org.apache.felix.gogo.shell.source"/>
+		<plugin id="org.eclipse.equinox.console" version="1.4.200.v20200828-1034"/>
+		<plugin id="org.eclipse.equinox.console.source"/>
+		<plugin id="org.eclipse.equinox.ds"/>
+		<plugin id="org.eclipse.equinox.http.jetty"/>
+		<plugin id="org.eclipse.equinox.http.jetty.source"/>
+		<plugin id="org.eclipse.jdt.junit"/>
+		<plugin id="org.eclipse.jdt.junit.core"/>
+		<plugin id="org.eclipse.jdt.junit.runtime"/>
+		<plugin id="org.eclipse.jdt.junit4.runtime"/>
+		<plugin id="org.eclipse.jetty.continuation"/>
+		<plugin id="org.eclipse.jetty.continuation.source"/>
+		<plugin id="org.eclipse.jetty.http"/>
+		<plugin id="org.eclipse.jetty.http.source"/>
+		<plugin id="org.eclipse.jetty.io"/>
+		<plugin id="org.eclipse.jetty.io.source"/>
+		<plugin id="org.eclipse.jetty.security"/>
+		<plugin id="org.eclipse.jetty.security.source"/>
+		<plugin id="org.eclipse.jetty.server"/>
+		<plugin id="org.eclipse.jetty.server.source"/>
+		<plugin id="org.eclipse.jetty.servlet"/>
+		<plugin id="org.eclipse.jetty.servlet.source"/>
+		<plugin id="org.eclipse.jetty.util"/>
+		<plugin id="org.eclipse.jetty.util.source"/>
 		<plugin id="org.eclipse.osgi"/>
 		<plugin id="org.eclipse.osgi.services"/>
 		<plugin id="org.eclipse.osgi.services.source"/>
 		<plugin id="org.eclipse.osgi.source"/>
 		<plugin id="org.eclipse.osgi.util"/>
 		<plugin id="org.eclipse.osgi.util.source"/>
-		<plugin id="org.h2"/>
-		<plugin id="org.jboss.netty"/>
-		<plugin id="org.osgi.service.jdbc"/>
-		<plugin id="javax.servlet"/>
-		<plugin id="org.eclipse.jdt.junit4.runtime"/>
-		<plugin id="org.eclipse.jdt.junit"/>
-		<plugin id="org.eclipse.jdt.junit.runtime"/>
-		<plugin id="org.eclipse.jdt.junit.core"/>
 		<plugin id="org.eclipse.swtbot.junit4_x"/>
-		<plugin id="org.junit"/>
+		<plugin id="org.h2"/>
 		<plugin id="org.hamcrest.core"/>
-		<plugin id="org.eclipse.jetty.server"/>
-		<plugin id="org.eclipse.jetty.servlet"/>
-		<plugin id="org.eclipse.jetty.util"/>
-		<plugin id="org.eclipse.jetty.io"/>
-		<plugin id="org.eclipse.jetty.http"/>
-		<plugin id="org.eclipse.equinox.http.jetty"/>
-		<plugin id="org.eclipse.jetty.continuation"/>
-		<plugin id="org.eclipse.jetty.security"/>
+		<plugin id="org.jboss.netty"/>
+		<plugin id="org.jboss.netty.httptunnel"/>
+		<plugin id="org.junit"/>
+		<plugin id="org.osgi.service.jdbc"/>
 		<plugin id="org.slf4j.api" version="1.7.30.v20200204-2150"/>
 	</includeBundles>
 </target>

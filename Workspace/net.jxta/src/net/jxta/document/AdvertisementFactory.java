@@ -150,7 +150,11 @@ public class AdvertisementFactory extends ClassFactory<String, AdvertisementFact
      */
     private AdvertisementFactory() {}
 
-    /**
+    public static AdvertisementFactory getInstance() {
+		return factory;
+	}
+
+	/**
      *  Registers the pre-defined set of Advertisement sub-classes so that
      *  this factory can construct them.
      *
@@ -169,7 +173,7 @@ public class AdvertisementFactory extends ClassFactory<String, AdvertisementFact
      *  {@inheritDoc}
      */
     @Override
-    protected Map<String, Instantiator> getAssocTable() {
+    public Map<String, Instantiator> getAssocTable() {
         return encodings;
     }
 
@@ -200,9 +204,8 @@ public class AdvertisementFactory extends ClassFactory<String, AdvertisementFact
 
         try {
             Class<?> advClass = Class.forName(className + "$Instantiator");
-
-            Instantiator instantiator = (Instantiator) advClass.newInstance();
-
+            Instantiator instantiator = (Instantiator) advClass.getConstructor().newInstance();
+ 
             String advType = instantiator.getAdvertisementType();
 
             registeredSomething = registerAdvertisementInstance(advType, instantiator);

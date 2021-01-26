@@ -141,7 +141,7 @@ public enum FaultCodes {
     /**
      * All known faults.
      */
-    private static final Map<Integer, FaultCodes> knownFaults = new HashMap<Integer, FaultCodes>();
+    public static final Map<Integer, FaultCodes> knownFaults = new HashMap<Integer, FaultCodes>();
     /**
      *  Numeric code for this fault.
      */

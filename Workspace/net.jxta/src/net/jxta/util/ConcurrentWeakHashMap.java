@@ -874,7 +874,8 @@ public class ConcurrentWeakHashMap<K, V> extends AbstractMap<K, V>
      *         specified value
      * @throws NullPointerException if the specified value is null
      */
-    public boolean containsValue(Object value) {
+    @SuppressWarnings("unused")
+	public boolean containsValue(Object value) {
         if (value == null)
             throw new NullPointerException();
 

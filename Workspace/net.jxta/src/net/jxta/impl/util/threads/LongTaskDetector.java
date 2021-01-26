@@ -5,6 +5,7 @@ package net.jxta.impl.util.threads;
 
 import java.io.StringWriter;
 import java.util.logging.Level;
+
 import net.jxta.logging.Logging;
 
 /**

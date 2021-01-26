@@ -9,7 +9,7 @@ import net.jxta.platform.NetworkManager;
 import java.text.MessageFormat;
 import java.io.File;
 import java.io.IOException;
-import javax.security.cert.CertificateException;
+import java.security.cert.CertificateException;
 import javax.swing.JOptionPane;
 
 public class WorkingWithLocalConfiguration {

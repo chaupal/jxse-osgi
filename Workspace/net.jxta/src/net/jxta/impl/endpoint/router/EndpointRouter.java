@@ -93,7 +93,6 @@ import net.jxta.id.IDFactory;
 import net.jxta.impl.endpoint.LoopbackMessenger;
 import net.jxta.impl.endpoint.TransportUtils;
 import net.jxta.impl.util.TimeUtils;
-import net.jxta.impl.util.threads.SelfCancellingTask;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peer.PeerID;
@@ -105,6 +104,7 @@ import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.RouteAdvertisement;
 import net.jxta.service.Service;
+import net.jxta.util.SelfCancellingTask;
 
 public class EndpointRouter implements EndpointListener, EndpointRoutingTransport, MessageReceiver, MessageSender, MessengerEventListener, Module {
 

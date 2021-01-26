@@ -79,10 +79,10 @@ import net.jxta.endpoint.WireFormatMessage;
 import net.jxta.endpoint.WireFormatMessageFactory;
 import net.jxta.impl.membership.pse.PSEUtils;
 import net.jxta.impl.util.TimeUtils;
-import net.jxta.impl.util.threads.SelfCancellingTask;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroup;
+import net.jxta.util.SelfCancellingTask;
 
 /**
  * Accepts data and packages it into messages for sending to the remote. The

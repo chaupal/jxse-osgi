@@ -6,6 +6,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import junit.framework.TestCase;
+import net.jxta.util.SelfCancellingTask;
 
 
 

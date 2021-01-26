@@ -71,6 +71,7 @@ import net.jxta.protocol.ModuleSpecAdvertisement;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.net.URL;
 import java.util.*;
@@ -664,29 +665,40 @@ public class ContentServiceImpl implements ContentService {
         // Now attempt to instantiate all the providers we've found
         for (String str : provClassNames) {
 
-            try {
+        	try {
 
-                Class<?> cl = loader.loadClass(str);
-                provider = (ContentProviderSPI) cl.newInstance();
-                result.add(provider);
-                Logging.logCheckedDebug(LOG, "Added provider: ", str);
+        		Class<?> cl = loader.loadClass(str);
+        		provider = (ContentProviderSPI) cl.getDeclaredConstructor().newInstance();
+        		result.add(provider);
+        		Logging.logCheckedDebug(LOG, "Added provider: ", str);
 
-            } catch (ClassNotFoundException cnfx) {
+        	} catch (ClassNotFoundException cnfx) {
 
-                Logging.logCheckedError(LOG, "Could not load service provider\n", cnfx);
-                // Continue to next provider class name
+        		Logging.logCheckedError(LOG, "Could not load service provider\n", cnfx);
+        		// Continue to next provider class name
 
-            } catch (InstantiationException instx) {
+        	} catch (InstantiationException instx) {
 
-                Logging.logCheckedError(LOG, "Could not load service provider\n", instx);
-                // Continue to next provider class name
+        		Logging.logCheckedError(LOG, "Could not load service provider\n", instx);
+        		// Continue to next provider class name
 
-            } catch (IllegalAccessException iaccx) {
+        	} catch (IllegalAccessException iaccx) {
 
-                Logging.logCheckedError(LOG, "Could not load service provider\n", iaccx);
-                // Continue to next provider class name
+        		Logging.logCheckedError(LOG, "Could not load service provider\n", iaccx);
+        		// Continue to next provider class name
 
-            }
+        	} catch (IllegalArgumentException e) {
+        		Logging.logCheckedError(LOG, "Could not load service provider\n", e);
+        		// Continue to next provider class name
+        	} catch (InvocationTargetException e) {
+        		Logging.logCheckedError(LOG, "Could not load service provider\n", e);
+        		// Continue to next provider class name
+        	} catch (NoSuchMethodException e) {
+        		Logging.logCheckedError(LOG, "Could not load service provider\n", e);
+        		// Continue to next provider class name
+        	} catch (SecurityException e) {
+        		Logging.logCheckedError(LOG, "Could not load service provider\n", e);
+        	}
         }
 
         return result;

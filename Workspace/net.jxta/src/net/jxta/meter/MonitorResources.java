@@ -397,6 +397,7 @@ public class MonitorResources {
 
     }
 
+	@SuppressWarnings("unused")
     private static class ServiceResource {
 		String serviceMonitorClassName;
         Class<?> serviceMonitorClass;
@@ -456,7 +457,7 @@ public class MonitorResources {
     public static ServiceMonitorFilter createServiceMonitorFilter(ModuleClassID moduleClassID) throws MonitorFilterException {
         try {
             ServiceResource serviceResource = registeredMonitorResources.get(moduleClassID);
-            ServiceMonitorFilter serviceMonitorFilter = (ServiceMonitorFilter) serviceResource.serviceMonitorFilterClass.newInstance();
+            ServiceMonitorFilter serviceMonitorFilter = (ServiceMonitorFilter) serviceResource.serviceMonitorFilterClass.getDeclaredConstructor().newInstance();
 
             serviceMonitorFilter.init(moduleClassID);
             return serviceMonitorFilter;
@@ -473,7 +474,7 @@ public class MonitorResources {
     public static ServiceMetric createServiceMetric(ModuleClassID moduleClassID) throws JxtaException {
         try {
             ServiceResource serviceResource = registeredMonitorResources.get(moduleClassID);
-            ServiceMetric serviceMetric = (ServiceMetric) serviceResource.serviceMetricClass.newInstance();
+            ServiceMetric serviceMetric = (ServiceMetric) serviceResource.serviceMetricClass.getDeclaredConstructor().newInstance();
 
             serviceMetric.init(moduleClassID);
             return serviceMetric;

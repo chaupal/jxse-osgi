@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JXTA Reference Implementation
 Bundle-SymbolicName: net.jxta.impl;singleton:=true
-Bundle-Version: 1.0.0.202012211828
+Bundle-Version: 1.0.0.202012272057
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: net.jxta.impl
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

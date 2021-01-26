@@ -60,7 +60,7 @@ import java.io.File;
 
 import junit.framework.TestSuite;
 import junit.framework.TestCase;
-import junit.framework.Assert;
+import org.junit.Assert;
 import junit.framework.Test;
 import net.jxta.exception.ConfiguratorException;
 

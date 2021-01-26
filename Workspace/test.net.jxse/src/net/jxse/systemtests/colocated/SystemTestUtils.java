@@ -14,15 +14,15 @@ import net.jxta.endpoint.ByteArrayMessageElement;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.StringMessageElement;
 import net.jxta.id.IDFactory;
+import net.jxta.impl.util.JxtaBiDiPipe;
+import net.jxta.impl.util.JxtaServerPipe;
+import net.jxta.impl.util.ServerPipeAcceptListener;
 import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
 import net.jxta.pipe.PipeService;
 import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
-import net.jxta.util.JxtaBiDiPipe;
-import net.jxta.util.JxtaServerPipe;
-import net.jxta.util.ServerPipeAcceptListener;
 
 public class SystemTestUtils {
 

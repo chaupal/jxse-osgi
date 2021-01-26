@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JXSE Servlet HTTP
 Bundle-SymbolicName: net.jxta.impl.endpoint.servlethttp
-Bundle-Version: 1.0.0.202012211828
+Bundle-Version: 1.0.0.202012231417
 Bundle-Vendor: Chaupal
 Automatic-Module-Name: net.jxta.impl.endpoint.servlethttp
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
