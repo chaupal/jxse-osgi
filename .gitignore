@@ -1,26 +1,15 @@
-# Compiled class file
-*.class
-
-/bin
+# Ignore all bin directories
+bin/
+target/
 /target
 
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
+# Ignore all files ending with ~
+*~
+*.class
 *.zip
-*.tar.gz
-*.rar
+# Ignore the target directory
+# Matches "target" in any subfolder.ant.properties
+.settings/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+.cache
+.jxta

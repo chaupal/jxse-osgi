@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='2'>
-  <unit id='net.jxse.feature.feature.group' version='1.0.0.202101271919' singleton='false'>
-    <update id='net.jxse.feature.feature.group' range='[0.0.0,1.0.0.202101271919)' severity='0'/>
+  <unit id='net.jxse.feature.feature.group' version='1.0.0.202101271932' singleton='false'>
+    <update id='net.jxse.feature.feature.group' range='[0.0.0,1.0.0.202101271932)' severity='0'/>
     <properties size='8'>
       <property name='org.eclipse.equinox.p2.name' value='JXSE OSGI Library Feature'/>
       <property name='org.eclipse.equinox.p2.description' value='This feauture contains references to all the OSGI bundles that are needed to succesfully run JXSE 2.8 in an OSGI environment'/>
@@ -13,18 +13,18 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxse.feature.feature.group' version='1.0.0.202101271919'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxse.feature.feature.group' version='1.0.0.202101271932'/>
     </provides>
     <requires size='28'>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.osgi' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.osgi.services' range='0.0.0'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.spongycastle.fragment' range='[1.0.0.202101271919,1.0.0.202101271919]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxse' range='[1.0.0.202101271919,1.0.0.202101271919]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta' range='[1.0.0.202101271919,1.0.0.202101271919]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.cm.sql.derby' range='[1.0.0.202101271919,1.0.0.202101271919]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.cm.sql.h2' range='[1.0.0.202101271919,1.0.0.202101271919]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.netty' range='[1.0.0.202101271919,1.0.0.202101271919]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.servlethttp' range='[1.0.0.202101271919,1.0.0.202101271919]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.spongycastle.fragment' range='[1.0.0.202101271932,1.0.0.202101271932]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxse' range='[1.0.0.202101271932,1.0.0.202101271932]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta' range='[1.0.0.202101271932,1.0.0.202101271932]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.cm.sql.derby' range='[1.0.0.202101271932,1.0.0.202101271932]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.cm.sql.h2' range='[1.0.0.202101271932,1.0.0.202101271932]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.netty' range='[1.0.0.202101271932,1.0.0.202101271932]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.servlethttp' range='[1.0.0.202101271932,1.0.0.202101271932]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jetty.continuation' range='[9.4.8.v20171121,9.4.8.v20171121]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jetty.http' range='[9.4.8.v20171121,9.4.8.v20171121]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jetty.io' range='[9.4.8.v20171121,9.4.8.v20171121]'/>
@@ -32,7 +32,7 @@
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jetty.server' range='[9.4.8.v20171121,9.4.8.v20171121]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jetty.servlet' range='[9.4.8.v20171121,9.4.8.v20171121]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jetty.util' range='[9.4.8.v20171121,9.4.8.v20171121]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl' range='[1.0.0.202101271919,1.0.0.202101271919]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl' range='[1.0.0.202101271932,1.0.0.202101271932]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='derby' range='[10.12.1000001.1704137,10.12.1000001.1704137]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.jboss.netty' range='[3.9.9.Final,3.9.9.Final]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.osgi.service.jdbc' range='[1.0.0.201505202023,1.0.0.201505202023]'/>
@@ -43,7 +43,7 @@
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.equinox.ds' range='[1.5.0.v20170307-1429,1.5.0.v20170307-1429]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='com.h2database' range='[1.4.200,1.4.200]'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='javax.servlet' range='[3.1.0.v201410161800,3.1.0.v201410161800]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxse.feature.feature.jar' range='[1.0.0.202101271919,1.0.0.202101271919]'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='net.jxse.feature.feature.jar' range='[1.0.0.202101271932,1.0.0.202101271932]'>
         <filter>
           (org.eclipse.update.install.features=true)
         </filter>
@@ -59,7 +59,7 @@
       Copyright 2014 Chaupal
     </copyright>
   </unit>
-  <unit id='net.jxse.feature.feature.jar' version='1.0.0.202101271919'>
+  <unit id='net.jxse.feature.feature.jar' version='1.0.0.202101271932'>
     <properties size='7'>
       <property name='org.eclipse.equinox.p2.name' value='JXSE OSGI Library Feature'/>
       <property name='org.eclipse.equinox.p2.description' value='This feauture contains references to all the OSGI bundles that are needed to succesfully run JXSE 2.8 in an OSGI environment'/>
@@ -70,15 +70,15 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='3'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxse.feature.feature.jar' version='1.0.0.202101271919'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxse.feature.feature.jar' version='1.0.0.202101271932'/>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-      <provided namespace='org.eclipse.update.feature' name='net.jxse.feature' version='1.0.0.202101271919'/>
+      <provided namespace='org.eclipse.update.feature' name='net.jxse.feature' version='1.0.0.202101271932'/>
     </provides>
     <filter>
       (org.eclipse.update.install.features=true)
     </filter>
     <artifacts size='1'>
-      <artifact classifier='org.eclipse.update.feature' id='net.jxse.feature' version='1.0.0.202101271919'/>
+      <artifact classifier='org.eclipse.update.feature' id='net.jxse.feature' version='1.0.0.202101271932'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
