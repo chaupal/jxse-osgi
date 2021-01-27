@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202012231417' singleton='false' generation='2'>
-    <update id='net.jxta.impl.endpoint.servlethttp' range='[0.0.0,1.0.0.202012231417)' severity='0'/>
+  <unit id='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202101271919' singleton='false' generation='2'>
+    <update id='net.jxta.impl.endpoint.servlethttp' range='[0.0.0,1.0.0.202101271919)' severity='0'/>
     <properties size='5'>
       <property name='org.eclipse.equinox.p2.name' value='JXSE Servlet HTTP'/>
       <property name='org.eclipse.equinox.p2.provider' value='Chaupal'/>
@@ -10,24 +10,25 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='10'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202012231417'/>
-      <provided namespace='osgi.bundle' name='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202012231417'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202101271919'/>
+      <provided namespace='osgi.bundle' name='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202101271919'/>
       <provided namespace='java.package' name='net.jxta.core.server.http' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.impl.endpoint.servlethttp' version='0.0.0'/>
       <provided namespace='java.package' name='org.mortbay.http' version='0.0.0'/>
       <provided namespace='java.package' name='org.mortbay.http.handler' version='0.0.0'/>
       <provided namespace='java.package' name='org.mortbay.jetty.servlet' version='0.0.0'/>
       <provided namespace='java.package' name='org.mortbay.util' version='0.0.0'/>
-      <provided namespace='osgi.identity' name='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202012231417'>
+      <provided namespace='osgi.identity' name='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202101271919'>
         <properties size='1'>
           <property name='type' value='osgi.bundle'/>
         </properties>
       </provided>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
     </provides>
-    <requires size='26'>
+    <requires size='27'>
       <required namespace='java.package' name='javax.servlet' range='3.1.0'/>
       <required namespace='java.package' name='javax.servlet.http' range='0.0.0'/>
+      <required namespace='java.package' name='net.jxse.service.core' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.document' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.endpoint' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.exception' range='0.0.0'/>
@@ -43,14 +44,14 @@
       <required namespace='java.package' name='net.jxta.meter' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.peergroup' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.peergroup.core' range='0.0.0'/>
-      <required namespace='java.package' name='net.jxta.platform' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.protocol' range='0.0.0'/>
+      <required namespace='java.package' name='net.jxta.util' range='0.0.0'/>
       <required namespace='java.package' name='org.eclipse.jetty.server' range='0.0.0'/>
       <required namespace='java.package' name='org.eclipse.jetty.server.handler' range='0.0.0'/>
-      <required namespace='java.package' name='org.eclipse.jetty.server.nio' range='0.0.0'/>
       <required namespace='java.package' name='org.eclipse.jetty.servlet' range='0.0.0'/>
-      <required namespace='java.package' name='org.eclipse.jetty.util.component' range='0.0.0'/>
+      <required namespace='java.package' name='org.eclipse.jetty.util.component' range='9.0.0'/>
       <required namespace='java.package' name='org.eclipse.jetty.util.thread' range='0.0.0'/>
+      <required namespace='java.package' name='org.osgi.service.component.annotations' range='1.3.0'/>
       <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'>
         <description>
           net.jxta.impl.endpoint.servlethttp
@@ -58,13 +59,13 @@
       </requiredProperties>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202012231417'/>
+      <artifact classifier='osgi.bundle' id='net.jxta.impl.endpoint.servlethttp' version='1.0.0.202101271919'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: net.jxta.impl.endpoint.servlethttp&#xA;Bundle-Version: 1.0.0.202012231417&#xA;
+          Bundle-SymbolicName: net.jxta.impl.endpoint.servlethttp&#xA;Bundle-Version: 1.0.0.202101271919&#xA;
         </instruction>
       </instructions>
     </touchpointData>

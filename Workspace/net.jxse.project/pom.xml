@@ -92,7 +92,7 @@
 		<repository>
 			<!-- Repository needed to include the jboss netty library -->
 			<id>repository.httptunnel</id>
-			<url>http://bitbucket.org/iainmcgin/netty-httptunnel/raw/tip/repo</url>
+			<url>file:${project.basedir}/net.jxse.project/lib/Netty/org.jboss.netty.httptunnel-0.92.0.jar</url>
 		</repository>
 	</repositories>
 
@@ -132,7 +132,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.3.170</version>
+			<version>1.4.200</version>
 			<optional>false</optional>
 		</dependency>
 		<!-- Test dependencies -->

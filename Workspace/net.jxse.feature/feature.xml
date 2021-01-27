@@ -75,11 +75,8 @@ END OF TERMS AND CONDITIONS
    </url>
 
    <requires>
-      <import plugin="org.junit"/>
-      <import plugin="org.hamcrest.core"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.osgi.services"/>
-      <import plugin="javax.servlet"/>
    </requires>
 
    <plugin
@@ -196,13 +193,6 @@ END OF TERMS AND CONDITIONS
          unpack="false"/>
 
    <plugin
-         id="org.h2"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.jboss.netty"
          download-size="0"
          install-size="0"
@@ -246,6 +236,20 @@ END OF TERMS AND CONDITIONS
 
    <plugin
          id="org.eclipse.equinox.ds"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.h2database"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="javax.servlet"
          download-size="0"
          install-size="0"
          version="0.0.0"
