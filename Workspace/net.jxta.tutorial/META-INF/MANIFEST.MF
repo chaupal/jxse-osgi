@@ -34,7 +34,7 @@ Import-Package: net.jxta.content,
  net.jxta.socket,
  net.jxta.util,
  org.osgi.framework;version="1.3.0",
- org.spongycastle.asn1;version="1.47.0.2",
- org.spongycastle.jce;version="1.47.0.2",
- org.spongycastle.x509;version="1.47.0.2"
+ org.spongycastle.asn1,
+ org.spongycastle.jce,
+ org.spongycastle.x509
 Bundle-ActivationPolicy: lazy

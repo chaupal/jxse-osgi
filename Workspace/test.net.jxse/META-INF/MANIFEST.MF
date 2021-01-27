@@ -26,3 +26,4 @@ Import-Package: net.jxse.OSGi,
 Bundle-ClassPath: .
 Export-Package: net.jxse.systemtests.colocated.configs
 Automatic-Module-Name: test.net.jxse
+Require-Bundle: net.jxta.impl

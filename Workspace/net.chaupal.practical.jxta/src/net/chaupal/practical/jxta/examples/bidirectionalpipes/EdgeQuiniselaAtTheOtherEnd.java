@@ -27,7 +27,7 @@ import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
 import net.jxta.platform.NetworkConfigurator;
 import net.jxta.platform.NetworkManager;
-import net.jxta.util.JxtaBiDiPipe;
+import net.jxta.impl.util.JxtaBiDiPipe;
 
 public class EdgeQuiniselaAtTheOtherEnd implements PipeMsgListener {
     

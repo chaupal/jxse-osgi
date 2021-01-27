@@ -30,8 +30,8 @@ import net.jxta.pipe.PipeService;
 import net.jxta.platform.NetworkConfigurator;
 import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
-import net.jxta.util.JxtaBiDiPipe;
-import net.jxta.util.JxtaServerPipe;
+import net.jxta.impl.util.JxtaBiDiPipe;
+import net.jxta.impl.util.JxtaServerPipe;
 
 public class RendezVousAdelaideAtOneEnd implements PipeMsgListener {
     

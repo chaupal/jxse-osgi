@@ -106,7 +106,7 @@ import net.jxta.impl.util.BASE64OutputStream;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 
-import org.spongycastle.asn1.DERObjectIdentifier;
+import org.spongycastle.asn1.ASN1ObjectIdentifier;
 import org.spongycastle.asn1.x509.X509NameTokenizer;
 import org.spongycastle.jce.X509Principal;
 import org.spongycastle.jce.provider.BouncyCastleProvider;
@@ -227,7 +227,7 @@ public final class PSEUtils {
             }
 
             // set name attribute
-            Hashtable<DERObjectIdentifier, String> attrs = new Hashtable<DERObjectIdentifier, String>();
+            Hashtable<ASN1ObjectIdentifier, String> attrs = new Hashtable<ASN1ObjectIdentifier, String>();
 
             attrs.put(X509Principal.CN, useCN);
             attrs.put(X509Principal.O, "www.jxta.org");

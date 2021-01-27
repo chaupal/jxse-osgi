@@ -32,6 +32,6 @@ Import-Package: net.jxse.service.core,
  org.jboss.netty.util;version="3.9.6.Final",
  org.osgi.service.component.annotations;version="1.3.0"
 Bundle-ClassPath: .,
- lib/httptunnel-0.92.jar
+ lib/org.jboss.netty.httptunnel-0.92.0.jar
 Service-Component: OSGI-INF/net.jxta.impl.endpoint.netty.advertisment.factory.service.xml
 Bundle-ActivationPolicy: lazy
