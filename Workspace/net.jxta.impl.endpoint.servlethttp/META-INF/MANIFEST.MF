@@ -6,6 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Chaupal
 Automatic-Module-Name: net.jxta.impl.endpoint.servlethttp
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Fragment-Host: net.jxta.impl
 Export-Package: net.jxta.core.server.http,
  net.jxta.impl.endpoint.servlethttp,
  org.mortbay.http,

@@ -6,6 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Chaupal
 Automatic-Module-Name: org.jxta.impl.endpoint.netty
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Fragment-Host: net.jxta.impl
 Export-Package: net.jxta.impl.endpoint.netty
 Import-Package: net.jxse.service.core,
  net.jxta.document,
