@@ -78,7 +78,7 @@ public class EndToEndTest {
     public void testConnectClientAndSendMessages() throws Exception {
         ServerChannelFactory factory = new NioServerSocketChannelFactory(Executors.newCachedThreadPool(), Executors.newCachedThreadPool());
 
-        InetSocketAddressTranslator addrTranslator = new InetSocketAddressTranslator(TEST_PROTO_NAME);
+        InetSocketAddressTranslatorTest addrTranslator = new InetSocketAddressTranslatorTest(TEST_PROTO_NAME);
         SocketAddress serverAddress = new InetSocketAddress(IPUtils.ANYADDRESS, 12344);
         
         List<SocketAddress> addresses = new LinkedList<SocketAddress>();

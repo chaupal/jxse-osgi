@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="net/jxta/impl/cm/sql/DerbyAdvertisementCacheTest.java|net/jxta/impl/cm/sql/DerbySeedDbGenerator.java|net/jxta/impl/cm/sql/TestSuiteCMSql.java|net/jxta/impl/endpoint/netty/EndToEndTest.java|net/jxta/impl/endpoint/netty/InetSocketAddressTranslatorTest.java|net/jxta/impl/endpoint/netty/JxtaProtocolHandlerTest.java|net/jxta/impl/endpoint/netty/MessageDispatchHandlerTest.java|net/jxta/impl/endpoint/netty/NettyTransportClientTest.java|net/jxta/impl/endpoint/netty/NettyTransportServerTest.java|net/jxta/impl/endpoint/netty/NettyTransportTest.java|net/jxta/impl/endpoint/netty/TestSuiteNetty.java|net/jxta/impl/endpoint/servlethttp/CharacteriseHttpMessageReceiverTest.java" kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/apache/org.apache.log4j-1.2.13.v200706111418.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jmock/cglib-3.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jmock/cglib-nodep-3.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jmock/hamcrest-core-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jmock/hamcrest-library-2.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry exported="true" kind="lib" path="lib/jmock/objenesis-3.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jmock/cglib-2.1_3-src.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jmock/cglib-nodep-2.1_3.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jmock/hamcrest-core-1.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jmock/hamcrest-library-1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jmock/jmock-2.12.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jmock/jmock-junit3-2.12.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jmock/jmock-junit4-2.12.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jmock/jmock-legacy-2.12.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/apache/log4j-1.2.17.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/net.jxta"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/net.jxta.impl"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
