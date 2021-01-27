@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Osgi Specific Tests
+Bundle-SymbolicName: test.net.jxse.osgi
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Chaupal.org
+Automatic-Module-Name: test.net.jxse.osgi
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.osgi.framework
