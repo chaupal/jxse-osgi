@@ -72,9 +72,9 @@ public class IDFormat {
      */
 
     final static Object[][] wellKnownIDs = {
-        { net.jxta.peergroup.PeerGroupID.worldPeerGroupID, net.jxta.impl.id.CBID.IDFormat.worldPeerGroupID}
+        { net.jxta.peergroup.PeerGroupID.worldPeerGroupID, net.jxta.id.CBID.IDFormat.worldPeerGroupID}
                 ,
-        { net.jxta.peergroup.PeerGroupID.defaultNetPeerGroupID, net.jxta.impl.id.CBID.IDFormat.defaultNetPeerGroupID}
+        { net.jxta.peergroup.PeerGroupID.defaultNetPeerGroupID, net.jxta.id.CBID.IDFormat.defaultNetPeerGroupID}
     };
 
     /**

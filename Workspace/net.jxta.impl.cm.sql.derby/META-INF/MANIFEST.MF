@@ -8,7 +8,6 @@ Automatic-Module-Name: net.jxta.impl.cm.sql.derby
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Fragment-Host: net.jxta.impl
 Import-Package: net.jxta.impl.cm.sql,
- net.jxta.impl.util.threads,
  org.apache.derby.jdbc
 Export-Package: net.jxta.impl.cm.sql.derby
 Bundle-ClassPath: lib/derbyshared-10.15.2.0.jar,

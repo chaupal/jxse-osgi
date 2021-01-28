@@ -58,12 +58,12 @@ package net.jxta.impl.rendezvous;
 import net.jxta.endpoint.*;
 import net.jxta.id.ID;
 import net.jxta.impl.endpoint.EndpointUtils;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.RouteAdvertisement;
+import net.jxta.util.TimeUtils;
 
 import java.io.IOException;
 

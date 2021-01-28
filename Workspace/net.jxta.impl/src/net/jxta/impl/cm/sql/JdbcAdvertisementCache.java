@@ -83,11 +83,11 @@ import net.jxta.document.XMLDocument;
 import net.jxta.impl.cm.AbstractAdvertisementCache;
 import net.jxta.impl.cm.CacheUtils;
 import net.jxta.impl.cm.DeltaTracker;
-import net.jxta.impl.util.TimeUtils;
-import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.protocol.SrdiMessage.Entry;
+import net.jxta.util.TimeUtils;
+import net.jxta.util.threads.TaskManager;
 
 /**
  * Apache Derby (though potentially any SQL99 DB) based advertisement cache.

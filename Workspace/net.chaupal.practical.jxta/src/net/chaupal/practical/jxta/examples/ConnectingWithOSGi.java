@@ -9,8 +9,8 @@ import net.jxse.configuration.JxsePeerConfiguration.ConnectionMode;
 import net.jxta.configuration.JxtaConfigurationException;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.id.IDFactory;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peergroup.PeerGroupID;
-import net.jxta.platform.NetworkManager;
 
 import org.junit.Test;
 import org.osgi.framework.BundleException;

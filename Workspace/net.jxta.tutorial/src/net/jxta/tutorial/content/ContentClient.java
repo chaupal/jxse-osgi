@@ -65,8 +65,9 @@ import net.jxta.content.ContentTransferAggregatorEvent;
 import net.jxta.content.ContentTransferAggregatorListener;
 import net.jxta.content.TransferException;
 import net.jxta.id.IDFactory;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peergroup.PeerGroup;
-import net.jxta.platform.NetworkManager;
+
 import java.io.*;
 import java.net.*;
 

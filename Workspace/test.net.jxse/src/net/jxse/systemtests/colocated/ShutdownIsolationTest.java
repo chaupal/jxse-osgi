@@ -1,9 +1,10 @@
 package net.jxse.systemtests.colocated;
 
-import net.jxta.platform.JxtaApplication;
+import net.jxta.impl.platform.JxtaApplication;
+import net.jxta.impl.platform.NetworkManager;
+import net.jxta.impl.platform.NetworkManager.ConfigMode;
+
 import static org.junit.Assert.*;
-import net.jxta.platform.NetworkManager;
-import net.jxta.platform.NetworkManager.ConfigMode;
 
 import org.junit.*;
 import org.junit.rules.TemporaryFolder;

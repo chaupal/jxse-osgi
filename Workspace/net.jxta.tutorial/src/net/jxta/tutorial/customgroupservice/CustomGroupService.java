@@ -19,8 +19,8 @@ import net.jxta.document.XMLDocument;
 import net.jxta.document.XMLElement;
 import net.jxta.id.IDFactory;
 import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peergroup.PeerGroup;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
 

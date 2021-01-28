@@ -64,8 +64,8 @@ import net.jxta.content.ContentShareListener;
 import net.jxta.id.ID;
 import net.jxta.protocol.ContentAdvertisement;
 import net.jxta.protocol.PipeAdvertisement;
-import net.jxta.socket.JxtaSocketAddress;
 import net.jxta.impl.content.AbstractPipeContentShare;
+import net.jxta.impl.socket.JxtaSocketAddress;
 
 /**
  * Implementation of the ContentShare interface for use in the

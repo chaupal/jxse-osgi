@@ -17,12 +17,12 @@ import net.jxta.exception.ConfiguratorException;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.exception.ProtocolNotSupportedException;
 import net.jxta.id.IDFactory;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.peergroup.core.Module;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
 
 public class RendezVousJoeTheAstrologer {
     

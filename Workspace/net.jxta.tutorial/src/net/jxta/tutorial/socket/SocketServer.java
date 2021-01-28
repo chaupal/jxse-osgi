@@ -59,12 +59,12 @@ import net.jxta.document.AdvertisementFactory;
 import net.jxta.exception.ConfiguratorException;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.id.IDFactory;
+import net.jxta.impl.platform.NetworkManager;
+import net.jxta.impl.socket.JxtaServerSocket;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeService;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
-import net.jxta.socket.JxtaServerSocket;
 
 import java.io.DataInput;
 import java.io.DataInputStream;

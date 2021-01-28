@@ -79,8 +79,8 @@ import net.jxta.document.XMLDocument;
 import net.jxta.endpoint.EndpointService;
 import net.jxta.endpoint.Message;
 import net.jxta.id.ID;
-import net.jxta.impl.id.UUID.UUID;
-import net.jxta.impl.id.UUID.UUIDFactory;
+import net.jxta.id.UUID.UUID;
+import net.jxta.id.UUID.UUIDFactory;
 import net.jxta.impl.meter.MonitorManager;
 import net.jxta.impl.protocol.RdvConfigAdv;
 import net.jxta.impl.rendezvous.adhoc.AdhocPeerRdvService;
@@ -90,7 +90,6 @@ import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousMeterBuildSettings;
 import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousServiceMonitor;
 import net.jxta.impl.rendezvous.rpv.PeerView;
 import net.jxta.impl.rendezvous.rpv.PeerViewDestination;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.meter.MonitorResources;
@@ -105,6 +104,7 @@ import net.jxta.rendezvous.RendezVousStatus;
 import net.jxta.rendezvous.RendezvousEvent;
 import net.jxta.rendezvous.RendezvousListener;
 import net.jxta.service.Service;
+import net.jxta.util.TimeUtils;
 
 /**
  * A JXTA {@link net.jxta.rendezvous.RendezVousService} implementation which

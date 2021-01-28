@@ -59,6 +59,8 @@ package net.jxta.impl.id.UUID;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import net.jxta.id.UUID.UUID;
+import net.jxta.id.UUID.UUIDFactory;
 
 /**
  * @author  mike

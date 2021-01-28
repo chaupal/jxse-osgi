@@ -63,10 +63,11 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.jxta.configuration.JxtaConfigurationException;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
+import net.jxta.impl.platform.NetworkManager.ConfigMode;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroupID;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
 
 /**
  * Provides a set of tool methods to facilitate the import and export of configuration from
@@ -335,7 +336,7 @@ public class JxseConfigurationTool {
      * @param mode A {@code JxsePeerConfiguration} connection mode
      * @return A {@code NetworkManager ConfigMode}
      */
-    public static NetworkManager.ConfigMode convertToNetworkManagerConfigMode(JxsePeerConfiguration.ConnectionMode mode) {
+    public static ConfigMode convertToNetworkManagerConfigMode(JxsePeerConfiguration.ConnectionMode mode) {
 
         if (mode.compareTo(JxsePeerConfiguration.ConnectionMode.ADHOC)==0) {
             return NetworkManager.ConfigMode.ADHOC;

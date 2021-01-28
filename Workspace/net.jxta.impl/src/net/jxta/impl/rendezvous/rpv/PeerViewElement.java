@@ -60,10 +60,10 @@ import net.jxta.endpoint.Message;
 import net.jxta.endpoint.Messenger;
 import net.jxta.endpoint.OutgoingMessageEvent;
 import net.jxta.endpoint.OutgoingMessageEventListener;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.protocol.RdvAdvertisement;
+import net.jxta.util.TimeUtils;
 
 import java.io.IOException;
 

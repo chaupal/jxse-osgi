@@ -10,7 +10,7 @@ package net.chaupal.practical.jxta.examples.astrology;
 import org.junit.Test;
 
 import net.jxta.id.IDFactory;
-import net.jxta.impl.id.UUID.ModuleClassID;
+import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
 
 public class ModuleIDsCreationExample {

@@ -59,6 +59,7 @@ import net.jxta.document.AdvertisementFactory;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.StringMessageElement;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.impl.util.JxtaBiDiPipe;
 import net.jxta.impl.util.JxtaServerPipe;
 import net.jxta.logging.Logger;
@@ -68,7 +69,6 @@ import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
 import net.jxta.pipe.PipeService;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
 
 import java.io.File;

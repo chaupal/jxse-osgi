@@ -7,9 +7,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import net.jxta.endpoint.Message;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
-import net.jxta.platform.NetworkManager;
 
 public class LoadTester {
 

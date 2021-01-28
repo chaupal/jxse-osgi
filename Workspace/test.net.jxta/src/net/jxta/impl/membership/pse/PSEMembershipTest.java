@@ -77,6 +77,7 @@ import net.jxta.protocol.PeerGroupAdvertisement;
 import net.jxta.credential.AuthenticationCredential;
 import net.jxta.credential.Credential;
 import net.jxta.membership.MembershipService;
+import net.jxta.membership.pse.IPSEMembershipService;
 import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
 import net.jxta.impl.membership.pse.PSEUtils.IssuerInfo;
 import net.jxta.impl.protocol.PSEConfigAdv;
@@ -110,7 +111,7 @@ public class PSEMembershipTest extends TestCase {
                     ModuleImplAdvertisement implAdv = (ModuleImplAdvertisement) AdvertisementFactory.newAdvertisement(
                             ModuleImplAdvertisement.getAdvertisementType());
 
-                    implAdv.setModuleSpecID(PSEMembershipService.pseMembershipSpecID);
+                    implAdv.setModuleSpecID(IPSEMembershipService.pseMembershipSpecID);
                     implAdv.setCompat(aModuleAdv.getCompat());
                     implAdv.setCode(PSEMembershipService.class.getName());
                     implAdv.setUri(aModuleAdv.getUri());

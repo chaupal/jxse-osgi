@@ -80,14 +80,14 @@ import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
-import net.jxta.platform.NetPeerGroupFactory;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
-
 import net.jxta.impl.membership.pse.PSEMembershipService;
 import net.jxta.impl.membership.pse.PSEUtils;
 import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
+import net.jxta.impl.platform.NetPeerGroupFactory;
 import net.jxta.impl.protocol.PSEConfigAdv;
+import net.jxta.membership.pse.IPSEMembershipService;
 
 /**
  * A sample program which demonstrates usage of the JXTA PSE Membership Service.
@@ -470,7 +470,7 @@ public class Main {
         ModuleImplAdvertisement implAdv = (ModuleImplAdvertisement) AdvertisementFactory.newAdvertisement(
                 ModuleImplAdvertisement.getAdvertisementType());
 
-        implAdv.setModuleSpecID(PSEMembershipService.pseMembershipSpecID);
+        implAdv.setModuleSpecID(IPSEMembershipService.pseMembershipSpecID);
         implAdv.setCompat(aModuleAdv.getCompat());
         implAdv.setCode(PSEMembershipService.class.getName());
         implAdv.setUri(aModuleAdv.getUri());

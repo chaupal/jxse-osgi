@@ -1,5 +1,7 @@
 package net.jxta.impl.util;
 
+import net.jxta.util.SystemClock;
+
 /**
  * SystemClock implementation that allows tests to directly set what the current time is.
  * Useful to precisely controlling behaviour of time-dependent functionality.

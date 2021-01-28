@@ -5,11 +5,11 @@ import java.util.concurrent.ExecutorService;
 
 import net.jxta.endpoint.EndpointAddress;
 import net.jxta.endpoint.EndpointService;
+import net.jxta.endpoint.IEndpointService;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.StringMessageElement;
 import net.jxta.impl.endpoint.BlockingMessenger;
-import net.jxta.impl.endpoint.EndpointServiceImpl;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peer.PeerID;
@@ -111,13 +111,13 @@ public class NettyMessenger extends BlockingMessenger implements MessageArrivalL
     }
 
     private Message retargetMessage(Message message, String service, String param) {
-        MessageElement srcAddrElem = new StringMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NAME, localAddress.toString(), null);
-        message.replaceMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NS, srcAddrElem);
+        MessageElement srcAddrElem = new StringMessageElement(IEndpointService.MESSAGE_SOURCE_NAME, localAddress.toString(), null);
+        message.replaceMessageElement(IEndpointService.MESSAGE_SOURCE_NS, srcAddrElem);
         EndpointAddress destAddressToUse;
         destAddressToUse = getDestAddressToUse(service, param);
 
-        MessageElement dstAddressElement = new StringMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NAME, destAddressToUse.toString(), null);
-        message.replaceMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NS, dstAddressElement);
+        MessageElement dstAddressElement = new StringMessageElement(IEndpointService.MESSAGE_DESTINATION_NAME, destAddressToUse.toString(), null);
+        message.replaceMessageElement(IEndpointService.MESSAGE_DESTINATION_NS, dstAddressElement);
         
         return message;
     }
@@ -126,14 +126,14 @@ public class NettyMessenger extends BlockingMessenger implements MessageArrivalL
 		// Extract the source and destination
 		final EndpointAddress srcAddr 
 			= extractEndpointAddress(msg, 
-									 EndpointServiceImpl.MESSAGE_SOURCE_NS, 
-									 EndpointServiceImpl.MESSAGE_SOURCE_NAME,
+									 IEndpointService.MESSAGE_SOURCE_NS, 
+									 IEndpointService.MESSAGE_SOURCE_NAME,
 									 "source");
         
 		final EndpointAddress dstAddr 
 			= extractEndpointAddress(msg,
-									 EndpointServiceImpl.MESSAGE_DESTINATION_NS, 
-									 EndpointServiceImpl.MESSAGE_DESTINATION_NAME,
+									 IEndpointService.MESSAGE_DESTINATION_NS, 
+									 IEndpointService.MESSAGE_DESTINATION_NAME,
 									 "destination");
 		
 		if(srcAddr == null || isLoopback(srcAddr) || dstAddr == null) {

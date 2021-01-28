@@ -64,11 +64,11 @@ import net.jxta.exception.PeerGroupException;
 import net.jxta.exception.ProtocolNotSupportedException;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
-import net.jxta.impl.membership.pse.PSECredential;
 import net.jxta.impl.membership.pse.PSEMembershipService;
 import net.jxta.impl.membership.pse.PSEUtils;
 import net.jxta.impl.membership.pse.StringAuthenticator;
 import net.jxta.impl.protocol.Certificate;
+import net.jxta.membership.pse.IPSECredential;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
@@ -135,7 +135,7 @@ public class SwingUI extends javax.swing.JFrame {
      * for the invitation certificate. This requires that they know the
      * password used to encrypt the private key.
      */
-    PSECredential invitationCredential = null;
+    IPSECredential invitationCredential = null;
 
     /**
      * Authenticator which is used for generating the invitation credential.
@@ -147,7 +147,7 @@ public class SwingUI extends javax.swing.JFrame {
      * for the member certificate. This requires that they know the password
      * used to encrypt the private key.
      */
-    PSECredential memberCredential = null;
+    IPSECredential memberCredential = null;
 
     /**
      * Authenticator which is used for generating the invitation credential.
@@ -159,7 +159,7 @@ public class SwingUI extends javax.swing.JFrame {
      * for the owner certificate. This requires that they know the password
      * used to encrypt the private key.
      */
-    PSECredential ownerCredential = null;
+    IPSECredential ownerCredential = null;
 
     /**
      * Authenticator which is used for generating the invitation credential.
@@ -968,7 +968,7 @@ public class SwingUI extends javax.swing.JFrame {
         ownerPasswordField.setText("");
 
         try {
-            ownerCredential = (PSECredential) membership.join(ownerAuthenticator);
+            ownerCredential = (IPSECredential) membership.join(ownerAuthenticator);
 
             authenticationStatus.setText("Owner authentication successful.");
         } catch (PeerGroupException failed) {
@@ -1271,7 +1271,7 @@ public class SwingUI extends javax.swing.JFrame {
         memberPasswordField.setText("");
 
         try {
-            memberCredential = (PSECredential) membership.join(memberAuthenticator);
+            memberCredential = (IPSECredential) membership.join(memberAuthenticator);
 
             authenticationStatus.setText("Member authentication successful.");
         } catch (PeerGroupException failed) {
@@ -1328,7 +1328,7 @@ public class SwingUI extends javax.swing.JFrame {
         invitationPasswordField.setText("");
 
         try {
-            invitationCredential = (PSECredential) membership.join(invitationAuthenticator);
+            invitationCredential = (IPSECredential) membership.join(invitationAuthenticator);
 
             tabs.remove(invitationTab);
             tabs.add(memberTab);

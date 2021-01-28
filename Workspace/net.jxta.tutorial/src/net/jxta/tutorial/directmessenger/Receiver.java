@@ -57,7 +57,7 @@ package net.jxta.tutorial.directmessenger;
 
 import net.jxta.endpoint.EndpointListener;
 import net.jxta.endpoint.EndpointService;
-import net.jxta.platform.NetworkManager;
+
 import java.io.File;
 import net.jxta.document.MimeMediaType;
 import net.jxta.document.XMLDocument;
@@ -66,6 +66,7 @@ import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.TextDocumentMessageElement;
 import net.jxta.endpoint.router.RouteController;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.protocol.RouteAdvertisement;
 

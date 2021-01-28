@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import net.chaupal.practical.jxta.tools.Tools;
 import net.jxta.exception.ConfiguratorException;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
 
 public class RetrieveModifySaveExistingConfigurationExample {
 

@@ -93,7 +93,6 @@ import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousConnectionMeter;
 import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousMeterBuildSettings;
 import net.jxta.impl.rendezvous.rpv.PeerviewSeedingManager;
 import net.jxta.impl.util.SeedingManager;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.impl.util.URISeedingManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
@@ -106,6 +105,7 @@ import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.RouteAdvertisement;
 import net.jxta.rendezvous.RendezvousEvent;
 import net.jxta.util.SelfCancellingTask;
+import net.jxta.util.TimeUtils;
 
 /**
  * A JXTA {@link net.jxta.rendezvous.RendezVousService} implementation which

@@ -77,9 +77,9 @@ import net.jxta.content.TransferException;
 import net.jxta.document.FileDocument;
 import net.jxta.document.MimeMediaType;
 import net.jxta.impl.content.AbstractContentTransfer;
+import net.jxta.impl.socket.JxtaSocket;
 import net.jxta.protocol.ContentAdvertisement;
 import net.jxta.protocol.ContentShareAdvertisement;
-import net.jxta.socket.JxtaSocket;
 
 /**
  * Default implementation of a Content transfer mechanism, utilizing

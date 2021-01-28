@@ -5,7 +5,7 @@ import java.net.URI;
 import java.sql.SQLException;
 
 import net.jxta.impl.cm.sql.JdbcAdvertisementCache;
-import net.jxta.impl.util.threads.TaskManager;
+import net.jxta.util.threads.TaskManager;
 
 import org.apache.derby.jdbc.EmbeddedConnectionPoolDataSource;
 import org.apache.derby.jdbc.EmbeddedDataSource;

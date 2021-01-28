@@ -64,10 +64,10 @@ import java.util.Collections;
 import java.util.List;
 
 import net.jxta.id.IDFactory;
-import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.test.util.JUnitRuleMockery;
+import net.jxta.util.threads.TaskManager;
 
 import org.jmock.Expectations;
 import org.junit.*;

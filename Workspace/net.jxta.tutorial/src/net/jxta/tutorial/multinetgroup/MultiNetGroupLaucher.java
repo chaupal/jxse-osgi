@@ -19,12 +19,12 @@ import net.jxta.peer.PeerID;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.WorldPeerGroupFactory;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.tutorial.id.IDTutorial;
 import net.jxta.impl.endpoint.mcast.McastTransport;
 import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.WorldPeerGroupFactory;
 
 /**
  * This sample shows how to construct multiple infrastructure (Network) Peer

@@ -5,10 +5,8 @@ import java.net.URI;
 import java.sql.SQLException;
 
 import javax.sql.ConnectionPoolDataSource;
-
 import net.jxta.impl.cm.sql.JdbcAdvertisementCache;
-import net.jxta.impl.util.threads.TaskManager;
-
+import net.jxta.util.threads.TaskManager;
 import org.h2.jdbcx.JdbcDataSource;
 
 public class H2AdvertisementCache extends JdbcAdvertisementCache {

@@ -4,8 +4,8 @@ import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.XMLDocument;
 import net.jxta.endpoint.*;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peergroup.PeerGroup;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.RouteAdvertisement;
 
 import java.io.File;

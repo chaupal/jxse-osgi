@@ -64,7 +64,7 @@ import net.jxse.OSGi.Services.JxseOSGiNetworkManagerService;
 import net.jxse.configuration.JxseConfigurationTool;
 import net.jxse.configuration.JxsePeerConfiguration;
 import net.jxta.configuration.JxtaConfigurationException;
-import net.jxta.platform.NetworkManager;
+import net.jxta.impl.platform.NetworkManager;
 
 /**
  * This class implements the {@code JxseOSGiNetworkManagerService} API.

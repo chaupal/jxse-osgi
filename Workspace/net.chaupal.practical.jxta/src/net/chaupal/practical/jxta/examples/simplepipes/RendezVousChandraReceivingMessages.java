@@ -18,6 +18,8 @@ import net.jxta.endpoint.Message;
 import net.jxta.exception.ConfiguratorException;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.id.IDFactory;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.membership.MembershipService;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroup;
@@ -26,8 +28,6 @@ import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
 import net.jxta.pipe.PipeService;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
 
 public class RendezVousChandraReceivingMessages implements PipeMsgListener {

@@ -60,9 +60,9 @@ import net.jxta.document.MimeMediaType;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.XMLDocument;
 import net.jxta.exception.ConfiguratorException;
-import net.jxta.impl.protocol.PlatformConfig;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
+import net.jxta.platform.PlatformConfig;
 import net.jxta.protocol.ConfigParams;
 
 import java.io.File;
@@ -144,7 +144,7 @@ public class NullConfigurator {
     }
 
     /**
-     * Retrieve the associated {@link net.jxta.impl.protocol.PlatformConfig} and
+     * Retrieve the associated {@link net.jxta.platform.PlatformConfig} and
      * potentially performing any required configuration of the parameters
      * before returning.
      *
@@ -159,7 +159,7 @@ public class NullConfigurator {
     }
 
     /**
-     * Sets the associated {@link net.jxta.impl.protocol.PlatformConfig}.
+     * Sets the associated {@link net.jxta.platform.PlatformConfig}.
      *
      * @param pc the configuration
      */
@@ -184,7 +184,7 @@ public class NullConfigurator {
     /**
      * Sets the reconfiguration status to the specified status. If
      * {@code true} then reconfiguration will be forced the next time the
-     * {@link net.jxta.impl.protocol.PlatformConfig} is retrieved.
+     * {@link net.jxta.platform.PlatformConfig} is retrieved.
      *
      * @param forceReconfig If {@code true} then a forced reconfiguration will
      * occur the next time {@link #getPlatformConfig()} is called.

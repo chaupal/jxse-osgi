@@ -61,6 +61,8 @@ import java.net.URI;
 
 import net.jxta.content.ContentProviderEvent;
 import net.jxta.impl.peergroup.*;
+import net.jxta.impl.platform.JxtaApplication;
+import net.jxta.impl.platform.NetworkManager;
 
 import java.net.URL;
 import java.util.List;
@@ -84,8 +86,6 @@ import net.jxta.peergroup.PeerGroupID;
 import net.jxta.peergroup.core.Module;
 import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
-import net.jxta.platform.JxtaApplication;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
 import net.jxta.test.util.TempDir;

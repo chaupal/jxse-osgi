@@ -5,13 +5,12 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import net.jxta.exception.JxtaException;
-import net.jxta.platform.JxtaApplication;
+import net.jxta.impl.platform.JxtaApplication;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
+import net.jxta.impl.platform.NetworkManager.ConfigMode;
 
 import org.junit.rules.TemporaryFolder;
-
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
-import net.jxta.platform.NetworkManager.ConfigMode;
 
 /**
  * Helper class to quickly set up peers for tests

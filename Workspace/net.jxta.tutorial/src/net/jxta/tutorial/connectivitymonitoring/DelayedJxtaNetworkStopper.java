@@ -3,7 +3,8 @@ package net.jxta.tutorial.connectivitymonitoring;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import net.jxta.platform.NetworkManager;
+
+import net.jxta.impl.platform.NetworkManager;
 
 /**
  *

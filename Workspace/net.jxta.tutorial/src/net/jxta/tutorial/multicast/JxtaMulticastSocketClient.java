@@ -55,9 +55,9 @@
  */
 package net.jxta.tutorial.multicast;
 
+import net.jxta.impl.platform.NetworkManager;
+import net.jxta.impl.socket.JxtaMulticastSocket;
 import net.jxta.peergroup.PeerGroup;
-import net.jxta.platform.NetworkManager;
-import net.jxta.socket.JxtaMulticastSocket;
 
 import java.io.File;
 import java.io.IOException;
@@ -78,7 +78,7 @@ public class JxtaMulticastSocketClient {
         NetworkManager manager = null;
 
         try {
-            manager = new net.jxta.platform.NetworkManager(NetworkManager.ConfigMode.ADHOC, "JxtaMulticastSocketClient",
+            manager = new net.jxta.impl.platform.NetworkManager(NetworkManager.ConfigMode.ADHOC, "JxtaMulticastSocketClient",
                     new File(new File(".cache"), "JxtaMulticastSocketClient").toURI());
             manager.startNetwork();
         } catch (Exception e) {

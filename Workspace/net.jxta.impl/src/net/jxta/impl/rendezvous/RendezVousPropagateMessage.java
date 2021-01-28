@@ -64,8 +64,8 @@ import net.jxta.document.StructuredDocument;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.XMLDocument;
 import net.jxta.document.XMLElement;
-import net.jxta.impl.id.UUID.UUID;
-import net.jxta.impl.id.UUID.UUIDFactory;
+import net.jxta.id.UUID.UUID;
+import net.jxta.id.UUID.UUIDFactory;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 

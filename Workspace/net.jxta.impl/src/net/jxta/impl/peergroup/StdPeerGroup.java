@@ -83,12 +83,13 @@ import net.jxta.impl.content.ContentServiceImpl;
 import net.jxta.impl.loader.JxtaLoaderModuleFactory;
 import net.jxta.impl.membership.pse.DialogAuthenticator;
 import net.jxta.impl.membership.pse.EngineAuthenticator;
-import net.jxta.impl.membership.pse.PSEMembershipService;
 import net.jxta.impl.membership.pse.StringAuthenticator;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.membership.MembershipService;
+import net.jxta.membership.pse.IPSEMembershipService;
 import net.jxta.module.IJxtaModuleFactory;
+import net.jxta.peergroup.ICacheManager;
 import net.jxta.peergroup.ICachedPeerGroup;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
@@ -153,7 +154,7 @@ public class StdPeerGroup extends GenericPeerGroup implements ICachedPeerGroup{
     		/**
      * Cache for this group.
      */
-    private CacheManager cm = null;
+    private ICacheManager cm = null;
 
     /**
      *  Create and populate the default module impl Advertisement for this class.
@@ -174,7 +175,7 @@ public class StdPeerGroup extends GenericPeerGroup implements ICachedPeerGroup{
 
         paramAdv.addService(IModuleDefinitions.resolverClassID, IModuleDefinitions.refResolverSpecID);
 
-        paramAdv.addService(IModuleDefinitions.membershipClassID, PSEMembershipService.pseMembershipSpecID);
+        paramAdv.addService(IModuleDefinitions.membershipClassID, IPSEMembershipService.pseMembershipSpecID);
 
         paramAdv.addService(IModuleDefinitions.accessClassID, PSEAccessService.PSE_ACCESS_SPEC_ID);
 
@@ -935,7 +936,7 @@ public class StdPeerGroup extends GenericPeerGroup implements ICachedPeerGroup{
      *
      * @return the cache manager associated with this group.
      */
-    public CacheManager getCacheManager() {
+    public ICacheManager getCacheManager() {
         return cm;
     }
 

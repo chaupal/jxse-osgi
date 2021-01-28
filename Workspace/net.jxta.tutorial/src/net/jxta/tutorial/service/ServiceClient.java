@@ -72,13 +72,13 @@ import net.jxta.document.MimeMediaType;
 import net.jxta.document.StructuredTextDocument;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.StringMessageElement;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.pipe.OutputPipe;
 import net.jxta.pipe.PipeService;
 import net.jxta.protocol.ModuleSpecAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
 import net.jxta.protocol.PipeAdvertisement;
-import net.jxta.platform.NetworkManager;
 
 import java.io.IOException;
 import java.io.StringWriter;

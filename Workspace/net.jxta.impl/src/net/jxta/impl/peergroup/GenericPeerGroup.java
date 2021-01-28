@@ -88,9 +88,6 @@ import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
 import net.jxta.impl.loader.JxtaLoaderModuleFactory;
 import net.jxta.impl.protocol.PSEConfigAdv;
-import net.jxta.impl.protocol.PlatformConfig;
-import net.jxta.impl.util.TimeUtils;
-import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.membership.MembershipService;
@@ -105,6 +102,7 @@ import net.jxta.peergroup.core.Module;
 import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
 import net.jxta.pipe.PipeService;
+import net.jxta.platform.PlatformConfig;
 import net.jxta.protocol.ConfigParams;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerAdvertisement;
@@ -112,6 +110,8 @@ import net.jxta.protocol.PeerGroupAdvertisement;
 import net.jxta.rendezvous.RendezVousService;
 import net.jxta.resolver.ResolverService;
 import net.jxta.service.Service;
+import net.jxta.util.TimeUtils;
+import net.jxta.util.threads.TaskManager;
 
 /**
  * Provides common services for most peer group implementations.

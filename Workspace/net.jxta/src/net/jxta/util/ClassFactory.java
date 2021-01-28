@@ -56,7 +56,7 @@
 
 package net.jxta.util;
 
-import net.jxta.impl.Version;
+import net.jxta.Version;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 

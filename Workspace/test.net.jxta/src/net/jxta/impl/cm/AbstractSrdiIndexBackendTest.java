@@ -15,13 +15,13 @@ import java.util.Queue;
 import net.jxta.id.IDFactory;
 import net.jxta.impl.cm.Srdi.Entry;
 import net.jxta.impl.util.FakeSystemClock;
-import net.jxta.impl.util.JavaSystemClock;
-import net.jxta.impl.util.TimeUtils;
-import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.test.util.JUnitRuleMockery;
+import net.jxta.util.JavaSystemClock;
+import net.jxta.util.TimeUtils;
+import net.jxta.util.threads.TaskManager;
 
 import org.jmock.Expectations;
 import org.junit.After;

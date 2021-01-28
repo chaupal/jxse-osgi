@@ -58,9 +58,9 @@ package net.jxta.impl.rendezvous.edge;
 import net.jxta.id.ID;
 import net.jxta.impl.rendezvous.PeerConnection;
 import net.jxta.impl.rendezvous.RendezVousServiceImpl;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.protocol.PeerAdvertisement;
+import net.jxta.util.TimeUtils;
 
 /**
  * Manages a connection with a client or a rendezvous peer.

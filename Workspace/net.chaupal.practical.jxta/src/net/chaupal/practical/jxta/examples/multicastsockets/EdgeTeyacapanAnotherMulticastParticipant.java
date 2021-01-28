@@ -16,12 +16,12 @@ import java.net.InetAddress;
 import net.jxta.exception.ConfiguratorException;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.id.IDFactory;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
+import net.jxta.impl.socket.JxtaMulticastSocket;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
-import net.jxta.socket.JxtaMulticastSocket;
 
 public class EdgeTeyacapanAnotherMulticastParticipant {
     

@@ -9,11 +9,11 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import net.jxse.systemtests.colocated.SystemTestUtils;
 import net.jxse.systemtests.colocated.configs.PeerConfigurator;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.impl.util.JxtaBiDiPipe;
 import net.jxta.impl.util.JxtaServerPipe;
 import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
-import net.jxta.platform.NetworkManager;
 
 import org.junit.After;
 import org.junit.Before;

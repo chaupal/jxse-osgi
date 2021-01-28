@@ -67,7 +67,7 @@ import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.TextDocumentMessageElement;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
-import net.jxta.impl.id.UUID.UUID;
+import net.jxta.id.UUID.UUID;
 import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousMeter;
 import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousMeterBuildSettings;
 import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousServiceMonitor;

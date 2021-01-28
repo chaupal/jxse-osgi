@@ -56,8 +56,8 @@
 
 package net.jxta.document;
 
-import net.jxta.impl.util.BASE64InputStream;
-import net.jxta.impl.util.BASE64OutputStream;
+import net.jxta.util.BASE64InputStream;
+import net.jxta.util.BASE64OutputStream;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

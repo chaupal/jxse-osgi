@@ -7,7 +7,8 @@
 package net.chaupal.practical.jxta.examples.monitoring;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import net.jxta.platform.NetworkManager;
+
+import net.jxta.impl.platform.NetworkManager;
 
 /**
  *

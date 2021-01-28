@@ -2,9 +2,9 @@ package net.jxta.tutorial.WorkingWithLocalConfiguration;
 
 import net.jxta.exception.ConfiguratorException;
 import net.jxta.exception.PeerGroupException;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peergroup.PeerGroup;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
 
 import java.text.MessageFormat;
 import java.io.File;

@@ -1,7 +1,7 @@
 package net.jxse.systemtests.colocated;
 
 import net.jxse.systemtests.colocated.configs.PeerConfigurator;
-import net.jxta.platform.NetworkManager;
+import net.jxta.impl.platform.NetworkManager;
 
 import org.junit.After;
 import org.junit.Before;

@@ -80,11 +80,12 @@ import net.jxta.document.StructuredDocument;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.id.IDFactory;
 import net.jxta.impl.util.FakeSystemClock;
-import net.jxta.impl.util.TimeUtils;
-import net.jxta.impl.util.threads.TaskManager;
+import net.jxta.peergroup.ICacheManager;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.SrdiMessage.Entry;
+import net.jxta.util.TimeUtils;
+import net.jxta.util.threads.TaskManager;
 
 import static org.junit.Assert.*;
 
@@ -102,7 +103,7 @@ public abstract class AbstractCmTest {
 	private static final int NO_THRESHOLD = Integer.MAX_VALUE;
     protected String cacheImplClassName;
 	protected AdvertisementCache wrappedCache;
-    protected CacheManager cm;
+    protected ICacheManager cm;
 
     protected PeerAdvertisement adv;
     protected PeerGroupID groupId;
@@ -628,7 +629,7 @@ public abstract class AbstractCmTest {
     
     @Test
     public void testSaveIsolation_differentAreaNames() throws Exception {
-        CacheManager alternateArea = new CacheManager(createWrappedCache("testArea2"));
+        ICacheManager alternateArea = new CacheManager(createWrappedCache("testArea2"));
         cm.save("a", "b", adv);
         
         assertEquals(1, cm.getRecords("a", NO_THRESHOLD, null).size());
@@ -645,7 +646,7 @@ public abstract class AbstractCmTest {
     
     @Test
     public void testRemoveIsolation_differentAreaNames() throws Exception {
-    	CacheManager alternateArea = new CacheManager(createWrappedCache("testArea2"));
+    	ICacheManager alternateArea = new CacheManager(createWrappedCache("testArea2"));
         cm.save("a", "b", adv);
         alternateArea.remove("a", "b");
         
@@ -657,16 +658,16 @@ public abstract class AbstractCmTest {
     
     @Test
     public void testConstruct() throws IOException {
-    	System.setProperty(CacheManager.CACHE_IMPL_SYSPROP, getCacheClassName());
-    	CacheManager cmFromConstructor = new CacheManager(testRootDir.toURI(), "testArea2", taskManager);
+    	System.setProperty(ICacheManager.CACHE_IMPL_SYSPROP, getCacheClassName());
+    	ICacheManager cmFromConstructor = new CacheManager(testRootDir.toURI(), "testArea2", taskManager);
         assertEquals(getCacheClassName(), cmFromConstructor.getImplClassName());
         cmFromConstructor.stop();
     }
     
     @Test
     public void testConstructWithGcIntervalAndTrackDeltasParams() throws IOException {
-        System.setProperty(CacheManager.CACHE_IMPL_SYSPROP, getCacheClassName());
-        CacheManager cmFromConstructor = new CacheManager(testRootDir.toURI(), "testArea2", taskManager, 30000, false);
+        System.setProperty(ICacheManager.CACHE_IMPL_SYSPROP, getCacheClassName());
+        ICacheManager cmFromConstructor = new CacheManager(testRootDir.toURI(), "testArea2", taskManager, 30000, false);
         assertEquals(getCacheClassName(), cmFromConstructor.getImplClassName());
         cmFromConstructor.stop();
     }

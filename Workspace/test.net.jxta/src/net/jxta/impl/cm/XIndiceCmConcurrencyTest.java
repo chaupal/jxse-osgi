@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.junit.Ignore;
 
-import net.jxta.impl.util.threads.TaskManager;
+import net.jxta.util.threads.TaskManager;
 
 @Ignore("Takes too long to run")
 public class XIndiceCmConcurrencyTest extends AbstractCmConcurrencyTest {

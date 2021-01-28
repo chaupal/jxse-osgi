@@ -11,7 +11,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import net.jxta.impl.util.threads.TaskManager;
+import net.jxta.peergroup.ICacheManager;
+import net.jxta.util.threads.TaskManager;
 
 public abstract class AbstractCmConcurrencyTest {
 
@@ -36,7 +37,7 @@ public abstract class AbstractCmConcurrencyTest {
     @Test
     public void testConcurrentSafety_randomLoad() throws Exception {
 
-        CacheManager[] caches = new CacheManager[NUM_CACHES];
+        ICacheManager[] caches = new ICacheManager[NUM_CACHES];
         for(int i=0; i < caches.length; i++) {
             caches[i] = new CacheManager(createWrappedCache("testArea"+i, taskManager));
 
@@ -67,7 +68,7 @@ public abstract class AbstractCmConcurrencyTest {
         System.out.println("Complete");
     }
 
-    private void seedCache(CacheManager cm) throws IOException {
+    private void seedCache(ICacheManager cm) throws IOException {
         for(int i=0; i < 1000; i++) {
             cm.save(Double.toString(Math.random()), Double.toString(Math.random()), new byte[1024], Long.MAX_VALUE, Long.MAX_VALUE);
         }

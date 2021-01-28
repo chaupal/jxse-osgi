@@ -65,8 +65,8 @@ import java.net.URI;
  * This class implements a PeerID. Each peer is assigned a unique peer id.UUID
  * id are used to implement peer id.
  *
- * @see net.jxta.impl.id.UUID.UUID
- * @see net.jxta.impl.id.UUID.UUIDFactory
+ * @see net.jxta.id.UUID.UUID
+ * @see net.jxta.id.UUID.UUIDFactory
  */
 public final class PeerBinaryID extends net.jxta.peer.PeerID {
 	private static final long serialVersionUID = 1L;

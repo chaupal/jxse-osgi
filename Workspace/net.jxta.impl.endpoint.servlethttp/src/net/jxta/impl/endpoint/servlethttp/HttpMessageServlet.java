@@ -71,17 +71,17 @@ import javax.servlet.http.HttpServletResponse;
 import net.jxta.document.MimeMediaType;
 import net.jxta.endpoint.EndpointAddress;
 import net.jxta.endpoint.EndpointService;
+import net.jxta.endpoint.IEndpointService;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.Messenger;
 import net.jxta.endpoint.WireFormatMessage;
 import net.jxta.endpoint.WireFormatMessageFactory;
-import net.jxta.impl.endpoint.EndpointServiceImpl;
 import net.jxta.impl.endpoint.transportMeter.TransportBindingMeter;
 import net.jxta.impl.endpoint.transportMeter.TransportMeterBuildSettings;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroup;
+import net.jxta.util.TimeUtils;
 
 /**
  *  This is a simple servlet that accepts JXTA Messages from clients using HTTP
@@ -327,7 +327,7 @@ public class HttpMessageServlet extends HttpServlet {
 
                     Logging.logCheckedDebug(LOG, "Reading message from request : ", contentType);
 
-                    MimeMediaType contentMimeType = EndpointServiceImpl.DEFAULT_MESSAGE_TYPE;
+                    MimeMediaType contentMimeType = IEndpointService.DEFAULT_MESSAGE_TYPE;
 
                     if (null != contentType) {
                         contentMimeType = MimeMediaType.valueOf(contentType);
@@ -448,12 +448,12 @@ public class HttpMessageServlet extends HttpServlet {
 
                         beganResponse = true;
                         res.setStatus(HttpServletResponse.SC_OK);
-                        res.setContentType(EndpointServiceImpl.DEFAULT_MESSAGE_TYPE.toString());
+                        res.setContentType(IEndpointService.DEFAULT_MESSAGE_TYPE.toString());
 
                     }
 
                     // send the message
-                    WireFormatMessage serialed = WireFormatMessageFactory.toWireExternal(outMsg, EndpointServiceImpl.DEFAULT_MESSAGE_TYPE, null, this.servletHttpTransport.getPeerGroup());
+                    WireFormatMessage serialed = WireFormatMessageFactory.toWireExternal(outMsg, IEndpointService.DEFAULT_MESSAGE_TYPE, null, this.servletHttpTransport.getPeerGroup());
 
                     // if only one message is being returned, set the content
                     // length, otherwise try to use chunked encoding.

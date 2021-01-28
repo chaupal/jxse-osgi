@@ -56,9 +56,10 @@
 
 package net.jxta.document;
 
-import net.jxta.impl.membership.pse.PSECredential;
-import net.jxta.impl.membership.pse.PSEMembershipService;
-
+import net.jxta.membership.pse.IPSEAdvertisementSignatureToken;
+import net.jxta.membership.pse.IPSEAdvertisementValidationToken;
+import net.jxta.membership.pse.IPSECredential;
+import net.jxta.membership.pse.IPSEMembershipService;
 import net.jxta.id.ID;
 
 import java.lang.reflect.InvocationTargetException;
@@ -355,16 +356,16 @@ public abstract class Advertisement {
      * @param paraPrivateKey The signer's private key.
      * @return true, if the signing succeeds. Otherwise, true.
      */
-    public final synchronized boolean sign(PSECredential pseCredential, boolean includePublicKey, boolean includePeerID)
+    public final synchronized boolean sign(IPSECredential pseCredential, boolean includePublicKey, boolean includePeerID)
     {
         this.xmlSignatureInfoElement=null;
         this.xmlSignatureElement=null;
         this.xmlSignature=null;
         try
         {
-            PSEMembershipService pseMembershipService = (PSEMembershipService)pseCredential.getSourceService();
+            IPSEMembershipService pseMembershipService = (IPSEMembershipService)pseCredential.getSourceService();
             XMLDocument<?> tempDocNoSig = (XMLDocument<?>)this.getDocument(MimeMediaType.XMLUTF8);
-            PSEMembershipService.PSEAdvertismentSignatureToken pseAdvertismentSignatureToken = pseMembershipService.signAdvertisement(tempDocNoSig, includePublicKey, includePeerID);
+            IPSEAdvertisementSignatureToken pseAdvertismentSignatureToken = pseMembershipService.signAdvertisement(tempDocNoSig, includePublicKey, includePeerID);
             XMLSignatureInfo xmlSignatureInfo = pseAdvertismentSignatureToken.getXMLSignatureInfo();
             xmlSignatureInfoElement = xmlSignatureInfo.getXMLSignatureInfoDocument();
             this.xmlSignature = pseAdvertismentSignatureToken.getXMLSignature();
@@ -394,7 +395,7 @@ public abstract class Advertisement {
      *
      * @return true, when the signature is verified. Otherwise, false.
      */
-    public final synchronized boolean verify(PSECredential pseCredential, boolean verifyKeyWithKeystore)
+    public final synchronized boolean verify(IPSECredential pseCredential, boolean verifyKeyWithKeystore)
     {
         try
         {
@@ -406,9 +407,9 @@ public abstract class Advertisement {
                 return false;
             }
 
-            PSEMembershipService pseMembershipService = (PSEMembershipService)pseCredential.getSourceService();
+            IPSEMembershipService pseMembershipService = (IPSEMembershipService)pseCredential.getSourceService();
             XMLDocument<?> tempDocNoSig = (XMLDocument<?>)this.getSignedDocument();
-            PSEMembershipService.PSEAdvertismentValidationToken pseAdvertismentValidationToken = pseMembershipService.validateAdvertisement(tempDocNoSig, true);
+            IPSEAdvertisementValidationToken pseAdvertismentValidationToken = pseMembershipService.validateAdvertisement(tempDocNoSig, true);
 
             if (pseAdvertismentValidationToken.isValid()) {
                 this.authenticated = pseAdvertismentValidationToken.isValid();

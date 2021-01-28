@@ -11,10 +11,10 @@ import net.jxta.document.Element;
 import net.jxta.document.StructuredDocument;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.Message.ElementIterator;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.peer.PeerID;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
 import net.jxta.rendezvous.RendezVousService;
 
 import javax.swing.*;

@@ -64,13 +64,12 @@ import net.jxta.exception.ServiceNotFoundException;
 import net.jxta.id.ID;
 import net.jxta.impl.endpoint.mcast.McastTransport;
 import net.jxta.impl.loader.JxtaLoaderModuleFactory;
-import net.jxta.impl.membership.pse.PSEMembershipService;
 import net.jxta.impl.peergroup.CompatibilityUtils;
 import net.jxta.impl.peergroup.StdPeerGroup;
 import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
-import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
+import net.jxta.membership.pse.IPSEMembershipService;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
@@ -78,6 +77,7 @@ import net.jxta.peergroup.core.Module;
 import net.jxta.protocol.ConfigParams;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.service.Service;
+import net.jxta.util.threads.TaskManager;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -122,7 +122,7 @@ public class Platform extends StdPeerGroup {
         // "Core" Services
         paramAdv.addService(IModuleDefinitions.endpointClassID, IModuleDefinitions.refEndpointSpecID);
         paramAdv.addService(IModuleDefinitions.resolverClassID, IModuleDefinitions.refResolverSpecID);
-        paramAdv.addService(IModuleDefinitions.membershipClassID, PSEMembershipService.pseMembershipSpecID);
+        paramAdv.addService(IModuleDefinitions.membershipClassID, IPSEMembershipService.pseMembershipSpecID);
         paramAdv.addService(IModuleDefinitions.accessClassID, IModuleDefinitions.refAccessSpecID);
 
         // "Standard" Services

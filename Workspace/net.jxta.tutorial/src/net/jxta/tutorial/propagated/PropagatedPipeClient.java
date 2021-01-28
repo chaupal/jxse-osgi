@@ -66,7 +66,6 @@ import net.jxta.pipe.OutputPipe;
 import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
 import net.jxta.pipe.PipeService;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
 import net.jxta.protocol.RouteAdvertisement;
 import net.jxta.document.XMLDocument;
@@ -74,6 +73,7 @@ import net.jxta.document.MimeMediaType;
 import java.io.File;
 import java.io.IOException;
 import net.jxta.endpoint.router.RouteController;
+import net.jxta.impl.platform.NetworkManager;
 
 /**
  * Simple example to illustrate the use of propagated pipes

@@ -58,18 +58,18 @@ package net.jxta.impl.endpoint.servlethttp;
 
 import net.jxta.document.MimeMediaType;
 import net.jxta.endpoint.EndpointAddress;
+import net.jxta.endpoint.IEndpointService;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.StringMessageElement;
 import net.jxta.endpoint.WireFormatMessage;
 import net.jxta.endpoint.WireFormatMessageFactory;
 import net.jxta.impl.endpoint.BlockingMessenger;
-import net.jxta.impl.endpoint.EndpointServiceImpl;
 import net.jxta.impl.endpoint.transportMeter.TransportBindingMeter;
 import net.jxta.impl.endpoint.transportMeter.TransportMeterBuildSettings;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
+import net.jxta.util.TimeUtils;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -182,7 +182,7 @@ final class HttpClientMessenger extends BlockingMessenger {
 
         this.servletHttpTransport = servletHttpTransport;
 
-        this.srcAddressElement = new StringMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NAME, srcAddr.toString(), null);
+        this.srcAddressElement = new StringMessageElement(IEndpointService.MESSAGE_SOURCE_NAME, srcAddr.toString(), null);
 
         String protoAddr = destAddr.getProtocolAddress();
 
@@ -282,14 +282,14 @@ final class HttpClientMessenger extends BlockingMessenger {
         message = message.clone();
 
         // Set the message with the appropriate src and dest address
-        message.replaceMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NS, srcAddressElement);
+        message.replaceMessageElement(IEndpointService.MESSAGE_SOURCE_NS, srcAddressElement);
 
         EndpointAddress destAddressToUse = getDestAddressToUse(service, serviceParam);
 
-        MessageElement dstAddressElement = new StringMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NAME,
+        MessageElement dstAddressElement = new StringMessageElement(IEndpointService.MESSAGE_DESTINATION_NAME,
                 destAddressToUse.toString(), null);
 
-        message.replaceMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NS, dstAddressElement);
+        message.replaceMessageElement(IEndpointService.MESSAGE_DESTINATION_NS, dstAddressElement);
 
         try {
             doSend(message);
@@ -435,7 +435,7 @@ final class HttpClientMessenger extends BlockingMessenger {
             beginConnectTime = TimeUtils.timeNow();
         }
 
-        WireFormatMessage serialed = WireFormatMessageFactory.toWireExternal(msg, EndpointServiceImpl.DEFAULT_MESSAGE_TYPE, null, this.servletHttpTransport.group);
+        WireFormatMessage serialed = WireFormatMessageFactory.toWireExternal(msg, IEndpointService.DEFAULT_MESSAGE_TYPE, null, this.servletHttpTransport.group);
 
         for (int connectAttempt = 1; connectAttempt <= CONNECT_RETRIES; connectAttempt++) {
 
@@ -731,7 +731,7 @@ final class HttpClientMessenger extends BlockingMessenger {
 
                         if (null == contentType) {
                             // XXX 20051219 bondolo Figure out why the mime type is not always set.
-                            messageType = EndpointServiceImpl.DEFAULT_MESSAGE_TYPE;
+                            messageType = IEndpointService.DEFAULT_MESSAGE_TYPE;
                         } else {
                             messageType = MimeMediaType.valueOf(contentType);
                         }

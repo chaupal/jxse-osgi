@@ -8,7 +8,7 @@
 package net.chaupal.practical.jxta.tools;
 
 import net.jxta.impl.membership.pse.FileKeyStoreManager;
-import net.jxta.platform.NetworkManager;
+import net.jxta.impl.platform.NetworkManager;
 
 import java.io.File;
 

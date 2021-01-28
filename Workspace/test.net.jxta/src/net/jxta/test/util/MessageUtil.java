@@ -63,14 +63,14 @@ import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.MimeMediaType;
 import net.jxta.document.XMLDocument;
 import net.jxta.endpoint.EndpointAddress;
+import net.jxta.endpoint.IEndpointService;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.StringMessageElement;
 import net.jxta.endpoint.TextDocumentMessageElement;
 import net.jxta.endpoint.WireFormatMessage;
 import net.jxta.endpoint.WireFormatMessageFactory;
-import net.jxta.impl.endpoint.EndpointServiceImpl;
-import net.jxta.impl.endpoint.router.EndpointRouterMessage;
+import net.jxta.endpoint.router.EndpointRouterMessage;
 import net.jxta.impl.membership.none.NoneMembershipService;
 import net.jxta.impl.rendezvous.StdRendezVousService;
 import net.jxta.membership.MembershipService;
@@ -107,17 +107,17 @@ public class MessageUtil {
 
         PeerID srcPeer = padv.getPeerID();
         EndpointAddress srcAddr = new EndpointAddress("jxta", srcPeer.toString(), null, null);
-        MessageElement srcAddressElement = new StringMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NAME, myaddress, null);
+        MessageElement srcAddressElement = new StringMessageElement(IEndpointService.MESSAGE_SOURCE_NAME, myaddress, null);
 
-        message.replaceMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NS, srcAddressElement);
+        message.replaceMessageElement(IEndpointService.MESSAGE_SOURCE_NS, srcAddressElement);
 
-        MessageElement dstAddressElement = new StringMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NAME
+        MessageElement dstAddressElement = new StringMessageElement(IEndpointService.MESSAGE_DESTINATION_NAME
                 ,
                 "jxta://" + dstAddress.getUniqueValue().toString() + "/EndpointService:jxta-NetGroup/EndpointRouter"
                 ,
                 (MessageElement) null);
 
-        message.replaceMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NS, dstAddressElement);
+        message.replaceMessageElement(IEndpointService.MESSAGE_DESTINATION_NS, dstAddressElement);
 
         EndpointRouterMessage erm = new EndpointRouterMessage(message, true, membershipService);
 

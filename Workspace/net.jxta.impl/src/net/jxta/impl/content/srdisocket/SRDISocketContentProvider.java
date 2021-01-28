@@ -63,6 +63,7 @@ import net.jxta.document.Document;
 import net.jxta.document.MimeMediaType;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
+import net.jxta.impl.socket.JxtaServerSocket;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroup;
@@ -73,7 +74,6 @@ import net.jxta.pipe.PipeService;
 import net.jxta.protocol.ContentShareAdvertisement;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PipeAdvertisement;
-import net.jxta.socket.JxtaServerSocket;
 
 import java.io.IOException;
 import java.io.InputStream;

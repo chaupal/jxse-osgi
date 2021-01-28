@@ -98,7 +98,6 @@ import net.jxta.impl.endpoint.relay.RelayReferralSeedingManager;
 import net.jxta.impl.protocol.RdvConfigAdv;
 import net.jxta.impl.rendezvous.RendezVousServiceImpl;
 import net.jxta.impl.util.SeedingManager;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.impl.util.URISeedingManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
@@ -117,6 +116,7 @@ import net.jxta.protocol.RdvAdvertisement;
 import net.jxta.protocol.RouteAdvertisement;
 import net.jxta.rendezvous.RendezvousEvent;
 import net.jxta.rendezvous.RendezvousListener;
+import net.jxta.util.TimeUtils;
 
 /**
  * This class models a Rendezvous Peer View (RPV):

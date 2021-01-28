@@ -62,10 +62,10 @@ import java.util.TimerTask;
 
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.Messenger;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.impl.util.pipe.reliable.*;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
+import net.jxta.util.TimeUtils;
 
 /**
  *  An Outgoing Messenger adpator that implements synthetic faults. The faults

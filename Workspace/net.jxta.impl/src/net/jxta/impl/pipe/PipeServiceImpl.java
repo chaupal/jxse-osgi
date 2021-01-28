@@ -59,7 +59,6 @@ package net.jxta.impl.pipe;
 import net.jxta.document.Advertisement;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peer.PeerID;
@@ -75,6 +74,7 @@ import net.jxta.pipe.PipeService;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PipeAdvertisement;
 import net.jxta.service.Service;
+import net.jxta.util.TimeUtils;
 
 import java.io.IOException;
 import java.net.URI;

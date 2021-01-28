@@ -61,17 +61,17 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import net.jxta.endpoint.EndpointAddress;
+import net.jxta.endpoint.IEndpointService;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.StringMessageElement;
 import net.jxta.impl.endpoint.BlockingMessenger;
-import net.jxta.impl.endpoint.EndpointServiceImpl;
-import net.jxta.impl.util.TimeUtils;
-import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.util.SelfCancellingTask;
+import net.jxta.util.TimeUtils;
+import net.jxta.util.threads.TaskManager;
 
 /**
  * Simple messenger that waits for a message to give back to the requesting client
@@ -201,7 +201,7 @@ final class HttpServletMessenger extends BlockingMessenger {
 
         this.logicalAddress = logicalAddress;
 
-        this.srcAddressElement = new StringMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NAME, srcAddress.toString(), null);
+        this.srcAddressElement = new StringMessageElement(IEndpointService.MESSAGE_SOURCE_NAME, srcAddress.toString(), null);
 
         if ((0 != validFor) && (validFor < Long.MAX_VALUE)) {
             ScheduledExecutorService scheduledExecutorService = taskManager.getScheduledExecutorService();
@@ -267,14 +267,14 @@ final class HttpServletMessenger extends BlockingMessenger {
         }
 
         // Set the message with the appropriate src and dest address
-        message.replaceMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NS, srcAddressElement);
+        message.replaceMessageElement(IEndpointService.MESSAGE_SOURCE_NS, srcAddressElement);
 
         EndpointAddress destAddressToUse = getDestAddressToUse(service, serviceParam);
 
-        MessageElement dstAddressElement = new StringMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NAME,
+        MessageElement dstAddressElement = new StringMessageElement(IEndpointService.MESSAGE_DESTINATION_NAME,
                 destAddressToUse.toString(), null);
 
-        message.replaceMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NS, dstAddressElement);
+        message.replaceMessageElement(IEndpointService.MESSAGE_DESTINATION_NS, dstAddressElement);
 
         // doSend returns false only when this messenger is closed.
         if (!doSend(message)) {

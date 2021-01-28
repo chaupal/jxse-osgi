@@ -55,10 +55,10 @@
  */
 package net.jxta.tutorial.socket;
 
+import net.jxta.impl.platform.NetworkManager;
+import net.jxta.impl.socket.JxtaSocket;
 import net.jxta.peergroup.PeerGroup;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
-import net.jxta.socket.JxtaSocket;
 
 import java.io.*;
 import java.util.Arrays;

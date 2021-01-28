@@ -68,10 +68,10 @@ import net.jxta.endpoint.EndpointAddress;
 import net.jxta.endpoint.OutgoingMessageEvent;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.id.ID;
-import net.jxta.impl.cm.CacheManager;
 import net.jxta.impl.cm.SrdiManager;
 import net.jxta.impl.cm.Srdi;
 import net.jxta.impl.cm.XIndiceAdvertisementCache;
+import net.jxta.peergroup.ICacheManager;
 import net.jxta.peergroup.ICachedPeerGroup;
 import net.jxta.impl.protocol.DiscoveryConfigAdv;
 import net.jxta.impl.protocol.DiscoveryQuery;
@@ -80,7 +80,6 @@ import net.jxta.impl.protocol.ResolverQuery;
 import net.jxta.impl.protocol.ResolverResponse;
 import net.jxta.impl.protocol.SrdiMessageImpl;
 import net.jxta.impl.resolver.InternalQueryHandler;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.membership.MembershipService;
@@ -93,6 +92,7 @@ import net.jxta.rendezvous.RendezvousEvent;
 import net.jxta.rendezvous.RendezvousListener;
 import net.jxta.resolver.ResolverService;
 import net.jxta.resolver.SrdiHandler;
+import net.jxta.util.TimeUtils;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -152,7 +152,7 @@ public class DiscoveryServiceImpl implements DiscoveryService, InternalQueryHand
     /**
      * The cache manager we're going to use to cache jxta advertisements
      */
-    protected CacheManager cm;
+    protected ICacheManager cm;
     private PeerGroup group = null;
 
     /**

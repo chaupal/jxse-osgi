@@ -57,6 +57,8 @@
 package net.jxta.impl.util;
 
 import junit.framework.*;
+import net.jxta.util.BASE64InputStream;
+import net.jxta.util.BASE64OutputStream;
 
 import java.io.*;
 import java.util.*;

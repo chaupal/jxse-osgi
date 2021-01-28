@@ -1,9 +1,9 @@
 package net.jxta.module;
 
 import net.jxta.document.Advertisement;
-import net.jxta.impl.protocol.PlatformConfig;
 import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
+import net.jxta.platform.PlatformConfig;
 import net.jxta.protocol.ModuleImplAdvertisement;
 
 public interface IJxtaModuleDescriptor extends IModuleDescriptor{

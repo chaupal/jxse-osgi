@@ -73,7 +73,6 @@ import net.jxta.impl.protocol.PipeResolverMsg;
 import net.jxta.impl.protocol.ResolverQuery;
 import net.jxta.impl.protocol.SrdiMessageImpl;
 import net.jxta.impl.resolver.InternalQueryHandler;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.membership.MembershipService;
@@ -95,6 +94,7 @@ import net.jxta.rendezvous.RendezVousService;
 import net.jxta.rendezvous.RendezVousStatus;
 import net.jxta.resolver.ResolverService;
 import net.jxta.resolver.SrdiHandler;
+import net.jxta.util.TimeUtils;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

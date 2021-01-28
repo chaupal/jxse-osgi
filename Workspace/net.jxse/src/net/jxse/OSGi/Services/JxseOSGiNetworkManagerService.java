@@ -61,7 +61,7 @@ package net.jxse.OSGi.Services;
 import java.util.logging.Logger;
 import net.jxse.configuration.JxsePeerConfiguration;
 import net.jxta.configuration.JxtaConfigurationException;
-import net.jxta.platform.NetworkManager;
+import net.jxta.impl.platform.NetworkManager;
 
 /**
  * This API class declares the contract from which an instance

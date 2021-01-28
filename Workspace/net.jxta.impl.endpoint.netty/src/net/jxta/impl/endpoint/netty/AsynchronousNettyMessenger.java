@@ -7,10 +7,10 @@ import java.util.logging.Logger;
 
 import net.jxta.endpoint.EndpointAddress;
 import net.jxta.endpoint.EndpointService;
+import net.jxta.endpoint.IEndpointService;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.impl.endpoint.AsynchronousMessenger;
-import net.jxta.impl.endpoint.EndpointServiceImpl;
 import net.jxta.impl.endpoint.QueuedMessage;
 import net.jxta.logging.Logging;
 import net.jxta.peer.PeerID;
@@ -112,14 +112,14 @@ public class AsynchronousNettyMessenger extends AsynchronousMessenger implements
         // Extract the source and destination
         final EndpointAddress srcAddr 
             = extractEndpointAddress(msg, 
-                                     EndpointServiceImpl.MESSAGE_SOURCE_NS, 
-                                     EndpointServiceImpl.MESSAGE_SOURCE_NAME,
+                                     IEndpointService.MESSAGE_SOURCE_NS, 
+                                     IEndpointService.MESSAGE_SOURCE_NAME,
                                      "source");
 
         final EndpointAddress dstAddr 
             = extractEndpointAddress(msg,
-                                     EndpointServiceImpl.MESSAGE_DESTINATION_NS, 
-                                     EndpointServiceImpl.MESSAGE_DESTINATION_NAME,
+                                     IEndpointService.MESSAGE_DESTINATION_NS, 
+                                     IEndpointService.MESSAGE_DESTINATION_NAME,
                                      "destination");
 
         if(srcAddr == null || isLoopback(srcAddr) || dstAddr == null) {

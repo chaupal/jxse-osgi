@@ -81,7 +81,6 @@ import net.jxta.impl.rendezvous.limited.LimitedRangeWalk;
 import net.jxta.impl.rendezvous.rendezvousMeter.ClientConnectionMeter;
 import net.jxta.impl.rendezvous.rendezvousMeter.RendezvousMeterBuildSettings;
 import net.jxta.impl.rendezvous.rpv.PeerView;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peer.PeerID;
@@ -91,6 +90,7 @@ import net.jxta.peergroup.core.Module;
 import net.jxta.protocol.ConfigParams;
 import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.rendezvous.RendezvousEvent;
+import net.jxta.util.TimeUtils;
 
 import java.io.IOException;
 import java.util.Arrays;

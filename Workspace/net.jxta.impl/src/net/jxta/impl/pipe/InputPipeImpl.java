@@ -59,7 +59,6 @@ import net.jxta.endpoint.EndpointAddress;
 import net.jxta.endpoint.EndpointListener;
 import net.jxta.endpoint.Message;
 import net.jxta.id.ID;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.pipe.InputPipe;
@@ -67,6 +66,7 @@ import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
 import net.jxta.protocol.PipeAdvertisement;
+import net.jxta.util.TimeUtils;
 
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;

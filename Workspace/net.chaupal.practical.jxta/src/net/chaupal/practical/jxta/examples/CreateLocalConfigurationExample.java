@@ -2,8 +2,8 @@ package net.chaupal.practical.jxta.examples;
 
 import net.chaupal.practical.jxta.tools.Tools;
 import net.jxta.exception.ConfiguratorException;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
 
 import java.io.File;
 import java.io.IOException;

@@ -63,6 +63,7 @@ import net.jxta.document.MimeMediaType;
 import net.jxta.document.XMLElement;
 import net.jxta.endpoint.EndpointAddress;
 import net.jxta.endpoint.EndpointService;
+import net.jxta.endpoint.IEndpointService;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.MessagePropagater;
@@ -72,7 +73,6 @@ import net.jxta.endpoint.WireFormatMessage;
 import net.jxta.endpoint.WireFormatMessageFactory;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.id.ID;
-import net.jxta.impl.endpoint.EndpointServiceImpl;
 import net.jxta.impl.endpoint.IPUtils;
 import net.jxta.impl.endpoint.msgframing.MessagePackageHeader;
 import net.jxta.impl.endpoint.transportMeter.TransportBindingMeter;
@@ -80,7 +80,6 @@ import net.jxta.impl.endpoint.transportMeter.TransportMeter;
 import net.jxta.impl.endpoint.transportMeter.TransportMeterBuildSettings;
 import net.jxta.impl.endpoint.transportMeter.TransportServiceMonitor;
 import net.jxta.impl.meter.MonitorManager;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.meter.MonitorResources;
@@ -92,6 +91,7 @@ import net.jxta.peergroup.core.ModuleSpecID;
 import net.jxta.protocol.ConfigParams;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.TransportAdvertisement;
+import net.jxta.util.TimeUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -384,7 +384,7 @@ public class McastTransport implements Runnable, Module, MessagePropagater {
         }
 
         ourSrcAddr = new EndpointAddress(group.getPeerID(), null, null);
-        msgSrcAddrElement = new StringMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NAME, ourSrcAddr.toString(), null);
+        msgSrcAddrElement = new StringMessageElement(IEndpointService.MESSAGE_SOURCE_NAME, ourSrcAddr.toString(), null);
 
         // Get the multicast configuration.
         multicastAddress = adv.getMulticastAddr();
@@ -647,13 +647,13 @@ public class McastTransport implements Runnable, Module, MessagePropagater {
         int numBytesInPacket = 0;
 
         try {
-            message.replaceMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NS, msgSrcAddrElement);
+            message.replaceMessageElement(IEndpointService.MESSAGE_SOURCE_NS, msgSrcAddrElement);
 
             // First build the destination and source addresses
             EndpointAddress destAddr = new EndpointAddress(publicAddress, pName, pParams);
-            MessageElement dstAddressElement = new StringMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NAME, destAddr.toString(), null);
+            MessageElement dstAddressElement = new StringMessageElement(IEndpointService.MESSAGE_DESTINATION_NAME, destAddr.toString(), null);
 
-            message.replaceMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NS, dstAddressElement);
+            message.replaceMessageElement(IEndpointService.MESSAGE_DESTINATION_NS, dstAddressElement);
 
             WireFormatMessage serialed = WireFormatMessageFactory.toWireExternal(message, WireFormatMessageFactory.DEFAULT_WIRE_MIME, null, this.group);
             
@@ -741,7 +741,7 @@ public class McastTransport implements Runnable, Module, MessagePropagater {
             Message msg = WireFormatMessageFactory.fromBufferExternal(bbuffer, msgMime, null, group);
 
             // Extract the source and destination
-            MessageElement srcAddrElem = msg.getMessageElement(EndpointServiceImpl.MESSAGE_SOURCE_NS, EndpointServiceImpl.MESSAGE_SOURCE_NAME);
+            MessageElement srcAddrElem = msg.getMessageElement(IEndpointService.MESSAGE_SOURCE_NS, IEndpointService.MESSAGE_SOURCE_NAME);
             if (null == srcAddrElem) {
                 throw new IOException("No Source Address in " + msg);
             }
@@ -755,7 +755,7 @@ public class McastTransport implements Runnable, Module, MessagePropagater {
                 return;
             }
 
-            MessageElement dstAddrElem = msg.getMessageElement(EndpointServiceImpl.MESSAGE_DESTINATION_NS, EndpointServiceImpl.MESSAGE_DESTINATION_NAME);
+            MessageElement dstAddrElem = msg.getMessageElement(IEndpointService.MESSAGE_DESTINATION_NS, IEndpointService.MESSAGE_DESTINATION_NAME);
             if (null == dstAddrElem) throw new IOException("No Destination Address in " + msg);
 
             msg.removeMessageElement(dstAddrElem);

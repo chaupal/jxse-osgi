@@ -101,7 +101,7 @@ public class SimpleACLAccessServiceTest extends TestCase {
         synchronized (SimpleACLAccessServiceTest.class) {
             try {
                 if (null == npg) {
-                    final PeerGroup wpg = new net.jxta.platform.WorldPeerGroupFactory().getWorldPeerGroup();
+                    final PeerGroup wpg = new net.jxta.impl.platform.WorldPeerGroupFactory().getWorldPeerGroup();
                     
                     npg = null; //PeerGroupFactory.newNetPeerGroup(wpg);
 

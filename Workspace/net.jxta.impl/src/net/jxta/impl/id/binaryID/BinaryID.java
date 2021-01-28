@@ -149,7 +149,7 @@ public class BinaryID implements Serializable {
             if (data[0] == data.length - 1) {
                 try {
                     java.io.StringWriter base64 = new java.io.StringWriter();
-                    net.jxta.impl.util.BASE64OutputStream encoder = new net.jxta.impl.util.BASE64OutputStream(base64);
+                    net.jxta.util.BASE64OutputStream encoder = new net.jxta.util.BASE64OutputStream(base64);
 
                     encoder.write(data);
                     encoder.close();
@@ -170,7 +170,7 @@ public class BinaryID implements Serializable {
             System.arraycopy(data, 0, temp, 1, data.length);
             try {
                 java.io.StringWriter base64 = new java.io.StringWriter();
-                net.jxta.impl.util.BASE64OutputStream encoder = new net.jxta.impl.util.BASE64OutputStream(base64);
+                net.jxta.util.BASE64OutputStream encoder = new net.jxta.util.BASE64OutputStream(base64);
 
                 encoder.write(temp);
                 encoder.close();
@@ -195,10 +195,10 @@ public class BinaryID implements Serializable {
      * @return returns the data part of the array.
      */
     public byte[] toByteArray() {
-    	net.jxta.impl.util.BASE64InputStream decoder = null;
+    	net.jxta.util.BASE64InputStream decoder = null;
     	try {
             java.io.ByteArrayOutputStream bos = new java.io.ByteArrayOutputStream();
-            decoder = new net.jxta.impl.util.BASE64InputStream(
+            decoder = new net.jxta.util.BASE64InputStream(
                     new java.io.StringReader(encodedValue.substring(1)));
 
             while (true) {

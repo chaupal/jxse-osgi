@@ -74,12 +74,12 @@ import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.StructuredTextDocument;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
-import net.jxta.impl.util.TimeUtils;
-import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.pipe.PipeService;
 import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.PipeAdvertisement;
+import net.jxta.util.TimeUtils;
+import net.jxta.util.threads.TaskManager;
 
 import org.junit.After;
 import org.junit.Before;

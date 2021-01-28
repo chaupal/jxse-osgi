@@ -73,9 +73,9 @@ import net.jxta.endpoint.MessageReceiver;
 import net.jxta.endpoint.MessengerEvent;
 import net.jxta.endpoint.MessengerEventListener;
 import net.jxta.exception.PeerGroupException;
-import net.jxta.impl.util.TimeUtils;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
+import net.jxta.util.TimeUtils;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerCollection;

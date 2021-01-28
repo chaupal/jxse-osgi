@@ -57,6 +57,7 @@
 package net.jxta.impl.util;
 
 import junit.framework.*;
+import net.jxta.util.TimeUtils;
 
 /**
  *

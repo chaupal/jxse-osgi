@@ -57,10 +57,13 @@ package net.jxta.socket;
 
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.exception.PeerGroupException;
+import net.jxta.impl.platform.JxtaApplication;
+import net.jxta.impl.platform.NetworkManager;
+import net.jxta.impl.socket.JxtaServerSocket;
+import net.jxta.impl.socket.JxtaSocket;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeService;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
 
 import java.io.*;
@@ -71,7 +74,6 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.jxta.credential.Credential;
-import net.jxta.platform.JxtaApplication;
 import net.jxta.protocol.PeerAdvertisement;
 
 /**

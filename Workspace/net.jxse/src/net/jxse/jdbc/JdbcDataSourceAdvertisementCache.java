@@ -10,7 +10,7 @@ import javax.sql.ConnectionPoolDataSource;
 import org.osgi.service.jdbc.DataSourceFactory;
 
 import net.jxta.impl.cm.sql.JdbcAdvertisementCache;
-import net.jxta.impl.util.threads.TaskManager;
+import net.jxta.util.threads.TaskManager;
 
 public class JdbcDataSourceAdvertisementCache extends JdbcAdvertisementCache {
 	

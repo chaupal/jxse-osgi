@@ -31,20 +31,20 @@ import net.jxta.id.IDFactory;
 import net.jxta.impl.access.pse.PSEAccessService;
 import net.jxta.impl.content.ContentServiceImpl;
 import net.jxta.impl.membership.pse.FileKeyStoreManager;
-import net.jxta.impl.membership.pse.PSEMembershipService;
 import net.jxta.impl.membership.pse.PSEUtils;
 import net.jxta.impl.membership.pse.StringAuthenticator;
 import net.jxta.impl.peergroup.CompatibilityUtils;
 import net.jxta.impl.peergroup.StdPeerGroup;
 import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
+import net.jxta.impl.platform.NetworkConfigurator;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.membership.MembershipService;
+import net.jxta.membership.pse.IPSEMembershipService;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.peergroup.core.Module;
-import net.jxta.platform.NetworkConfigurator;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.ModuleImplAdvertisement;
 
 public class CreatingACustomPSEPeerGroup {
@@ -249,7 +249,7 @@ public class CreatingACustomPSEPeerGroup {
         // set the services
         paramAdv.addService(IModuleDefinitions.endpointClassID, IModuleDefinitions.refEndpointSpecID);
         paramAdv.addService(IModuleDefinitions.resolverClassID, IModuleDefinitions.refResolverSpecID);
-        paramAdv.addService(IModuleDefinitions.membershipClassID, PSEMembershipService.pseMembershipSpecID);
+        paramAdv.addService(IModuleDefinitions.membershipClassID, IPSEMembershipService.pseMembershipSpecID);
         paramAdv.addService(IModuleDefinitions.accessClassID, PSEAccessService.PSE_ACCESS_SPEC_ID);
 
         // standard services

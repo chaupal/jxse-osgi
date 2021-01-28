@@ -9,11 +9,11 @@ package net.chaupal.practical.jxta.tools;
 
 import net.jxta.exception.PeerGroupException;
 import net.jxta.impl.peergroup.GenericPeerGroup;
+import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.core.IJxtaLoader;
 import net.jxta.peergroup.core.Module;
-import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.rendezvous.RendezVousService;
 

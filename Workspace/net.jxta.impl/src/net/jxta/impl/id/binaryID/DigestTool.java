@@ -228,7 +228,7 @@ public class DigestTool {
     public final String generateHashString(String clearTextID) {
         try {
             java.io.StringWriter base64 = new java.io.StringWriter();
-            net.jxta.impl.util.BASE64OutputStream encode = new net.jxta.impl.util.BASE64OutputStream(base64);
+            net.jxta.util.BASE64OutputStream encode = new net.jxta.util.BASE64OutputStream(base64);
 
             encode.write(generateHash(clearTextID));
             encode.close();
@@ -250,7 +250,7 @@ public class DigestTool {
     public final String generateHashString(String clearTextID, String function) {
         try {
             java.io.StringWriter base64 = new java.io.StringWriter();
-            net.jxta.impl.util.BASE64OutputStream encode = new net.jxta.impl.util.BASE64OutputStream(base64);
+            net.jxta.util.BASE64OutputStream encode = new net.jxta.util.BASE64OutputStream(base64);
 
             encode.write(generateHash(clearTextID, function));
             encode.close();
@@ -343,10 +343,10 @@ public class DigestTool {
         byte[] digest2;
 
         java.io.ByteArrayOutputStream bos = null;
-        net.jxta.impl.util.BASE64InputStream decoder = null;
+        net.jxta.util.BASE64InputStream decoder = null;
         try {
             bos = new java.io.ByteArrayOutputStream();
-            decoder = new net.jxta.impl.util.BASE64InputStream(
+            decoder = new net.jxta.util.BASE64InputStream(
                     new java.io.StringReader(testHash));
 
             while (true) {
