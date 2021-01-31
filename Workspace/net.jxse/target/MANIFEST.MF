@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jxse Wrapper
 Bundle-SymbolicName: net.jxse;singleton:=true
-Bundle-Version: 1.0.0.202012211828
+Bundle-Version: 1.0.0.202101311356
 Bundle-Vendor: Condast
 Export-Package: net.jxse,net.jxse.OSGi,net.jxse.OSGi.Services,net.jxse.c
  onfiguration,net.jxse.impl.OSGi.Activators,net.jxse.impl.OSGi.Services,

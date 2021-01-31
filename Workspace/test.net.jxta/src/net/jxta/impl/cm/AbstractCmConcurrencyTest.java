@@ -5,13 +5,13 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
-import net.jxta.impl.util.threads.TaskManager;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+
+import net.jxta.impl.util.threads.TaskManager;
 
 public abstract class AbstractCmConcurrencyTest {
 

@@ -1,6 +1,5 @@
 package net.jxta.module;
 
-import net.jxta.impl.modulemanager.ModuleException;
 
 public interface IModuleBuilder<T extends Object> {
  

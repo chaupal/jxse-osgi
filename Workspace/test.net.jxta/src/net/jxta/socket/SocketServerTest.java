@@ -55,13 +55,17 @@
  */
 package net.jxta.socket;
 
-import net.jxta.document.AdvertisementFactory;
 import net.jxta.exception.PeerGroupException;
+import net.jxta.id.IDFactory;
+import net.jxta.document.AdvertisementFactory;
+import net.jxta.protocol.PeerAdvertisement;
+import net.jxta.protocol.PipeAdvertisement;
+import net.jxta.socket.JxtaServerSocket;
+import net.jxta.socket.JxtaSocket;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeService;
 import net.jxta.platform.NetworkManager;
-import net.jxta.protocol.PipeAdvertisement;
 
 import java.io.*;
 import java.net.Socket;
@@ -72,7 +76,6 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.jxta.credential.Credential;
 import net.jxta.platform.JxtaApplication;
-import net.jxta.protocol.PeerAdvertisement;
 
 /**
  * This tutorial illustrates the use JxtaServerSocket It creates a
@@ -84,7 +87,7 @@ import net.jxta.protocol.PeerAdvertisement;
  * then read and write buffers. (or write and read for the initiator).
  */
 public class SocketServerTest extends TestCase {
-    public final static PipeID SOCKET_ID = PipeID.create(URI.create("urn:jxta:uuid-59616261646162614E5047205032503393B5C2F6CA7A41FBB0F890173088E79404"));
+    public final static PipeID SOCKET_ID = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E5047205032503393B5C2F6CA7A41FBB0F890173088E79404"));
 
     private static transient NetworkManager manager = null;
 
@@ -206,7 +209,7 @@ public class SocketServerTest extends TestCase {
             FaultyJxtaServerSocket.loss = 0.05;
             FaultyJxtaServerSocket.delay = 0.5;
 
-            serverSocket = new FaultyJxtaServerSocket(netPeerGroup, getSocketAdvertisement(), 10);
+            serverSocket = new FaultyJxtaServerSocket(netPeerGroup, (PipeAdvertisement) getSocketAdvertisement(), 10);
             serverSocket.setSoTimeout(0);
 
             while (!closed) {

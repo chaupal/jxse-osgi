@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JXTA Platform
+Bundle-SymbolicName: net.jxta.platform
+Bundle-Version: 1.0.0.202101301003
+Bundle-Vendor: chaupal.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Automatic-Module-Name: net.jxta.platform
+Import-Package: net.jxta.access,net.jxta.content,net.jxta.core.protocol,
+ net.jxta.credential,net.jxta.discovery,net.jxta.document,net.jxta.endpo
+ int,net.jxta.exception,net.jxta.id,net.jxta.impl.document,net.jxta.impl
+ .loader,net.jxta.impl.membership.pse,net.jxta.impl.peergroup,net.jxta.i
+ mpl.platform,net.jxta.impl.protocol,net.jxta.impl.util.threads,net.jxta
+ .logging,net.jxta.membership,net.jxta.meter,net.jxta.peer,net.jxta.peer
+ group,net.jxta.peergroup.core,net.jxta.pipe,net.jxta.protocol,net.jxta.
+ rendezvous,net.jxta.resolver,net.jxta.service
+Bundle-ActivationPolicy: lazy
+Export-Package: net.jxta.impl.peergroup.platform,net.jxta.platform
+

@@ -61,7 +61,6 @@ import java.net.URI;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import net.jxta.content.ContentID;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;

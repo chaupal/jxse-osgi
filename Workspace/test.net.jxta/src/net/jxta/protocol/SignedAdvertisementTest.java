@@ -62,15 +62,14 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.jxta.document.*;
-import net.jxta.credential.Credential;
 import net.jxta.credential.AuthenticationCredential;
-import net.jxta.membership.MembershipService;
+import net.jxta.credential.Credential;
 import net.jxta.peergroup.PeerGroup;
-// import net.jxta.peergroup.PeerGroupFactory;
-
 import net.jxta.exception.PeerGroupException;
-
+import net.jxta.document.AdvertisementFactory;
 import net.jxta.impl.membership.pse.StringAuthenticator;
+import net.jxta.membership.MembershipService;
+
 import org.junit.Ignore;
 
 /**
@@ -88,7 +87,7 @@ public class SignedAdvertisementTest extends TestCase {
                     pg = null; // PeerGroupFactory.newNetPeerGroup(new WorldPeerGroupFactory().getInterface());
                 }
 
-                MembershipService membership = pg.getMembershipService();
+                MembershipService membership = (MembershipService) pg.getMembershipService();
 
                 cred = membership.getDefaultCredential();
 

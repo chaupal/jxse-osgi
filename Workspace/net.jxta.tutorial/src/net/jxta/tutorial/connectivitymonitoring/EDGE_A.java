@@ -94,7 +94,7 @@ public class EDGE_A {
             ModuleImplAdvertisement TheModuleImplementationAdvertisement = null;
 
             try {
-                TheModuleImplementationAdvertisement = NetPeerGroup.getAllPurposePeerGroupImplAdvertisement();
+                TheModuleImplementationAdvertisement = (ModuleImplAdvertisement) NetPeerGroup.getAllPurposePeerGroupImplAdvertisement();
             } catch (Exception ex) {
                 System.err.println(ex.toString());
             }

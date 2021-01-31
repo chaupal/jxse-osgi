@@ -88,7 +88,7 @@ import net.jxta.impl.membership.pse.StringAuthenticator;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.membership.MembershipService;
-import net.jxta.module.IJxtaModuleManager;
+import net.jxta.module.IModuleManager;
 import net.jxta.peergroup.ICachedPeerGroup;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
@@ -148,7 +148,7 @@ public class StdPeerGroup extends GenericPeerGroup implements ICachedPeerGroup{
      */
     private final Map<ModuleClassID, Object> applications = new HashMap<ModuleClassID, Object>();
 
-    private IJxtaModuleManager<Module> root = JxtaLoaderModuleManager.getRoot( StdPeerGroup.class );
+    private IModuleManager<Module> root = JxtaLoaderModuleManager.getRoot( StdPeerGroup.class );
     
     		/**
      * Cache for this group.
@@ -210,7 +210,7 @@ public class StdPeerGroup extends GenericPeerGroup implements ICachedPeerGroup{
         // Empty
     }
 
-    protected IJxtaModuleManager<Module> getModuleManager(){
+    protected IModuleManager<Module> getModuleManager(){
     	return root;
     }
     

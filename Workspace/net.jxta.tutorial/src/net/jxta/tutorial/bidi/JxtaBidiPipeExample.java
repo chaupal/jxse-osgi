@@ -63,6 +63,7 @@ import net.jxta.peergroup.PeerGroup;
 import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
 import net.jxta.platform.NetworkManager;
+import net.jxta.protocol.PipeAdvertisement;
 import net.jxta.util.JxtaBiDiPipe;
 
 import java.io.File;
@@ -71,7 +72,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;
 import net.jxta.endpoint.StringMessageElement;
-import net.jxta.protocol.PipeAdvertisement;
 
 /**
  * This is the client (initiator) side of the Bi-directional Pipe Tutorial.

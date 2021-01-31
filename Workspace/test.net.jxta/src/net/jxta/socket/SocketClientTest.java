@@ -58,7 +58,6 @@ package net.jxta.socket;
 
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.platform.NetworkManager;
-import net.jxta.protocol.PipeAdvertisement;
 
 import java.io.*;
 import java.net.SocketTimeoutException;
@@ -69,10 +68,12 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.jxta.credential.Credential;
 import net.jxta.endpoint.Messenger;
+import net.jxta.protocol.PeerAdvertisement;
+import net.jxta.protocol.PipeAdvertisement;
+import net.jxta.socket.JxtaSocket;
 import net.jxta.impl.util.pipe.reliable.Outgoing;
 import net.jxta.peer.PeerID;
 import net.jxta.platform.JxtaApplication;
-import net.jxta.protocol.PeerAdvertisement;
 
 /**
  * This tutorial illustrates the use JxtaSocket. It attempts to bind a
@@ -138,7 +139,7 @@ public class SocketClientTest extends TestCase {
             }
         }
 
-        pipeAdv = SocketServerTest.getSocketAdvertisement();
+        pipeAdv = (PipeAdvertisement) SocketServerTest.getSocketAdvertisement();
     }
 
     /**

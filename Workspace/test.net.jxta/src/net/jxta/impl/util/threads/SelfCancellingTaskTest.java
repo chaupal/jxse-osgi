@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 import junit.framework.TestCase;
 
 
-
 //public class SelfCancellingTaskTest extends MockObjectTestCase {
 public class SelfCancellingTaskTest extends TestCase {
 	public void testCancel() throws Exception {

@@ -68,6 +68,7 @@ import net.jxta.impl.endpoint.EndpointServiceImpl;
 import net.jxta.impl.endpoint.transportMeter.TransportBindingMeter;
 import net.jxta.impl.endpoint.transportMeter.TransportMeterBuildSettings;
 import net.jxta.impl.util.TimeUtils;
+import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 
@@ -177,7 +178,7 @@ final class HttpClientMessenger extends BlockingMessenger {
         // We do use self destruction.
         super(servletHttpTransport.getEndpointService().getGroup().getPeerGroupID(), 
               destAddr,
-              servletHttpTransport.getEndpointService().getGroup().getTaskManager(),
+              (TaskManager) servletHttpTransport.getEndpointService().getGroup().getTaskManager(),
               true);
 
         this.servletHttpTransport = servletHttpTransport;

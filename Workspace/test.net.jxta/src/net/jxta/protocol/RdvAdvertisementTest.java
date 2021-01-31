@@ -57,14 +57,12 @@
 package net.jxta.protocol;
 
 import junit.framework.*;
-
-import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.Document;
 import net.jxta.document.XMLDocument;
-import net.jxta.document.StructuredDocumentFactory;
+import net.jxta.id.IDFactory;
+import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.MimeMediaType;
-import net.jxta.peer.PeerID;
-import net.jxta.peergroup.PeerGroupID;
+import net.jxta.document.StructuredDocumentFactory;
 
 import java.net.URI;
 
@@ -151,9 +149,9 @@ public class RdvAdvertisementTest extends TestCase {
 
         adv.setName(TestName);
 
-        adv.setPeerID(PeerID.create(URI.create(TestPeerID)));
+        adv.setPeerID(IDFactory.create(URI.create(TestPeerID)));
 
-        adv.setGroupID(PeerGroupID.create(URI.create(TestGroupID)));
+        adv.setGroupID(IDFactory.create(URI.create(TestGroupID)));
 
         adv.setServiceName(TestName);
 
@@ -177,9 +175,9 @@ public class RdvAdvertisementTest extends TestCase {
 
         RdvAdvertisement adv = (RdvAdvertisement) AdvertisementFactory.newAdvertisement(RdvAdvertisement.getAdvertisementType());
 
-        adv.setPeerID(PeerID.create(URI.create(TestPeerID)));
+        adv.setPeerID(IDFactory.create(URI.create(TestPeerID)));
 
-        adv.setGroupID(PeerGroupID.create(URI.create(TestGroupID)));
+        adv.setGroupID(IDFactory.create(URI.create(TestGroupID)));
 
         adv.setServiceName(TestName);
 

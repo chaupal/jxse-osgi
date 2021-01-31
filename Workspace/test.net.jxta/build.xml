@@ -96,8 +96,10 @@ $Id: build.xml,v 1.4 2007/03/24 04:20:03 bondolo Exp $
         </fileset>
     </path>
 
-    <taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
-
+    <!--
+	<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
+`	-->
+	
     <target name="prepare" description="Prepares for build">
         <mkdir dir="${classes}"/>
         <mkdir dir="${dist}"/>

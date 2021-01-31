@@ -11,13 +11,11 @@ import net.jxta.id.IDTest;
 import net.jxta.impl.access.always.TestSuiteAlways;
 import net.jxta.impl.access.simpleACL.TestSuiteSimpleACL;
 import net.jxta.impl.cm.TestSuiteCM;
-import net.jxta.impl.cm.sql.TestSuiteCMSql;
 import net.jxta.impl.content.TestSuiteContent;
 import net.jxta.impl.content.defprovider.TestSuiteDefProvider;
 import net.jxta.impl.content.srdisocket.TestSuiteSRDISocket;
 import net.jxta.impl.endpoint.TestSuiteImplEndpoint;
 import net.jxta.impl.endpoint.msgframing.TestSuiteWelcomeMessage;
-import net.jxta.impl.endpoint.netty.TestSuiteNetty;
 import net.jxta.impl.endpoint.servlethttp.TestSuiteServletHttp;
 import net.jxta.impl.id.UUID.TestSuiteUUID;
 import net.jxta.impl.id.binaryID.TestSuiteBinaryID;
@@ -47,13 +45,13 @@ import net.jxta.util.TestSuiteUtil;
 	TestSuiteAlways.class,
 	TestSuiteSimpleACL.class,
 	TestSuiteCM.class,
-	TestSuiteCMSql.class,
+//	TestSuiteCMSql.class,
 	TestSuiteContent.class,
 	TestSuiteDefProvider.class,
 	TestSuiteSRDISocket.class,
 	TestSuiteImplEndpoint.class,
 	TestSuiteWelcomeMessage.class,
-	TestSuiteNetty.class,
+//	TestSuiteNetty.class,
 	TestSuiteServletHttp.class,
 	TestSuiteBinaryID.class,
 	TestSuiteUUID.class,

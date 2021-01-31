@@ -1,7 +1,5 @@
 package net.jxta.module;
 
-import net.jxta.impl.modulemanager.ModuleEvent;
-
 public interface IModuleBuilderListener<T extends Object> {
 
 	public enum BuildEvents{

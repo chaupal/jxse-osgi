@@ -94,7 +94,7 @@ import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.membership.MembershipService;
-import net.jxta.module.IJxtaModuleManager;
+import net.jxta.module.IModuleManager;
 import net.jxta.peer.PeerID;
 import net.jxta.peer.PeerInfoService;
 import net.jxta.peergroup.IModuleDefinitions;
@@ -216,7 +216,7 @@ public abstract class GenericPeerGroup implements PeerGroup {
      * registration and management of modules. When a module manager is registered for the first
      * time, it takes over a root loader, which normally has been set up in the factory class
      */
-    private IJxtaModuleManager<Module> moduleManager = JxtaLoaderModuleManager.getRoot();
+    private JxtaLoaderModuleManager<Module> moduleManager = JxtaLoaderModuleManager.getRoot();
 
     public GenericPeerGroup() {
         // Start building our peer adv.
@@ -260,7 +260,7 @@ public abstract class GenericPeerGroup implements PeerGroup {
         jxtaHome = newHome;
     }
 
-    protected IJxtaModuleManager<Module> getModuleManager() {
+    protected IModuleManager<Module> getModuleManager() {
 		return moduleManager;
 	}
 
@@ -840,7 +840,7 @@ public abstract class GenericPeerGroup implements PeerGroup {
      * <code>initFirst</code> since <code>initFirst</code> may
      * be overLoaded and the overloading method may modify these parameters
      * when calling <code>super.initFirst</code>. (See
-     * {@link net.jxta.impl.platform.Platform} for an example of such a case).
+     * {@link net.jxta.impl.peergroup.Platform} for an example of such a case).
      * <p/>
      * Upon completion, the group object is marked as completely initialized
      * in all cases. Once a group object is completely initialized, it becomes
@@ -987,7 +987,7 @@ public abstract class GenericPeerGroup implements PeerGroup {
             }
 
             // We can now create a new module manager for this peer group and initialise it.
-            moduleManager = (IJxtaModuleManager<Module>) JxtaLoaderModuleManager.createModuleManager(this, peerGroupAdvertisement);
+            moduleManager = (JxtaLoaderModuleManager<Module>) JxtaLoaderModuleManager.createModuleManager(this, peerGroupAdvertisement);
         	moduleManager.init( this, assignedID, impl);
 
             // If we still do not have a config adv, make one with the parent group, or

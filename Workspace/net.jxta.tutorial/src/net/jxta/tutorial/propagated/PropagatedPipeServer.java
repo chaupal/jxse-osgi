@@ -56,10 +56,10 @@
 
 package net.jxta.tutorial.propagated;
 
-import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.XMLDocument;
-import net.jxta.document.StructuredDocumentFactory;
+import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.MimeMediaType;
+import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.StringMessageElement;
@@ -76,6 +76,7 @@ import net.jxta.pipe.PipeService;
 import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
 import net.jxta.protocol.RouteAdvertisement;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;

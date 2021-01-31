@@ -106,7 +106,7 @@ public class SocketClient {
         }
 
         netPeerGroup = manager.getNetPeerGroup();
-        pipeAdv = SocketServer.createSocketAdvertisement();
+        pipeAdv = (PipeAdvertisement) SocketServer.createSocketAdvertisement();
         if (waitForRendezvous) {
             manager.waitForRendezvousConnection(0);
         }

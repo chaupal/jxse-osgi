@@ -63,7 +63,7 @@ import net.jxta.exception.PeerGroupException;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
 import net.jxta.impl.peergroup.GenericPeerGroup;
-import net.jxta.impl.platform.ShadowPeerGroup;
+import net.jxta.impl.peergroup.ShadowPeerGroup;
 import net.jxta.impl.protocol.PeerGroupConfigAdv;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;

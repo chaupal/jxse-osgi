@@ -85,7 +85,8 @@ public final class CompatibilityUtils {
      * Package URI to use in the default ModuleImplAdvertisement.
      */
     private static final String MODULE_IMPL_STD_URI =
-            "http://download.java.net/jxta/jxta-jxse/latest/jnlp/lib/jxta.jar";
+            //"http://download.java.net/jxta/jxta-jxse/latest/jnlp/lib/jxta.jar";
+    		"https://repo1.maven.org/maven2/net/jxta/jxta-jxse/2.5/jxta-jxse-2.5.jar";
 
     /**
      * Default provider name to use in the default ModuleImplAdvertisement.

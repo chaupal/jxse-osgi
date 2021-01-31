@@ -57,6 +57,7 @@ package net.jxta.tutorial.multicast;
 
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.platform.NetworkManager;
+import net.jxta.protocol.PipeAdvertisement;
 import net.jxta.socket.JxtaMulticastSocket;
 
 import java.io.File;
@@ -91,7 +92,7 @@ public class JxtaMulticastSocketClient {
         JxtaMulticastSocket mcastSocket = null;
 
         try {
-            mcastSocket = new JxtaMulticastSocket(netPeerGroup, JxtaMulticastSocketServer.getSocketAdvertisement());
+            mcastSocket = new JxtaMulticastSocket(netPeerGroup, (PipeAdvertisement) JxtaMulticastSocketServer.getSocketAdvertisement());
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);

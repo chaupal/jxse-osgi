@@ -71,7 +71,7 @@ import java.util.Enumeration;
 import java.util.logging.Logger;
 
 /**
- * Simple Advertisement Tutorial creates a advertisment describing a system
+ * Simple Advertisement Tutorial creates a advertisement describing a system
  * <p/>
  * <pre>
  * &lt;?xml version="1.0"?>

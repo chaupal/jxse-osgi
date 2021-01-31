@@ -54,6 +54,7 @@
 package net.jxta.impl.content;
 
 import java.util.logging.Logger;
+
 import net.jxta.exception.PeerGroupException;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;

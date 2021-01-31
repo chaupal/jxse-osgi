@@ -101,7 +101,10 @@ import java.util.logging.Logger;
  */
 public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator> {
 
-    /**
+	private static final String S_IDFORMAT = "net.jxta.id.jxta.IDFormat";
+	private static final String S_IDFORMAT_UNKNOWN = "net.jxta.impl.id.unknown.IDFormat";
+
+	/**
      *  Logger
      */
     private static final transient Logger LOG = Logger.getLogger(IDFactory.class.getName());
@@ -613,10 +616,10 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
      */
     private IDFactory() {
         // required format
-        registerAssoc("net.jxta.id.jxta.IDFormat");
+        registerAssoc(S_IDFORMAT);
 
         // required by this implementation.
-        registerAssoc("net.jxta.impl.id.unknown.IDFormat");
+        registerAssoc(S_IDFORMAT_UNKNOWN);
 
         // Register a list of classes for association with an ID format
         registerProviders(ID.class.getName());
@@ -636,6 +639,10 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
         }
     }
 
+    public static IDFactory getInstance() {
+    	return factory;
+    }
+    
     /**
      *  Used by ClassFactory methods to get the mapping of ID types to constructors.
      *
@@ -749,7 +756,7 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
      *  @throws URISyntaxException If the URI provided is not a valid,
      *  recognized JXTA URI.
      */
-    public static ID fromURI(URI source) throws URISyntaxException {
+	public static ID fromURI(URI source) throws URISyntaxException {
         ID result = null;
 
         // check the protocol
@@ -797,6 +804,34 @@ public final class IDFactory extends ClassFactory<String, IDFactory.Instantiator
         result = instantiator.fromURNNamespaceSpecificPart(decoded);
 
         return result.intern();
+    }
+
+    /**
+     * convenience method to create specific IDS
+     * @param <I>
+     * @param path
+     * @return
+     * @throws URISyntaxException
+     */
+	public static <I extends ID> I create( String path ){
+    	return create( URI.create(path));
+    }
+
+    /**
+     * convenience method to create specific IDS
+     * @param <I>
+     * @param uri
+     * @return
+     * @throws URISyntaxException
+     */
+    @SuppressWarnings("unchecked")
+	public static <I extends ID> I create( URI uri ){
+    	try {
+			return (I)fromURI( uri );
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+    	return null;
     }
 
     /**

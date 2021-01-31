@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='net.jxta.impl.cm.sql.derby' version='1.0.0.202012211828' generation='2'>
-    <update id='net.jxta.impl.cm.sql.derby' range='[0.0.0,1.0.0.202012211828)' severity='0'/>
+  <unit id='net.jxta.impl.cm.sql.derby' version='1.0.0.202101311356' generation='2'>
+    <update id='net.jxta.impl.cm.sql.derby' range='[0.0.0,1.0.0.202101311356)' severity='0'/>
     <properties size='5'>
       <property name='org.eclipse.equinox.p2.name' value='Derby Database'/>
       <property name='org.eclipse.equinox.p2.provider' value='chaupal.org'/>
@@ -9,18 +9,20 @@
       <property name='maven-artifactId' value='net.jxta.impl.cm.sql.derby'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
-    <provides size='5'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.cm.sql.derby' version='1.0.0.202012211828'/>
-      <provided namespace='osgi.bundle' name='net.jxta.impl.cm.sql.derby' version='1.0.0.202012211828'/>
+    <provides size='6'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.cm.sql.derby' version='1.0.0.202101311356'/>
+      <provided namespace='osgi.bundle' name='net.jxta.impl.cm.sql.derby' version='1.0.0.202101311356'/>
       <provided namespace='java.package' name='net.jxta.impl.cm.sql.derby' version='0.0.0'/>
-      <provided namespace='osgi.identity' name='net.jxta.impl.cm.sql.derby' version='1.0.0.202012211828'>
+      <provided namespace='osgi.identity' name='net.jxta.impl.cm.sql.derby' version='1.0.0.202101311356'>
         <properties size='1'>
-          <property name='type' value='osgi.bundle'/>
+          <property name='type' value='osgi.fragment'/>
         </properties>
       </provided>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      <provided namespace='osgi.fragment' name='net.jxta' version='1.0.0.202101311356'/>
     </provides>
-    <requires size='4'>
+    <requires size='5'>
+      <required namespace='osgi.bundle' name='net.jxta' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.impl.cm.sql' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.impl.util.threads' range='0.0.0'/>
       <required namespace='java.package' name='org.apache.derby.jdbc' range='0.0.0'/>
@@ -31,13 +33,13 @@
       </requiredProperties>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='net.jxta.impl.cm.sql.derby' version='1.0.0.202012211828'/>
+      <artifact classifier='osgi.bundle' id='net.jxta.impl.cm.sql.derby' version='1.0.0.202101311356'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: net.jxta.impl.cm.sql.derby;singleton:=true&#xA;Bundle-Version: 1.0.0.202012211828&#xA;
+          Bundle-SymbolicName: net.jxta.impl.cm.sql.derby;singleton:=true&#xA;Bundle-Version: 1.0.0.202101311356&#xA;Fragment-Host: net.jxta&#xA;
         </instruction>
       </instructions>
     </touchpointData>

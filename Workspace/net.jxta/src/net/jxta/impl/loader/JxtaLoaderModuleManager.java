@@ -18,8 +18,6 @@ import net.jxta.id.ID;
 import net.jxta.impl.modulemanager.ImplAdvModuleDescriptor;
 import net.jxta.impl.modulemanager.ImplAdvertisementComparable;
 import net.jxta.impl.modulemanager.JxtaModuleBuilder;
-import net.jxta.impl.modulemanager.ModuleException;
-import net.jxta.impl.modulemanager.ModuleVerifier;
 import net.jxta.impl.peergroup.CompatibilityEquater;
 import net.jxta.impl.peergroup.CompatibilityUtils;
 import net.jxta.impl.protocol.PeerGroupConfigAdv;
@@ -28,10 +26,11 @@ import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.module.IJxtaModuleBuilder;
 import net.jxta.module.IJxtaModuleDescriptor;
-import net.jxta.module.IJxtaModuleManager;
 import net.jxta.module.IModuleBuilder;
 import net.jxta.module.IModuleDescriptor;
 import net.jxta.module.IModuleManager;
+import net.jxta.module.ModuleException;
+import net.jxta.module.ModuleVerifier;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.core.IJxtaLoader;
@@ -43,7 +42,7 @@ import net.jxta.util.cardinality.Cardinality;
 import net.jxta.util.cardinality.CardinalityException;
 import net.jxta.util.cardinality.ICardinality;
 
-public class JxtaLoaderModuleManager<T extends Module> implements IJxtaModuleManager<T>{
+public class JxtaLoaderModuleManager<T extends Module> implements IModuleManager<T>{
 
 	public static final String S_ERR_INVALID_BUILDER = "The builder is not of the required interface: ";
 	
@@ -110,7 +109,7 @@ public class JxtaLoaderModuleManager<T extends Module> implements IJxtaModuleMan
 	private JxtaLoaderModuleManager( IJxtaLoader loader, JxtaLoaderModuleManager<? extends Module> parent, PeerGroup peergroup ) {
 		this.loader = loader;
 		this.parent = parent;
-		this.verifier = getVerifier( (IJxtaModuleManager<T>) parent, peergroup );
+		this.verifier = getVerifier( (IModuleManager<T>) parent, peergroup );
 		managers = new HashMap<PeerGroup, IModuleManager<? extends Module>>();
 		builders = new ArrayList<IModuleBuilder<T>>();
 		this.started = false;
@@ -418,7 +417,7 @@ public class JxtaLoaderModuleManager<T extends Module> implements IJxtaModuleMan
 			if (null == loadedModuleClass) {
 				throw new ClassNotFoundException("Cannot load class (" + implAdv.getCode() + ") : ");
 			}
-            loadedModule = loadedModuleClass.newInstance();
+            loadedModule = loadedModuleClass.getDeclaredConstructor().newInstance();
 			}
 			catch( Exception ex ){
                 Logging.logCheckedError(LOG,ex);
@@ -488,7 +487,7 @@ public class JxtaLoaderModuleManager<T extends Module> implements IJxtaModuleMan
 	 * @param implAdv
 	 * @return
 	 */
-	private ModuleVerifier<T> getVerifier( IJxtaModuleManager<T> manager, PeerGroup peergroup ){
+	private ModuleVerifier<T> getVerifier( IModuleManager<T> manager, PeerGroup peergroup ){
 		ModuleImplAdvertisement implAdv = (ModuleImplAdvertisement) peergroup.getImplAdvertisement();
 		return manager.getVerifier().createVerifier( implAdv );
 	}

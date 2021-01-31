@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
-  <artifact classifier='osgi.bundle' id='org.spongycastle.fragment' version='1.0.0.202012211828'>
+  <artifact classifier='osgi.bundle' id='org.spongycastle.fragment' version='1.0.0.202101311356'>
     <properties size='5'>
-      <property name='artifact.size' value='2746950'/>
-      <property name='download.size' value='2746950'/>
+      <property name='artifact.size' value='4115763'/>
+      <property name='download.size' value='4115763'/>
       <property name='maven-groupId' value='net.jxse'/>
       <property name='maven-artifactId' value='org.spongycastle.fragment'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>

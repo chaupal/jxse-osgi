@@ -75,6 +75,7 @@ import net.jxta.document.MimeMediaType;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.XMLDocument;
 import net.jxta.id.ID;
+import net.jxta.id.IDFactory;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
@@ -83,7 +84,6 @@ import net.jxta.peergroup.core.ModuleSpecID;
 import net.jxta.platform.NetPeerGroupFactory;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
-
 import net.jxta.impl.membership.pse.PSEMembershipService;
 import net.jxta.impl.membership.pse.PSEUtils;
 import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
@@ -150,7 +150,7 @@ import net.jxta.impl.protocol.PSEConfigAdv;
  * peer group.</dd>
  * </dl>
  *
- * @see net.jxta.membership.MembershipService
+ * @see net.jxta.impl.core.membership.IMembershipService
  * @see net.jxta.impl.membership.pse.PSEMembershipService
  */
 public class Main {
@@ -169,7 +169,7 @@ public class Main {
      * <p/>This ID was created by making a new group adv in the JXTA shell
      * with <tt>newpgrp</tt> and then copying the ID from the advertisement.
      */
-    private final static PeerGroupID PSE_SAMPLE_PGID = (PeerGroupID) ID.create(
+    private final static PeerGroupID PSE_SAMPLE_PGID = (PeerGroupID) IDFactory.create(
             URI.create("urn:jxta:uuid-6E0C1C2781794A2F983EA4D2ACB758E602"));
     /**
      * The ModuleSpec ID used for this example's peer group. We use a
@@ -179,7 +179,7 @@ public class Main {
      * <p/>This ID was created by making a new group adv in the JXTA shell
      * with <tt>newpgrp</tt> and then copying the ID from the advertisement.
      */
-    private final static ModuleSpecID PSE_SAMPLE_MSID = (ModuleSpecID) ID.create(
+    private final static ModuleSpecID PSE_SAMPLE_MSID = (ModuleSpecID) IDFactory.create(
             URI.create("urn:jxta:uuid-DEADBEEFDEAFBABAFEEDBABE0000000133BF5414AC624CC8AD3AF6AEC2C8264306"));
     /**
      * This Certificate is the root certificate for the sample PSE peer group. All important
@@ -449,7 +449,7 @@ public class Main {
         ModuleImplAdvertisement newGroupImpl;
 
         try {
-            newGroupImpl = base.getAllPurposePeerGroupImplAdvertisement();
+            newGroupImpl = (ModuleImplAdvertisement) base.getAllPurposePeerGroupImplAdvertisement();
         } catch (Exception unlikely) {
             // getAllPurposePeerGroupImplAdvertisement() doesn't really throw expections.
             throw new IllegalStateException("Could not get All Purpose Peer Group Impl Advertisement.");

@@ -63,8 +63,8 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.jxta.document.*;
-import net.jxta.peer.PeerID;
-import net.jxta.peergroup.PeerGroupID;
+import net.jxta.id.IDFactory;
+import net.jxta.document.AdvertisementFactory;
 
 /**
  * @author nadment
@@ -89,9 +89,9 @@ public class PeerAdvertisementTest extends TestCase {
 
         assertNotNull("AdvertisementFactory cannot create PeerAdvertisement", peer);
 
-        peer.setPeerID(PeerID.create(URI.create(TestPeerID)));
+        peer.setPeerID(IDFactory.create(URI.create(TestPeerID)));
 
-        peer.setPeerGroupID(PeerGroupID.create(URI.create(TestGroupID)));
+        peer.setPeerGroupID(IDFactory.create(URI.create(TestGroupID)));
 
         peer.setName(TestName);
         peer.setDesc(buildDesc());

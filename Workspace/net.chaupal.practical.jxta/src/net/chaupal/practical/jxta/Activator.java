@@ -13,6 +13,7 @@ public class Activator implements BundleActivator {
 
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
+		TestSuite.getSuite().runTests();
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {

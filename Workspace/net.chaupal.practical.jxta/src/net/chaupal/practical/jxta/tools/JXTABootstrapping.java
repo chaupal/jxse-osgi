@@ -23,7 +23,8 @@ import java.util.logging.Logger;
 
 public class JXTABootstrapping {
 
-    public static void main(String args[]) throws Throwable {
+    @SuppressWarnings("unused")
+	public static void main(String args[]) throws Throwable {
 
         try {
 

@@ -1,7 +1,5 @@
 package net.jxta.module;
 
-import net.jxta.impl.modulemanager.ModuleException;
-import net.jxta.impl.modulemanager.ModuleVerifier;
 import net.jxta.peergroup.core.ModuleSpecID;
 import net.jxta.protocol.ModuleImplAdvertisement;
 

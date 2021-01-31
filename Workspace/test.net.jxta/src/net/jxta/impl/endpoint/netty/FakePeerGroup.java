@@ -7,17 +7,19 @@ import java.util.Iterator;
 import net.jxta.access.AccessService;
 import net.jxta.content.ContentService;
 import net.jxta.discovery.DiscoveryService;
-import net.jxta.document.Advertisement;
 import net.jxta.document.Element;
+import net.jxta.document.Advertisement;
 import net.jxta.endpoint.EndpointService;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.exception.ProtocolNotSupportedException;
 import net.jxta.exception.ServiceNotFoundException;
 import net.jxta.id.ID;
+import net.jxta.id.IDFactory;
 import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.membership.MembershipService;
-import net.jxta.peer.PeerID;
+import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.peer.PeerInfoService;
+import net.jxta.peer.PeerID;
 import net.jxta.peergroup.core.Module;
 import net.jxta.peergroup.core.ModuleSpecID;
 import net.jxta.peergroup.PeerGroup;
@@ -25,7 +27,6 @@ import net.jxta.peergroup.PeerGroupID;
 import net.jxta.peergroup.core.IJxtaLoader;
 import net.jxta.pipe.PipeService;
 import net.jxta.protocol.ConfigParams;
-import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
 import net.jxta.rendezvous.RendezVousService;
@@ -34,7 +35,7 @@ import net.jxta.service.Service;
 
 public class FakePeerGroup implements PeerGroup {
 
-    public static final PeerID DEFAULT_PEER_ID = PeerID.create(URI.create("urn:jxta:uuid-59616261646162614E50472050325033857CA397BC2A48DB86FED88696A80AA003"));
+    public static final PeerID DEFAULT_PEER_ID = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E50472050325033857CA397BC2A48DB86FED88696A80AA003"));
     
     public PeerGroup parentGroup = null;
     public PeerGroupID peerGroupId = PeerGroupID.defaultNetPeerGroupID;

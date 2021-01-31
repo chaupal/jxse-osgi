@@ -58,11 +58,13 @@ package net.jxta.tutorial.directmessenger;
 import net.jxta.endpoint.EndpointListener;
 import net.jxta.endpoint.EndpointService;
 import net.jxta.platform.NetworkManager;
+import net.jxta.protocol.RouteAdvertisement;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.XMLDocument;
@@ -73,7 +75,6 @@ import net.jxta.endpoint.MessageSender;
 import net.jxta.endpoint.Messenger;
 import net.jxta.endpoint.StringMessageElement;
 import net.jxta.peergroup.PeerGroup;
-import net.jxta.protocol.RouteAdvertisement;
 
 /**
  * Simple example to illustrate the use of direct messengers. A direct messenger

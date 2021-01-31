@@ -23,7 +23,6 @@ import net.jxta.peergroup.PeerGroup;
 import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
-
 // Please read the @deprecation warning carefully.
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.peergroup.core.ModuleSpecID;
@@ -38,13 +37,13 @@ public class CustomGroupService {
      *  The ID that our custom peer group will use. We use a hardcoded id so that all instances use the same value.
      *  This ID was generated using the <tt>newpgrp -s</tt> JXSE Shell command.
      */ 
-    private final static PeerGroupID CUSTOM_PEERGROUP_ID = PeerGroupID.create(URI.create("urn:jxta:uuid-425A5C703CD5454F9C03938A0D65BD5002"));
+    private final static PeerGroupID CUSTOM_PEERGROUP_ID = IDFactory.create(URI.create("urn:jxta:uuid-425A5C703CD5454F9C03938A0D65BD5002"));
 
     /**
      *  The MSID that our custom peer group will use. We use a hardcoded id so that all instances use the same value.
      *  This ID was generated using the <tt>newpgrp -s</tt> JXSE Shell command.
      */ 
-    private final static ModuleSpecID CUSTOM_PEERGROUP_MSID = ModuleSpecID.create(URI.create("urn:jxta:uuid-DEADBEEFDEAFBABAFEEDBABE00000001ACEFC090A5D74844A9DEF43F3003D35A06"));
+    private final static ModuleSpecID CUSTOM_PEERGROUP_MSID = IDFactory.create(URI.create("urn:jxta:uuid-DEADBEEFDEAFBABAFEEDBABE00000001ACEFC090A5D74844A9DEF43F3003D35A06"));
 
     /**
      * Main method
@@ -68,12 +67,12 @@ public class CustomGroupService {
             // Register the Gossip Service Configuration Advertisement with the advertisement factory.
             // This would normally be done by defining the GossipServiceConfigAdv in the META-INF/services/net.jxta.document.Advertisement
             // file of the jar containing the gossip service.
-            AdvertisementFactory.registerAdvertisementInstance(GossipServiceConfigAdv.getAdvertisementType(), new GossipServiceConfigAdv.Instantiator());
+            AdvertisementFactory.registerAdvertisementInstance(GossipServiceConfigAdv.getAdvertisementType(), (AdvertisementFactory.Instantiator) new GossipServiceConfigAdv.Instantiator());
 
             // Create the Module Impl Advertisement for our custom group.
 
             // Start with a standard peer group impl advertisement.
-            ModuleImplAdvertisement customGroupImplAdv = npg.getAllPurposePeerGroupImplAdvertisement();
+            ModuleImplAdvertisement customGroupImplAdv = (ModuleImplAdvertisement) npg.getAllPurposePeerGroupImplAdvertisement();
 
             // It's custom so we have to change the module spec ID.
             customGroupImplAdv.setModuleSpecID(CUSTOM_PEERGROUP_MSID);

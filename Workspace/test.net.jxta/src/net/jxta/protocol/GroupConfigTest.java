@@ -87,8 +87,8 @@ public class GroupConfigTest {
 
         // Add some sections.
         cp.putServiceParam(IModuleDefinitions.httpProtoClassID, wrapParm(AdvertisementFactory.newAdvertisement(HTTPAdv.getAdvertisementType()), false));
-        cp.setSvcConfigAdvertisement(IModuleDefinitions.relayProtoClassID, AdvertisementFactory.newAdvertisement(RelayConfigAdv.getAdvertisementType()), true);
-        cp.setSvcConfigAdvertisement(IModuleDefinitions.rendezvousClassID, AdvertisementFactory.newAdvertisement(RdvConfigAdv.getAdvertisementType()), false);
+        cp.setSvcConfigAdvertisement(IModuleDefinitions.relayProtoClassID, (Advertisement) AdvertisementFactory.newAdvertisement(RelayConfigAdv.getAdvertisementType()), true);
+        cp.setSvcConfigAdvertisement(IModuleDefinitions.rendezvousClassID, (Advertisement) AdvertisementFactory.newAdvertisement(RdvConfigAdv.getAdvertisementType()), false);
         cp.putServiceParam(IModuleDefinitions.discoveryClassID, wrapParm(AdvertisementFactory.newAdvertisement(DiscoveryConfigAdv.getAdvertisementType()), true));
 
         return cp;

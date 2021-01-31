@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: net.jxta.impl.cm.sql.derby
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: net.jxta.impl.cm.sql,
- net.jxta.impl.util.threads,
- org.h2.jdbcx
+Fragment-Host: net.jxta
+Import-Package: org.h2;version="1.4.200",
+ org.h2.jdbcx;version="1.4.200"
 Export-Package: net.jxta.impl.cm.sql.h2

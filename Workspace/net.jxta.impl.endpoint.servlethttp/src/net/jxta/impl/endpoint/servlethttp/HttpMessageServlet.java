@@ -79,6 +79,7 @@ import net.jxta.impl.endpoint.EndpointServiceImpl;
 import net.jxta.impl.endpoint.transportMeter.TransportBindingMeter;
 import net.jxta.impl.endpoint.transportMeter.TransportMeterBuildSettings;
 import net.jxta.impl.util.TimeUtils;
+import net.jxta.impl.util.threads.TaskManager;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroup;
@@ -289,7 +290,7 @@ public class HttpMessageServlet extends HttpServlet {
 
             final PeerGroup peerGroup = owner.getServletHttpTransport().getPeerGroup();
 			messenger = new HttpServletMessenger(peerGroup.getPeerGroupID(), 
-			                                     peerGroup.getTaskManager(),
+			                                     (TaskManager) peerGroup.getTaskManager(),
                                                  localAddress,
                                                  currentRequest.requestorAddr, 
                                                  messengerAliveFor);

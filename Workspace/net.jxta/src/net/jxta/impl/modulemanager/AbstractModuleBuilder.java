@@ -7,6 +7,8 @@ import net.jxta.module.IModuleBuilder;
 import net.jxta.module.IModuleBuilderListener;
 import net.jxta.module.IModuleBuilderListener.BuildEvents;
 import net.jxta.module.IModuleDescriptor;
+import net.jxta.module.ModuleEvent;
+import net.jxta.module.ModuleException;
 
 public abstract class AbstractModuleBuilder<T extends Object> implements IModuleBuilder<T> {
 
