@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='net.jxta' version='1.0.0.202101271932' generation='2'>
-    <update id='net.jxta' range='[0.0.0,1.0.0.202101271932)' severity='0'/>
+  <unit id='net.jxta' version='1.0.0.202101281419' generation='2'>
+    <update id='net.jxta' range='[0.0.0,1.0.0.202101281419)' severity='0'/>
     <properties size='5'>
       <property name='org.eclipse.equinox.p2.name' value='Jxse 2.7.0 for Equinox'/>
       <property name='org.eclipse.equinox.p2.provider' value='Condast'/>
@@ -9,9 +9,9 @@
       <property name='maven-artifactId' value='net.jxta'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
-    <provides size='65'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta' version='1.0.0.202101271932'/>
-      <provided namespace='osgi.bundle' name='net.jxta' version='1.0.0.202101271932'/>
+    <provides size='40'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta' version='1.0.0.202101281419'/>
+      <provided namespace='osgi.bundle' name='net.jxta' version='1.0.0.202101281419'/>
       <provided namespace='java.package' name='net.jxta' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.access' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.annotation' version='0.0.0'/>
@@ -25,39 +25,12 @@
       <provided namespace='java.package' name='net.jxta.endpoint.router' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.exception' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.id' version='0.0.0'/>
+      <provided namespace='java.package' name='net.jxta.id.CBID' version='0.0.0'/>
+      <provided namespace='java.package' name='net.jxta.id.UUID' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.id.jxta' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.access' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.access.pse' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.cm' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.cm.srdi.inmemory' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.content' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.endpoint' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.endpoint.cbjx' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.endpoint.endpointMeter' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.endpoint.msgframing' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.endpoint.relay' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.endpoint.router' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.endpoint.tcp' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.endpoint.tls' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.endpoint.transportMeter' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.id.CBID' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.id.UUID' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.membership.pse' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.meter' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.protocol' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.util' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.util.pipe.reliable' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.util.ternary' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.util.ternary.wild' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.util.threads' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.xindice.core' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.xindice.core.data' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.xindice.core.filer' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.xindice.core.indexer' version='0.0.0'/>
-      <provided namespace='java.package' name='net.jxta.impl.xindice.util' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.logging' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.membership' version='0.0.0'/>
+      <provided namespace='java.package' name='net.jxta.membership.pse' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.meter' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.module' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.osgi' version='0.0.0'/>
@@ -65,6 +38,7 @@
       <provided namespace='java.package' name='net.jxta.peergroup' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.peergroup.core' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.pipe' version='0.0.0'/>
+      <provided namespace='java.package' name='net.jxta.platform' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.protocol' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.rendezvous' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.resolver' version='0.0.0'/>
@@ -73,7 +47,8 @@
       <provided namespace='java.package' name='net.jxta.util' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.util.cardinality' version='0.0.0'/>
       <provided namespace='java.package' name='net.jxta.util.documentSerializable' version='0.0.0'/>
-      <provided namespace='osgi.identity' name='net.jxta' version='1.0.0.202101271932'>
+      <provided namespace='java.package' name='net.jxta.util.threads' version='0.0.0'/>
+      <provided namespace='osgi.identity' name='net.jxta' version='1.0.0.202101281419'>
         <properties size='1'>
           <property name='type' value='osgi.bundle'/>
         </properties>
@@ -95,13 +70,13 @@
       </requiredProperties>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='net.jxta' version='1.0.0.202101271932'/>
+      <artifact classifier='osgi.bundle' id='net.jxta' version='1.0.0.202101281419'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: net.jxta;singleton:=true&#xA;Bundle-Version: 1.0.0.202101271932&#xA;
+          Bundle-SymbolicName: net.jxta;singleton:=true&#xA;Bundle-Version: 1.0.0.202101281419&#xA;
         </instruction>
       </instructions>
     </touchpointData>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='net.jxta.impl.endpoint.netty' version='1.0.0.202101271932' generation='2'>
-    <update id='net.jxta.impl.endpoint.netty' range='[0.0.0,1.0.0.202101271932)' severity='0'/>
+  <unit id='net.jxta.impl.endpoint.netty' version='1.0.0.202101281419' generation='2'>
+    <update id='net.jxta.impl.endpoint.netty' range='[0.0.0,1.0.0.202101281419)' severity='0'/>
     <properties size='5'>
       <property name='org.eclipse.equinox.p2.name' value='Netty'/>
       <property name='org.eclipse.equinox.p2.provider' value='Chaupal'/>
@@ -10,18 +10,18 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='6'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.netty' version='1.0.0.202101271932'/>
-      <provided namespace='osgi.bundle' name='net.jxta.impl.endpoint.netty' version='1.0.0.202101271932'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='net.jxta.impl.endpoint.netty' version='1.0.0.202101281419'/>
+      <provided namespace='osgi.bundle' name='net.jxta.impl.endpoint.netty' version='1.0.0.202101281419'/>
       <provided namespace='java.package' name='net.jxta.impl.endpoint.netty' version='0.0.0'/>
-      <provided namespace='osgi.identity' name='net.jxta.impl.endpoint.netty' version='1.0.0.202101271932'>
+      <provided namespace='osgi.identity' name='net.jxta.impl.endpoint.netty' version='1.0.0.202101281419'>
         <properties size='1'>
           <property name='type' value='osgi.fragment'/>
         </properties>
       </provided>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      <provided namespace='osgi.fragment' name='net.jxta.impl' version='1.0.0.202101271932'/>
+      <provided namespace='osgi.fragment' name='net.jxta.impl' version='1.0.0.202101281419'/>
     </provides>
-    <requires size='26'>
+    <requires size='25'>
       <required namespace='osgi.bundle' name='net.jxta.impl' range='0.0.0'/>
       <required namespace='java.package' name='net.jxse.service.core' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.document' range='0.0.0'/>
@@ -31,7 +31,6 @@
       <required namespace='java.package' name='net.jxta.impl.endpoint' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.impl.endpoint.msgframing' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.impl.protocol' range='0.0.0'/>
-      <required namespace='java.package' name='net.jxta.impl.util.threads' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.logging' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.peer' range='0.0.0'/>
       <required namespace='java.package' name='net.jxta.peergroup' range='0.0.0'/>
@@ -54,13 +53,13 @@
       </requiredProperties>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='net.jxta.impl.endpoint.netty' version='1.0.0.202101271932'/>
+      <artifact classifier='osgi.bundle' id='net.jxta.impl.endpoint.netty' version='1.0.0.202101281419'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: net.jxta.impl.endpoint.netty;singleton:=true&#xA;Bundle-Version: 1.0.0.202101271932&#xA;Fragment-Host: net.jxta.impl&#xA;
+          Bundle-SymbolicName: net.jxta.impl.endpoint.netty;singleton:=true&#xA;Bundle-Version: 1.0.0.202101281419&#xA;Fragment-Host: net.jxta.impl&#xA;
         </instruction>
       </instructions>
     </touchpointData>

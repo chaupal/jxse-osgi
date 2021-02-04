@@ -116,5 +116,4 @@ Export-Package: net.jxta.impl,
  net.jxta.impl.xindice.core.data,
  net.jxta.impl.xindice.core.filer,
  net.jxta.impl.xindice.core.indexer,
- net.jxta.impl.xindice.util,
- net.jxta.platform
+ net.jxta.impl.xindice.util

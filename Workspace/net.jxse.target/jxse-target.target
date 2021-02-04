@@ -58,5 +58,7 @@
 		<plugin id="com.h2database"/>
 		<plugin id="org.mortbay.jetty.server"/>
 		<plugin id="org.mortbay.jetty.util"/>
+		<plugin id="org.eclipse.jetty.util.ajax"/>
+		<plugin id="org.eclipse.jetty.util.ajax.source"/>
 	</includeBundles>
 </target>

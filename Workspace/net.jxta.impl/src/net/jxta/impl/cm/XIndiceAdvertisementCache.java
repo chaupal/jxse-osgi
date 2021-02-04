@@ -233,8 +233,8 @@ public class XIndiceAdvertisementCache extends AbstractAdvertisementCache implem
              * operation.  In transitory caches such as SrdiCache it makes perfect sense
              */
             boolean chkPoint = true;
-            ResourceBundle jxtaRsrcs = ResourceBundle.getBundle("net.jxta.user");
-            String checkpointStr = jxtaRsrcs.getString("impl.cm.defferedcheckpoint");
+            //ResourceBundle jxtaRsrcs = ResourceBundle.getBundle("net.jxta.user");
+            String checkpointStr = "impl.cm.defferedcheckpoint=true";//jxtaRsrcs.getString("impl.cm.defferedcheckpoint");
 
             if (checkpointStr != null) {
                 chkPoint = !(checkpointStr.equalsIgnoreCase("true"));

@@ -2,7 +2,7 @@
 <feature
       id="net.jxse.feature"
       label="JXSE OSGI Library Feature"
-      version="1.0.0.202101271932"
+      version="1.0.0.202101281419"
       provider-name="Chaupal.org">
 
    <description url="https://github.com/chaupal">
@@ -83,7 +83,7 @@ END OF TERMS AND CONDITIONS
          id="org.spongycastle.fragment"
          download-size="4019"
          install-size="4512"
-         version="1.0.0.202101271932"
+         version="1.0.0.202101281419"
          fragment="true"
          unpack="false"/>
 
@@ -91,42 +91,42 @@ END OF TERMS AND CONDITIONS
          id="net.jxse"
          download-size="43"
          install-size="86"
-         version="1.0.0.202101271932"
+         version="1.0.0.202101281419"
          unpack="false"/>
 
    <plugin
          id="net.jxta"
-         download-size="1428"
-         install-size="2896"
-         version="1.0.0.202101271932"
+         download-size="473"
+         install-size="922"
+         version="1.0.0.202101281419"
          unpack="false"/>
 
    <plugin
          id="net.jxta.impl.cm.sql.derby"
          download-size="83"
          install-size="96"
-         version="1.0.0.202101271932"
+         version="1.0.0.202101281419"
          unpack="false"/>
 
    <plugin
          id="net.jxta.impl.cm.sql.h2"
          download-size="3"
          install-size="3"
-         version="1.0.0.202101271932"
+         version="1.0.0.202101281419"
          unpack="false"/>
 
    <plugin
          id="net.jxta.impl.endpoint.netty"
          download-size="102"
          install-size="162"
-         version="1.0.0.202101271932"
+         version="1.0.0.202101281419"
          unpack="false"/>
 
    <plugin
          id="net.jxta.impl.endpoint.servlethttp"
          download-size="682"
-         install-size="753"
-         version="1.0.0.202101271932"
+         install-size="752"
+         version="1.0.0.202101281419"
          unpack="false"/>
 
    <plugin
@@ -180,9 +180,9 @@ END OF TERMS AND CONDITIONS
 
    <plugin
          id="net.jxta.impl"
-         download-size="597"
-         install-size="1262"
-         version="1.0.0.202101271932"
+         download-size="1554"
+         install-size="3239"
+         version="1.0.0.202101281419"
          unpack="false"/>
 
    <plugin
