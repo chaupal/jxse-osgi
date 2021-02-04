@@ -62,9 +62,9 @@ import java.net.URI;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import net.jxta.document.*;
-import net.jxta.id.ID;
+import net.jxta.id.IDFactory;
+import net.jxta.document.AdvertisementFactory;
 import net.jxta.pipe.PipeID;
 
 /**
@@ -74,7 +74,7 @@ public class PipeAdvertisementTest extends TestCase {
     private static final String TestName = "Testing J2SE JXTA Pipe (����)";
     private static final String TestType = "SuperPipe";
     private static final String TestDescription = "Testing J2SE JXTA Pipe desc (����)";
-    private static final PipeID TestPipeID = (PipeID) ID.create(
+    private static final PipeID TestPipeID = (PipeID) IDFactory.create(
             URI.create("urn:jxta:uuid-59616261646162614A787461503250336ACC981CFAF047CFADA8A31FC6D0B88C04"));
 
     /**

@@ -6,17 +6,33 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: test.net.jxta
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+<<<<<<< HEAD
 Fragment-Host: net.jxta.impl;bundle-version="1.0.0.qualifier"
+=======
+Fragment-Host: net.jxta;bundle-version="1.0.0.qualifier"
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 Import-Package: junit.framework;version="4.13.0",
  junit.textui;version="4.13.0",
  net.jxse,
  net.jxta.configuration,
+<<<<<<< HEAD
+=======
+ net.jxta.document,
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
  net.jxta.impl.cm.sql,
  net.jxta.impl.cm.sql.derby,
  net.jxta.impl.cm.sql.h2,
  net.jxta.impl.content,
+<<<<<<< HEAD
+=======
+ net.jxta.impl.document,
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
  net.jxta.impl.endpoint.netty,
  net.jxta.impl.endpoint.servlethttp,
+<<<<<<< HEAD
+=======
+ net.jxta.impl.id.binaryID,
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
  net.jxta.impl.loader,
  net.jxta.impl.peergroup,
  net.jxta.impl.util.pipe.reliable,
@@ -25,6 +41,7 @@ Import-Package: junit.framework;version="4.13.0",
  net.jxta.impl.xindice.core.filer,
  net.jxta.peergroup.core,
  net.jxta.platform,
+ net.jxta.protocol,
  org.hamcrest.core;version="1.3.0",
  org.jboss.netty.buffer;version="3.9.6.Final",
  org.jboss.netty.channel,

@@ -9,7 +9,12 @@ import net.jxta.peergroup.PeerGroup;
 import java.text.MessageFormat;
 import java.io.File;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.security.cert.CertificateException;
+=======
+
+import javax.security.cert.CertificateException;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import javax.swing.JOptionPane;
 
 public class WorkingWithLocalConfiguration {

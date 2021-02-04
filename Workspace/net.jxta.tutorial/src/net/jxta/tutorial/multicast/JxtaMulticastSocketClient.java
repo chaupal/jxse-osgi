@@ -58,6 +58,12 @@ package net.jxta.tutorial.multicast;
 import net.jxta.impl.platform.NetworkManager;
 import net.jxta.impl.socket.JxtaMulticastSocket;
 import net.jxta.peergroup.PeerGroup;
+<<<<<<< HEAD
+=======
+import net.jxta.platform.NetworkManager;
+import net.jxta.protocol.PipeAdvertisement;
+import net.jxta.socket.JxtaMulticastSocket;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 
 import java.io.File;
 import java.io.IOException;
@@ -91,7 +97,7 @@ public class JxtaMulticastSocketClient {
         JxtaMulticastSocket mcastSocket = null;
 
         try {
-            mcastSocket = new JxtaMulticastSocket(netPeerGroup, JxtaMulticastSocketServer.getSocketAdvertisement());
+            mcastSocket = new JxtaMulticastSocket(netPeerGroup, (PipeAdvertisement) JxtaMulticastSocketServer.getSocketAdvertisement());
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);

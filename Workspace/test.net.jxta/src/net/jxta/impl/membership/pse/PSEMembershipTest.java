@@ -71,16 +71,19 @@ import net.jxta.id.IDFactory;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.core.ModuleClassID;
-// import net.jxta.peergroup.PeerGroupFactory;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
 import net.jxta.credential.AuthenticationCredential;
 import net.jxta.credential.Credential;
+<<<<<<< HEAD
 import net.jxta.membership.MembershipService;
 import net.jxta.membership.pse.IPSEMembershipService;
+=======
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
 import net.jxta.impl.membership.pse.PSEUtils.IssuerInfo;
 import net.jxta.impl.protocol.PSEConfigAdv;
+import net.jxta.membership.MembershipService;
 
 import org.junit.Ignore;
 
@@ -192,7 +195,7 @@ public class PSEMembershipTest extends TestCase {
 
     public void testLogin() {
         try {
-            MembershipService membership = pg.getMembershipService();
+            MembershipService membership = (MembershipService) pg.getMembershipService();
 
             membership.resign();
 

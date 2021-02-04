@@ -14,14 +14,14 @@ import org.junit.Test;
 
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
+import net.jxta.protocol.PeerAdvertisement;
+import net.jxta.protocol.PeerGroupAdvertisement;
+import net.jxta.protocol.PipeAdvertisement;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.peergroup.core.ModuleSpecID;
 import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeService;
-import net.jxta.protocol.PeerAdvertisement;
-import net.jxta.protocol.PeerGroupAdvertisement;
-import net.jxta.protocol.PipeAdvertisement;
 
 /* These tests blatantly haven't worked for years - the advertisement classes do not implement
  * Serializable, therefore cannot be used with Object(Input/Output)Stream.

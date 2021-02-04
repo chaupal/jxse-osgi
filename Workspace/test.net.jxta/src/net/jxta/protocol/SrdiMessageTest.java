@@ -61,6 +61,7 @@ import net.jxta.document.StructuredDocument;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.MimeMediaType;
 import net.jxta.impl.protocol.SrdiMessageImpl;
+import net.jxta.protocol.SrdiMessage;
 import net.jxta.protocol.SrdiMessage.Entry;
 
 import java.util.Collection;

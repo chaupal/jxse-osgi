@@ -158,7 +158,7 @@ public class DiscoveryClient implements DiscoveryListener {
      */
     public void discoveryEvent(DiscoveryEvent ev) {
 
-        DiscoveryResponseMsg res = ev.getResponse();
+        DiscoveryResponseMsg res = (DiscoveryResponseMsg) ev.getResponse();
 
         // let's get the responding peer's advertisement
         System.out.println(" [  Got a Discovery Response [" + res.getResponseCount() + " elements]  from peer : " + ev.getSource() + "  ]");

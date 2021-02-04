@@ -106,15 +106,15 @@ public class EdgeTeyacapanAnotherMulticastParticipant {
             Tools.PopInformationMessage(Name, "Stop the JXTA network");
             myNetworkManager.stopNetwork();
             
-        } catch (IOException Ex) {
-            
+        } catch (IOException ex) {
+            ex.printStackTrace();           
             // Raised when access to local file and directories caused an error
-            Tools.PopErrorMessage(Name, Ex.toString());
+            Tools.PopErrorMessage(Name, ex.toString());
             
-        } catch (PeerGroupException Ex) {
-            
+        } catch (PeerGroupException ex) {
+            ex.printStackTrace();
             // Raised when the net peer group could not be created
-            Tools.PopErrorMessage(Name, Ex.toString());
+            Tools.PopErrorMessage(Name, ex.toString());
             
         } catch (ConfiguratorException e) {
 			e.printStackTrace();

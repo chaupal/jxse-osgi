@@ -67,6 +67,11 @@ import net.jxta.endpoint.WireFormatMessageFactory;
 import net.jxta.impl.endpoint.BlockingMessenger;
 import net.jxta.impl.endpoint.transportMeter.TransportBindingMeter;
 import net.jxta.impl.endpoint.transportMeter.TransportMeterBuildSettings;
+<<<<<<< HEAD
+=======
+import net.jxta.impl.util.TimeUtils;
+import net.jxta.impl.util.threads.TaskManager;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.util.TimeUtils;
@@ -177,7 +182,7 @@ final class HttpClientMessenger extends BlockingMessenger {
         // We do use self destruction.
         super(servletHttpTransport.getEndpointService().getGroup().getPeerGroupID(), 
               destAddr,
-              servletHttpTransport.getEndpointService().getGroup().getTaskManager(),
+              (TaskManager) servletHttpTransport.getEndpointService().getGroup().getTaskManager(),
               true);
 
         this.servletHttpTransport = servletHttpTransport;

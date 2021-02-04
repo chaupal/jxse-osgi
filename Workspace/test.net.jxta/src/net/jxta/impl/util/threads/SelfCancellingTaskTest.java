@@ -9,7 +9,6 @@ import junit.framework.TestCase;
 import net.jxta.util.SelfCancellingTask;
 
 
-
 //public class SelfCancellingTaskTest extends MockObjectTestCase {
 public class SelfCancellingTaskTest extends TestCase {
 	public void testCancel() throws Exception {

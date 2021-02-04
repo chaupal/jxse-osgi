@@ -65,15 +65,14 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
-
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.endpoint.EndpointAddress;
 import net.jxta.endpoint.Message;
 import net.jxta.endpoint.Messenger;
 import net.jxta.id.ID;
+import net.jxta.id.IDFactory;
 import net.jxta.impl.endpoint.tls.TlsTransport;
 import net.jxta.peergroup.PeerGroup;
-// import net.jxta.peergroup.PeerGroupFactory;
 import net.jxta.protocol.PipeAdvertisement;
 import net.jxta.peer.PeerID;
 
@@ -138,7 +137,7 @@ public class PipeTest extends TestCase {
 
     public void testLocalResolution() {
         try {
-            PipeID pipeID = PipeID.create(URI.create(pipeid));
+            PipeID pipeID = IDFactory.create(URI.create(pipeid));
 
             PipeAdvertisement uniPipeAdv = (PipeAdvertisement) AdvertisementFactory.newAdvertisement(
                     PipeAdvertisement.getAdvertisementType());
@@ -186,7 +185,7 @@ public class PipeTest extends TestCase {
     public void testTlsFiltering() {
 
         try {
-            PipeID pipeID = PipeID.create(URI.create(pipeid));
+            PipeID pipeID = IDFactory.create(URI.create(pipeid));
 
             PipeAdvertisement uniPipeAdv = (PipeAdvertisement) AdvertisementFactory.newAdvertisement(
                     PipeAdvertisement.getAdvertisementType());
@@ -253,8 +252,8 @@ public class PipeTest extends TestCase {
     public void testOutputResolution() {
 
         try {
-            PipeID pipeID = PipeID.create(URI.create(pipeid));
-            PeerID peerID = PeerID.create(URI.create(peerid));
+            PipeID pipeID = IDFactory.create(URI.create(pipeid));
+            PeerID peerID = IDFactory.create(URI.create(peerid));
 
             PipeAdvertisement uniPipeAdv = (PipeAdvertisement) AdvertisementFactory.newAdvertisement(
                     PipeAdvertisement.getAdvertisementType());
@@ -310,7 +309,7 @@ public class PipeTest extends TestCase {
     public void testInputClose() {
 
         try {
-            PipeID pipeID = PipeID.create(URI.create(pipeid));
+            PipeID pipeID = IDFactory.create(URI.create(pipeid));
 
             PipeAdvertisement uniPipeAdv = (PipeAdvertisement) AdvertisementFactory.newAdvertisement(
                     PipeAdvertisement.getAdvertisementType());
@@ -344,7 +343,7 @@ public class PipeTest extends TestCase {
      **/
     private static EndpointAddress mkAddress(String destPeer, String pipeID) {
 
-        ID asID = ID.create(URI.create(destPeer));
+        ID asID = IDFactory.create(URI.create(destPeer));
 
         return mkAddress(asID, pipeID);
     }

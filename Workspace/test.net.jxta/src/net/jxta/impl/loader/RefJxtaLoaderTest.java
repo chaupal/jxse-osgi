@@ -60,9 +60,16 @@ import java.io.File;
 import java.net.URI;
 
 import net.jxta.content.ContentProviderEvent;
+import net.jxta.id.IDFactory;
+import net.jxta.document.AdvertisementFactory;
 import net.jxta.impl.peergroup.*;
+<<<<<<< HEAD
 import net.jxta.impl.platform.JxtaApplication;
 import net.jxta.impl.platform.NetworkManager;
+=======
+import net.jxta.protocol.ModuleImplAdvertisement;
+import net.jxta.protocol.PeerGroupAdvertisement;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 
 import java.net.URL;
 import java.util.List;
@@ -77,17 +84,20 @@ import net.jxta.content.ContentProviderListener;
 import net.jxta.content.ContentService;
 import net.jxta.content.ContentShare;
 import net.jxta.discovery.DiscoveryService;
-import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.Document;
 import net.jxta.document.Element;
-import net.jxta.id.IDFactory;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.PeerGroupID;
 import net.jxta.peergroup.core.Module;
 import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
+<<<<<<< HEAD
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
+=======
+import net.jxta.platform.JxtaApplication;
+import net.jxta.platform.NetworkManager;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import net.jxta.test.util.TempDir;
 
 import org.junit.*;

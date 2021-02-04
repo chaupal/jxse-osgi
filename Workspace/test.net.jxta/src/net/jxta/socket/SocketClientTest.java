@@ -57,7 +57,11 @@
 package net.jxta.socket;
 
 import net.jxta.peergroup.PeerGroup;
+<<<<<<< HEAD
 import net.jxta.protocol.PipeAdvertisement;
+=======
+import net.jxta.platform.NetworkManager;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 
 import java.io.*;
 import java.net.SocketTimeoutException;
@@ -68,12 +72,22 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.jxta.credential.Credential;
 import net.jxta.endpoint.Messenger;
+<<<<<<< HEAD
 import net.jxta.impl.platform.JxtaApplication;
 import net.jxta.impl.platform.NetworkManager;
 import net.jxta.impl.socket.JxtaSocket;
+=======
+import net.jxta.protocol.PeerAdvertisement;
+import net.jxta.protocol.PipeAdvertisement;
+import net.jxta.socket.JxtaSocket;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import net.jxta.impl.util.pipe.reliable.Outgoing;
 import net.jxta.peer.PeerID;
+<<<<<<< HEAD
 import net.jxta.protocol.PeerAdvertisement;
+=======
+import net.jxta.platform.JxtaApplication;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 
 /**
  * This tutorial illustrates the use JxtaSocket. It attempts to bind a
@@ -139,7 +153,7 @@ public class SocketClientTest extends TestCase {
             }
         }
 
-        pipeAdv = SocketServerTest.getSocketAdvertisement();
+        pipeAdv = (PipeAdvertisement) SocketServerTest.getSocketAdvertisement();
     }
 
     /**

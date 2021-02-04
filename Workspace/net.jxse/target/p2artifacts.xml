@@ -1,7 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
+<<<<<<< HEAD
   <artifact classifier='osgi.bundle' id='net.jxse' version='1.0.0.202101281419'>
+=======
+  <artifact classifier='osgi.bundle' id='net.jxse' version='1.0.0.202101311356'>
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
     <properties size='5'>
       <property name='artifact.size' value='44987'/>
       <property name='download.size' value='44987'/>

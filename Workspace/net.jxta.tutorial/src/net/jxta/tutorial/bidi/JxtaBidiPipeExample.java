@@ -62,6 +62,12 @@ import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
+<<<<<<< HEAD
+=======
+import net.jxta.platform.NetworkManager;
+import net.jxta.protocol.PipeAdvertisement;
+import net.jxta.util.JxtaBiDiPipe;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 
 import java.io.File;
 import java.io.IOException;
@@ -69,9 +75,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;
 import net.jxta.endpoint.StringMessageElement;
+<<<<<<< HEAD
 import net.jxta.impl.platform.NetworkManager;
 import net.jxta.impl.util.JxtaBiDiPipe;
 import net.jxta.protocol.PipeAdvertisement;
+=======
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 
 /**
  * This is the client (initiator) side of the Bi-directional Pipe Tutorial.

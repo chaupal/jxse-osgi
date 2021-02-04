@@ -5,7 +5,7 @@ import net.jxta.endpoint.EndpointService;
 import net.jxta.id.ID;
 import net.jxta.impl.endpoint.transportMeter.TransportBindingMeter;
 import net.jxta.peergroup.PeerGroup;
-
+import net.jxta.peergroup.core.Module;
 /**
  * An interface that the ServletHttpTransportImpl provides to HttpMessageReceiver
  * and HttpMessageSender. The methods in here were formerly package-private, but
@@ -14,7 +14,7 @@ import net.jxta.peergroup.PeerGroup;
  *
  * This interface is effectively package-private.
  */
-interface ServletHttpTransport {
+interface ServletHttpTransport extends Module{
 
 	/**
 	 * Get the peer group from which this Module can obtain services.

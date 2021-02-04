@@ -2,7 +2,11 @@
 <feature
       id="net.jxse.feature"
       label="JXSE OSGI Library Feature"
+<<<<<<< HEAD
       version="1.0.0.202101281419"
+=======
+      version="1.0.0.202101311356"
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
       provider-name="Chaupal.org">
 
    <description url="https://github.com/chaupal">
@@ -77,25 +81,41 @@ END OF TERMS AND CONDITIONS
    <requires>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.osgi.services"/>
+<<<<<<< HEAD
+=======
+      <import plugin="org.junit"/>
+      <import plugin="org.hamcrest.core"/>
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
    </requires>
 
    <plugin
          id="org.spongycastle.fragment"
          download-size="4019"
          install-size="4512"
+<<<<<<< HEAD
          version="1.0.0.202101281419"
+=======
+         version="1.0.0.202101311356"
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
          fragment="true"
          unpack="false"/>
 
    <plugin
          id="net.jxse"
+<<<<<<< HEAD
          download-size="43"
          install-size="86"
          version="1.0.0.202101281419"
+=======
+         download-size="41"
+         install-size="81"
+         version="1.0.0.202101311356"
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
          unpack="false"/>
 
    <plugin
          id="net.jxta"
+<<<<<<< HEAD
          download-size="473"
          install-size="922"
          version="1.0.0.202101281419"
@@ -127,6 +147,11 @@ END OF TERMS AND CONDITIONS
          download-size="682"
          install-size="752"
          version="1.0.0.202101281419"
+=======
+         download-size="2031"
+         install-size="4179"
+         version="1.0.0.202101311356"
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
          unpack="false"/>
 
    <plugin
@@ -179,6 +204,7 @@ END OF TERMS AND CONDITIONS
          unpack="false"/>
 
    <plugin
+<<<<<<< HEAD
          id="net.jxta.impl"
          download-size="1554"
          install-size="3239"
@@ -186,6 +212,8 @@ END OF TERMS AND CONDITIONS
          unpack="false"/>
 
    <plugin
+=======
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
          id="derby"
          download-size="3149"
          install-size="7213"
@@ -208,6 +236,7 @@ END OF TERMS AND CONDITIONS
 
    <plugin
          id="org.slf4j.api"
+<<<<<<< HEAD
          download-size="33"
          install-size="60"
          version="1.7.2.v20121108-1250"
@@ -253,6 +282,78 @@ END OF TERMS AND CONDITIONS
          download-size="102"
          install-size="202"
          version="3.1.0.v201410161800"
+=======
+         download-size="34"
+         install-size="61"
+         version="1.7.2.v20121108-1250"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.felix.gogo.command"
+         download-size="52"
+         install-size="107"
+         version="1.1.0.v20201023-1558"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.felix.gogo.runtime"
+         download-size="209"
+         install-size="404"
+         version="1.1.2.v20201023-1558"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.felix.gogo.shell"
+         download-size="68"
+         install-size="136"
+         version="1.1.2.v20201023-1558"
+         unpack="false"/>
+
+   <plugin
+         id="com.h2database"
+         download-size="2249"
+         install-size="4438"
+         version="1.4.200"
+         unpack="false"/>
+
+   <plugin
+         id="javax.servlet"
+         download-size="102"
+         install-size="202"
+         version="3.1.0.v201410161800"
+         unpack="false"/>
+
+   <plugin
+         id="net.jxta.impl.cm.sql.h2"
+         download-size="3"
+         install-size="3"
+         version="1.0.0.202101311356"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="net.jxta.impl.cm.sql.derby"
+         download-size="83"
+         install-size="95"
+         version="1.0.0.202101311356"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="net.jxta.impl.endpoint.servlethttp"
+         download-size="44"
+         install-size="84"
+         version="1.0.0.202101311356"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="net.jxta.impl.endpoint.netty"
+         download-size="101"
+         install-size="160"
+         version="1.0.0.202101311356"
+         fragment="true"
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
          unpack="false"/>
 
 </feature>

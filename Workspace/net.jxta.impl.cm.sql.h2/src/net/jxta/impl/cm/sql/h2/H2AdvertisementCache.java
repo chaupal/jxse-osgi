@@ -6,7 +6,11 @@ import java.sql.SQLException;
 
 import javax.sql.ConnectionPoolDataSource;
 import net.jxta.impl.cm.sql.JdbcAdvertisementCache;
+<<<<<<< HEAD
 import net.jxta.util.threads.TaskManager;
+=======
+import net.jxta.impl.util.threads.TaskManager;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import org.h2.jdbcx.JdbcDataSource;
 
 public class H2AdvertisementCache extends JdbcAdvertisementCache {

@@ -59,7 +59,6 @@ import java.util.Vector;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import net.jxta.discovery.DiscoveryService;
 import net.jxta.document.MimeMediaType;
 import net.jxta.document.StructuredDocument;
@@ -115,7 +114,7 @@ public class DiscoveryResponseMsgTest extends TestCase {
             resp.add(padv);
             Vector<Long> exp = new Vector<Long>();
 
-            exp.add(new Long(0));
+            exp.add(Long.valueOf(0));
 
             DiscoveryResponseMsg res = new DiscoveryResponse();
 

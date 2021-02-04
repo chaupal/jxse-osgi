@@ -64,8 +64,8 @@ import net.jxta.id.IDFactory;
 import net.jxta.impl.protocol.MulticastAdv;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroupID;
-import net.jxta.peer.PeerID;
 import net.jxta.protocol.PeerAdvertisement;
+import net.jxta.peer.PeerID;
 import net.jxta.impl.protocol.TCPAdv;
 
 /**

@@ -72,6 +72,7 @@ import net.jxta.membership.pse.IPSECredential;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
+
 import org.spongycastle.asn1.DERSet;
 import org.spongycastle.jce.PKCS10CertificationRequest;
 import org.spongycastle.jce.X509Principal;

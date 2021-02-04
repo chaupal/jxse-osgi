@@ -68,23 +68,24 @@ import net.jxta.access.AccessService;
 import net.jxta.access.AccessService.AccessResult;
 import net.jxta.credential.Credential;
 import net.jxta.credential.PrivilegedOperation;
-import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.Element;
 import net.jxta.document.MimeMediaType;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.XMLDocument;
 import net.jxta.document.XMLElement;
 import net.jxta.id.ID;
-import net.jxta.id.IDFactory;
-import net.jxta.membership.MembershipService;
 import net.jxta.peergroup.IModuleDefinitions;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
-// import net.jxta.peergroup.PeerGroupFactory;
+import net.jxta.platform.WorldPeerGroupFactory;
+import net.jxta.protocol.ModuleImplAdvertisement;
+import net.jxta.id.IDFactory;
+import net.jxta.document.AdvertisementFactory;
+import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
+import net.jxta.membership.MembershipService;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.PeerGroupAdvertisement;
-import net.jxta.impl.peergroup.StdPeerGroupParamAdv;
 
 import org.junit.Ignore;
 
@@ -101,7 +102,11 @@ public class SimpleACLAccessServiceTest extends TestCase {
         synchronized (SimpleACLAccessServiceTest.class) {
             try {
                 if (null == npg) {
+<<<<<<< HEAD
                     final PeerGroup wpg = new net.jxta.impl.platform.WorldPeerGroupFactory().getWorldPeerGroup();
+=======
+                    final PeerGroup wpg = new WorldPeerGroupFactory().getWorldPeerGroup();
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
                     
                     npg = null; //PeerGroupFactory.newNetPeerGroup(wpg);
 
@@ -134,7 +139,7 @@ public class SimpleACLAccessServiceTest extends TestCase {
                         newGroupImpl.setModuleSpecID(IDFactory.newModuleSpecID(newGroupImpl.getModuleSpecID().getBaseClass()));
                     } else {
                         try {
-                            ID simpleACLGrpModSpecID = ID.create(
+                            ID simpleACLGrpModSpecID = IDFactory.create(
                                     new URI(ID.URIEncodingName, "jxta:uuid-" + "DeadBeefDeafBabaFeedBabe000000010406", null));
 
                             newGroupImpl.setModuleSpecID((ModuleSpecID) simpleACLGrpModSpecID);

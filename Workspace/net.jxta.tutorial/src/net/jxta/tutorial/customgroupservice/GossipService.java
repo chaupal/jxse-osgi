@@ -62,6 +62,7 @@ import java.util.NoSuchElementException;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
+
 import net.jxta.document.Advertisement;
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.XMLDocument;
@@ -72,6 +73,7 @@ import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.StringMessageElement;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.id.ID;
+import net.jxta.id.IDFactory;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroup;
@@ -117,14 +119,14 @@ public class GossipService implements net.jxta.service.Service, net.jxta.endpoin
      *  The module class ID for Gossip services. All Gossip services regardless
      *  of the protocol used share this same module class id.
      */
-    public static final ModuleClassID GOSSIP_SERVICE_MCID = ModuleClassID.create(URI.create("urn:jxta:uuid-4CD1574ABA614A5FA242B613D8BAA30F05"));
+    public static final ModuleClassID GOSSIP_SERVICE_MCID = IDFactory.create(URI.create("urn:jxta:uuid-4CD1574ABA614A5FA242B613D8BAA30F05"));
     /**
      *  The module spec ID for our Gossip service. The module spec id contains
      *  the {@code GOSSIP_SERVICE_MCID}. All implementations which use the
      *  same messaging protocol as this implementation will share this same
      *  module spec id.
      */
-    public static final ModuleSpecID GOSSIP_SERVICE_MSID = ModuleSpecID.create(URI.create("urn:jxta:uuid-4CD1574ABA614A5FA242B613D8BAA30FD0A45F5F0E1A450DA912BB01585AB0FC06"));
+    public static final ModuleSpecID GOSSIP_SERVICE_MSID = IDFactory.create(URI.create("urn:jxta:uuid-4CD1574ABA614A5FA242B613D8BAA30FD0A45F5F0E1A450DA912BB01585AB0FC06"));
     /**
      *  The default gossip text we will send to other peers.
      */
@@ -236,7 +238,7 @@ public class GossipService implements net.jxta.service.Service, net.jxta.endpoin
             Advertisement adv = null;
 
             try {
-                XMLDocument configDoc = (XMLDocument) confAdv.getServiceParam(getAssignedID());
+                XMLDocument<?> configDoc = (XMLDocument<?>) confAdv.getServiceParam(getAssignedID());
 
                 if (null != configDoc) {
                     adv = AdvertisementFactory.newAdvertisement(configDoc);

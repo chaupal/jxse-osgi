@@ -19,6 +19,7 @@ import net.chaupal.practical.jxta.examples.RendezVousAminah;
 import net.chaupal.practical.jxta.examples.RendezVousJack;
 import net.chaupal.practical.jxta.examples.RetrieveModifySaveExistingConfigurationExample;
 import net.chaupal.practical.jxta.examples.StartingAndStoppingJXTAExample;
+import net.chaupal.practical.jxta.examples.multicastsockets.EdgeTeyacapanAnotherMulticastParticipant;
 
 @RunWith(Suite.class)
 @SuiteClasses({
@@ -55,7 +56,13 @@ public class TestSuite {
 			//ConnectingWithOSGi.main(args);
 			//CreateLocalConfigurationExample.main(args);
 			//CreatingAndSettingSeeds.main(args);
+<<<<<<< HEAD
 			EdgeAnna.main(args);
+=======
+			//EdgeAnna.main(args);
+			//CreateLocalConfigurationExample.main(args);
+			EdgeTeyacapanAnotherMulticastParticipant.main(args );
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 		}
 		catch( Exception ex ) {
 			ex.printStackTrace();

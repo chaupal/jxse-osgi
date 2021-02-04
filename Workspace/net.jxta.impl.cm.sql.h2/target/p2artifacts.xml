@@ -1,10 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
+<<<<<<< HEAD
   <artifact classifier='osgi.bundle' id='net.jxta.impl.cm.sql.h2' version='1.0.0.202101281419'>
+=======
+  <artifact classifier='osgi.bundle' id='net.jxta.impl.cm.sql.h2' version='1.0.0.202101311356'>
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
     <properties size='5'>
+<<<<<<< HEAD
       <property name='artifact.size' value='3630'/>
       <property name='download.size' value='3630'/>
+=======
+      <property name='artifact.size' value='3649'/>
+      <property name='download.size' value='3649'/>
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
       <property name='maven-groupId' value='net.jxse'/>
       <property name='maven-artifactId' value='net.jxta.impl.cm.sql.h2'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>

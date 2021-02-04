@@ -2,10 +2,19 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: h2 Database
 Bundle-SymbolicName: net.jxta.impl.cm.sql.h2;singleton:=true
+<<<<<<< HEAD
 Bundle-Version: 1.0.0.202101281419
+=======
+Bundle-Version: 1.0.0.202101311356
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: net.jxta.impl.cm.sql.derby
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+<<<<<<< HEAD
 Import-Package: net.jxta.impl.cm.sql,net.jxta.util.threads,org.h2.jdbcx
+=======
+Fragment-Host: net.jxta
+Import-Package: org.h2;version="1.4.200",org.h2.jdbcx;version="1.4.200"
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 Export-Package: net.jxta.impl.cm.sql.h2
 

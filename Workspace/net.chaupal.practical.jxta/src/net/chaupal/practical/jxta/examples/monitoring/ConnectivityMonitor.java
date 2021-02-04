@@ -258,7 +258,11 @@ public class ConnectivityMonitor extends JFrame implements Runnable {
                         "Local Edge View IDs"
                 }
         ) {
-            Class<?>[] types = new Class<?>[]{
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			Class<?>[] types = new Class<?>[]{
                     java.lang.String.class
             };
             boolean[] canEdit = new boolean[]{
@@ -285,7 +289,11 @@ public class ConnectivityMonitor extends JFrame implements Runnable {
                         "Local RDV View IDs"
                 }
         ) {
-            Class<?>[] types = new Class[]{
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			Class<?>[] types = new Class[]{
                     java.lang.String.class
             };
             boolean[] canEdit = new boolean[]{

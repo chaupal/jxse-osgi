@@ -2,12 +2,21 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JXSE Servlet HTTP
 Bundle-SymbolicName: net.jxta.impl.endpoint.servlethttp
+<<<<<<< HEAD
 Bundle-Version: 1.0.0.202101281419
+=======
+Bundle-Version: 1.0.0.202101311356
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 Bundle-Vendor: Chaupal
 Automatic-Module-Name: net.jxta.impl.endpoint.servlethttp
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+<<<<<<< HEAD
 Fragment-Host: net.jxta.impl
+=======
+Fragment-Host: net.jxta
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 Export-Package: net.jxta.core.server.http,net.jxta.impl.endpoint.servlet
+<<<<<<< HEAD
  http,org.mortbay.http,org.mortbay.http.handler,org.mortbay.jetty.servle
  t,org.mortbay.util
 Import-Package: javax.servlet;version="3.1.0",javax.servlet.http,net.jxs
@@ -23,5 +32,15 @@ Import-Package: javax.servlet;version="3.1.0",javax.servlet.http,net.jxs
 Bundle-ClassPath: .,lib/org.mortbay.jetty-5.1.12.jar
 Service-Component: OSGI-INF/net.jxta.impl.endpoint.servlethttp.advertism
  ent.factory.service.xml
+=======
+ http
+Import-Package: javax.servlet;version="3.1.0",javax.servlet.http,net.jxt
+ a.impl.util.threads,org.eclipse.jetty.server;version="9.0.0",org.eclips
+ e.jetty.server.handler;version="9.0.0",org.eclipse.jetty.servlet;versio
+ n="9.0.0",org.eclipse.jetty.util.component;version="9.0.0",org.eclipse.
+ jetty.util.thread,org.osgi.service.component.annotations;version="1.3.0
+ "
+Bundle-ClassPath: .
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 Bundle-ActivationPolicy: lazy
 

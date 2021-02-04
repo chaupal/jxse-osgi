@@ -55,12 +55,17 @@
  */
 package net.jxta.peergroup;
 
-import net.jxta.protocol.PeerGroupAdvertisement;
-import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.id.IDFactory;
+<<<<<<< HEAD
 import net.jxta.impl.platform.LightWeightPeerGroup;
 import net.jxta.impl.platform.NetPeerGroupFactory;
+=======
+import net.jxta.platform.LightWeightPeerGroup;
+import net.jxta.platform.NetPeerGroupFactory;
+import net.jxta.protocol.PeerAdvertisement;
+import net.jxta.protocol.PeerGroupAdvertisement;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import junit.framework.*;
 import org.junit.Ignore;
 

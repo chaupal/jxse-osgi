@@ -10,6 +10,11 @@ import net.jxta.endpoint.Message;
 import net.jxta.endpoint.MessageElement;
 import net.jxta.endpoint.StringMessageElement;
 import net.jxta.impl.endpoint.BlockingMessenger;
+<<<<<<< HEAD
+=======
+import net.jxta.impl.endpoint.EndpointServiceImpl;
+import net.jxta.impl.util.threads.TaskManager;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peer.PeerID;
@@ -38,7 +43,7 @@ public class NettyMessenger extends BlockingMessenger implements MessageArrivalL
 	private EndpointAddress localAddress;
     
     public NettyMessenger(Channel channel, PeerGroupID homeGroupID, PeerID localPeerID, EndpointAddress localAddress, EndpointAddress logicalDestinationAddress, EndpointService endpointService) {
-        super(homeGroupID, localAddress, endpointService.getGroup().getTaskManager(), true);
+        super(homeGroupID, localAddress, (TaskManager) endpointService.getGroup().getTaskManager(), true);
         this.channel = channel;
         this.localPeerId = localPeerID;
         this.localAddress = new EndpointAddress(localPeerId, null, null);

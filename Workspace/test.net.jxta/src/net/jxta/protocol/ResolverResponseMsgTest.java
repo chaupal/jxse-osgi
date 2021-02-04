@@ -62,6 +62,7 @@ import junit.framework.TestSuite;
 import net.jxta.document.MimeMediaType;
 import net.jxta.document.StructuredDocument;
 import net.jxta.impl.protocol.ResolverResponse;
+import net.jxta.protocol.ResolverResponseMsg;
 
 /**
  *  A JUnit test for ResolverResponseMsgTest

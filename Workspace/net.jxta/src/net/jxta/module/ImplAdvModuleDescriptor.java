@@ -1,9 +1,15 @@
 package net.jxta.module;
 
 import net.jxta.document.Advertisement;
+<<<<<<< HEAD
 import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.peergroup.core.ModuleSpecID;
 import net.jxta.platform.PlatformConfig;
+=======
+import net.jxta.impl.protocol.PlatformConfig;
+import net.jxta.peergroup.core.ModuleClassID;
+import net.jxta.peergroup.core.ModuleSpecID;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.util.cardinality.Cardinality;
 import net.jxta.util.cardinality.Cardinality.Denominator;

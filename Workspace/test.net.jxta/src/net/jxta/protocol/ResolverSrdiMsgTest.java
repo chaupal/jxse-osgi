@@ -62,6 +62,7 @@ import net.jxta.document.MimeMediaType;
 import net.jxta.document.StructuredDocument;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.impl.protocol.ResolverSrdiMsgImpl;
+import net.jxta.protocol.ResolverSrdiMsg;
 
 /**
  *  A JUnit test for ResolverSrdiMsg

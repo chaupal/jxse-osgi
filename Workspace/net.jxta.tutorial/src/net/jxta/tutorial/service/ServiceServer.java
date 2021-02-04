@@ -214,7 +214,7 @@ public class ServiceServer {
             // advertisement to create its pipe. So, we are reading the pipe
             // advertisement from a default config file to ensure that the
             // service will always advertise the same pipe
-            PipeAdvertisement pipeadv = createPipeAdvertisement();
+            PipeAdvertisement pipeadv = (PipeAdvertisement) createPipeAdvertisement();
 
             // Store the pipe advertisement in the spec adv.
             // This information will be retrieved by the client when it will

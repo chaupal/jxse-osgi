@@ -77,18 +77,22 @@ import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
-//import net.jxse.systemtests.colocated.configs.PeerConfigurator;
-import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.MimeMediaType;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.StructuredTextDocument;
 import net.jxta.document.XMLDocument;
 import net.jxta.endpoint.EndpointAddress;
 import net.jxta.id.IDFactory;
+<<<<<<< HEAD
 import net.jxta.impl.platform.NetworkConfigurator;
 import net.jxta.impl.platform.NetworkManager;
+=======
+import net.jxta.document.AdvertisementFactory;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import net.jxta.impl.protocol.RouteQuery;
 import net.jxta.impl.protocol.RouteResponse;
+import net.jxta.protocol.AccessPointAdvertisement;
+import net.jxta.protocol.RouteAdvertisement;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroup;
 

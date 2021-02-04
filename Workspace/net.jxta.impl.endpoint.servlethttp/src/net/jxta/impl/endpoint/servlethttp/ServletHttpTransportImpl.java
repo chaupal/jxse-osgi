@@ -75,7 +75,6 @@ import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.meter.MonitorResources;
 import net.jxta.peergroup.PeerGroup;
-import net.jxta.peergroup.core.Module;
 import net.jxta.protocol.ConfigParams;
 import net.jxta.protocol.ModuleImplAdvertisement;
 import net.jxta.protocol.TransportAdvertisement;
@@ -96,7 +95,7 @@ import java.util.List;
  * <li>An HTTP-server-based message receiver</li>
  * </ul>
  */
-public final class ServletHttpTransportImpl implements ServletHttpTransport, Module {
+public final class ServletHttpTransportImpl implements ServletHttpTransport {
 
     private final static transient Logger LOG = Logging.getLogger(ServletHttpTransportImpl.class.getName());
 

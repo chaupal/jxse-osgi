@@ -2,7 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Spongycastle
 Bundle-SymbolicName: org.spongycastle.fragment;singleton:=true
+<<<<<<< HEAD
 Bundle-Version: 1.0.0.202101281419
+=======
+Bundle-Version: 1.0.0.202101311356
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 Bundle-Vendor: Condast
 Fragment-Host: system.bundle;extension:=framework
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

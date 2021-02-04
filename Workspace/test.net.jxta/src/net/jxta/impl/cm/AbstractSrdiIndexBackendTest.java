@@ -12,8 +12,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import net.jxta.id.IDFactory;
 import net.jxta.impl.cm.Srdi.Entry;
+import net.jxta.id.IDFactory;
 import net.jxta.impl.util.FakeSystemClock;
 import net.jxta.peer.PeerID;
 import net.jxta.peergroup.PeerGroup;
@@ -32,17 +32,17 @@ import org.junit.rules.TemporaryFolder;
 
 public abstract class AbstractSrdiIndexBackendTest {
 	
-	public static final PeerID PEER_ID = PeerID.create(URI.create("urn:jxta:uuid-59616261646162614E504720503250335D5E0326CF3E4271A498E9D5CB98C7C703"));
-	public static final PeerID PEER_ID_2 = PeerID.create(URI.create("urn:jxta:uuid-59616261646162614E50472050325033212AC0685A254A879825EC23B36214EE03"));
-	public static final PeerID PEER_ID_3 = PeerID.create(URI.create("urn:jxta:uuid-59616261646162614E5047205032503364652E32BCBC4C8596D3CFE9613AE68903"));
-	public static final PeerID PEER_ID_4 = PeerID.create(URI.create("urn:jxta:uuid-59616261646162614E504720503250337B1043A089C6481B85A9CE0D4586662A03"));
-	public static final PeerID PEER_ID_5 = PeerID.create(URI.create("urn:jxta:uuid-59616261646162614E50472050325033624C1724F1CF4038BACF9C81719672A003"));
-	public static final PeerID PEER_ID_6 = PeerID.create(URI.create("urn:jxta:uuid-59616261646162614E5047205032503383D5217E1EBD4A97AA38C5DC3A32130903"));
-	public static final PeerID PEER_ID_7 = PeerID.create(URI.create("urn:jxta:uuid-59616261646162614E504720503250337B083C30A3F74643884195C51FD4894E03"));
-	public static final PeerID PEER_ID_8 = PeerID.create(URI.create("urn:jxta:uuid-59616261646162614E504720503250332B22AC234DCD40A3902FB7073613E9E403"));
+	public static final PeerID PEER_ID = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E504720503250335D5E0326CF3E4271A498E9D5CB98C7C703"));
+	public static final PeerID PEER_ID_2 = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E50472050325033212AC0685A254A879825EC23B36214EE03"));
+	public static final PeerID PEER_ID_3 = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E5047205032503364652E32BCBC4C8596D3CFE9613AE68903"));
+	public static final PeerID PEER_ID_4 = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E504720503250337B1043A089C6481B85A9CE0D4586662A03"));
+	public static final PeerID PEER_ID_5 = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E50472050325033624C1724F1CF4038BACF9C81719672A003"));
+	public static final PeerID PEER_ID_6 = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E5047205032503383D5217E1EBD4A97AA38C5DC3A32130903"));
+	public static final PeerID PEER_ID_7 = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E504720503250337B083C30A3F74643884195C51FD4894E03"));
+	public static final PeerID PEER_ID_8 = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E504720503250332B22AC234DCD40A3902FB7073613E9E403"));
 	
-	public static final PeerGroupID GROUP_ID_1 = PeerGroupID.create(URI.create("urn:jxta:uuid-7B96885D59E6498CB1E4C380479967CE02"));
-	public static final PeerGroupID GROUP_ID_2 = PeerGroupID.create(URI.create("urn:jxta:uuid-631A2779A3E548748586A011B837A38302"));
+	public static final PeerGroupID GROUP_ID_1 = IDFactory.create(URI.create("urn:jxta:uuid-7B96885D59E6498CB1E4C380479967CE02"));
+	public static final PeerGroupID GROUP_ID_2 = IDFactory.create(URI.create("urn:jxta:uuid-631A2779A3E548748586A011B837A38302"));
 	
 	private static final int NO_THRESHOLD = Integer.MAX_VALUE;
 	

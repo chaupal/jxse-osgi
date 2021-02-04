@@ -6,7 +6,11 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: chaupal.org
 Automatic-Module-Name: net.jxta.impl.cm.sql.derby
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+<<<<<<< HEAD
 Fragment-Host: net.jxta.impl
+=======
+Fragment-Host: net.jxta
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 Import-Package: net.jxta.impl.cm.sql,
  org.apache.derby.jdbc
 Export-Package: net.jxta.impl.cm.sql.derby

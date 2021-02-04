@@ -57,13 +57,20 @@ package net.jxta.tutorial.multicast;
 
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.id.IDFactory;
+<<<<<<< HEAD
 import net.jxta.impl.platform.NetworkManager;
 import net.jxta.impl.socket.JxtaMulticastSocket;
 import net.jxta.peergroup.PeerGroup;
+=======
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeService;
 import net.jxta.protocol.PipeAdvertisement;
+<<<<<<< HEAD
 
+=======
+import net.jxta.socket.JxtaMulticastSocket;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import java.io.File;
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -76,7 +83,6 @@ import java.net.URISyntaxException;
 
 public class JxtaMulticastSocketServer {
 
-    private static PeerGroup netPeerGroup = null;
     public final static String SOCKETIDSTR = "urn:jxta:uuid-59616261646162614E5047205032503393B5C2F6CA7A41FDB0F890173088E79404";
 
     /**
@@ -122,7 +128,7 @@ public class JxtaMulticastSocketServer {
         System.out.println("Creating JxtaMulticastSocket");
         JxtaMulticastSocket mcastSocket = null;
         try {
-            mcastSocket = new JxtaMulticastSocket(manager.getNetPeerGroup(), getSocketAdvertisement());
+            mcastSocket = new JxtaMulticastSocket(manager.getNetPeerGroup(), (PipeAdvertisement) getSocketAdvertisement());
             System.out.println("LocalAddress :" + mcastSocket.getLocalAddress());
             System.out.println("LocalSocketAddress :" + mcastSocket.getLocalSocketAddress());
         } catch (IOException e) {

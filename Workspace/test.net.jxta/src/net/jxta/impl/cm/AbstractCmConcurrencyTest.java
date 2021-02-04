@@ -11,8 +11,12 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+<<<<<<< HEAD
 import net.jxta.peergroup.ICacheManager;
 import net.jxta.util.threads.TaskManager;
+=======
+import net.jxta.impl.util.threads.TaskManager;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 
 public abstract class AbstractCmConcurrencyTest {
 

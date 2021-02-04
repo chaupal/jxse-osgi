@@ -78,6 +78,11 @@ import net.jxta.endpoint.WireFormatMessage;
 import net.jxta.endpoint.WireFormatMessageFactory;
 import net.jxta.impl.endpoint.transportMeter.TransportBindingMeter;
 import net.jxta.impl.endpoint.transportMeter.TransportMeterBuildSettings;
+<<<<<<< HEAD
+=======
+import net.jxta.impl.util.TimeUtils;
+import net.jxta.impl.util.threads.TaskManager;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.peergroup.PeerGroup;
@@ -289,7 +294,7 @@ public class HttpMessageServlet extends HttpServlet {
 
             final PeerGroup peerGroup = owner.getServletHttpTransport().getPeerGroup();
 			messenger = new HttpServletMessenger(peerGroup.getPeerGroupID(), 
-			                                     peerGroup.getTaskManager(),
+			                                     (TaskManager) peerGroup.getTaskManager(),
                                                  localAddress,
                                                  currentRequest.requestorAddr, 
                                                  messengerAliveFor);

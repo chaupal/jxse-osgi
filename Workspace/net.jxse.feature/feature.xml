@@ -77,6 +77,11 @@ END OF TERMS AND CONDITIONS
    <requires>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.osgi.services"/>
+<<<<<<< HEAD
+=======
+      <import plugin="org.junit"/>
+      <import plugin="org.hamcrest.core"/>
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
    </requires>
 
    <plugin
@@ -96,34 +101,6 @@ END OF TERMS AND CONDITIONS
 
    <plugin
          id="net.jxta"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="net.jxta.impl.cm.sql.derby"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="net.jxta.impl.cm.sql.h2"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="net.jxta.impl.endpoint.netty"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="net.jxta.impl.endpoint.servlethttp"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -179,6 +156,7 @@ END OF TERMS AND CONDITIONS
          unpack="false"/>
 
    <plugin
+<<<<<<< HEAD
          id="net.jxta.impl"
          download-size="0"
          install-size="0"
@@ -186,6 +164,8 @@ END OF TERMS AND CONDITIONS
          unpack="false"/>
 
    <plugin
+=======
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
          id="derby"
          download-size="0"
          install-size="0"
@@ -235,6 +215,7 @@ END OF TERMS AND CONDITIONS
          unpack="false"/>
 
    <plugin
+<<<<<<< HEAD
          id="org.eclipse.equinox.ds"
          download-size="0"
          install-size="0"
@@ -253,6 +234,51 @@ END OF TERMS AND CONDITIONS
          download-size="0"
          install-size="0"
          version="0.0.0"
+=======
+         id="com.h2database"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="javax.servlet"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.jxta.impl.cm.sql.h2"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="net.jxta.impl.cm.sql.derby"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="net.jxta.impl.endpoint.servlethttp"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="net.jxta.impl.endpoint.netty"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
          unpack="false"/>
 
 </feature>

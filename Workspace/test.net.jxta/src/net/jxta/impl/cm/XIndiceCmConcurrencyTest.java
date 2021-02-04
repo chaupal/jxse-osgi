@@ -4,7 +4,11 @@ import java.io.IOException;
 
 import org.junit.Ignore;
 
+<<<<<<< HEAD
 import net.jxta.util.threads.TaskManager;
+=======
+import net.jxta.impl.util.threads.TaskManager;
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git
 
 @Ignore("Takes too long to run")
 public class XIndiceCmConcurrencyTest extends AbstractCmConcurrencyTest {

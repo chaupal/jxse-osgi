@@ -70,6 +70,7 @@ import net.jxta.id.IDFactory;
 import net.jxta.impl.platform.NetworkManager;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.protocol.ContentShareAdvertisement;
+
 import java.io.*;
 import java.util.*;
 import java.net.*;

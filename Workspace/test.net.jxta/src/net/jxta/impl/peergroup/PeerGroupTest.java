@@ -189,7 +189,7 @@ public class PeerGroupTest {
         try {
             ModuleClassID baseClass = IDFactory.newModuleClassID();
             ModuleSpecID msid = IDFactory.newModuleSpecID(baseClass);
-            ModuleImplAdvertisement mia = pg1.getAllPurposePeerGroupImplAdvertisement();
+           ModuleImplAdvertisement mia = pg1.getAllPurposePeerGroupImplAdvertisement();
             mia.setModuleSpecID(msid);
 
             LOG.info("New MIA:\n" + mia);
