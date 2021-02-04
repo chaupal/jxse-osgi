@@ -14,13 +14,13 @@
 		<plugin id="derbyclient"/>
 		<plugin id="javax.servlet"/>
 		<plugin id="javax.servlet.source"/>
-		<plugin id="org.apache.felix.gogo.command" version="1.1.0.v20201023-1558"/>
+		<plugin id="org.apache.felix.gogo.command"/>
 		<plugin id="org.apache.felix.gogo.command.source"/>
-		<plugin id="org.apache.felix.gogo.runtime" version="1.1.2.v20201023-1558"/>
+		<plugin id="org.apache.felix.gogo.runtime"/>
 		<plugin id="org.apache.felix.gogo.runtime.source"/>
-		<plugin id="org.apache.felix.gogo.shell" version="1.1.2.v20201023-1558"/>
+		<plugin id="org.apache.felix.gogo.shell"/>
 		<plugin id="org.apache.felix.gogo.shell.source"/>
-		<plugin id="org.eclipse.equinox.console" version="1.4.200.v20200828-1034"/>
+		<plugin id="org.eclipse.equinox.console"/>
 		<plugin id="org.eclipse.equinox.console.source"/>
 		<plugin id="org.eclipse.equinox.ds"/>
 		<plugin id="org.eclipse.equinox.http.jetty"/>
@@ -51,14 +51,12 @@
 		<plugin id="org.eclipse.osgi.util.source"/>
 		<plugin id="org.eclipse.swtbot.junit4_x"/>
 		<plugin id="org.hamcrest.core"/>
-		<plugin id="org.jboss.netty" version="3.9.9.Final"/>
+		<plugin id="org.jboss.netty"/>
 		<plugin id="org.junit"/>
 		<plugin id="org.osgi.service.jdbc"/>
 		<plugin id="org.slf4j.api"/>
-		<plugin id="com.h2database"/>
-		<plugin id="org.mortbay.jetty.server"/>
-		<plugin id="org.mortbay.jetty.util"/>
 		<plugin id="org.eclipse.jetty.util.ajax"/>
 		<plugin id="org.eclipse.jetty.util.ajax.source"/>
+		<plugin id="org.h2"/>
 	</includeBundles>
 </target>

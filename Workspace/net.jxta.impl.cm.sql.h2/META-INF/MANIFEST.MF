@@ -7,6 +7,6 @@ Bundle-Vendor: chaupal.org
 Automatic-Module-Name: net.jxta.impl.cm.sql.derby
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Fragment-Host: net.jxta
-Import-Package: org.h2;version="1.4.200",
- org.h2.jdbcx;version="1.4.200"
+Import-Package: org.h2,
+ org.h2.jdbcx
 Export-Package: net.jxta.impl.cm.sql.h2

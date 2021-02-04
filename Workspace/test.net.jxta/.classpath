@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="net/jxta/impl/cm/sql/DerbyAdvertisementCacheTest.java|net/jxta/impl/cm/sql/DerbySeedDbGenerator.java|net/jxta/impl/cm/sql/TestSuiteCMSql.java|net/jxta/impl/endpoint/netty/EndToEndTest.java|net/jxta/impl/endpoint/netty/InetSocketAddressTranslatorTest.java|net/jxta/impl/endpoint/netty/JxtaProtocolHandlerTest.java|net/jxta/impl/endpoint/netty/MessageDispatchHandlerTest.java|net/jxta/impl/endpoint/netty/NettyTransportClientTest.java|net/jxta/impl/endpoint/netty/NettyTransportServerTest.java|net/jxta/impl/endpoint/netty/NettyTransportTest.java|net/jxta/impl/endpoint/netty/TestSuiteNetty.java|net/jxta/impl/endpoint/servlethttp/CharacteriseHttpMessageReceiverTest.java|net/jxta/impl/cm/sql/H2AdvertisementCacheTest.java|net/jxta/impl/cm/sql/H2CmConcurrencyTest.java" kind="src" path="src"/>
-	<classpathentry exported="true" kind="lib" path="lib/apache/org.apache.log4j-1.2.13.v200706111418.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.apache.log4j-1.2.13.v200706111418.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jmock/cglib-3.3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jmock/cglib-nodep-3.3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jmock/hamcrest-core-2.2.jar"/>
