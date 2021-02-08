@@ -66,6 +66,7 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.junit.After;
 import org.junit.Before;
@@ -221,20 +222,35 @@ public abstract class AbstractCmTest {
     public void testGetLifetime_withUnknownDnFnPair() throws Exception {
     	assertEquals(-1L, cm.getLifetime("does", "notexist"));
 	}
+   
+    private Logger logger = Logger.getLogger(this.getClass().getName());
     
-    @Test
-    public void testGetLifetime() throws Exception {
-    	fakeTimer.currentTime = 0;
-    	cm.save("a", "b", createPeerAdvert(groupId, "Peer1"), 50000, 100000);
-    	
-    	assertEquals(50000L, cm.getLifetime("a", "b"));
-    	fakeTimer.currentTime = 20000;
-    	assertEquals(30000L, cm.getLifetime("a", "b"));
-    	fakeTimer.currentTime = 40000;
-    	assertEquals(10000L, cm.getLifetime("a", "b"));
-    	fakeTimer.currentTime = 60000;
-    	assertEquals(-10000L, cm.getLifetime("a", "b"));
-    }
+    /**
+     * CP: Again, these tests do not seem to cater for changes made in previous tests.
+     * In particular, the autowarp test impairs this one. By adding a reset to TimeUtils,
+     * the timer can be reset to a default
+     * 
+     * @throws Exception
+     */
+     @Test
+     public void testGetLifetime() throws Exception {
+     	fakeTimer.currentTime = 0;
+     	TimeUtils.reset();
+     	long lifeTime = cm.getLifetime("a", "b");
+     	cm.save("a", "b", createPeerAdvert(groupId, "Peer1"), 50000, 100000);
+     	
+     	lifeTime = cm.getLifetime("a", "b");
+     	assertEquals(50000, lifeTime );
+     	fakeTimer.currentTime = 20000;
+     	lifeTime = cm.getLifetime("a", "b");
+     	assertEquals(30000, lifeTime);
+     	fakeTimer.currentTime = 40000;
+     	lifeTime = cm.getLifetime("a", "b");
+     	assertEquals(10000, lifeTime);
+     	fakeTimer.currentTime = 60000;
+     	lifeTime = cm.getLifetime("a", "b");
+     	assertEquals(-10000, lifeTime);
+     }
     
     @Test
     public void testGetExpirationTime_withUnknownDnFnPair() throws Exception {
@@ -564,8 +580,7 @@ public abstract class AbstractCmTest {
      */
     private class EntryComparator implements Comparator<Entry> {
 
-        @Override
-		public int compare(Entry o1, Entry o2) {
+        public int compare(Entry o1, Entry o2) {
             return o1.key.equals(o2.key) && o1.value.equals(o2.value) && o1.expiration == o2.expiration ? 0 : -1;
         }
     }

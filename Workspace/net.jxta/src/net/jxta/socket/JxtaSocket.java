@@ -546,6 +546,7 @@ public class JxtaSocket extends Socket implements PipeMsgListener, OutputPipeLis
         connect(group, peerid, pipeAdv, timeout);
     }
 
+    
     /**
      * {@inheritDoc}
      */

@@ -85,8 +85,6 @@ import net.jxta.peergroup.core.ModuleClassID;
 import net.jxta.protocol.ConfigParams;
 import net.jxta.protocol.TransportAdvertisement;
 
-import javax.security.cert.CertificateException;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -97,6 +95,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.security.PrivateKey;
+import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Enumeration;
 import java.util.List;
@@ -273,6 +272,10 @@ public class NetworkConfigurator {
      * Default Relay configuration
      */
     public final static int RELAY_NODE = RELAY_SERVER | TCP_CLIENT | TCP_SERVER | HTTP_SERVER | HTTP2_SERVER;
+
+	private static final String PSE_PRINCIPAL = "impl.membership.pse.authentication.principal";
+
+	private static final String PSE_PASSWORD = "impl.membership.pse.authentication.password";
 
 //    /**
 //     * Default Proxy configuration
@@ -2066,14 +2069,14 @@ public class NetworkConfigurator {
         }
         
         if (principal == null) {
-            principal = System.getProperty("impl.membership.pse.authentication.principal", "");
+            principal = System.getProperty(PSE_PRINCIPAL, "");
             if (principal.equals("")) {                
                 throw new ConfiguratorException("Principal is empty!");
             }
         }
         
         if (password == null) {
-            password = System.getProperty("impl.membership.pse.authentication.password", "");
+            password = System.getProperty(PSE_PASSWORD, "");
         }
         advertisement.setPrivateKey(password);
 
