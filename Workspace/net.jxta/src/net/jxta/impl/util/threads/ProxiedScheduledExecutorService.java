@@ -1,5 +1,6 @@
 package net.jxta.impl.util.threads;
 
+import java.io.Closeable;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -26,7 +27,7 @@ import java.util.concurrent.TimeoutException;
  * 
  */
 public class ProxiedScheduledExecutorService
-        implements ScheduledExecutorService {
+        implements ScheduledExecutorService, Closeable {
     
     /**
      * ScheduledExecutorService instance used for task scheduling.
@@ -301,9 +302,7 @@ public class ProxiedScheduledExecutorService
      * 
      * This implementation calls <code>shutdownNow()</code>.
      */
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
+     public void close(){
         shutdownNow();
     }
 

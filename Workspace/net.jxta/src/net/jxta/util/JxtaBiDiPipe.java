@@ -86,6 +86,7 @@ import net.jxta.protocol.PipeAdvertisement;
 
 import java.io.IOException;
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.InputStream;
 import java.net.SocketTimeoutException;
 import java.util.Collections;
@@ -112,7 +113,7 @@ import java.util.logging.Logger;
  * JxtaBiDiPipe, whenever possible, will attempt to utilize direct tcp messengers,
  * which leads to improved performance.
  */
-public class JxtaBiDiPipe implements PipeMsgListener, OutputPipeListener, ReliableInputStream.MsgListener {
+public class JxtaBiDiPipe implements PipeMsgListener, OutputPipeListener, ReliableInputStream.MsgListener, Closeable {
 
     /**
      * Logger
@@ -941,7 +942,7 @@ public class JxtaBiDiPipe implements PipeMsgListener, OutputPipeListener, Reliab
                         isReliable = Boolean.valueOf(element.toString());
                     }
 
-                    boolean directSupported = false;
+                   boolean directSupported = false;
                     element = message.getMessageElement(JxtaServerPipe.nameSpace, JxtaServerPipe.directSupportedTag);
                     if (element != null) {
                         directSupported = Boolean.valueOf(element.toString());
@@ -1439,24 +1440,5 @@ public class JxtaBiDiPipe implements PipeMsgListener, OutputPipeListener, Reliab
      */
     public PipeAdvertisement getPipeAdvertisement() {
         return pipeAdv;
-    }
-
-    /**
-     * {@inheritDoc}
-     * <p/>
-     * Closes the JxtaBiDiPipe.
-     */
-    @Override
-    protected void finalize() throws Throwable {
-        try {
-            if (!closed) {
-                if (Logging.SHOW_WARNING && LOG.isLoggable(Level.WARNING)) {
-                    LOG.warning("JxtaBiDiPipe is being finalized without being previously closed. This is likely a users bug.");
-                }
-                close();
-            }
-        } finally {
-            super.finalize();
-        }
     }
 }

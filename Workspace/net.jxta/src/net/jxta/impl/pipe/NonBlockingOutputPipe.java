@@ -241,18 +241,6 @@ class NonBlockingOutputPipe implements PipeResolver.Listener, OutputPipe, Runnab
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void finalize() throws Throwable {
-
-        if (!closed) Logging.logCheckedWarning(LOG, "Pipe is being finalized without being previously closed. This is likely a bug.");
-        close();
-        super.finalize();
-
-    }
-
     protected PeerGroup getPeerGroup() {
 		return peerGroup;
 	}

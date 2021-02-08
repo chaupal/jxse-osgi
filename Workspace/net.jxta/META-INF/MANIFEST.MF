@@ -394,7 +394,7 @@ Export-Package: net.jxta,
  net.jxta.util.cardinality,
  net.jxta.util.documentSerializable;uses:="net.jxta.document,net.jxta.exception"
 Automatic-Module-Name: net.jxta
-Import-Package: net.jxta.document,
+Import-Package: net.jxta.protocol,
  org.slf4j;version="1.4.0",
  org.spongycastle.asn1,
  org.spongycastle.asn1.x509,

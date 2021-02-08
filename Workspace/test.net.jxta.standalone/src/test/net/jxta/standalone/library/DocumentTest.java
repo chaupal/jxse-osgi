@@ -54,7 +54,7 @@
  *  This license is based on the BSD license adopted by the Apache Foundation. 
  */
 
-package net.jxta.document;
+package test.net.jxta.standalone.library;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -68,8 +68,19 @@ import java.security.ProviderException;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.logging.Logger;
 
 import junit.framework.TestCase;
+import net.jxta.document.Attributable;
+import net.jxta.document.Attribute;
+import net.jxta.document.Element;
+import net.jxta.document.MimeMediaType;
+import net.jxta.document.StructuredDocument;
+import net.jxta.document.StructuredDocumentFactory;
+import net.jxta.document.StructuredTextDocument;
+import net.jxta.document.TextElement;
+import net.jxta.document.XMLDocument;
+import net.jxta.document.XMLElement;
 import net.jxta.impl.document.LiteXMLDocument;
 import net.jxta.impl.document.PlainTextDocument;
 
@@ -129,6 +140,8 @@ public final class DocumentTest extends TestCase {
         }
     }
 
+    private Logger logger = Logger.getLogger(this.getClass().getName());
+    
     @SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	private void _test(StructuredDocumentFactory.Instantiator instantiator, MimeMediaType type) throws Exception {
         final String useDocType = "Test";
@@ -380,51 +393,56 @@ public final class DocumentTest extends TestCase {
     }
 
     public void _testAttributesSolo(StructuredDocumentFactory.Instantiator instantiator, MimeMediaType type) {
-    	try {
-    		ByteArrayOutputStream os = new ByteArrayOutputStream();
-    		StructuredDocument<?> doc = instantiator.newInstance(type, "Message");
+        try {
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            StructuredDocument<?> doc = instantiator.newInstance(type, "Message");
+            
+            List<Attribute> attrs = Collections.list(((Attributable) doc).getAttributes());
+            logger.info( "Amount of attributes: " + attrs.size());
 
-    		List<Attribute> attrs = Collections.list(((Attributable) doc).getAttributes());
+            assertTrue("should be no attributes", !((Attributable) doc).getAttributes().hasMoreElements());
 
-    		assertTrue("should be no attributes", !((Attributable) doc).getAttributes().hasMoreElements());
+            //Now we serialise the document, in order to fix the structure that is read. This may cause attributes to be
+            //added, as they were alreasy present in the document structure
+            doc.sendToStream(os);
+            attrs = Collections.list(((Attributable) doc).getAttributes());
+            int size = attrs.size();
+            logger.info( "Amount of attributes: " + size);
+            
+            ((Attributable) doc).addAttribute("version", "123");
+            attrs = Collections.list(((Attributable) doc).getAttributes());
+            logger.info( "Amount of attributes: " + attrs.size());
 
-    		//Now we serialise the document, in order to fix the structure that is read. This may cause attributes to be
-    		//added, as they were alreasy present in the document structure
-    		doc.sendToStream(os);
-    		attrs = Collections.list(((Attributable) doc).getAttributes());
-    		int size = attrs.size();
+            doc.sendToStream(os);
 
-    		((Attributable) doc).addAttribute("version", "123");
-    		attrs = Collections.list(((Attributable) doc).getAttributes());
+            attrs = Collections.list(((Attributable) doc).getAttributes());
+            logger.info( "Amount of attributes: " + attrs.size());
 
-    		doc.sendToStream(os);
+            String old = ((Attributable) doc).addAttribute("version", "1xx23");
 
-    		attrs = Collections.list(((Attributable) doc).getAttributes());
+            assertTrue("updating attribute gave wrong result", "123".equals(old));
+            doc.sendToStream(os);
 
-    		String old = ((Attributable) doc).addAttribute("version", "1xx23");
+            attrs = Collections.list(((Attributable) doc).getAttributes());
+            logger.info( "Amount of attributes: " + attrs.size());
 
-    		assertTrue("updating attribute gave wrong result", "123".equals(old));
-    		doc.sendToStream(os);
+            size+=1;//One attribute has been added
+            assertTrue("should be " + (size) + " attribute", size == attrs.size());
 
-    		attrs = Collections.list(((Attributable) doc).getAttributes());
+            if (type.getSubtype().equalsIgnoreCase("XML")) {
+                try {
 
-    		size+=1;//One attribute has been added
-    		assertTrue("should be " + (size) + " attribute", size == attrs.size());
+                    ((Attributable) doc).addAttribute(new Attribute("really long and wrong", "whatever"));
 
-    		if (type.getSubtype().equalsIgnoreCase("XML")) {
-    			try {
+                    fail("Attribute names with spaces should be disallowed");
+                } catch (Exception failed) {// that's ok
+                }
+            }
 
-    				((Attributable) doc).addAttribute(new Attribute("really long and wrong", "whatever"));
-
-    				fail("Attribute names with spaces should be disallowed");
-    			} catch (Exception failed) {// that's ok
-    			}
-    		}
-
-    	} catch (Throwable everything) {
-    		everything.printStackTrace();
-    		fail("Caught an unexpected exception - " + everything.toString());
-    	}
+        } catch (Throwable everything) {
+            everything.printStackTrace();
+            fail("Caught an unexpected exception - " + everything.toString());
+        }
     }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })

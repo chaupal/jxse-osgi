@@ -59,6 +59,7 @@ package net.jxta.impl.membership.pse;
 import net.jxta.id.ID;
 import net.jxta.id.IDFactory;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -81,7 +82,7 @@ import net.jxta.logging.Logging;
 /**
  * Manages the state of a Personal Security Enviroment.
  */
-public final class PSEConfig {
+public final class PSEConfig implements Closeable{
 
     private final static transient Logger LOG = Logging.getLogger(PSEConfig.class.getName());
 
@@ -130,13 +131,10 @@ public final class PSEConfig {
     /**
      * {@inheritDoc}
      */
-    @Override
-    protected void finalize() throws Throwable {
+    public void close() {
         if (null != keystorePassword) {
             Arrays.fill(keystorePassword, '\0');
         }
-
-        super.finalize();
     }
 
     /**

@@ -57,6 +57,7 @@
 package net.jxta.impl.endpoint.tcp;
 
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -99,7 +100,7 @@ import net.jxta.peer.PeerID;
 /**
  * Implements a messenger which sends messages via raw TCP sockets.
  */
-public class TcpMessenger extends BlockingMessenger implements Runnable {
+public class TcpMessenger extends BlockingMessenger implements Runnable, Closeable {
 
     private static final Logger LOG = Logging.getLogger(TcpMessenger.class.getName());
 
@@ -432,22 +433,12 @@ public class TcpMessenger extends BlockingMessenger implements Runnable {
      * for the reason explained above.
      * @throws Throwable for errors during finalization.
      */
-    @Override
-    protected void finalize() throws Throwable {
-
-        try {
-
-            Logging.logCheckedWarning(LOG, "Messenger being finalized. closing messenger");
-            closeImpl();
-
-        } finally {
-
-            super.finalize();
-
-        }
-
+    public void close() {
+        Logging.logCheckedWarning(LOG, "Messenger being finalized. closing messenger");
+        closeImpl();
+    	super.close();
     }
-
+    
     /**
      * {@inheritDoc}
      * <p/>

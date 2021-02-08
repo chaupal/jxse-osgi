@@ -10,7 +10,6 @@ import java.text.MessageFormat;
 import java.io.File;
 import java.io.IOException;
 
-import javax.security.cert.CertificateException;
 import javax.swing.JOptionPane;
 
 public class WorkingWithLocalConfiguration {
@@ -66,11 +65,9 @@ public class WorkingWithLocalConfiguration {
             } catch (IOException ex) {
                 ex.printStackTrace();
                 System.exit(-1);
-            } catch (CertificateException ex) {
-                // An issue with the existing peer certificate has been encountered
-                ex.printStackTrace();
-                System.exit(-1);
-            }
+            } catch (java.security.cert.CertificateException e) {
+				e.printStackTrace();
+			}
         } else {
             System.out.println("No local configuration found");
             TheConfig.setName(Local_Peer_Name);

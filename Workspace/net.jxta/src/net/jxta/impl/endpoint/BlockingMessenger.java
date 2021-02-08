@@ -55,6 +55,7 @@
  */
 package net.jxta.impl.endpoint;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.Timer;
@@ -89,7 +90,7 @@ import net.jxta.util.SimpleSelectable;
  * This the only base messenger class meant to be extended by outside code that is in the impl tree. The
  * reason being that what it replaces was there already and that new code should not become dependant upon it.
  */
-public abstract class BlockingMessenger extends AbstractMessenger {
+public abstract class BlockingMessenger extends AbstractMessenger implements Closeable{
 
     private final static transient Logger LOG = Logging.getLogger(BlockingMessenger.class.getName());
 
@@ -100,7 +101,8 @@ public abstract class BlockingMessenger extends AbstractMessenger {
      * makes the owning canonical messenger, if any, subject to removal if it is
      * otherwise unreferenced.
      */
-    private final static transient Timer timer = new Timer("BlockingMessenger self destruct timer", true);
+    @SuppressWarnings("unused")
+	private final static transient Timer timer = new Timer("BlockingMessenger self destruct timer", true);
 
     /*
      * Actions that we defer to after returning from event methods. In other 
@@ -278,7 +280,7 @@ public abstract class BlockingMessenger extends AbstractMessenger {
      * practice is to be removed in the future, in favor of making incoming messengers full-featured
      * async messengers that can be shared.
      */
-    private final class BlockingMessengerChannel extends ChannelMessenger {
+    private final class BlockingMessengerChannel extends ChannelMessenger implements Closeable {
 
         public BlockingMessengerChannel(EndpointAddress baseAddress, PeerGroupID redirection, String origService, String origServiceParam) {
             super(baseAddress, redirection, origService, origServiceParam);
@@ -344,7 +346,8 @@ public abstract class BlockingMessenger extends AbstractMessenger {
         }
 
         // Check if it is worth staying registered
-        public void itemChanged(Object changedObject) {
+        @SuppressWarnings("unused")
+		public void itemChanged(Object changedObject) {
 
             if (!notifyChange()) {
                 if (haveListeners()) {
@@ -454,7 +457,11 @@ public abstract class BlockingMessenger extends AbstractMessenger {
         }
     }
 
-    /**
+    protected Object getOwner() {
+		return owner;
+	}
+
+	/**
      * Sets an owner for this blocking messenger. Owners are normally canonical messengers. The goal of registering the owner is
      * to keep that owner reachable as long as this blocking messenger is.  Canonical messengers are otherwise softly referenced,
      * and so, may be deleted whenever memory is tight.
@@ -558,8 +565,9 @@ public abstract class BlockingMessenger extends AbstractMessenger {
      * they want to break. It will make things look like someone just called close, but it will not
      * actually break anything. However, that will cause the state machine to go through the close process.
      * this will end up calling closeImpl(). That will do.
+     * CP: removed final..implementing classes seem to require additional finalization stuff  
      */
-    public final void close() {
+    public void close() {
         DeferredAction action;
 
         synchronized (stateMachine) {

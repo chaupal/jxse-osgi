@@ -260,7 +260,8 @@ public class JxtaMulticastSocket extends MulticastSocket implements PipeMsgListe
         }
         bound = false;
         closed = true;
-        in.close();
+        if( in != null )
+        	in.close();
         outputPipe.close();
         in = null;
     }

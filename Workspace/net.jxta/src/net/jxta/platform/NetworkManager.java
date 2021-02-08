@@ -60,7 +60,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 
-import javax.security.cert.CertificateException;
+import java.security.cert.CertificateException;
 
 import net.jxta.credential.AuthenticationCredential;
 import net.jxta.credential.Credential;

@@ -56,6 +56,8 @@
 
 package net.jxta.pipe;
 
+import java.io.Closeable;
+
 import net.jxta.endpoint.Message;
 import net.jxta.id.ID;
 import net.jxta.protocol.PipeAdvertisement;
@@ -76,7 +78,7 @@ import net.jxta.protocol.PipeAdvertisement;
  * @see    net.jxta.endpoint.MessageElement
  * @see    net.jxta.protocol.PipeAdvertisement
  */
-public interface InputPipe {
+public interface InputPipe extends Closeable{
 
     /**
      * Wait (block) for a message to be received.
