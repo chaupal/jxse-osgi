@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="test.net.jxta.standalone" sequenceNumber="109">
+	<locations>
+		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\http" type="Directory"/>
+		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\log" type="Directory"/>
+		<location path="${eclipse_home}" type="Profile"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\h2" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\derby" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\netty" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\osgi" type="Directory"/>
+	</locations>
+</target>

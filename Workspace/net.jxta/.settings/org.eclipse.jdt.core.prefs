@@ -13,4 +13,8 @@ org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
 org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
 org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures=warning
 org.eclipse.jdt.core.compiler.release=disabled
+<<<<<<< HEAD
 org.eclipse.jdt.core.compiler.source=15
+=======
+org.eclipse.jdt.core.compiler.source=1.5
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git

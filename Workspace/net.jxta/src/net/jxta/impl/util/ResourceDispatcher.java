@@ -56,6 +56,8 @@
 
 package net.jxta.impl.util;
 
+import java.io.Closeable;
+
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 
@@ -143,7 +145,7 @@ import net.jxta.logging.Logging;
  * </pre>
  */
 
-public class ResourceDispatcher {
+public class ResourceDispatcher{
 
     private final static transient Logger LOG = Logging.getLogger(ResourceDispatcher.class.getName());
 
@@ -157,7 +159,7 @@ public class ResourceDispatcher {
 
     private final String myName;
 
-    class ClientAccount extends Dlink implements ResourceAccount {
+    class ClientAccount extends Dlink implements ResourceAccount, Closeable {
 
         /**
          * Tells whether this account has any use for extra resources
@@ -268,18 +270,6 @@ public class ResourceDispatcher {
             }
 
             nbReserved = 0;
-        }
-
-        /**
-         *  {@inheritDoc}
-         *
-         *  <p/>Will close the account. (close is idempotent).
-         */
-        @Override
-        protected void finalize() throws Throwable {
-            close();
-
-            super.finalize();
         }
 
         /**

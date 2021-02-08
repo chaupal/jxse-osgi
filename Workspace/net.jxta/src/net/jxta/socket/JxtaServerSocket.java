@@ -174,7 +174,8 @@ public class JxtaServerSocket extends ServerSocket implements PipeMsgListener {
     protected volatile boolean closed = false;
     private CredentialValidator credValidator = null;
 
-    private volatile Throwable creatorTrace =
+    @SuppressWarnings("unused")
+	private volatile Throwable creatorTrace =
             new Throwable("Instance construction stack trace");
     private PeerGroup netPeerGroup;
 
@@ -383,20 +384,6 @@ public class JxtaServerSocket extends ServerSocket implements PipeMsgListener {
         this.credValidator = credValidator;
         this.encrypt = encrypt;
         bind(group, pipeAdv, backlog);
-    }
-
-    /**
-     * {@inheritDoc}
-     * <p/>
-     * Closes the JxtaServerPipe.
-     */
-    @Override
-    protected void finalize() throws Throwable {
-
-        super.finalize();
-        if (!closed) Logging.logCheckedWarning(LOG, "JxtaServerSocket is being finalized without being previously closed. This is likely an application level bug.", creatorTrace);
-        close();
-
     }
 
     /**
@@ -686,7 +673,8 @@ public class JxtaServerSocket extends ServerSocket implements PipeMsgListener {
     /**
      * {@inheritDoc}
      */
-    public void pipeMsgEvent(PipeMsgEvent event) {
+    @SuppressWarnings("unused")
+	public void pipeMsgEvent(PipeMsgEvent event) {
 
         // deal with messages as they come in
         Message message = event.getMessage();
@@ -720,7 +708,8 @@ public class JxtaServerSocket extends ServerSocket implements PipeMsgListener {
      * @param msg The client connection request (assumed not null)
      * @return JxtaSocket Which may be null if an error occurs.
      */
-    private JxtaSocket processMessage(Message msg) {
+    @SuppressWarnings("unchecked")
+	private JxtaSocket processMessage(Message msg) {
 
         PipeAdvertisement remoteEphemeralPipeAdv = null;
         PeerAdvertisement remotePeerAdv = null;

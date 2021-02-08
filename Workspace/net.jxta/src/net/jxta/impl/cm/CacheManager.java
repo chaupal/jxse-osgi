@@ -65,10 +65,8 @@ import java.util.List;
 
 import net.jxta.discovery.DiscoveryService;
 import net.jxta.document.Advertisement;
-import net.jxta.document.StructuredTextDocument;
 import net.jxta.impl.util.TimeUtils;
 import net.jxta.impl.util.threads.TaskManager;
-import net.jxta.impl.xindice.core.indexer.IndexQuery;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 import net.jxta.protocol.SrdiMessage.Entry;
@@ -99,231 +97,213 @@ import net.jxta.protocol.SrdiMessage.Entry;
  */
 public final class CacheManager {
 
-    public static final int NO_THRESHOLD = Integer.MAX_VALUE;
+	public static final int NO_THRESHOLD = Integer.MAX_VALUE;
 	public static final String CACHE_IMPL_SYSPROP = "net.jxta.impl.cm.cache.impl";
 
 	private final static Logger LOG = Logging.getLogger(CacheManager.class.getName());
-	
-    /**
-     * @deprecated use {@link XIndiceAdvertisementCache#DEFAULT_GC_MAX_INTERVAL } instead
-     */
+
+	/**
+	 * @deprecated use {@link XIndiceAdvertisementCache#DEFAULT_GC_MAX_INTERVAL } instead
+	 */
 	@Deprecated
-    public static final long DEFAULT_GC_MAX_INTERVAL = 1 * TimeUtils.ANHOUR;
+	public static final long DEFAULT_GC_MAX_INTERVAL = 1 * TimeUtils.ANHOUR;
 
-    private AdvertisementCache wrappedImpl;
+	private AdvertisementCache wrappedImpl;
 
-    public CacheManager(AdvertisementCache wrappedImpl) {
-        this.wrappedImpl = wrappedImpl;
-    }
+	public CacheManager(AdvertisementCache wrappedImpl) {
+		this.wrappedImpl = wrappedImpl;
+	}
 
-    /**
-     * Creates a Cm which wraps a {@link XIndiceAdvertisementCache } constructed with the
-     * provided parameters.
-     * 
+	/**
+	 * Creates a Cm which wraps a {@link XIndiceAdvertisementCache } constructed with the
+	 * provided parameters.
+	 * 
 	 * XXX I'm not sure how to support an arbitrary executor in this context.
 	 * XXX Granted, this is only used in tests right now, but clearly we dont need
 	 * XXX yet another pool floating around.  SingleThreadExecutor is used in the default impl.
-     * @throws IOException 
-     */
-    public CacheManager(URI storeRoot, String areaName, TaskManager taskManager) throws IOException {
+	 * @throws IOException 
+	 */
+	public CacheManager(URI storeRoot, String areaName, TaskManager taskManager) throws IOException {
 
-    	String cacheImpl = System.getProperty(CACHE_IMPL_SYSPROP);
-    	
-        if(cacheImpl == null) {
-        	Logging.logCheckedConfig(LOG, "No CacheManager backend implementation specified through system property - using default implementation");
-    	    this.wrappedImpl = new XIndiceAdvertisementCache(storeRoot, areaName, taskManager);
-    	} else {
-    		Logging.logCheckedConfig(LOG, "Attempting to use CacheManager backend implementatation class: " + cacheImpl);
-            try {
-                Class<?> cacheClass = Class.forName(cacheImpl);
-                Class<? extends AdvertisementCache> cacheClassChecked = cacheClass.asSubclass(AdvertisementCache.class);
-                Constructor<? extends AdvertisementCache> constructor = cacheClassChecked.getConstructor(URI.class, String.class, TaskManager.class);
-                this.wrappedImpl = constructor.newInstance(storeRoot, areaName, taskManager);
-                Logging.logCheckedConfig(LOG, "Successfully loaded CacheManager backend implementation class: " + cacheImpl);
+		String cacheImpl = System.getProperty(CACHE_IMPL_SYSPROP);
 
-            } catch (Exception e) {
+		if(cacheImpl == null) {
+			Logging.logCheckedConfig(LOG, "No CacheManager backend implementation specified through system property - using default implementation");
+			this.wrappedImpl = new XIndiceAdvertisementCache(storeRoot, areaName, taskManager);
+		} else {
+			Logging.logCheckedConfig(LOG, "Attempting to use CacheManager backend implementatation class: " + cacheImpl);
+			try {
+				Class<?> cacheClass = Class.forName(cacheImpl);
+				Class<? extends AdvertisementCache> cacheClassChecked = cacheClass.asSubclass(AdvertisementCache.class);
+				Constructor<? extends AdvertisementCache> constructor = cacheClassChecked.getConstructor(URI.class, String.class, TaskManager.class);
+				this.wrappedImpl = constructor.newInstance(storeRoot, areaName, taskManager);
+				Logging.logCheckedConfig(LOG, "Successfully loaded CacheManager backend implementation class: " + cacheImpl);
 
-                Logging.logCheckedError(LOG, "Unable to construct cache type [", cacheImpl, "] specified by system property, constructing default\n", e);
-                this.wrappedImpl = new XIndiceAdvertisementCache(storeRoot, areaName, taskManager);
+			} catch (Exception e) {
 
-            }
-    	}
-    }
+				Logging.logCheckedError(LOG, "Unable to construct cache type [", cacheImpl, "] specified by system property, constructing default\n", e);
+				this.wrappedImpl = new XIndiceAdvertisementCache(storeRoot, areaName, taskManager);
 
-    /**
-     * Creates a Cm which wraps a {@link XIndiceAdvertisementCache } constructed with the
-     * provided parameters.
-     * @throws IOException 
-     */
+			}
+		}
+	}
 
-    public CacheManager(URI storeRoot, String areaName, TaskManager taskManager, long gcinterval, boolean trackDeltas) throws IOException {
-    	
-        String cacheImpl = System.getProperty(CACHE_IMPL_SYSPROP);
+	/**
+	 * Creates a Cm which wraps a {@link XIndiceAdvertisementCache } constructed with the
+	 * provided parameters.
+	 * @throws IOException 
+	 */
 
-    	if(cacheImpl == null) {
-    	    this.wrappedImpl = new XIndiceAdvertisementCache(storeRoot, areaName, taskManager, gcinterval, trackDeltas);
-    	} else {
-            try {
-                Class<?> cacheClass = Class.forName(cacheImpl);
-                Class<? extends AdvertisementCache> cacheClassChecked = cacheClass.asSubclass(AdvertisementCache.class);
-                Constructor<? extends AdvertisementCache> constructor = cacheClassChecked.getConstructor(URI.class, String.class, TaskManager.class, long.class, boolean.class);
-                this.wrappedImpl = constructor.newInstance(storeRoot, areaName, taskManager, gcinterval, trackDeltas);
+	public CacheManager(URI storeRoot, String areaName, TaskManager taskManager, long gcinterval, boolean trackDeltas) throws IOException {
 
-            } catch (Exception e) {
+		String cacheImpl = System.getProperty(CACHE_IMPL_SYSPROP);
 
-                Logging.logCheckedError(LOG, "Unable to construct cache type [", cacheImpl, "] specified by system property, constructing default\n", e);
-                this.wrappedImpl = new XIndiceAdvertisementCache(storeRoot, areaName, taskManager, gcinterval, trackDeltas);
+		if(cacheImpl == null) {
+			this.wrappedImpl = new XIndiceAdvertisementCache(storeRoot, areaName, taskManager, gcinterval, trackDeltas);
+		} else {
+			try {
+				Class<?> cacheClass = Class.forName(cacheImpl);
+				Class<? extends AdvertisementCache> cacheClassChecked = cacheClass.asSubclass(AdvertisementCache.class);
+				Constructor<? extends AdvertisementCache> constructor = cacheClassChecked.getConstructor(URI.class, String.class, TaskManager.class, long.class, boolean.class);
+				this.wrappedImpl = constructor.newInstance(storeRoot, areaName, taskManager, gcinterval, trackDeltas);
 
-            }
-    	}
-    }
+			} catch (Exception e) {
 
-    public List<Entry> getDeltas(String dn) {
-        return wrappedImpl.getDeltas(dn);
-    }
+				Logging.logCheckedError(LOG, "Unable to construct cache type [", cacheImpl, "] specified by system property, constructing default\n", e);
+				this.wrappedImpl = new XIndiceAdvertisementCache(storeRoot, areaName, taskManager, gcinterval, trackDeltas);
 
-    public List<Entry> getEntries(String dn, boolean clearDeltas) {
+			}
+		}
+	}
 
-        try {
+	public List<Entry> getDeltas(String dn) {
+		return wrappedImpl.getDeltas(dn);
+	}
 
-            return wrappedImpl.getEntries(dn, clearDeltas);
+	public List<Entry> getEntries(String dn, boolean clearDeltas) {
 
-        } catch(IOException e) {
+		try {
 
-            Logging.logCheckedWarning(LOG, "Exception occurred when getting entries for dn=[", dn, "], clearDeltas=[", clearDeltas, "]\n", e);
-            return new ArrayList<Entry>(0);
+			return wrappedImpl.getEntries(dn, clearDeltas);
 
-        }
+		} catch(IOException e) {
 
-    }
+			Logging.logCheckedWarning(LOG, "Exception occurred when getting entries for dn=[", dn, "], clearDeltas=[", clearDeltas, "]\n", e);
+			return new ArrayList<Entry>(0);
 
-    public long getExpirationtime(String dn, String fn) {
-
-        try {
-
-	    return wrappedImpl.getExpirationtime(dn, fn);
-
-	} catch (IOException e) {
-
-            Logging.logCheckedWarning(LOG, "Exception occurred when attempting to determine expiration time of dn=[", dn, "], fn=[", fn, "]\n", e);
-	    return -1;
+		}
 
 	}
 
-    }
+	public long getExpirationtime(String dn, String fn) {
 
-    public InputStream getInputStream(String dn, String fn) throws IOException {
-        return wrappedImpl.getInputStream(dn, fn);
-    }
+		try {
 
-    public long getLifetime(String dn, String fn) {
+			return wrappedImpl.getExpirationtime(dn, fn);
 
-        try {
+		} catch (IOException e) {
 
-	    return wrappedImpl.getLifetime(dn, fn);
+			Logging.logCheckedWarning(LOG, "Exception occurred when attempting to determine expiration time of dn=[", dn, "], fn=[", fn, "]\n", e);
+			return -1;
 
-	} catch (IOException e) {
-
-	    Logging.logCheckedWarning(LOG, "Exception occurred when attempting to determine lifetime of dn=[", dn, "], fn=[", fn, "]\n", e);
-            return -1;
+		}
 
 	}
 
-    }
+	public InputStream getInputStream(String dn, String fn) throws IOException {
+		return wrappedImpl.getInputStream(dn, fn);
+	}
 
-    /**
-     * Gets the list of all the files into the given folder
-     *
-     * @param dn          contains the name of the folder
-     * @param threshold   the max number of results
-     * @param expirations List to contain expirations
-     * @return List Strings containing the name of the
-     *         files
-     */
-    public List<InputStream> getRecords(String dn, int threshold, List<Long> expirations) {
-        return getRecords(dn, threshold, expirations, false);
-    }
+	public long getLifetime(String dn, String fn) {
 
-    public List<InputStream> getRecords(String dn, int threshold, List<Long> expirations, boolean purge) {
+		try {
 
-        try {
+			return wrappedImpl.getLifetime(dn, fn);
 
-	    return wrappedImpl.getRecords(dn, threshold, expirations, purge);
+		} catch (IOException e) {
 
-	} catch (IOException e) {
+			Logging.logCheckedWarning(LOG, "Exception occurred when attempting to determine lifetime of dn=[", dn, "], fn=[", fn, "]\n", e);
+			return -1;
 
-            Logging.logCheckedWarning(LOG, "Exception occurred when to fetch records at dn=[", dn, "]\n", e);
-            return new ArrayList<InputStream>(0);
+		}
 
-        }
-	
-    }
+	}
 
-    public void remove(String dn, String fn) throws IOException {
-        wrappedImpl.remove(dn, fn);
-    }
+	/**
+	 * Gets the list of all the files into the given folder
+	 *
+	 * @param dn          contains the name of the folder
+	 * @param threshold   the max number of results
+	 * @param expirations List to contain expirations
+	 * @return List Strings containing the name of the
+	 *         files
+	 */
+	public List<InputStream> getRecords(String dn, int threshold, List<Long> expirations) {
+		return getRecords(dn, threshold, expirations, false);
+	}
 
-    public void save(String dn, String fn, Advertisement adv) throws IOException {
-        save(dn, fn, adv, DiscoveryService.INFINITE_LIFETIME, DiscoveryService.NO_EXPIRATION);
-    }
+	public List<InputStream> getRecords(String dn, int threshold, List<Long> expirations, boolean purge) {
 
-    public void save(String dn, String fn, Advertisement adv, long lifetime, long expiration) throws IOException {
-        wrappedImpl.save(dn, fn, adv, lifetime, expiration);
-    }
+		try {
 
-    public void save(String dn, String fn, byte[] data, long lifetime, long expiration) throws IOException {
-        wrappedImpl.save(dn, fn, data, lifetime, expiration);
-    }
+			return wrappedImpl.getRecords(dn, threshold, expirations, purge);
 
-    public List<InputStream> search(String dn, String attribute, String value, int threshold, List<Long> expirations) {
-        try {
+		} catch (IOException e) {
+
+			Logging.logCheckedWarning(LOG, "Exception occurred when to fetch records at dn=[", dn, "]\n", e);
+			return new ArrayList<InputStream>(0);
+
+		}
+
+	}
+
+	public void remove(String dn, String fn) throws IOException {
+		wrappedImpl.remove(dn, fn);
+	}
+
+	public void save(String dn, String fn, Advertisement adv) throws IOException {
+		save(dn, fn, adv, DiscoveryService.INFINITE_LIFETIME, DiscoveryService.NO_EXPIRATION);
+	}
+
+	public void save(String dn, String fn, Advertisement adv, long lifetime, long expiration) throws IOException {
+		wrappedImpl.save(dn, fn, adv, lifetime, expiration);
+	}
+
+	public void save(String dn, String fn, byte[] data, long lifetime, long expiration) throws IOException {
+		wrappedImpl.save(dn, fn, data, lifetime, expiration);
+	}
+
+	public List<InputStream> search(String dn, String attribute, String value, int threshold, List<Long> expirations) {
+		try {
 			return wrappedImpl.search(dn, attribute, value, threshold, expirations);
 		} catch (IOException e) {
 			return new ArrayList<InputStream>(0);
 		}
-    }
-
-    public void setTrackDeltas(boolean trackDeltas) {
-        wrappedImpl.setTrackDeltas(trackDeltas);
-    }
-
-    public void stop() {
-
-        try {
-	    wrappedImpl.stop();
-	} catch (IOException e) {
-            Logging.logCheckedWarning(LOG, "Error occurred while stopped cache implementation\n", e);
 	}
 
-    }
-
-    public void garbageCollect() {
-
-        try {
-            wrappedImpl.garbageCollect();
-	} catch (IOException e) {
-            Logging.logCheckedWarning(LOG, "Error occurred while garbage collecting\n", e);
+	public void setTrackDeltas(boolean trackDeltas) {
+		wrappedImpl.setTrackDeltas(trackDeltas);
 	}
 
-    }
+	public void stop() {
 
-    /**
-     * @deprecated use {@link XIndiceAdvertisementCache#createTmpName(net.jxta.document.StructuredTextDocument)  }
-     * directly instead.
-     */
-    @Deprecated
-    public static String createTmpName(StructuredTextDocument<?> doc) {
-        return XIndiceAdvertisementCache.createTmpName(doc);
-    }
+		try {
+			wrappedImpl.stop();
+		} catch (IOException e) {
+			Logging.logCheckedWarning(LOG, "Error occurred while stopped cache implementation\n", e);
+		}
 
-    /**
-     * @deprecated use {@link XIndiceAdvertisementCache#getIndexQuery(java.lang.String) }
-     * directly instead.
-     */
-    @Deprecated
-    public static IndexQuery getIndexQuery(String value) {
-        return XIndiceAdvertisementCache.getIndexQuery(value);
-    }
+	}
+
+	public void garbageCollect() {
+
+		try {
+			wrappedImpl.garbageCollect();
+		} catch (IOException e) {
+			Logging.logCheckedWarning(LOG, "Error occurred while garbage collecting\n", e);
+		}
+
+	}
 
 	public String getImplClassName() {
 		return wrappedImpl.getClass().getName();

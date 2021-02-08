@@ -333,7 +333,7 @@ public final class PSEMembershipService implements MembershipService {
      * arguments.
      */
     public int startApp(String[] arg) {
-        Logging.logCheckedInfo(LOG, "PSE Membmership Service started.");
+        Logging.logCheckedInfo(LOG, "PSE Membership Service started.");
         return 0;
 
     }
@@ -343,7 +343,7 @@ public final class PSEMembershipService implements MembershipService {
      **/
     public void stopApp() {
         resign();
-        Logging.logCheckedInfo(LOG, "PSE Membmership Service stopped.");
+        Logging.logCheckedInfo(LOG, "PSE Membership Service stopped.");
 
     }
 
@@ -765,12 +765,16 @@ public final class PSEMembershipService implements MembershipService {
             }
 
             EngineAuthenticator auth = (EngineAuthenticator) authenticate;
-
-            auth.setAuth1_KeyStorePassword(authenticatorEngine.getStorePass(group));
-            auth.setAuth2Identity(assignedID);
-            auth.setAuth3_IdentityPassword(authenticatorEngine.getKeyPass(group));
+            try {
+            	auth.setAuth1_KeyStorePassword(authenticatorEngine.getStorePass(group));
+            	auth.setAuth2Identity(assignedID);
+            	auth.setAuth3_IdentityPassword(authenticatorEngine.getKeyPass(group));
+            }
+            finally {
+            	auth.close();
+            }
         } else {
-            AuthenticationCredential authCred = new AuthenticationCredential(group, "StringAuthentication", null);
+        	AuthenticationCredential authCred = new AuthenticationCredential(group, "StringAuthentication", null);
 
             try {
                 authenticate = apply(authCred);
@@ -792,10 +796,14 @@ public final class PSEMembershipService implements MembershipService {
             String passkey = PSEUtils.base64Encode(privateKeySignature, false);
 
             StringAuthenticator auth = (StringAuthenticator) authenticate;
-
-            auth.setAuth1_KeyStorePassword((String) null);
-            auth.setAuth2Identity(assignedID);
-            auth.setAuth3_IdentityPassword(passkey);
+            try {
+            	auth.setAuth1_KeyStorePassword((String) null);
+            	auth.setAuth2Identity(assignedID);
+            	auth.setAuth3_IdentityPassword(passkey);
+            }
+            finally {
+            	auth.close();
+            }
         }
 
         if (authenticate.isReadyForJoin()) {

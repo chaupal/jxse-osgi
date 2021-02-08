@@ -56,7 +56,6 @@
 package net.jxta.impl.peergroup;
 
 import java.util.Enumeration;
-
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.document.Element;
 import net.jxta.document.MimeMediaType;
@@ -78,11 +77,15 @@ import net.jxta.protocol.ModuleImplAdvertisement;
  */
 public final class CompatibilityUtils {
 
+    /**
+     * Logger.
+     */
     private static final Logger LOG =
             Logging.getLogger(CompatibilityUtils.class.getName());
 
     /**
-     * Package URI to use in the default ModuleImplAdvertisement.
+     * The old jar is no longer maintained by Oracle, so switiching to the most recent
+     * jar on maven
      */
     private static final String MODULE_IMPL_STD_URI =
             //"http://download.java.net/jxta/jxta-jxse/latest/jnlp/lib/jxta.jar";
@@ -107,6 +110,30 @@ public final class CompatibilityUtils {
     private CompatibilityUtils() {
         // Empty
     }
+
+//    /**
+//     * This method exists only to support the deprecated StdPeerGroup
+//     * MODULE_IMPL_STD_URI field.  Do not use.
+//     *
+//     * @return default module impl package URI
+//     * @deprecated will be removed in 2.8
+//     */
+//    @Deprecated
+//    public static String getDefaultPackageURI() {
+//        return MODULE_IMPL_STD_URI;
+//    }
+
+//    /**
+//     * This method exists only to support the deprecated StdPeerGroup
+//     * MODULE_IMPL_STD_PROVIDER field.  Do not use.
+//     *
+//     * @return default module impl provider
+//     * @deprecated will be removed in 2.8
+//     */
+//    @Deprecated
+//    public static String getDefaultProvider() {
+//        return MODULE_IMPL_STD_PROVIDER;
+//    }
 
     /**
      * Given all the required information, constructs and returns a
@@ -165,7 +192,7 @@ public final class CompatibilityUtils {
      * @return {@code true} if we are compatible with the provided statement
      *  otherwise {@code false}.
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings("unchecked")
 	public static boolean isCompatible(Element<?> compat) {
         boolean formatOk = false;
         boolean bindingOk = false;
@@ -175,7 +202,7 @@ public final class CompatibilityUtils {
         }
 
         try {
-            Enumeration<TextElement<?>> hisChildren = ((TextElement)compat).getChildren();
+            Enumeration<TextElement<?>> hisChildren = (Enumeration<TextElement<?>>) compat.getChildren();
             int i = 0;
             while (hisChildren.hasMoreElements()) {
                 // Stop after 2 elements; there shall not be more.
@@ -203,8 +230,12 @@ public final class CompatibilityUtils {
                         specMatches = false;
                         version = null;
                     }
-
-                    formatOk = specMatches && javaLangPackage.isCompatibleWith(version);
+                    if( javaLangPackage.getSpecificationVersion() == null ) {
+                    	String vers = System.getProperty("java.version");
+                    	formatOk = (compareVersion( vers, version )>0);
+                   }else {
+                    	formatOk = specMatches && javaLangPackage.isCompatibleWith(version);
+                    }
 
                 } else if (STD_COMPAT_BINDING.equals(key) && STD_COMPAT_BINDING_VALUE.equals(val)) {
 
@@ -226,6 +257,21 @@ public final class CompatibilityUtils {
         }
 
         return formatOk && bindingOk;
+    }
+
+    public static int compareVersion( String first, String second ) {
+       	String[] splitf = first.split("[.]");
+       	String[] splits = second.split("[.]");
+       	int compare = 0;
+       	int length = splitf.length<splits.length?splitf.length: splits.length;
+       	for( int i=0; i<length; i++) {
+       		int index = Integer.parseInt(splitf[i]);
+           	int index2 = Integer.parseInt(splits[i]);
+            compare = ( index - index2);
+           	if( compare != 0 )
+           	   return compare;
+       	}
+       	return compare; 	
     }
 
 }

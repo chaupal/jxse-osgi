@@ -443,7 +443,7 @@ public class StringMessageElement extends TextMessageElement {
             conversion.onMalformedInput(CodingErrorAction.REPORT);
             conversion.onUnmappableCharacter(CodingErrorAction.REPORT);
 
-            int maxBytes = new Float(conversion.maxBytesPerChar()).intValue();
+            int maxBytes = Float.valueOf(conversion.maxBytesPerChar()).intValue();
 
             multiByteChar = new byte[maxBytes];
             position = multiByteChar.length;

@@ -30,6 +30,7 @@ import net.jxta.pipe.PipeService;
 import net.jxta.platform.NetworkConfigurator;
 import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
+import net.jxta.util.IOUtils;
 import net.jxta.util.JxtaBiDiPipe;
 import net.jxta.util.JxtaServerPipe;
 
@@ -73,7 +74,8 @@ public class RendezVousAdelaideAtOneEnd implements PipeMsgListener {
 
     public static void main(String[] args) {
         
-        try {
+    	JxtaServerPipe myBiDiPipeServer = null;
+    	try {
             
             // Removing any existing configuration?
             Tools.CheckForExistingConfigurationDeletion(Name, ConfigurationFile);
@@ -106,11 +108,11 @@ public class RendezVousAdelaideAtOneEnd implements PipeMsgListener {
 
             // Preparing the listener and creating the BiDiPipe
             PipeMsgListener MyListener = new RendezVousAdelaideAtOneEnd();
-            JxtaServerPipe MyBiDiPipeServer = new JxtaServerPipe(NetPeerGroup, GetPipeAdvertisement());
+            myBiDiPipeServer = new JxtaServerPipe(NetPeerGroup, GetPipeAdvertisement());
             Tools.PopInformationMessage(Name, "Bidirectional pipe server created!");
-            MyBiDiPipeServer.setPipeTimeout(30000);
+            myBiDiPipeServer.setPipeTimeout(30000);
             
-            JxtaBiDiPipe MyBiDiPipe = MyBiDiPipeServer.accept();
+            JxtaBiDiPipe MyBiDiPipe = myBiDiPipeServer.accept();
             
             if (MyBiDiPipe != null) {
             
@@ -163,6 +165,9 @@ public class RendezVousAdelaideAtOneEnd implements PipeMsgListener {
         } catch (ConfiguratorException e) {
 			e.printStackTrace();
 		}
+        finally {
+        	IOUtils.closeQuietely(myBiDiPipeServer);
+        }
 
     }
 

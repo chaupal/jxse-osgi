@@ -50,4 +50,9 @@ Bundle-ClassPath: .,
  lib/jmock/hamcrest-library-2.2.jar,
  lib/jmock/cglib-3.3.0.jar,
  lib/jmock/cglib-nodep-3.3.0.jar,
+<<<<<<< HEAD
  lib/org.apache.log4j-1.2.13.v200706111418.jar
+=======
+ lib/apache/org.apache.log4j-1.2.13.v200706111418.jar
+Export-Package: net.jxta.test.util
+>>>>>>> branch 'main' of https://github.com/chaupal/jxse-osgi.git

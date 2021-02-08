@@ -59,18 +59,24 @@ package net.jxta.socket;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.platform.NetworkManager;
 
+import static org.junit.Assert.fail;
+
 import java.io.*;
 import java.net.SocketTimeoutException;
 import java.util.Arrays;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.text.MessageFormat;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import net.jxta.credential.Credential;
 import net.jxta.endpoint.Messenger;
 import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.PipeAdvertisement;
-import net.jxta.socket.JxtaSocket;
 import net.jxta.impl.util.pipe.reliable.Outgoing;
 import net.jxta.peer.PeerID;
 import net.jxta.platform.JxtaApplication;
@@ -83,7 +89,7 @@ import net.jxta.platform.JxtaApplication;
  * The client will identify how many ITERATIONS of PAYLOADSIZE buffers will be
  * exchanged with the server and then write and read those buffers.
  */
-public class SocketClientTest extends TestCase {
+public class SocketClientTest {
     /**
      *  The maximum ratio of messages we will test losing.
      */
@@ -122,6 +128,10 @@ public class SocketClientTest extends TestCase {
     private transient PipeAdvertisement pipeAdv;
 
     public SocketClientTest() {
+    }
+
+    @Before
+    public void setup() {
         synchronized (SocketClientTest.class) {
             try {
                 if(null == manager) {
@@ -139,9 +149,9 @@ public class SocketClientTest extends TestCase {
             }
         }
 
-        pipeAdv = (PipeAdvertisement) SocketServerTest.getSocketAdvertisement();
+        pipeAdv = (PipeAdvertisement) SocketServerTest.getSocketAdvertisement();    	
     }
-
+    
     /**
      * Interact with the server.
      * @param run
@@ -149,7 +159,7 @@ public class SocketClientTest extends TestCase {
      * @param loss
      * @param delayRatio 
      */
-    public void singleTest(int run, long iterations, double loss, double delayRatio) {
+    protected void singleTest(int run, long iterations, double loss, double delayRatio) {
         try {
 
             long start = System.currentTimeMillis();
@@ -228,7 +238,7 @@ public class SocketClientTest extends TestCase {
 
     /**
      */
-    public void testFailingSocket() {
+    protected void testFailingSocket() {
 
         try {
             for (double loss = 0.0; loss < MAX_MESSAGE_LOSS; loss += MESSAGE_LOSS_INCREMENT) {
@@ -246,7 +256,7 @@ public class SocketClientTest extends TestCase {
 
     /**
      */
-    public void testMessageLoss() {
+    protected void testMessageLoss() {
 
         try {
             for (double loss = 0.0; loss < MAX_MESSAGE_LOSS; loss += MESSAGE_LOSS_INCREMENT) {
@@ -262,7 +272,7 @@ public class SocketClientTest extends TestCase {
 
     /**
      */
-    public void testMessageDelay() {
+    protected void testMessageDelay() {
 
         try {
             for (double delays = 0.0; delays < MAX_MESSAGE_DELAY; delays += MESSAGE_DELAY_INCREMENT) {
@@ -278,7 +288,7 @@ public class SocketClientTest extends TestCase {
 
     /**
      */
-    public void testDefault() {
+    protected void testDefault() {
 
         try {
             for (int i = 1; i <= RUNS; i++) {
@@ -317,8 +327,8 @@ public class SocketClientTest extends TestCase {
         }
     }
 
-    @Override
-    protected void finalize() {
+    @After
+    public void close() {
 
         synchronized (SocketClientTest.class) {
             if (null != manager) {
@@ -328,28 +338,34 @@ public class SocketClientTest extends TestCase {
         }
     }
 
-    public static void main(java.lang.String[] args) {
-        Thread.currentThread().setName(SocketClientTest.class.getName() + ".main()");
+	@Test
+	public void runSockets() {
+		ExecutorService executor = Executors.newFixedThreadPool(2);
+		executor.execute( ()->onRunSocketClient() );
+		try {
+			executor.awaitTermination(120, TimeUnit.SECONDS);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
-        try {
-            junit.textui.TestRunner.run(suite());
-        } finally {
-            synchronized (SocketClientTest.class) {
-                if (null != manager) {
-                    manager.stopNetwork();
-                    manager = null;
-                }
-            }
 
-            System.err.flush();
-            System.out.flush();
-        }
-    }
+	protected void onRunSocketClient() {
+		SocketClientTest test =  new SocketClientTest();
+		try {
+			test.setup();
+			test.testDefault();
+			test.testFailingSocket();
+			test.testMessageDelay();
+			test.testMessageLoss();
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		finally {
+			test.close();
+		}
+	}
 
-    public static Test suite() {
-        TestSuite suite = new TestSuite(SocketClientTest.class);
-
-        return suite;
-    }
 }
 

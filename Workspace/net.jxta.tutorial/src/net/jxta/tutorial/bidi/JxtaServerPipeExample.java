@@ -68,6 +68,7 @@ import net.jxta.pipe.PipeMsgListener;
 import net.jxta.pipe.PipeService;
 import net.jxta.platform.NetworkManager;
 import net.jxta.protocol.PipeAdvertisement;
+import net.jxta.util.IOUtils;
 import net.jxta.util.JxtaBiDiPipe;
 import net.jxta.util.JxtaServerPipe;
 
@@ -253,7 +254,8 @@ public class JxtaServerPipeExample {
      * @param args command line args
      */
     public static void main(String args[]) {
-        try {
+    	JxtaServerPipe serverPipe = null;
+    	try {
             final File home = new File(new File(".cache"), "server");
             NetworkManager manager = new NetworkManager(NetworkManager.ConfigMode.ADHOC, "JxtaServerPipeExample", home.toURI());
             manager.startNetwork();
@@ -261,7 +263,7 @@ public class JxtaServerPipeExample {
             PeerGroup netPeerGroup = manager.getNetPeerGroup();
 
             PipeAdvertisement serverPipeAdv = JxtaServerPipeExample.getPipeAdvertisement();
-            JxtaServerPipe serverPipe = new JxtaServerPipe(netPeerGroup, serverPipeAdv);
+            serverPipe = new JxtaServerPipe(netPeerGroup, serverPipeAdv);
 
             // block forever until a connection is accepted
             serverPipe.setPipeTimeout(0);
@@ -280,5 +282,8 @@ public class JxtaServerPipeExample {
             Logging.log(Level.SEVERE,"Failure opening server pipe.\n", all);
             System.exit(-1);
         }
+    	finally {
+    		IOUtils.closeQuietely(serverPipe);
+    	}
     }
 }

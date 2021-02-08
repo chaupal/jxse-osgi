@@ -66,6 +66,7 @@ import net.jxta.logging.Logging;
 
 import javax.crypto.EncryptedPrivateKeyInfo;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.net.URI;
 import java.security.KeyStoreException;
@@ -81,7 +82,7 @@ import java.util.List;
  *@see net.jxta.membership.Authenticator
  *@see net.jxta.membership.MembershipService
  **/
-public class StringAuthenticator implements Authenticator {
+public class StringAuthenticator implements Authenticator, Closeable {
 
     private static final Logger LOG = Logging.getLogger(StringAuthenticator.class.getName());
 
@@ -158,8 +159,7 @@ public class StringAuthenticator implements Authenticator {
     /**
      * {@inheritDoc}
      **/
-    @Override
-    protected void finalize() throws Throwable {
+    public void close(){
         if (null != store_password) {
             Arrays.fill(store_password, '\0');
         }
@@ -167,8 +167,6 @@ public class StringAuthenticator implements Authenticator {
         if (null != key_password) {
             Arrays.fill(key_password, '\0');
         }
-
-        super.finalize();
     }
 
     /**

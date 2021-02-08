@@ -78,6 +78,7 @@ import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.PipeAdvertisement;
 
 import java.io.ByteArrayInputStream;
+import java.io.Closeable;
 import java.io.IOException;
 import java.net.SocketException;
 import java.util.Properties;
@@ -87,7 +88,7 @@ import java.util.Properties;
  * JxtaServerPipe follows the same pattern as java.net.ServerSocket, without it no connection can be
  * established.
  */
-public class JxtaServerPipe implements PipeMsgListener {
+public class JxtaServerPipe implements PipeMsgListener, Closeable {
 
     private static final Logger LOG = Logging.getLogger(JxtaServerPipe.class.getName());
     protected static final String nameSpace = "JXTABIP";
@@ -562,22 +563,5 @@ public class JxtaServerPipe implements PipeMsgListener {
      */
     public void setCredentialDoc(StructuredDocument<?> doc) {
         this.myCredentialDoc = doc;
-    }
-
-    /**
-     * {@inheritDoc}
-     * <p/>
-     * Closes the JxtaServerPipe.
-     */
-    @Override
-    protected void finalize() throws Throwable {
-        try {
-            if (!closed) {
-                Logging.logCheckedWarning(LOG, "JxtaServerPipe is being finalized without being previously closed. This is likely a user's bug.");
-            }
-            close();
-        } finally {
-            super.finalize();
-        }
     }
 }

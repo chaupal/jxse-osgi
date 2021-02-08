@@ -125,20 +125,6 @@ class InputPipeImpl implements EndpointListener, InputPipe {
 
     /**
      * {@inheritDoc}
-     * <p/>
-     * Closes the pipe.
-     */
-    @Override
-    protected synchronized void finalize() throws Throwable {
-
-        if (!closed) Logging.logCheckedWarning(LOG, "Pipe is being finalized without being previously closed. This is likely a bug.");
-        close();
-        super.finalize();
-
-    }
-
-    /**
-     * {@inheritDoc}
      */
     public Message waitForMessage() throws InterruptedException {
         return poll(0);

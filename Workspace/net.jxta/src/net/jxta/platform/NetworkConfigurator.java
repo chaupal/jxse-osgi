@@ -273,9 +273,9 @@ public class NetworkConfigurator {
      */
     public final static int RELAY_NODE = RELAY_SERVER | TCP_CLIENT | TCP_SERVER | HTTP_SERVER | HTTP2_SERVER;
 
-	private static final String PSE_PRINCIPAL = "impl.membership.pse.authentication.principal";
+	private static final String S_PSE_PRINCIPAL = "impl.membership.pse.authentication.principal";
 
-	private static final String PSE_PASSWORD = "impl.membership.pse.authentication.password";
+	private static final String S_PSE_PASSWORD = "impl.membership.pse.authentication.password";
 
 //    /**
 //     * Default Proxy configuration
@@ -2069,14 +2069,14 @@ public class NetworkConfigurator {
         }
         
         if (principal == null) {
-            principal = System.getProperty(PSE_PRINCIPAL, "");
+            principal = System.getProperty(S_PSE_PRINCIPAL, "");
             if (principal.equals("")) {                
                 throw new ConfiguratorException("Principal is empty!");
             }
         }
         
         if (password == null) {
-            password = System.getProperty(PSE_PASSWORD, "");
+            password = System.getProperty(S_PSE_PASSWORD, "");
         }
         advertisement.setPrivateKey(password);
 

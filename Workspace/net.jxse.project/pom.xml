@@ -33,12 +33,12 @@
 
 	<issueManagement>
 		<system>Project Issues</system>
-		<url>https://jxta-jxse.dev.java.net/issues/query.cgi</url>
+		<url>https://github.com/chaupal/jxse/issues</url>
 	</issueManagement>
 
 	<licenses>
 		<license>
-			<name>Apache 2.0 Software License</name>
+			<name>SUN Microsystems/Oracle Software License</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
 			<distribution>repo</distribution>
 		</license>

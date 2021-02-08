@@ -55,25 +55,29 @@
  */
 package net.jxta.socket;
 
-import net.jxta.exception.PeerGroupException;
 import net.jxta.id.IDFactory;
 import net.jxta.document.AdvertisementFactory;
 import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.PipeAdvertisement;
-import net.jxta.socket.JxtaServerSocket;
-import net.jxta.socket.JxtaSocket;
 import net.jxta.peergroup.PeerGroup;
 import net.jxta.pipe.PipeID;
 import net.jxta.pipe.PipeService;
 import net.jxta.platform.NetworkManager;
 
+import static org.junit.Assert.fail;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.URI;
 import java.text.MessageFormat;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import net.jxta.credential.Credential;
 import net.jxta.platform.JxtaApplication;
 
@@ -86,7 +90,7 @@ import net.jxta.platform.JxtaApplication;
  * The initiator will provide an iteration count and buffer size. The peers will
  * then read and write buffers. (or write and read for the initiator).
  */
-public class SocketServerTest extends TestCase {
+public class SocketServerTest {
     public final static PipeID SOCKET_ID = IDFactory.create(URI.create("urn:jxta:uuid-59616261646162614E5047205032503393B5C2F6CA7A41FBB0F890173088E79404"));
 
     private static transient NetworkManager manager = null;
@@ -97,7 +101,11 @@ public class SocketServerTest extends TestCase {
 
     private static boolean closed = false;
 
-    public SocketServerTest() throws IOException, PeerGroupException {
+    public SocketServerTest() {
+    }
+
+    @Before
+    public void setup() {
         synchronized (SocketServerTest.class) {
             try {
                 if(null == manager) {
@@ -110,11 +118,11 @@ public class SocketServerTest extends TestCase {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                System.exit(-1);
+                fail( e.getMessage());
             }
-        }
+        }    	
     }
-
+    
     public static PipeAdvertisement getSocketAdvertisement() {
         PipeAdvertisement advertisement = (PipeAdvertisement)
         AdvertisementFactory.newAdvertisement(PipeAdvertisement.getAdvertisementType());
@@ -200,7 +208,7 @@ public class SocketServerTest extends TestCase {
     }
 
     @SuppressWarnings("unused")
-	public void testServerSocket() {
+    protected void testServerSocket() {
         try {
             SocketServerTest socEx = new SocketServerTest();
 
@@ -231,7 +239,7 @@ public class SocketServerTest extends TestCase {
         } catch (Throwable e) {
             System.err.println("Failed : " + e);
             e.printStackTrace(System.err);
-            System.exit(-1);
+            fail(e.getMessage());
         }
     }
 
@@ -260,8 +268,8 @@ public class SocketServerTest extends TestCase {
         }
     }
 
-    @Override
-    protected void finalize() {
+    @After
+    public void close() {
         synchronized (SocketServerTest.class) {
             if (null != manager) {
                 manager.stopNetwork();
@@ -269,28 +277,27 @@ public class SocketServerTest extends TestCase {
             }
         }
     }
+    
+	@Test
+	public void runSockets() {
+		ExecutorService executor = Executors.newFixedThreadPool(2);
+		executor.execute( ()->onRunSocketServer() );
+		try {
+			executor.awaitTermination(120, TimeUnit.SECONDS);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
-    public static void main(java.lang.String[] args) {
-        Thread.currentThread().setName(SocketServerTest.class.getName() + ".main()");
+	protected void onRunSocketServer() {
+		SocketServerTest test = new SocketServerTest();
+		try {
+			test.setup();
+			test.testServerSocket();
+		}
+		finally {
+			test.close();
+		}
+	}
 
-        try {
-            junit.textui.TestRunner.run(suite());
-        } finally {
-            synchronized (SocketServerTest.class) {
-                if (null != manager) {
-                    manager.stopNetwork();
-                    manager = null;
-                }
-            }
-
-            System.err.flush();
-            System.out.flush();
-        }
-    }
-
-    public static Test suite() {
-        TestSuite suite = new TestSuite(SocketServerTest.class);
-
-        return suite;
-    }
 }

@@ -65,6 +65,7 @@ import net.jxta.peer.PeerID;
 import net.jxta.logging.Logger;
 import net.jxta.logging.Logging;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -81,7 +82,7 @@ import java.util.List;
  *@see net.jxta.membership.Authenticator
  *@see net.jxta.membership.MembershipService
  **/
-public class EngineAuthenticator implements Authenticator {
+public class EngineAuthenticator implements Authenticator, Closeable {
 
     private static final Logger LOG = Logging.getLogger(EngineAuthenticator.class.getName());
 
@@ -165,8 +166,7 @@ public class EngineAuthenticator implements Authenticator {
     /**
      * {@inheritDoc}
      **/
-    @Override
-    protected void finalize() throws Throwable {
+    public void close() {
         if (null != store_password) {
             Arrays.fill(store_password, '\0');
         }
@@ -174,8 +174,6 @@ public class EngineAuthenticator implements Authenticator {
         if (null != key_password) {
             Arrays.fill(key_password, '\0');
         }
-
-        super.finalize();
     }
 
     /**

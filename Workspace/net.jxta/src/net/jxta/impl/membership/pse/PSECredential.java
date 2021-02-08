@@ -59,6 +59,7 @@ package net.jxta.impl.membership.pse;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.ByteArrayInputStream;
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.SequenceInputStream;
@@ -155,7 +156,7 @@ import net.jxta.service.Service;
  * @see net.jxta.credential.Credential
  * @see net.jxta.impl.membership.pse.PSEMembershipService
  */
-public final class PSECredential implements Credential, CredentialPCLSupport {
+public final class PSECredential implements Credential, CredentialPCLSupport, Closeable {
 
     private static final Logger LOG = Logging.getLogger(PSECredential.class.getName());
 
@@ -276,11 +277,8 @@ public final class PSECredential implements Credential, CredentialPCLSupport {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void finalize() throws Throwable {
+    
+    public void close() throws IOException {
         if (null != becomesValidTaskHandle) {
             becomesValidTaskHandle.cancel(false);
         }
@@ -288,8 +286,6 @@ public final class PSECredential implements Credential, CredentialPCLSupport {
         if (null != expiresTaskHandle) {
             expiresTaskHandle.cancel(false);
         }
-
-        super.finalize();
     }
 
     /**
@@ -445,7 +441,7 @@ public final class PSECredential implements Credential, CredentialPCLSupport {
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	public StructuredDocument<?> getDocument(MimeMediaType encodeAs) throws Exception {
         if (!isValid()) {
-            throw new javax.security.cert.CertificateException("Credential is not valid. Cannot generate document.");
+            throw new java.security.cert.CertificateException("Credential is not valid. Cannot generate document.");
         }
 
         if (!local) {

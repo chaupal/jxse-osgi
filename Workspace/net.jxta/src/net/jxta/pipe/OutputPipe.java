@@ -60,6 +60,7 @@ import net.jxta.endpoint.Message;
 import net.jxta.id.ID;
 import net.jxta.protocol.PipeAdvertisement;
 
+import java.io.Closeable;
 import java.io.IOException;
 
 /**
@@ -75,7 +76,7 @@ import java.io.IOException;
  * @see net.jxta.protocol.PipeAdvertisement
  */
 
-public interface OutputPipe {
+public interface OutputPipe extends Closeable{
 
     /**
      * Send a message through the pipe

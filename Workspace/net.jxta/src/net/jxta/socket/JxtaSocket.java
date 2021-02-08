@@ -99,6 +99,7 @@ import net.jxta.protocol.PeerAdvertisement;
 import net.jxta.protocol.PipeAdvertisement;
 import net.jxta.protocol.RouteAdvertisement;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -126,7 +127,7 @@ import javax.crypto.SecretKey;
  * to exist as soon the inactivity logic is removed.
  *
  */
-public class JxtaSocket extends Socket implements PipeMsgListener, OutputPipeListener {
+public class JxtaSocket extends Socket implements PipeMsgListener, OutputPipeListener, Closeable {
 
     /**
     * The name of the cipher algorithm.
@@ -354,7 +355,6 @@ public class JxtaSocket extends Socket implements PipeMsgListener, OutputPipeLis
      * This constructor is used by JxtaServer socket for creating JxtaSocket
      * instances in response to incoming connections.
      *
-     * @deprecated use following JxtaSocket instead
      *
      * @param group               group context
      * @param pipeAdv             The original PipeAdvertisement
@@ -366,7 +366,6 @@ public class JxtaSocket extends Socket implements PipeMsgListener, OutputPipeLis
      *                            {@code false} for unreliable stream connection.
      * @throws IOException if an io error occurs
      */
-    @Deprecated
     protected JxtaSocket(PeerGroup group, PipeAdvertisement pipeAdv, PipeAdvertisement remoteEphemeralPipeAdv, PeerAdvertisement remotePeerAdv, Credential localCredential, Credential remoteCredential, boolean isReliable) throws IOException {
 
         this( group, pipeAdv, remoteEphemeralPipeAdv, remotePeerAdv, localCredential, remoteCredential, isReliable, null, null, false);
@@ -547,18 +546,6 @@ public class JxtaSocket extends Socket implements PipeMsgListener, OutputPipeLis
     }
 
     
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void finalize() throws Throwable {
-
-        if (!closed) Logging.logCheckedWarning(LOG, "JxtaSocket is being finalized without being previously closed. This is likely a users bug.");
-        close();
-        super.finalize();
-
-    }
-
     /**
      * The netPeerGroup needs to be set when resolving SocketAddresses with only the peerID supplied.
      * @param netPeerGroup
