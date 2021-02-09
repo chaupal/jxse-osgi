@@ -8,6 +8,7 @@
 		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\Netty" type="Directory"/>
 		<location path="${eclipse_home}" type="Profile"/>
 		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\Jetty" type="Directory"/>
+		<location path="P:\GitHub\Chaupal\jp2p\Workspace\net.jp2p.project\lib" type="Directory"/>
 	</locations>
 	<includeBundles>
 		<plugin id="derby"/>
@@ -51,14 +52,15 @@
 		<plugin id="org.eclipse.osgi.util.source"/>
 		<plugin id="org.eclipse.swtbot.junit4_x"/>
 		<plugin id="org.hamcrest.core"/>
-		<plugin id="org.jboss.netty" version="3.9.9.Final"/>
+		<plugin id="org.jboss.netty"/>
 		<plugin id="org.junit"/>
 		<plugin id="org.osgi.service.jdbc"/>
 		<plugin id="org.slf4j.api"/>
-		<plugin id="com.h2database"/>
 		<plugin id="org.mortbay.jetty.server"/>
 		<plugin id="org.mortbay.jetty.util"/>
 		<plugin id="org.eclipse.jetty.util.ajax"/>
 		<plugin id="org.eclipse.jetty.util.ajax.source"/>
+		<plugin id="org.h2"/>
+		<plugin id="javax.ws.rs-api"/>
 	</includeBundles>
 </target>
