@@ -2,11 +2,7 @@
 <?pde version="3.8"?>
 <target name="test.net.jxse" sequenceNumber="109">
 	<locations>
-		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\http" type="Directory"/>
-		<location path="P:\Virgo\virgo-jetty-server-3.7.2.RELEASE\repository\log" type="Directory"/>
-		<location path="P:\Target\Netty" type="Directory"/>
-		<location path="P:\Target\Derby" type="Directory"/>
-		<location path="P:\Target\H2" type="Directory"/>
 		<location path="${eclipse_home}" type="Profile"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.library\target\lib" type="Directory"/>
 	</locations>
 </target>

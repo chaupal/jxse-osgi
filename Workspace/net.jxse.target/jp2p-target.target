@@ -62,5 +62,8 @@
 		<plugin id="org.eclipse.jetty.util.ajax.source"/>
 		<plugin id="org.h2"/>
 		<plugin id="javax.ws.rs-api"/>
+		<plugin id="javax.xml"/>
+		<plugin id="org.eclipse.equinox.util"/>
+		<plugin id="javax.xml.bind"/>
 	</includeBundles>
 </target>

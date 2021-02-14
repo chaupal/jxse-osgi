@@ -12,18 +12,16 @@
     <intAttribute key="default_start_level" value="4"/>
     <setAttribute key="deselected_workspace_bundles">
         <setEntry value="net.chaupal.practical.jxta"/>
-        <setEntry value="net.jp2p.chaupal*1.1.0.qualifier"/>
-        <setEntry value="net.jp2p.chaupal.jxse"/>
+        <setEntry value="net.jp2p.chaupal"/>
         <setEntry value="net.jp2p.chaupal.jxta.platform"/>
         <setEntry value="net.jp2p.container"/>
         <setEntry value="net.jp2p.jxta"/>
         <setEntry value="net.jxta.tutorial"/>
-        <setEntry value="org.bouncycastle.bcprov.jdk14.fragment"/>
-        <setEntry value="org.condast.jxta.test"/>
         <setEntry value="test.net.jxse"/>
         <setEntry value="test.net.jxta"/>
     </setAttribute>
     <booleanAttribute key="includeOptional" value="true"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
     <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
@@ -32,7 +30,6 @@
     <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Declipse.ignoreApp=true -Dosgi.noShutdown=true"/>
     <stringAttribute key="pde.version" value="3.3"/>
     <setAttribute key="selected_target_bundles">
-        <setEntry value="com.h2database@default:default"/>
         <setEntry value="derby@default:default"/>
         <setEntry value="javax.servlet@default:default"/>
         <setEntry value="javax.ws.rs-api@default:default"/>
@@ -48,7 +45,6 @@
         <setEntry value="org.eclipse.jetty.servlet@default:default"/>
         <setEntry value="org.eclipse.jetty.util.ajax@default:default"/>
         <setEntry value="org.eclipse.jetty.util@default:default"/>
-        <setEntry value="org.eclipse.osgi.services@default:default"/>
         <setEntry value="org.eclipse.osgi.util@default:default"/>
         <setEntry value="org.eclipse.osgi@-1:true"/>
         <setEntry value="org.hamcrest.core@default:default"/>
@@ -58,12 +54,15 @@
         <setEntry value="org.slf4j.api@default:default"/>
     </setAttribute>
     <setAttribute key="selected_workspace_bundles">
+        <setEntry value="net.jp2p.builder@default:default"/>
+        <setEntry value="net.jp2p.jxse@default:default"/>
         <setEntry value="net.jxse@default:default"/>
         <setEntry value="net.jxta.impl.cm.sql.derby@default:false"/>
         <setEntry value="net.jxta.impl.cm.sql.h2@default:false"/>
         <setEntry value="net.jxta.impl.endpoint.netty@default:false"/>
         <setEntry value="net.jxta.impl.endpoint.servlethttp@default:false"/>
         <setEntry value="net.jxta@default:default"/>
+        <setEntry value="org.chaupal.rdv@default:default"/>
         <setEntry value="org.spongycastle.fragment@default:false"/>
         <setEntry value="test.net.jxta.standalone@default:default"/>
     </setAttribute>

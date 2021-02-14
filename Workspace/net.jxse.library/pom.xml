@@ -1,0 +1,193 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.jxse.library</groupId>
+	<artifactId>net.jxse.library</artifactId>
+	<version>0.0.1</version>
+	<name>JXSE-OSGI-Lib</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+		<versionformat>${project.artifactId}_${project.version}.v${timestamp}</versionformat>
+	</properties>
+
+	<organization>
+		<name>The Chaupal P2P Organisation</name>
+		<url>http://chaupal.github.io/</url>
+	</organization>
+
+	<description>JXSE-OSGI is a rebundeling of the JXTA source code into a number of OSGI bundles,
+	    that can be built with tycho, and creates an update site. This POM-first project is needed
+        to create the necessay library files.
+        
+        JXTA is a trademark of Oracle/SUN
+    </description>
+
+	<issueManagement>
+		<system>Project Issues</system>
+		<url>https://jxta-jxse.dev.java.net/issues/query.cgi</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>Apache 2.0 Software License</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<repositories>
+		<repository>
+			<id>repository.netty.httptunnel</id>
+			<url>lib/netty/org.jboss.netty.httptunnel-0.92.0.jar</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>${versionformat}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<excludeTransitive>true</excludeTransitive>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.15</version>
+		</dependency>
+		<dependency>
+			<groupId>com.madgag</groupId>
+			<artifactId>sc-light-jdk15on</artifactId>
+			<version>1.47.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.madgag</groupId>
+			<artifactId>scpkix-jdk15on</artifactId>
+			<version>1.47.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.madgag</groupId>
+			<artifactId>scprov-jdk15on</artifactId>
+			<version>1.47.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<!-- The following dependencies are not always needed in normal JXTA use, 
+			so they are flagged as "optional". Include it manually in your project's 
+			pom.xml if you want to use the parts of JXTA that depend on them. -->
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty</artifactId>
+			<version>4.2.12</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty</artifactId>
+			<version>3.9.6.Final</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.5.3.0_1</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.2.127</version>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- OSGI specific dependencies -->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.jdbc</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.core</groupId>
+			<artifactId>org.eclipse.core.runtime</artifactId>
+			<version>3.6.0.v20100505</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.equinox</groupId>
+			<artifactId>org.eclipse.equinox.common</artifactId>
+			<version>3.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.equinox.ds</artifactId>
+			<version>1.6.100</version>
+		</dependency>
+
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-junit4</artifactId>
+			<version>2.12.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-legacy</artifactId>
+			<version>2.12.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+</project>

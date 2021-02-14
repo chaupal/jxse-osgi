@@ -3,24 +3,20 @@
 <target name="jxse-target" sequenceNumber="109">
 	<locations>
 		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\osgi" type="Directory"/>
-		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\Derby" type="Directory"/>
-		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\H2" type="Directory"/>
-		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\Netty" type="Directory"/>
 		<location path="${eclipse_home}" type="Profile"/>
-		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.project\lib\Jetty" type="Directory"/>
+		<location path="P:\GitHub\jxse-osgi\Workspace\net.jxse.library\target\lib" type="Directory"/>
 	</locations>
 	<includeBundles>
 		<plugin id="derby"/>
-		<plugin id="derbyclient"/>
 		<plugin id="javax.servlet"/>
 		<plugin id="javax.servlet.source"/>
-		<plugin id="org.apache.felix.gogo.command"/>
+		<plugin id="org.apache.felix.gogo.command" version="1.1.0.v20201023-1558"/>
 		<plugin id="org.apache.felix.gogo.command.source"/>
-		<plugin id="org.apache.felix.gogo.runtime"/>
+		<plugin id="org.apache.felix.gogo.runtime" version="1.1.2.v20201023-1558"/>
 		<plugin id="org.apache.felix.gogo.runtime.source"/>
-		<plugin id="org.apache.felix.gogo.shell"/>
+		<plugin id="org.apache.felix.gogo.shell" version="1.1.2.v20201023-1558"/>
 		<plugin id="org.apache.felix.gogo.shell.source"/>
-		<plugin id="org.eclipse.equinox.console"/>
+		<plugin id="org.eclipse.equinox.console" version="1.4.200.v20200828-1034"/>
 		<plugin id="org.eclipse.equinox.console.source"/>
 		<plugin id="org.eclipse.equinox.ds"/>
 		<plugin id="org.eclipse.equinox.http.jetty"/>
@@ -58,5 +54,8 @@
 		<plugin id="org.eclipse.jetty.util.ajax"/>
 		<plugin id="org.eclipse.jetty.util.ajax.source"/>
 		<plugin id="org.h2"/>
+		<plugin id="org.eclipse.equinox.http.servlet"/>
+		<plugin id="org.eclipse.equinox.http.servlet.source"/>
+		<plugin id="org.eclipse.pde.junit.runtime"/>
 	</includeBundles>
 </target>

@@ -20,9 +20,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <artifactId>parent</artifactId>
     <groupId>net.jxse</groupId>
     <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../net.jp2p.project</relativePath>
+    <relativePath>../net.jxse.project</relativePath>
   </parent>
 
   <packaging>eclipse-target-definition</packaging>
-  <artifactId>jp2p.target</artifactId>
+  <artifactId>jxse.target</artifactId>
 </project>

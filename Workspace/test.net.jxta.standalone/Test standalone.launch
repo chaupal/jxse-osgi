@@ -14,14 +14,7 @@
     <booleanAttribute key="default" value="false"/>
     <setAttribute key="deselected_workspace_bundles">
         <setEntry value="net.chaupal.practical.jxta"/>
-        <setEntry value="net.jp2p.chaupal*1.1.0.qualifier"/>
-        <setEntry value="net.jp2p.chaupal.jxse"/>
-        <setEntry value="net.jp2p.chaupal.jxta.platform"/>
-        <setEntry value="net.jp2p.container"/>
-        <setEntry value="net.jp2p.jxta"/>
         <setEntry value="net.jxta.tutorial"/>
-        <setEntry value="org.chaupal.rdv"/>
-        <setEntry value="org.condast.jxta.test"/>
     </setAttribute>
     <booleanAttribute key="includeOptional" value="true"/>
     <stringAttribute key="location" value="${workspace_loc}/../junit-workspace"/>
@@ -35,6 +28,7 @@
     <booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
     <stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
     <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
     <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
@@ -49,16 +43,21 @@
     <setAttribute key="selected_target_bundles">
         <setEntry value="com.h2database@default:default"/>
         <setEntry value="derby@default:default"/>
-        <setEntry value="javax.servlet@default:default"/>
-        <setEntry value="org.apache.felix.gogo.command@default:default"/>
-        <setEntry value="org.apache.felix.gogo.runtime@default:default"/>
-        <setEntry value="org.apache.felix.gogo.shell@default:default"/>
+        <setEntry value="javax.servlet*3.1.0.20170128@default:default"/>
+        <setEntry value="javax.servlet*3.1.0.v201410161800@default:default"/>
+        <setEntry value="org.apache.felix.gogo.command*0.10.0.v201209301215@default:default"/>
+        <setEntry value="org.apache.felix.gogo.command*1.1.0.v20201023-1558@default:default"/>
+        <setEntry value="org.apache.felix.gogo.runtime*0.10.0.v201209301036@default:default"/>
+        <setEntry value="org.apache.felix.gogo.runtime*1.1.2.v20201023-1558@default:default"/>
+        <setEntry value="org.apache.felix.gogo.shell*0.10.0.v201211091412@default:default"/>
+        <setEntry value="org.apache.felix.gogo.shell*1.1.2.v20201023-1558@default:default"/>
         <setEntry value="org.eclipse.core.contenttype@default:default"/>
         <setEntry value="org.eclipse.core.jobs@default:default"/>
         <setEntry value="org.eclipse.core.runtime@default:true"/>
         <setEntry value="org.eclipse.equinox.app@default:default"/>
         <setEntry value="org.eclipse.equinox.common@2:true"/>
-        <setEntry value="org.eclipse.equinox.http.jetty@default:default"/>
+        <setEntry value="org.eclipse.equinox.http.jetty*3.0.200.v20131021-1843@default:default"/>
+        <setEntry value="org.eclipse.equinox.http.jetty*3.7.500.v20200915-1207@default:default"/>
         <setEntry value="org.eclipse.equinox.preferences@default:default"/>
         <setEntry value="org.eclipse.equinox.registry@default:default"/>
         <setEntry value="org.eclipse.jetty.http@default:default"/>
@@ -74,7 +73,8 @@
         <setEntry value="org.jboss.netty@default:default"/>
         <setEntry value="org.junit@default:default"/>
         <setEntry value="org.osgi.service.jdbc@default:default"/>
-        <setEntry value="org.slf4j.api@default:default"/>
+        <setEntry value="org.slf4j.api*1.7.2.v20121108-1250@default:default"/>
+        <setEntry value="org.slf4j.api*1.7.30.v20200204-2150@default:default"/>
     </setAttribute>
     <setAttribute key="selected_workspace_bundles">
         <setEntry value="net.jxse@default:default"/>
@@ -83,7 +83,6 @@
         <setEntry value="net.jxta.impl.endpoint.netty@default:false"/>
         <setEntry value="net.jxta.impl.endpoint.servlethttp@default:false"/>
         <setEntry value="net.jxta@default:default"/>
-        <setEntry value="org.bouncycastle.bcprov.jdk14.fragment@default:false"/>
         <setEntry value="org.spongycastle.fragment@default:false"/>
         <setEntry value="test.net.jxse@default:false"/>
         <setEntry value="test.net.jxta.standalone@default:default"/>
